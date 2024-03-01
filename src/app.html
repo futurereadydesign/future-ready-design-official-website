@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
+
+<style>
+	:root {
+    --font-outfit: 'Outfit', sans-serif;
+    --font-degular: 'Degular', sans-serif;
+    --font-size-global: 18px;
+
+    --wrapper-max-width: 1200px;
+    --wrapper-medium-width: 750px;
+    --wrapper-small-width: 600px;
+
+    --color-white: #FFFFFF;
+    --color-white-75: rgba(255,255,255,0.75);
+    --color-white-45: rgba(255,255,255,0.45);
+    --color-white-15: rgba(255,255,255,0.15);
+    --color-white-10: rgba(255,255,255,0.1);
+    --color-white-075: rgba(255,255,255,0.075);
+    --color-white-05: rgba(255,255,255,0.05);
+
+    --color-light-gray: #EFEFEF;
+    --color-light-gray-65: rgba(65,65,65,0.65);
+    --color-dark: rgb(37, 37, 37);
+    --color-dark-75: rgba(28, 28, 28, 0.75);
+    --color-black: #000000;
+    --color-black-35: rgba(0,0,0,0.35);
+    --color-black-20: rgba(0,0,0,0.2);
+    --color-black-10: rgba(0,0,0,0.1);
+
+    --color-purple: #CC00FF;
+    --color-purple-075: rgba(247, 61, 255, 0.075);
+    --color-purple-gradient: linear-gradient(0deg, rgba(204,0,255,0) 0%, rgba(204,0,255,1) 100%);
+    --color-purple-gradient-light: linear-gradient(268deg, #F3C3FF 0%, #C0F 67.5%, #C0F 100%);
+    --color-lightblue: #22FFF2;
+    --color-lightblue-075: rgba(34,255,242,0.075);
+    --color-lightblue-gradient: linear-gradient(0deg, rgba(34,255,242,0) 0%, #22FFF2 100%);
+    --color-lightblue-gradient-light: linear-gradient(268deg, #ccfffc 0%, #22FFF2 50%, #ccfffc 100%);
+    /* --color-lightblue-gradient-light: linear-gradient(268deg, #ccfffc 0%, #22FFF2 67.5%, #22FFF2 100%); */
+    --color-red: #FF002E;
+    --color-yellow: #FF9900;
+    --color-orange: #FF5C00;
+    --color-green: #00FF66;
+
+    --border-width: 2px;
+    --filter-blur: 100px;
+    --filter-blur-moderate: 25px;
+    --filter-blur-less: 10px;
+    --filter-blur-least: 5px;
+    --progress-circle-thickness: 10px;
+    --large-icons-thickness: 5px;
+    --small-icons-thickness: 2px;
+	}
+
+	@property --border-gradient-angle {
+		syntax: "<angle>";
+		initial-value: 0deg;
+		inherits: false;
+	}
+	@property --gradient-color-white {
+		syntax: '<color>';
+		initial-value: #FFFFFF;
+		inherits: false;
+	}
+	@property --gradient-color-white-45 {
+		syntax: '<color>';
+		initial-value: rgba(255,255,255,0.45);
+		inherits: false;
+	}
+	@property --gradient-color-purple {
+		syntax: '<color>';
+		initial-value: #CC00FF;
+		inherits: false;
+	}
+	@property --gradient-color-purple-2 {
+		syntax: '<color>';
+		initial-value: #CC00FF;
+		inherits: false;
+	}
+	@property --gradient-color-lightblue {
+		syntax: '<color>';
+		initial-value: #22FFF2;
+		inherits: false;
+	}
+	@property --gradient-color-lightblue-2 {
+		syntax: '<color>';
+		initial-value: #22FFF2;
+		inherits: false;
+	}
+	@property --gradient-color-black-35 {
+		syntax: '<color>';
+		initial-value: rgba(0,0,0,0.35);
+		inherits: false;
+	}
+
+	/* FONTS -------------------------------- */
+	/* FONTS -------------------------------- */
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-Medium.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-Medium.woff') format('woff');
+		font-weight: 500;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-Bold.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-Bold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-LightItalic.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-LightItalic.woff') format('woff');
+		font-weight: 300;
+		font-style: italic;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-BlackItalic.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-BlackItalic.woff') format('woff');
+		font-weight: 900;
+		font-style: italic;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-BoldItalic.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-BoldItalic.woff') format('woff');
+		font-weight: bold;
+		font-style: italic;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-ThinItalic.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-ThinItalic.woff') format('woff');
+		font-weight: 100;
+		font-style: italic;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-Regular.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-Black.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-Black.woff') format('woff');
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-MediumItalic.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-MediumItalic.woff') format('woff');
+		font-weight: 500;
+		font-style: italic;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-Thin.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-Thin.woff') format('woff');
+		font-weight: 100;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-Italic.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-Italic.woff') format('woff');
+		font-weight: normal;
+		font-style: italic;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Degular';
+		src: url('../fonts/Degular/Degular-Light.woff2') format('woff2'),
+			url('../fonts/Degular/Degular-Light.woff') format('woff');
+		font-weight: 300;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	*, *::after, *::before {
+		box-sizing: border-box;  
+		outline: none;
+		appearance: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background-color: var(--color-dark);
+		color: var(--color-white);
+		font-family: var(--font-degular);
+		font-size: var(--font-size-global);
+		background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
+	}
+</style>
