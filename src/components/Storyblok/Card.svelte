@@ -68,9 +68,9 @@
     align-items: center;
   }
 
-  .link-content:hover {
+  /* .link-content:hover {
     border-bottom: 1.5px solid white;
-  }
+  } */
 
   svg {
     width: 1em;

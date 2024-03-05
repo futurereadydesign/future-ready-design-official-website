@@ -1,7 +1,11 @@
-import Grid from "../components/Grid.svelte";
-import Page from "../components/Page.svelte";
-import Teaser from "../components/Teaser.svelte";
-import Card from "../components/Card.svelte";
+// Content types
+import Page from "../components/Storyblok/Page.svelte";
+import Blog from "../components/Storyblok/Blog.svelte";
+
+// Nestables
+import Grid from "../components/Storyblok/Grid.svelte";
+import Teaser from "../components/Storyblok/Teaser.svelte";
+import Card from "../components/Storyblok/Card.svelte";
 
 import { apiPlugin, storyblokInit, useStoryblokApi } from "@storyblok/svelte";
 
@@ -16,7 +20,7 @@ export async function load() {
             page: Page,
             teaser: Teaser,
             card: Card,
-            article: Article,
+            blog: Blog,
         },
         apiOptions: {
             region: "eu",
