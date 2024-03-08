@@ -1,6 +1,5 @@
 // Content types
 import Page from "../components/Storyblok/Page.svelte";
-import Blog from "../components/Storyblok/Blog.svelte";
 
 // Nestables
 import Grid from "../components/Storyblok/Grid.svelte";
@@ -20,7 +19,6 @@ export async function load() {
             page: Page,
             teaser: Teaser,
             card: Card,
-            blog: Blog,
         },
         apiOptions: {
             region: "eu",

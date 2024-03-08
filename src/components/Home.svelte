@@ -1,4 +1,4 @@
-<iframe src="https://www.futureready.design" title="Future Ready Design">
+<iframe src="https://www.futureready.design" title="Future Ready Design" loading="lazy">
 
 </iframe>
 

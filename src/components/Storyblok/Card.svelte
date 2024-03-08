@@ -1,6 +1,7 @@
 <script>
   import { storyblokEditable } from '@storyblok/svelte';
   export let blok;
+  export let slug;
 </script>
   
   <article class="center">
@@ -11,7 +12,7 @@
 
       <p class="date-card">{blok.date}</p>
 
-      <a href={blok.link} class="link">
+      <a href=/blog/{slug} class="link">
         <span class="link-content">
           Kom meer te weten 
           <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,5 +79,4 @@
     margin-top: 0.2em;
     margin-left: 0.5em;
   }
-  
 </style>

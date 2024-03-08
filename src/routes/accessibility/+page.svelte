@@ -56,6 +56,8 @@ let scanButtonSubmitText;
         
     }
 
+    // FOOTER YEAR COPYRIGHT --------------------
+    let currentYear = new Date().getFullYear();
 
     // // FOCUS STATE FOR URL INPUT > ONLY WHEN USING A KEYBOARD NAVIGATION
     // document.addEventListener('DOMContentLoaded', function() {
@@ -117,7 +119,7 @@ let scanButtonSubmitText;
     <main>
         <h1 class="wrapper-max">Ontdek of je website voldoet aan de <strong>ADA</strong> & <strong>WCAG</strong> richtlijnen..</h1>
 
-        <form action="/accessibility/scan" method="get" class="url-input" bind:this={scanForm} on:keydown={onKeyInput}>
+        <form action="/accessibility/scan" method="get" class="url-input" bind:this={scanForm} on:keyup={onKeyInput}>
             <label for="site-url-input">Vul hieronder jouw site-URL in!</label>
             <input type="text" name="url" placeholder="Plaats hier de link van je site.." autocomplete="off" id="site-url-input" required bind:this={scanInputField}>
             <button type="submit" class="button button-secondary">
@@ -159,7 +161,7 @@ let scanButtonSubmitText;
     </main>
 
     <footer>
-        <span>Copyright © Future Ready Design</span>
+        <span>Copyright © {currentYear} Future Ready Design</span>
     </footer>
     
 <style>

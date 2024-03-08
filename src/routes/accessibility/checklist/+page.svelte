@@ -11,6 +11,9 @@
     function closeWCAGOverlay() {    
         checklistOverlay.classList.remove('overlay-active');
     }
+
+    // FOOTER YEAR COPYRIGHT --------------------
+    let currentYear = new Date().getFullYear();
 </script>
 
     <header>
@@ -143,7 +146,7 @@
     </main>
 
     <footer>
-        <span>Copyright © Future Ready Design</span>
+        <span>Copyright © {currentYear} Future Ready Design</span>
     </footer>
 
 <style>
