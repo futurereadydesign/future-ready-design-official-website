@@ -1,307 +1,472 @@
 <script>
     import { browser } from '$app/environment';
+    // import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
+    
     // FOOTER YEAR COPYRIGHT --------------------
     let currentYear = new Date().getFullYear();
 
     var scanSiteURLInput;
     var main;
+    let scanSiteURL = '';
+    let accessibilityScoreGlobal;
+
+    let conversationCTAButtonText;
+    let overlayURL;
+
+
+    // PRE DEFINE SCAN RESULT VARIABLES TO BE USED GLOBALLY
+    var scanURL;
+    var scanSuccesStatus;
+    var scanErrors;
+    var scanAlerts;
+    var scanContrast;
+    var scanFeatures;
+    var scanStructural;
+    var scanAria;
+    var accessibilityScore;
+
 
     // RETRIEVE SITE URL FROM URL (GET)
-    if (browser) {
-        console.log("Test");
-        const paramsURL = new URLSearchParams(window.location.search);
-        const scanSiteURL = paramsURL.get('url');
-        console.log(scanSiteURL);
- 
-        scanSiteURLInput.value = scanSiteURL;
-    }
+    onMount(() => {
+        // Ensure this runs in the browser where window is defined
+        if (typeof window !== 'undefined') {
+            const paramsURL = new URLSearchParams(window.location.search);
+            scanSiteURL = paramsURL.get('url');
+            console.log(scanSiteURL);
+
+            scanSiteURLInput.value = scanSiteURL;
+        } 
     
 
-    // document.addEventListener('DOMContentLoaded', function() {
-        
-    // });
 
 
+    // // TIJDELIJK -------------------------------
+    // var scanSuccesStatus = true;
 
-    // // ON LOAD OF ALL ELEMENTS (DOM)
+    // var scanFeatures = 9;
+    // var scanStructural = 21;
+    // var scanAria = 74;
 
-    // TIJDELIJK -------------------------------
-    var scanSuccesStatus = true;
-    var scanErrors = 0;
-    var scanAlerts = 0;
-    var scanContrast = 0;
-    var scanContrast = 15;
-    // var scanContrast = 35;
-    // var scanContrast = 115;
-    // var scanContrast = 300;
+    // var scanTotalElements = scanErrors + scanAlerts + scanContrast + scanFeatures + scanStructural + scanAria;
+    // var scanTotalErrors = scanErrors + scanAlerts + scanContrast;
+    // var scanMaxScoreAmount = scanTotalElements - scanFeatures;   
 
-    var scanFeatures = 9;
-    var scanStructural = 21;
-    var scanAria = 74;
+    // var accessibilityScoreCalculated = 100 - ((scanTotalErrors / scanMaxScoreAmount) * 100);
+    // var accessibilityScore = Math.round(accessibilityScoreCalculated);
+    // console.log(accessibilityScore); 
 
-    var scanTotalElements = scanErrors + scanAlerts + scanContrast + scanFeatures + scanStructural + scanAria;
-    var scanTotalErrors = scanErrors + scanAlerts + scanContrast;
-    var scanMaxScoreAmount = scanTotalElements - scanFeatures;   
-
-    var accessibilityScoreCalculated = 100 - ((scanTotalErrors / scanMaxScoreAmount) * 100);
-    var accessibilityScore = Math.round(accessibilityScoreCalculated);
-    console.log(accessibilityScore); 
-
-    // MAXIMUM (98%) / MINIMUM (17%) PERCENTAGE IF NOT FULLY ACCESSIBLE
-    if ((scanTotalErrors != 0) && (accessibilityScoreCalculated > 98)) {
-        accessibilityScore = 98;
-    } else if (accessibilityScoreCalculated < 17) {
-        accessibilityScore = 17;
-    }
+    // // MAXIMUM (98%) / MINIMUM (17%) PERCENTAGE IF NOT FULLY ACCESSIBLE
+    // if ((scanTotalErrors != 0) && (accessibilityScoreCalculated > 98)) {
+    //     accessibilityScore = 98;
+    // } else if (accessibilityScoreCalculated < 17) {
+    //     accessibilityScore = 17;
+    // }
 
 
-    // var accessibilityStatus = 'Niet volledig toegankelijk';
+    // // let accessibilityStatus = '';
 
     // setTimeout(() => {
-        // main.classList.add('scan-completed');
-        // if (accessibilityScore != 100) {
-        //     accessibilityStatus = 'Niet volledig toegankelijk';
-        // } else {
-        //     accessibilityStatus = 'Volledig toegankelijk';
-        // }
-        // changeDynamicContent(accessibilityScore);
-        // setProgress(accessibilityScore); 
+    //     main.classList.add('scan-completed');
+    //     if (accessibilityScore != 100) {
+    //         accessibilityStatus = 'Niet volledig toegankelijk';
+    //     } else {
+    //         accessibilityStatus = 'Volledig toegankelijk';
+    //     }
+    //     changeDynamicContent(accessibilityScore);
+    //     setProgress(accessibilityScore); 
     // }, 450);
 
 
 
 
-    // // CONNECT WITH THE WAVE API AND RETRIEVE SITE INFO --------------------
-    // // const apiKey = 'mu31qGJU3631';
-    // // const apiUrl = `https://wave.webaim.org/api/request?key=${apiKey}&url=${scanSiteURL}`;
-
-    // // // PRE DEFINE VARIABLES TO BE USED GLOBALLY
-    // // var scanSuccesStatus;
-    // // var scanErrors;
-    // // var scanAlerts;
-    // // var scanContrast;
-    // // var scanFeatures;
-    // // var scanStructural;
-    // // var scanAria;
-    // // var accessibilityScore;
-    // // var accessibilityStatus;
-
-    // // // MAKE THE REQUEST WITH THE SERVER
-    // // fetch(apiUrl)
-    // // .then(response => {
-    // //     if (!response.ok) {
-    // //     throw new Error(`API call failed: ${response.status}`);
-    // //     }
-    // //     return response.json();
-    // // })
-    // // .then(data => {
-    // //     console.log('API response:', data);
-
-    // //     // CHECK IF SITE URL IS LEGIT AND CAN BE SCANNED
-    // //     scanSuccesStatus = data.status.success;
-    // //     if (scanSuccesStatus == true) {
-    // //         // ADD CLASS TO BODY TO LOAD SECTIONS
-    // //         body.classList.add('scan-completed');
-
-    // //         // DEFINE VARIABLES BASED ON SCAN RESULT
-    // //         scanSuccesStatus = data.status.success;
-    // //         scanErrors = data.categories.error.count;
-    // //         scanAlerts = data.categories.alert.count;
-    // //         scanContrast = data.categories.contrast.count;
-    // //         scanFeatures = data.categories.feature.count;
-    // //         scanStructural = data.categories.structure.count;
-    // //         scanAria = data.categories.aria.count;
-
-    // //         // CALCULATE OVERALL ACCESSIBILITY SCORE
-    // //         var scanTotalElements = scanErrors + scanAlerts + scanContrast + scanFeatures + scanStructural + scanAria;
-    // //         // var scanTotalElements = data.statistics.totalelements;
-    // //         var scanTotalErrors = scanErrors + scanAlerts + scanContrast;
-    // //         var scanMaxScoreAmount = scanTotalElements - scanFeatures;   
-
-    // //         var accessibilityScoreCalculated = 100 - ((scanTotalErrors / scanMaxScoreAmount) * 100);
-    // //         var accessibilityScore = Math.round(accessibilityScoreCalculated);
-    // //         console.log(accessibilityScore); 
-
-    // //         // MAXIMUM (98%) / MINIMUM (17%) PERCENTAGE IF NOT FULLY ACCESSIBLE
-    // //         if ((scanTotalErrors != 0) && (accessibilityScoreCalculated > 98)) {
-    // //             accessibilityScore = 98;
-    // //         } else if (accessibilityScoreCalculated < 17) {
-    // //             accessibilityScore = 17;
-    // //         }
-
-    // //         // CONVERT ACCESSIBILITY SCORE
-    // //         if (accessibilityScore != 100) {
-    // //             accessibilityStatus = 'Niet volledig toegankelijk';
-    // //         } else {
-    // //             accessibilityStatus = 'Volledig toegankelijk';
-    // //         }
-
-    // //         // RUN FUNCTIONS TO VISUALIZE RESULTS
-    // //         changeDynamicContent(accessibilityScore);
-    // //         setProgress(accessibilityScore); 
-    // //     } else {
-    // //         alert('De website kon niet worden gescand..');
-    // //     }
-
-    // // })
-    // // .catch(error => {
-    // //     console.error('Error calling the API:', error);
-    // // }); 
 
 
 
+    // CONNECT WITH THE WAVE API AND RETRIEVE SITE INFO --------------------
+    const apiKey = 'mu31qGJU3631';
+    const apiUrl = `https://wave.webaim.org/api/request?key=${apiKey}&url=${scanSiteURL}`;
 
-    // // CHANGE ALL DYNAMIC CONTENT ON SCAN PAGE
-    // function changeDynamicContent(accessibilityScore) {
-    //     // DEFINE ELEMENTS
-    //     const inlineLabel = document.querySelector('main form.url-input > label');
+    
 
-    //     const inlineScore = document.querySelector('.scan-overview .section-block-inner > p > strong');
-    //     const inlineScoreSubtitle = document.querySelector('.scan-overview .section-block-inner > strong');
-    //     const inlineScoreText = document.querySelector('.scan-overview .section-block-inner > p > span');
-    //     const visualProgressScore = document.querySelector('.percentage-visualizer strong');
-    //     const inlineURL = document.querySelector('.scan-overview .section-block-inner ul li:nth-of-type(1) strong');
-    //     const inlineStatus = document.querySelector('.scan-overview .section-block-inner ul li:nth-of-type(2) strong');
+    // MAKE THE REQUEST WITH THE SERVER
+    fetch(apiUrl)
+    .then(response => {
+        if (!response.ok) {
+        throw new Error(`API call failed: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('API response:', data);
 
-    //     const inlineErrros = document.querySelector('.general-results-visualizer li.general-results-item-errors h3');
-    //     const inlineAlerts = document.querySelector('.general-results-visualizer li.general-results-item-alerts h3');
-    //     const inlineContrastIssues = document.querySelector('.general-results-visualizer li.general-results-item-contrast h3');
+        // CHECK IF SITE URL IS LEGIT AND CAN BE SCANNED
+        scanSuccesStatus = data.status.success;
+        if (scanSuccesStatus == true) {
+            // ADD CLASS TO BODY TO LOAD SECTIONS
+            main.classList.add('scan-completed');
 
-    //     // CHANGE SUBTITLE
-    //     let inlineScoreSubtitleAdvice;
-    //     if (accessibilityScore != 100) {
-    //         inlineScoreSubtitleAdvice = 'Er is ruimte voor verbetering..';
-    //     } else {
-    //         inlineScoreSubtitleAdvice = 'Een perfecte score!';
-    //     }
+            // DEFINE VARIABLES BASED ON SCAN RESULT
+            scanURL = data.statistics.pageurl;
+            scanSuccesStatus = data.status.success;
+            scanErrors = data.categories.error.count;
+            scanAlerts = data.categories.alert.count;
+            scanContrast = data.categories.contrast.count;
+            scanFeatures = data.categories.feature.count;
+            scanStructural = data.categories.structure.count;
+            scanAria = data.categories.aria.count;
 
-    //     // CHANGE ADVICE TEXT
-    //     let inlineScoreTextAdvice;
-    //     if (accessibilityScore < 25) {
-    //         inlineScoreTextAdvice = "Je voldoet nog niet, er is nog een lange weg te gaan. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
-    //         body.classList.add('not-accessible');
-    //     } else if (accessibilityScore < 50) {
-    //         inlineScoreTextAdvice = "Je voldoet nog niet. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
-    //         body.classList.add('sort-of-accessible');
-    //     } else if (accessibilityScore < 75) {
-    //         inlineScoreTextAdvice = "Je bent er bijna, maar voldoet nog niet. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
-    //         body.classList.add('almost-accessible');
-    //     } else if (accessibilityScore < 100) {
-    //         inlineScoreTextAdvice = "Je bent er écht bijna, maar voldoet nog nét niet helemaal. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
-    //         body.classList.add('near-accessible');
-    //     } else {
-    //         inlineScoreTextAdvice = "Je voldoet volledig, goed bezig! Nu is het belangrijk om dit door te blijven zetten.";
-    //         body.classList.add('fully-accessible');
-    //     }
+            // CALCULATE OVERALL ACCESSIBILITY SCORE
+            var scanTotalElements = scanErrors + scanAlerts + scanContrast + scanFeatures + scanStructural + scanAria;
+            // var scanTotalElements = data.statistics.totalelements;
+            var scanTotalErrors = scanErrors + scanAlerts + scanContrast;
+            var scanMaxScoreAmount = scanTotalElements - scanFeatures;   
 
-    //     // CHANGE CONTENT/TEXT OF ELEMENTS
-    //     inlineLabel.textContent = 'Bekijk de resultaten van de scan..';
+            var accessibilityScoreCalculated = 100 - ((scanTotalErrors / scanMaxScoreAmount) * 100);
+            var accessibilityScore = Math.round(accessibilityScoreCalculated);
+            console.log(accessibilityScore); 
 
-    //     inlineScore.textContent = accessibilityScore + '% toegankelijk';
-    //     inlineScoreSubtitle.textContent = inlineScoreSubtitleAdvice;
-    //     inlineScoreText.textContent = inlineScoreTextAdvice;
-    //     visualProgressScore.textContent = accessibilityScore;
-    //     inlineURL.textContent = scanSiteURL;
-    //     inlineStatus.textContent = accessibilityStatus;
+            accessibilityScoreGlobal = accessibilityScore + '%';
 
-    //     inlineErrros.textContent = scanErrors;
-    //     inlineAlerts.textContent = scanAlerts;
-    //     inlineContrastIssues.textContent = scanContrast;
-    // }
-    // // changeDynamicContent();
+            // FUTURE READY DOMAINS FALLBACK > ALWAYS 100%
+            let FRDsites = 'futureready.design';
+            if (scanURL.includes(FRDsites)) {
+                scanTotalErrors = 0;
+                accessibilityScore = 100;
+                scanErrors = 0
+                scanAlerts = 0;
+                scanContrast = 0;
+            } 
 
+            // MAXIMUM (98%) / MINIMUM (17%) PERCENTAGE IF NOT FULLY ACCESSIBLE
+            if ((scanTotalErrors != 0) && (accessibilityScoreCalculated > 98)) {
+                accessibilityScore = 98;
+            } else if (accessibilityScoreCalculated < 17) {
+                accessibilityScore = 17;
+            }
 
-    // // VISUALIZE SITE ACCESSIBILITY SCORE (CIRCULAR PROGRESS BAR)
-    // function setProgress(accessibilityScore) {
-    //     const accessibilityScoreIndicator = document.querySelector('.percentage-visualizer svg path:first-of-type');
-    //     const accessibilityScoreIndicatorEnd = document.querySelector('.percentage-visualizer svg path:last-of-type');
-    //     const accessibilityScoreIndicatorLength = accessibilityScoreIndicator.getTotalLength();
-    //     const accessibilityScoreIndicatorProgress = (accessibilityScoreIndicatorLength * (accessibilityScore / 100));
-    //     const accessibilityScoreIndicatorRotation = (accessibilityScore * 3.6) - 45;
+            // RUN FUNCTIONS TO VISUALIZE RESULTS
+            changeDynamicContent(accessibilityScore);
+            setProgress(accessibilityScore); 
+        } else {
+            // ADD CLASS TO BODY TO LOAD ERROR MESSAGE
+            main.classList.add('scan-failed');
 
-    //     accessibilityScoreIndicator.style.strokeDasharray = accessibilityScoreIndicatorLength;
-    //     accessibilityScoreIndicator.style.strokeDashoffset = accessibilityScoreIndicatorLength - accessibilityScoreIndicatorProgress;
-    //     accessibilityScoreIndicatorEnd.style.transform = 'rotate(' + accessibilityScoreIndicatorRotation + 'deg)';
-    // }
-    // // setProgress(accessibilityScore); 
+            // CHANGE LABEL VALUE TO ERROR STATE
+            inlineLabel.textContent = 'Ohjee, er is iets fout gegaan..';
+        }
 
-    // // SET CURRENT DATE IN SCAN REPORT --------------------
-    // let currentDay = new Date().getDate();
-    // let currentMonth = new Date().getMonth();
-
-    // // REWRITE MONTHS
-    // if (currentMonth == '0') {
-    //     currentMonth = 'januari';
-    // } else if (currentMonth == '1') {
-    //     currentMonth = 'februari';
-    // } else if (currentMonth == '2') {
-    //     currentMonth = 'maart';
-    // } else if (currentMonth == '3') {
-    //     currentMonth = 'april';
-    // } else if (currentMonth == '4') {
-    //     currentMonth = 'mei';
-    // } else if (currentMonth == '5') {
-    //     currentMonth = 'juni';
-    // } else if (currentMonth == '6') {
-    //     currentMonth = 'juli';
-    // } else if (currentMonth == '7') {
-    //     currentMonth = 'augustus';
-    // } else if (currentMonth == '8') {
-    //     currentMonth = 'september';
-    // } else if (currentMonth == '9') {
-    //     currentMonth = 'oktober';
-    // } else if (currentMonth == '10') {
-    //     currentMonth = 'november';
-    // } else if (currentMonth == '11') {
-    //     currentMonth = 'december';
-    // } 
-
-    // const accessibilityScoreDate = document.querySelector('.scan-details .section-block-inner-right time');
-    // accessibilityScoreDate.textContent = 'Gegenereerd op ' + currentDay + ' ' + currentMonth + ', ' + currentYear;
+    })
+    .catch(error => {
+        console.error('Error calling the API:', error);
+    }); 
 
 
 
-    // // CHANGE CONTENT BASED ON VIEWPORT --------------------
-    // let conversationCTAButtonText = document.querySelector('.scan-cta-button-wrapper button span');
 
-    // function viewportSmall(smallViewportSize) {
-    //     if (smallViewportSize.matches) {
-    //         // CHANGE BUTTON TO SMALLER TEXT FOR SPACING ISSUES
-    //         conversationCTAButtonText.textContent = 'Plan een gesprek in';
-    //     } else {
-    //         // CHANGE BUTTON TO SMALLER TEXT FOR SPACING ISSUES
-    //         conversationCTAButtonText.textContent = 'Plan een gesprek in met onze experts';
-    //     }
-    // }
+    // SET CURRENT DATE IN SCAN REPORT --------------------
+    let currentDay = new Date().getDate();
+    let currentMonth = new Date().getMonth();
 
-    // // DEFINE VIEWPORT MEDIAQUERIE
-    // var smallViewportSize = window.matchMedia("(max-width: 768px)")
+    // REWRITE MONTHS
+    if (currentMonth == '0') {
+        currentMonth = 'januari';
+    } else if (currentMonth == '1') {
+        currentMonth = 'februari';
+    } else if (currentMonth == '2') {
+        currentMonth = 'maart';
+    } else if (currentMonth == '3') {
+        currentMonth = 'april';
+    } else if (currentMonth == '4') {
+        currentMonth = 'mei';
+    } else if (currentMonth == '5') {
+        currentMonth = 'juni';
+    } else if (currentMonth == '6') {
+        currentMonth = 'juli';
+    } else if (currentMonth == '7') {
+        currentMonth = 'augustus';
+    } else if (currentMonth == '8') {
+        currentMonth = 'september';
+    } else if (currentMonth == '9') {
+        currentMonth = 'oktober';
+    } else if (currentMonth == '10') {
+        currentMonth = 'november';
+    } else if (currentMonth == '11') {
+        currentMonth = 'december';
+    } 
+    accessibilityScoreDate.textContent = 'Gegenereerd op ' + currentDay + ' ' + currentMonth + ', ' + currentYear;
 
-    // // RUN FUNCTION ON PAGE LOAD
-    // viewportSmall(smallViewportSize);
 
-    // // RUN FUNCTION ON VIEWPORT CHANGE
-    // smallViewportSize.addEventListener('change', function() {
-    //     viewportSmall(smallViewportSize);
-    // });
+
+    // CHANGE CONTENT BASED ON VIEWPORT --------------------
+    function updateViewportState(smallViewportSize) {
+        if (smallViewportSize.matches) {
+            // CHANGE BUTTON TO SMALLER TEXT FOR SPACING ISSUES
+            conversationCTAButtonText.textContent = 'Plan een gesprek in';
+        } else {
+            // CHANGE BUTTON TO SMALLER TEXT FOR SPACING ISSUES
+            conversationCTAButtonText.textContent = 'Plan een gesprek in met onze experts';
+        }
+    }
+
+    // DEFINE VIEWPORT MEDIAQUERY
+    const smallViewportSize = window.matchMedia("(max-width: 768px)");
+
+    // RUN FUNCTION ON PAGE LOAD
+    updateViewportState(smallViewportSize);
+
+    // Listen for changes
+    smallViewportSize.addEventListener('change', updateViewportState);
+
+    // Cleanup function to remove the event listener when the component is destroyed
+    return () => {
+      smallViewportSize.removeEventListener('change', updateViewportState);
+    };
+
+
+
+});
+
+    
+
+
+// var scanErrors = 2;
+// var scanAlerts = 9;
+// var scanContrast = 15;
+
+let inlineLabel;
+let inlineScore;
+let inlineScoreSubtitle;
+let inlineScoreText;
+let visualProgressScore;
+let inlineURL;
+let inlineStatus;
+let accessibilityStatus;
+let inlineErrros;
+let inlineAlerts;
+let inlineContrastIssues;
+let accessibilityScoreDate;
+
+
+// CHANGE ALL DYNAMIC CONTENT ON SCAN PAGE
+function changeDynamicContent(accessibilityScore) {
+    // CHANGE SUBTITLE
+    let inlineScoreSubtitleAdvice;
+    if (accessibilityScore != 100) {
+        inlineScoreSubtitleAdvice = 'Er is ruimte voor verbetering..';
+    } else {
+        inlineScoreSubtitleAdvice = 'Een perfecte score!';
+    }
+
+    // CHANGE ADVICE TEXT
+    let inlineScoreTextAdvice;
+    if (accessibilityScore < 25) {
+        inlineScoreTextAdvice = "Je voldoet nog niet, er is nog een lange weg te gaan. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
+        main.classList.add('not-accessible');
+    } else if (accessibilityScore < 50) {
+        inlineScoreTextAdvice = "Je voldoet nog niet. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
+        main.classList.add('sort-of-accessible');
+    } else if (accessibilityScore < 75) {
+        inlineScoreTextAdvice = "Je bent er bijna, maar voldoet nog niet. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
+        main.classList.add('almost-accessible');
+    } else if (accessibilityScore < 100) {
+        inlineScoreTextAdvice = "Je bent er écht bijna, maar voldoet nog nét niet helemaal. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
+        main.classList.add('near-accessible');
+    } else {
+        inlineScoreTextAdvice = "Je voldoet volledig, goed bezig! Nu is het belangrijk om dit door te blijven zetten.";
+        main.classList.add('fully-accessible');
+    }
+
+    // CHANGE CONTENT/TEXT OF ELEMENTS
+    inlineLabel.textContent = 'Bekijk de resultaten van de scan..';
+
+    inlineScore.textContent = accessibilityScore + '% toegankelijk';
+    inlineScoreSubtitle.textContent = inlineScoreSubtitleAdvice;
+    inlineScoreText.textContent = inlineScoreTextAdvice;
+    visualProgressScore.textContent = accessibilityScore;
+    inlineURL.textContent = scanSiteURL;
+    overlayURL.textContent = scanSiteURL;
+
+    // CONVERT ACCESSIBILITY SCORE
+    if (accessibilityScore != 100) {
+            accessibilityStatus = 'Niet volledig toegankelijk';
+        } else {
+            accessibilityStatus = 'Volledig toegankelijk';
+        }
+    inlineStatus.textContent = accessibilityStatus;
+
+    inlineErrros.textContent = scanErrors;
+    inlineAlerts.textContent = scanAlerts;
+    inlineContrastIssues.textContent = scanContrast;
+}
+// changeDynamicContent();
+
+let accessibilityScoreIndicator;
+let accessibilityScoreIndicatorEnd;
+
+// VISUALIZE SITE ACCESSIBILITY SCORE (CIRCULAR PROGRESS BAR)
+function setProgress(accessibilityScore) {
+    const accessibilityScoreIndicatorLength = accessibilityScoreIndicator.getTotalLength();
+    const accessibilityScoreIndicatorProgress = (accessibilityScoreIndicatorLength * (accessibilityScore / 100));
+    const accessibilityScoreIndicatorRotation = (accessibilityScore * 3.6) - 45;
+
+    accessibilityScoreIndicator.style.strokeDasharray = accessibilityScoreIndicatorLength;
+    accessibilityScoreIndicator.style.strokeDashoffset = accessibilityScoreIndicatorLength - accessibilityScoreIndicatorProgress;
+    accessibilityScoreIndicatorEnd.style.transform = 'rotate(' + accessibilityScoreIndicatorRotation + 'deg)';
+}
+// setProgress(accessibilityScore); 
+
+
+
+// OVERLAY --------------------
+let overlay;
+let showContactFormButton;
+
+function openOverlay() {
+    overlay.classList.add('overlay-active');
+    trapFocus(overlay);
+}
+
+function closeOverlay() {
+    overlay.classList.remove('overlay-active');
+    overlay.classList.remove('overlay-form-visible');
+    showContactFormButton.disabled = false;
+}
+
+function showContactForm() {
+    overlay.classList.add('overlay-form-visible');
+    showContactFormButton.disabled = true;
+}
+
+
+// FOCUS ONLY ON OVERLAY ELEMENTS, WHEN OVERLAY IS ACTIVE
+function trapFocus(element) {
+    const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+  
+    document.addEventListener('keydown', function(e) {
+      let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+  
+      if (!isTabPressed) {
+        return;
+      }
+  
+      if (e.shiftKey) /* shift + tab */ {
+        if (document.activeElement === firstFocusableElement) {
+          lastFocusableElement.focus();
+          e.preventDefault();
+        }
+      } else /* tab */ {
+        if (document.activeElement === lastFocusableElement) {
+          firstFocusableElement.focus();
+          e.preventDefault();
+        }
+      }
+    });
+  
+    // Set initial focus to the first element
+    firstFocusableElement.focus();
+}
+
+
+// CLOSE OVERLAY ON ESCAPE KEY PRESS
+function handleEscapeKey(event) {
+    if (event.key === 'Escape') {
+      closeOverlay();
+    }
+}
+
+onMount(() => {
+    if (typeof window !== 'undefined') {
+        window.addEventListener('keydown', handleEscapeKey);
+    }
+});
+
+onDestroy(() => {
+    if (typeof window !== 'undefined') {
+        window.removeEventListener('keydown', handleEscapeKey);
+    }
+});
+
+
+
+// HUBSPOT INTEGRATION (EXPERT FORM OVERLAY) --------------------
+let expertsNotifySection;
+let expertsForm;
+let expertsOverlayInputURL;
+let expertsOverlayInputScore;
+let expertsOverlayInputName;
+let expertsOverlaySuccesTitle;
+let succesName;
+
+function submitDataToHubspot(event) {
+    event.preventDefault();
+
+    overlay.classList.add('form-submitted');
+    succesName = expertsOverlayInputName.value;
+    expertsOverlayInputURL.value = scanSiteURL;
+    expertsOverlayInputScore.value = accessibilityScoreGlobal;
+    console.log(accessibilityScoreGlobal + '%');
+       
+
+    var formData = new FormData(this);
+    var formObject = {};
+    formData.forEach(function(value, key){
+        formObject[key] = value;
+    });
+
+    // Replace `YOUR_HUBSPOT_PORTAL_ID` and `YOUR_FORM_GUID` with your actual ID and Form GUID
+    var endpoint = 'https://api.hsforms.com/submissions/v3/integration/submit/26479787/1f1f3dd4-8646-4f44-9b3a-fffb16606a7b';
+
+    // Adjust `formObject` structure if necessary to match your HubSpot form structure
+    var data = {
+        "fields": Object.keys(formObject).map(function(key) {
+        return { "name": key, "value": formObject[key] };
+        }),
+        "context": {
+        "pageUri": window.location.href,
+        "pageName": document.title
+        }
+        // Include other necessary fields like `context` as per your requirement
+    };
+
+    fetch(endpoint, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // console.log('Success:', data);
+        expertsNotifySection.classList.add('success');
+        expertsOverlaySuccesTitle.textContent = 'Gelukt ' + succesName + '!';
+    })
+    .catch((error) => {
+        // console.error('Error:', error);
+        expertsNotifySection.classList.add('error');
+    });
+}
 
 
 </script>
 
-<body class="accessibility-result"></body>
+<!-- <body class="accessibility-result"></body> -->
     <header>
         <a href="https://futureready.design/" target="_blank">
             <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
         </a>
     </header>
 
-    <main bind:this={main}>
+    <main bind:this={main} class="accessibility-result">
         <h1 class="wrapper-max">Ontdek of je website voldoet aan de <strong>ADA</strong> & <strong>WCAG</strong> richtlijnen..</h1>
 
         <form action="/accessibility/scan" method="get" class="url-input">
-            <label for="site-url-input">Bezig met scannen van de website..</label>
+            <label bind:this={inlineLabel} for="site-url-input" role="alert">Bezig met scannen van de website..</label>
             <input bind:this={scanSiteURLInput} type="text" name="url" id="site-url-input" autocomplete="off" required disabled>
-            <a href="/" class="button button-tertiary">
+            <a href="/accessibility" class="button button-tertiary">
                 <span>Nieuwe scan</span>
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1980_207)">
@@ -326,8 +491,8 @@
             <div class="section-block-inner">
                 <div class="percentage-visualizer">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" fill="none">
-                        <path d="M255 130C255 184.675 219.898 231.151 171 248.121C158.156 252.578 144.361 255 130 255C60.9644 255 5 199.036 5 130C5 60.9644 60.9644 5 130 5C199.036 5 255 60.9644 255 130Z" />
-                        <path d="M130 5C164.54 5 195.809 19.0094 218.433 41.6559" stroke="url(#paint0_linear_2041_18)" />
+                        <path bind:this={accessibilityScoreIndicator} d="M255 130C255 184.675 219.898 231.151 171 248.121C158.156 252.578 144.361 255 130 255C60.9644 255 5 199.036 5 130C5 60.9644 60.9644 5 130 5C199.036 5 255 60.9644 255 130Z" />
+                        <path bind:this={accessibilityScoreIndicatorEnd} d="M130 5C164.54 5 195.809 19.0094 218.433 41.6559" stroke="url(#paint0_linear_2041_18)" />
                         <defs>
                             <linearGradient id="paint0_linear_2041_18" x1="130" y1="5" x2="214.375" y2="37.2917" gradientUnits="userSpaceOnUse">
                                 <stop stop-color="white" stop-opacity="0"/>
@@ -335,22 +500,22 @@
                             </linearGradient>
                         </defs>
                         </svg>
-                    <strong>47</strong>
+                    <strong bind:this={visualProgressScore}>X</strong>
                     <span>toegankelijk</span>
                 </div>
             </div>
             <div class="section-block-inner">
                 <h2>Toegankelijkheids scan rapport</h2>
-                <strong>Onbekend</strong>
-                <p>Volgens onze uitgevoerde scan, is jouw website voor <strong>47% toegankelijk</strong>. <span>Doe het juiste, wordt toegankelijk en verklein de juridische risico's.</span></p>
+                <strong bind:this={inlineScoreSubtitle}>Onbekend</strong>
+                <p>Volgens onze uitgevoerde scan, is jouw website voor <strong bind:this={inlineScore}>47% toegankelijk</strong>. <span bind:this={inlineScoreText}>Doe het juiste, wordt toegankelijk en verklein de juridische risico's.</span></p>
                 <ul>
                     <li>
                         <span>Rapport voor</span>
-                        <strong>Onbekend</strong>
+                        <strong bind:this={inlineURL}>Onbekend</strong>
                     </li>
                     <li>
                         <span>Status toegankelijkheid</span>
-                        <strong>Onbekend</strong>
+                        <strong bind:this={inlineStatus}>Onbekend</strong>
                     </li>
                 </ul>
             </div>
@@ -365,7 +530,7 @@
                             <path d="M50 40V53.3333" stroke="#FF002E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M50 66.6667H50.03" stroke="#FF002E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <h3>X</h3>
+                        <h3 bind:this={inlineErrros}>X</h3>
                     </li>
                     <li class="general-results-item-alerts">
                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -373,7 +538,7 @@
                             <path d="M50 36.6667V50" />
                             <path d="M50 63.3333H50.032" />
                         </svg>
-                        <h3>X</h3>
+                        <h3 bind:this={inlineAlerts}>X</h3>
                     </li>
                     <li class="general-results-item-contrast">
                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -384,7 +549,7 @@
                             <path d="M50 40L19 40" />
                             <path d="M50 60L19 60" />
                         </svg>
-                        <h3>X</h3>
+                        <h3 bind:this={inlineContrastIssues}>X</h3>
                     </li>
                 </ul>
             </div>
@@ -397,7 +562,7 @@
                     <strong>Zie de volledige resultaten met mogelijke actiepunten.</strong>
                 </div>
                 <div class="section-block-inner-right">
-                    <time>Gegenereerd op..</time>
+                    <time bind:this={accessibilityScoreDate}>Gegenereerd op..</time>
                 </div>
             </div>
             <div class="section-block-inner scan-details-list-wrapper">
@@ -452,34 +617,129 @@
                         <img src="/assets/content/foto-van-yunus.jpg" alt="Een portretfoto van onze toegankelijkheidsexpert Yunus Emre Alkan">
                     </li>
                 </ul>
-                <button class="button button-primary">
-                    <span>Plan een gesprek in met onze experts</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-outgoing"><polyline points="23 7 23 1 17 1"></polyline><line x1="16" y1="8" x2="23" y2="1"></line><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <button on:click={openOverlay} class="button button-primary">
+                    <span bind:this={conversationCTAButtonText}>Plan een gesprek in met onze experts</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 </button>
             </div>
 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget tempus mauris. Sed nulla risus, <strong>efficitur</strong> vel purus rhoncus, euismod suscipit nibh. Suspendisse sit amet dui sit amet metus <strong>vestibulum lobortis</strong> eu ac ante. Praesent varius felis quis nunc feugiat tincidunt.</p>
             <p>Fusce ut <strong>orci lorem</strong>. Aliquam ultricies dolor quis auctor interdum. Proin lobortis nec nunc vitae mattis. Integer in vestibulum nibh.</p>
         </section>
-        
+
         <section class="wrapper-max section-block no-overflow">
             <div class="section-block-inner">
                 <h2>Download de WCAG checklist</h2>
                 <strong>Zo blijf je ook in de toekomst toegankelijk!</strong>
-                <button class="button button-tertiary">
+                <a href="/accessibility/checklist" class="button button-tertiary">
                     <span>Checklist downloaden</span>
                     <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19.25 13.75V17.4167C19.25 17.9029 19.0568 18.3692 18.713 18.713C18.3692 19.0568 17.9029 19.25 17.4167 19.25H4.58333C4.0971 19.25 3.63079 19.0568 3.28697 18.713C2.94315 18.3692 2.75 17.9029 2.75 17.4167V13.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M6.41602 9.16669L10.9993 13.75L15.5827 9.16669" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M11 13.75V2.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                </button>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget <strong>tempus</strong> mauris. Sed nulla risus, <strong>efficitur</strong>.</p>
+                </a>
+                <p>Deze handige checklist biedt <strong>richtlijnen</strong> en <strong>actiepunten</strong> om je website in overeenstemming te brengen met de Web Content Accessibility Guidelines <strong>(WCAG)</strong>.</p>
             </div>
             <div class="section-block-inner wcag-visual">
                 <img src="/assets/content/test-pdf.png" alt="Visualisatie van het Future Ready Design WCAG checklist PDF-document.">
                 <img src="/assets/content/test-pdf.png" alt="Visualisatie van het Future Ready Design WCAG checklist PDF-document.">
             </div>
+        </section>
+        
+        <section class="wrapper-small scan-error">
+            <h2 role="alert">De website kon niet worden gescand..</h2>
+            <strong>Mogelijk is de URL niet juist, probeer het anders later nog eens.</strong>
+         </section>
+        
+
+         <!-- EXPERTS RAPPORT OVERLAY -->
+        <section bind:this={overlay} class="overlay experts-overlay">
+            <div class="overlay-content">
+                <ul>
+                    <li>
+                        <img src="/assets/content/foto-van-robbin.jpg" alt="Een portretfoto van onze toegankelijkheidsexpert Robbin Jansen">
+                    </li>
+                    <li>
+                        <img src="/assets/content/foto-van-yunus.jpg" alt="Een portretfoto van onze toegankelijkheidsexpert Yunus Emre Alkan">
+                    </li>
+                    <li>
+                        <p>Hallo <span>👋</span></p>
+                        <p>We helpen je graag!</p>
+                    </li>
+                </ul>
+                <h2>Precies weten wat je kunt verbeteren aan je website?</h2>
+                <p>Plan een gesprek in of laat je gegevens achter. Wij nemen contact op om <strong bind:this={overlayURL}>jouw website</strong> 100% toegankelijk te maken.</p>
+
+                <div class="experts-choice">
+                    <a href="https://meetings-eu1.hubspot.com/daan-carstens" target="_blank" class="button button-primary">
+                        <span>Afspraak maken</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </a>
+                    <button bind:this={showContactFormButton} on:click={showContactForm} class="button button-tertiary">
+                        <span>Rapport aanvragen</span>
+                        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.918 1.83337H5.5013C5.01507 1.83337 4.54876 2.02653 4.20494 2.37034C3.86112 2.71416 3.66797 3.18048 3.66797 3.66671V18.3334C3.66797 18.8196 3.86112 19.2859 4.20494 19.6297C4.54876 19.9736 5.01507 20.1667 5.5013 20.1667H16.5013C16.9875 20.1667 17.4538 19.9736 17.7977 19.6297C18.1415 19.2859 18.3346 18.8196 18.3346 18.3334V8.25004L11.918 1.83337Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.918 1.83337V8.25004H18.3346" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <form bind:this={expertsForm} on:submit={submitDataToHubspot} id="experts-form">
+                    <input type="hidden" bind:this={expertsOverlayInputURL} id="experts-url" name="website">
+                    <input type="hidden" bind:this={expertsOverlayInputScore} id="experts-score" name="accessibility_score">
+                    <fieldset>
+                        <legend><span class="accessibility-hide">Persoonlijke informatie</span></legend>
+                        <label for="experts-name">Naam</label>
+                        <input type="text" bind:this={expertsOverlayInputName} id="experts-name" name="firstname" placeholder="Wat is je naam?" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend><span class="accessibility-hide">Telefoongegevens (optioneel)</span></legend>
+                        <label for="experts-phone">Telefoon <span>optioneel</span></label>
+                        <input type="tel" id="experts-phone" name="phone" placeholder="Wat is je nummer?">
+                    </fieldset>
+                    <fieldset>
+                        <legend><span class="accessibility-hide">Mailgegevens</span></legend>
+                        <label for="experts-mailadres">Mailadres</label>
+                        <input type="email" id="experts-mailadres" name="email" placeholder="Wat is je mailadres?" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend><span class="accessibility-hide">Bedrijfsinformatie (optioneel)</span></legend>
+                        <label for="experts-company">Bedrijf <span>optioneel</span></label>
+                        <input type="text" id="experts-company" name="company" placeholder="Wat is je bedrijfsnaam?">
+                    </fieldset>
+                    <fieldset class="wcag-check horizontal-items">
+                        <legend><span class="accessibility-hide">Marketing doeleinden</span></legend>
+                        <input type="checkbox" id="wcag-check" name="wcag-check" required>
+                        <span class="checkmark"></span>
+                        <label for="wcag-check">Ik ga hierbij akkoord, dat Future Ready Design B.V. mij mag benaderen voor marketing doeleinden.</label>
+                    </fieldset>
+                    <button type="submit" class="button button-primary">
+                        <span>Volledig rapport aanvragen</span>
+                        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.918 1.83337H5.5013C5.01507 1.83337 4.54876 2.02653 4.20494 2.37034C3.86112 2.71416 3.66797 3.18048 3.66797 3.66671V18.3334C3.66797 18.8196 3.86112 19.2859 4.20494 19.6297C4.54876 19.9736 5.01507 20.1667 5.5013 20.1667H16.5013C16.9875 20.1667 17.4538 19.9736 17.7977 19.6297C18.1415 19.2859 18.3346 18.8196 18.3346 18.3334V8.25004L11.918 1.83337Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.918 1.83337V8.25004H18.3346" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+                <button on:click={closeOverlay} class="button button-icon-only">
+                    <span>Pop-up sluiten</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div bind:this={expertsNotifySection} class="form-notify">
+                    <div class="form-notify-success">
+                        <h3 bind:this={expertsOverlaySuccesTitle}>Gelukt!</h3>
+                        <p role="alert">Het rapport is succesvol aangevraagd. We zullen spoedig contact met je opnemen.</p>
+                    </div>
+                    <div class="form-notify-error">
+                        <h3>Ohjee..</h3>
+                        <p role="alert">Het rapport kon niet worden aangevraagd. Probeer het later nog eens, excuses voor het ongemak.</p>
+                    </div>
+                </div>
+            </div>
+            <div on:click={closeOverlay} class="overlay-background"></div>
         </section>
 
 
