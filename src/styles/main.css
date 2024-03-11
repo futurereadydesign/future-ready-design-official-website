@@ -1163,6 +1163,7 @@ main form.url-input.url-approved button {
 
 
 footer {
+    font-family: var(--font-degular);
     padding: 4.165em 0 1.95em 0;
     text-align: center;
 }
@@ -1170,8 +1171,20 @@ footer > span {
     font-size: 0.9em;
     color: var(--color-white-45);
 }
-
-
+footer > div {
+    margin-bottom: 0.5em;
+}
+footer > div a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+footer > div a:hover {
+    text-decoration: underline;
+}
+footer > div a:focus-visible {
+    color: var(--color-lightblue);
+    text-decoration: underline;
+}
 
 
 
@@ -1783,6 +1796,9 @@ main.scan-failed .section-between::after {
     margin: 2.5em auto 4.165em auto;
 }
 
+.checklist-list {
+    margin-top: 2em;
+}
 .checklist-list ul {
     list-style: none;
     display: flex;

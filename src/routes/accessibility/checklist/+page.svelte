@@ -133,26 +133,6 @@
         <section class="wrapper-small">
             <p>De Web Content Accessibility Guidelines <strong>(WCAG)</strong> zijn internationale richtlijnen die digitale content toegankelijk maken voor mensen met <strong>beperkingen</strong>. Ze bevatten <strong>criteria</strong> voor onder andere tekstalternatieven voor afbeeldingen, navigeerbaarheid en kleurcontrast, waardoor websites en apps voor <strong>iedereen</strong> bruikbaar worden.</p>
         </section>
-        
-        <section class="wrapper-max section-block wcag no-overflow">
-            <div class="section-block-inner">
-                <h2>Download de WCAG checklist</h2>
-                <strong>Zo blijf je ook in de toekomst toegankelijk!</strong>
-                <button on:click={openOverlay} class="button button-secondary">
-                    <span>Checklist downloaden</span>
-                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19.25 13.75V17.4167C19.25 17.9029 19.0568 18.3692 18.713 18.713C18.3692 19.0568 17.9029 19.25 17.4167 19.25H4.58333C4.0971 19.25 3.63079 19.0568 3.28697 18.713C2.94315 18.3692 2.75 17.9029 2.75 17.4167V13.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M6.41602 9.16669L10.9993 13.75L15.5827 9.16669" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M11 13.75V2.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <p>Deze handige checklist biedt <strong>richtlijnen</strong> en <strong>actiepunten</strong> om je website in overeenstemming te brengen met de Web Content Accessibility Guidelines <strong>(WCAG)</strong>.</p>
-            </div>
-            <div class="section-block-inner wcag-visual">
-                <img src="/assets/content/Accessibility-Checklist-visual.png" alt="Visualisatie 1 van de Future Ready Design WCAG checklist PDF-document.">
-                <img src="/assets/content/Accessibility-Checklist-visual-2.png" alt="Visualisatie 2 van de Future Ready Design WCAG checklist PDF-document.">
-            </div>
-        </section>
 
         <section class="wrapper-small checklist-list">
             <ul>
@@ -179,6 +159,52 @@
                 </li>
             </ul>
         </section>
+        
+        <section class="wrapper-max section-block wcag no-overflow">
+            <div class="section-block-inner">
+                <h2>Download de WCAG checklist</h2>
+                <strong>Zo blijf je ook in de toekomst toegankelijk!</strong>
+                <button on:click={openOverlay} class="button button-secondary">
+                    <span>Checklist downloaden</span>
+                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.25 13.75V17.4167C19.25 17.9029 19.0568 18.3692 18.713 18.713C18.3692 19.0568 17.9029 19.25 17.4167 19.25H4.58333C4.0971 19.25 3.63079 19.0568 3.28697 18.713C2.94315 18.3692 2.75 17.9029 2.75 17.4167V13.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6.41602 9.16669L10.9993 13.75L15.5827 9.16669" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 13.75V2.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <p>Deze handige checklist biedt <strong>richtlijnen</strong> en <strong>actiepunten</strong> om je website in overeenstemming te brengen met de Web Content Accessibility Guidelines <strong>(WCAG)</strong>.</p>
+            </div>
+            <div class="section-block-inner wcag-visual">
+                <img src="/assets/content/Accessibility-Checklist-visual.png" alt="Visualisatie 1 van de Future Ready Design WCAG checklist PDF-document.">
+                <img src="/assets/content/Accessibility-Checklist-visual-2.png" alt="Visualisatie 2 van de Future Ready Design WCAG checklist PDF-document.">
+            </div>
+        </section>
+
+        <!-- <section class="wrapper-small checklist-list">
+            <ul>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#00FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 4L12 14.01L9 11.01" />
+                    </svg>                        
+                    <p><strong>Verhoog de gebruikerservaring:</strong> Verbeter de bruikbaarheid voor alle gebruikers, inclusief mensen met een beperking, door je website toegankelijk en inclusief te maken.</p>
+                </li>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#00FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 4L12 14.01L9 11.01" />
+                    </svg>                        
+                    <p><strong>Vergroot de zichtbaarheid:</strong> Verbeter de prestaties van je website in zoekmachines en trek een breder publiek aan door te voldoen aan de normen voor digitale toegankelijkheid.</p>
+                </li>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#00FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 4L12 14.01L9 11.01" />
+                    </svg>                        
+                    <p><strong>Bouw vertrouwen en geloofwaardigheid op:</strong> Toon je toewijding aan inclusiviteit en maatschappelijke verantwoordelijkheid, en bouw vertrouwen op bij bezoekers en potentiële klanten.</p>
+                </li>
+            </ul>
+        </section> -->
 
 
         <!-- WCAG CHECKLIST OVERLAY -->
@@ -254,6 +280,9 @@
     </main>
 
     <footer>
+        <div>
+            <a href="https://www.futureready.design/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futureready.design/privacy-policy" target="_blank">Privacy beleid</a>
+        </div>
         <span>Copyright © {currentYear} Future Ready Design</span>
     </footer>
 
