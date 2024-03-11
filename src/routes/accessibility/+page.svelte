@@ -173,7 +173,7 @@
 
     <footer>
         <div>
-            <a href="https://www.futureready.design/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futureready.design/privacy-policy" target="_blank">Privacy beleid</a>
+            <a href="https://www.futurereadydesign.nl/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futurereadydesign.nl/privacy-policy" target="_blank">Privacy beleid</a>
         </div>
         <span>Copyright © {currentYear} Future Ready Design</span>
     </footer>
