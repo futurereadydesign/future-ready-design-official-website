@@ -1,6 +1,7 @@
 <script>
-    import { browser } from '$app/environment';
+    // import { browser } from '$app/environment';
     // import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
     import { onMount, onDestroy } from 'svelte';
     
     // FOOTER YEAR COPYRIGHT --------------------
@@ -340,34 +341,34 @@ function showContactForm() {
 
 
 // FOCUS ONLY ON OVERLAY ELEMENTS, WHEN OVERLAY IS ACTIVE
-function trapFocus(element) {
-    const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+// function trapFocus(element) {
+//     const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+//     const firstFocusableElement = focusableElements[0];
+//     const lastFocusableElement = focusableElements[focusableElements.length - 1];
   
-    document.addEventListener('keydown', function(e) {
-      let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+//     document.addEventListener('keydown', function(e) {
+//       let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
   
-      if (!isTabPressed) {
-        return;
-      }
+//       if (!isTabPressed) {
+//         return;
+//       }
   
-      if (e.shiftKey) /* shift + tab */ {
-        if (document.activeElement === firstFocusableElement) {
-          lastFocusableElement.focus();
-          e.preventDefault();
-        }
-      } else /* tab */ {
-        if (document.activeElement === lastFocusableElement) {
-          firstFocusableElement.focus();
-          e.preventDefault();
-        }
-      }
-    });
+//       if (e.shiftKey) /* shift + tab */ {
+//         if (document.activeElement === firstFocusableElement) {
+//           lastFocusableElement.focus();
+//           e.preventDefault();
+//         }
+//       } else /* tab */ {
+//         if (document.activeElement === lastFocusableElement) {
+//           firstFocusableElement.focus();
+//           e.preventDefault();
+//         }
+//       }
+//     });
   
-    // Set initial focus to the first element
-    firstFocusableElement.focus();
-}
+//     // Set initial focus to the first element
+//     firstFocusableElement.focus();
+// }
 
 
 // CLOSE OVERLAY ON ESCAPE KEY PRESS
@@ -460,7 +461,7 @@ function submitDataToHubspot(event) {
         </a>
     </header>
 
-    <main bind:this={main} class="accessibility-result">
+    <main bind:this={main} in:fade={{duration: 300}} class="accessibility-result">
         <h1 class="wrapper-max">Ontdek of je website voldoet aan de <strong>ADA</strong> & <strong>WCAG</strong> richtlijnen..</h1>
 
         <form action="/accessibility/scan" method="get" class="url-input">
@@ -623,9 +624,9 @@ function submitDataToHubspot(event) {
                 </button>
             </div>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget tempus mauris. Sed nulla risus, <strong>efficitur</strong> vel purus rhoncus, euismod suscipit nibh. Suspendisse sit amet dui sit amet metus <strong>vestibulum lobortis</strong> eu ac ante. Praesent varius felis quis nunc feugiat tincidunt.</p>
-            <p>Fusce ut <strong>orci lorem</strong>. Aliquam ultricies dolor quis auctor interdum. Proin lobortis nec nunc vitae mattis. Integer in vestibulum nibh.</p>
-        </section>
+            <p>Ontdek de volledige potentie van je website met een <strong>gedetailleerde analyse</strong> door Future Ready Design. Door onze expertise in te zetten, krijg je niet alleen inzicht in de huidige staat van je digitale toegankelijkheid, maar ook <strong>praktische aanbevelingen</strong> voor verbeteringen.</p>
+            <p>Download het <strong>volledige rapport</strong> door vandaag nog contact met ons op te nemen en maak de eerste stap naar een <strong>toekomstbestendige</strong> en <strong>inclusieve</strong> website. Samen werken we aan een internet dat toegankelijk is voor iedereen.</p>
+            </section>
 
         <section class="wrapper-max section-block no-overflow">
             <div class="section-block-inner">
@@ -642,8 +643,8 @@ function submitDataToHubspot(event) {
                 <p>Deze handige checklist biedt <strong>richtlijnen</strong> en <strong>actiepunten</strong> om je website in overeenstemming te brengen met de Web Content Accessibility Guidelines <strong>(WCAG)</strong>.</p>
             </div>
             <div class="section-block-inner wcag-visual">
-                <img src="/assets/content/test-pdf.png" alt="Visualisatie van het Future Ready Design WCAG checklist PDF-document.">
-                <img src="/assets/content/test-pdf.png" alt="Visualisatie van het Future Ready Design WCAG checklist PDF-document.">
+                <img src="/assets/content/Accessibility-Checklist-visual.png" alt="Visualisatie 1 van de Future Ready Design WCAG checklist PDF-document.">
+                <img src="/assets/content/Accessibility-Checklist-visual-2.png" alt="Visualisatie 2 van de Future Ready Design WCAG checklist PDF-document.">
             </div>
         </section>
         
@@ -672,7 +673,7 @@ function submitDataToHubspot(event) {
                 <p>Plan een gesprek in of laat je gegevens achter. Wij nemen contact op om <strong bind:this={overlayURL}>jouw website</strong> 100% toegankelijk te maken.</p>
 
                 <div class="experts-choice">
-                    <a href="https://meetings-eu1.hubspot.com/daan-carstens" target="_blank" class="button button-primary">
+                    <a href="https://meetings-eu1.hubspot.com/robbin-jansen/frd-accessibility" target="_blank" class="button button-primary">
                         <span>Afspraak maken</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     </a>
@@ -709,9 +710,9 @@ function submitDataToHubspot(event) {
                     </fieldset>
                     <fieldset class="wcag-check horizontal-items">
                         <legend><span class="accessibility-hide">Marketing doeleinden</span></legend>
-                        <input type="checkbox" id="wcag-check" name="wcag-check" required>
+                        <input type="checkbox" id="experts-check" name="experts-check" required>
                         <span class="checkmark"></span>
-                        <label for="wcag-check">Ik ga hierbij akkoord, dat Future Ready Design B.V. mij mag benaderen voor marketing doeleinden.</label>
+                        <label for="experts-check">Ik ga hierbij akkoord, dat Future Ready Design B.V. mij mag benaderen voor marketing doeleinden.</label>
                     </fieldset>
                     <button type="submit" class="button button-primary">
                         <span>Volledig rapport aanvragen</span>

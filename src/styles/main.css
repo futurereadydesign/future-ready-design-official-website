@@ -813,10 +813,10 @@ strong {
     position: relative;
     display: none;
 }
-.overlay.experts-overlay.form-submitted .form-notify {
+.overlay.form-submitted .form-notify {
     display: block;
 }
-.overlay.experts-overlay.form-submitted form {
+.overlay.form-submitted form {
     display: none;
 }
 .overlay .form-notify::before {
@@ -1064,7 +1064,7 @@ main form.url-input.url-invalid .input-message::before {
     content: 'Wat je hebt ingevoerd lijkt geen geldige URL te zijn.';
     text-shadow: 0px 0px var(--filter-blur-between) var(--color-red-55);
 }
-.accessibility-landing main form.url-input.url-invalid {
+.accessibility-landing form.url-input.url-invalid {
     margin-bottom: 5em;
 }
 
@@ -1180,7 +1180,7 @@ footer > span {
 /* PAGE SPECIFIC STYLING -------------------------------- */
 
 /* ACCESSIBILITY LANDING */
-.accessibility-landing main form.url-input {
+.accessibility-landing form.url-input {
     margin-bottom: 1.95em;
 }
 .accessibility-landing .section-block {
@@ -1755,7 +1755,9 @@ main.scan-failed form.url-input > input:focus {
     background-color: var(--color-red-075);
 }
 main.scan-failed form.url-input::before,
-main.scan-failed form.url-input::after {
+main.scan-failed form.url-input::after,
+main.scan-failed form.url-input:hover::before,
+main.scan-failed form.url-input:hover::after {
     --gradient-color-white: #FF002E;
     --gradient-color-white-45: #FF002E;
     --gradient-color-lightblue: #FF002E;
@@ -1768,7 +1770,7 @@ main.scan-failed .section-between::after {
 
 
 /* CHECKLIST */
-.accessibility-checklist main > h2 {
+.accessibility-checklist > h2 {
     margin: 1em 0 3.5em 0;
     font-size: 1.375em;
     font-weight: 300;
@@ -2251,14 +2253,14 @@ main.scan-failed .section-between::after {
 /* KEYFRAMES -------------------------------- */
 
 /* ROTATION BORDER GLOW EFFECT */
-/* @keyframes rotation-glow {
+@keyframes rotation-glow {
     0% {
         --border-gradient-angle: 0deg;
     }
     100% {
         --border-gradient-angle: 360deg;
     }
-} */
+}
   
 /* CIRCLE PROGRESS ANIMATION */
 @keyframes rotation-percentage {
