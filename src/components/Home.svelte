@@ -3,6 +3,9 @@
 </iframe>
 
 <style>
+    body {
+        overflow-x: hidden;
+    }
     iframe {
         height: 100%;
         width: 100%;
