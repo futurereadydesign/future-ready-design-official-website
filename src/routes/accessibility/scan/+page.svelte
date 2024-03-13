@@ -120,7 +120,7 @@
             // CALCULATE OVERALL ACCESSIBILITY SCORE
             var scanTotalElements = scanErrors + scanContrast + scanFeatures + scanStructural + scanAria;
             // var scanTotalElements = data.statistics.totalelements;
-            var scanTotalErrors = scanErrors + scanContrast - scanAlerts;
+            var scanTotalErrors = 1.5*(scanErrors + scanContrast - scanAlerts);
             var scanMaxScoreAmount = scanTotalElements - scanFeatures;   
 
             var accessibilityScoreCalculated = 100 - ((scanTotalErrors / scanMaxScoreAmount) * 100);
@@ -267,7 +267,7 @@ function changeDynamicContent(accessibilityScore) {
     } else if (accessibilityScore < 50) {
         inlineScoreTextAdvice = "Je voldoet nog niet. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
         main.classList.add('sort-of-accessible');
-    } else if (accessibilityScore < 75) {
+    } else if (accessibilityScore < 90) {
         inlineScoreTextAdvice = "Je bent er bijna, maar voldoet nog niet. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
         main.classList.add('almost-accessible');
     } else if (accessibilityScore < 100) {
