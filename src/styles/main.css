@@ -1832,7 +1832,7 @@ main.scan-failed .section-between::after {
     /* aspect-ratio: 1; */
     /* font-size: 1em; */
     /* height: calc(var(--font-size-global) * 3); */
-    min-width: fit-content;
+    min-width: 24px;
 }
 .checklist-list ul li svg path {
     stroke: var(--color-green);
