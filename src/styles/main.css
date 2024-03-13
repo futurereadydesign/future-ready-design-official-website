@@ -3,15 +3,15 @@
 :root {
     --font-outfit: 'Outfit', sans-serif;
     --font-degular: 'Degular', sans-serif;
-    --font-size-global: 18px;
+    --font-size-global: 20px;
 
     --wrapper-max-width: 1200px;
     --wrapper-medium-width: 750px;
     --wrapper-small-width: 600px;
 
     --color-white: #FFFFFF;
-    --color-white-75: rgba(255,255,255,0.75);
-    --color-white-45: rgba(255,255,255,0.45);
+    --color-white-75: rgba(255, 255, 255, 0.851);
+    --color-white-45: rgba(255, 255, 255, 0.795);
     --color-white-15: rgba(255,255,255,0.15);
     --color-white-10: rgba(255,255,255,0.1);
     --color-white-075: rgba(255,255,255,0.075);
