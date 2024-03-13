@@ -262,19 +262,19 @@ function changeDynamicContent(accessibilityScore) {
     // CHANGE ADVICE TEXT
     let inlineScoreTextAdvice;
     if (accessibilityScore < 25) {
-        inlineScoreTextAdvice = "Je voldoet nog niet, er is nog een lange weg te gaan. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
+        inlineScoreTextAdvice = "Je voldoet nog niet. Vraag een gedatailleerd rapport aan om de fouten op te lossen.";
         main.classList.add('not-accessible');
     } else if (accessibilityScore < 50) {
-        inlineScoreTextAdvice = "Je voldoet nog niet. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
+        inlineScoreTextAdvice = "Je voldoet nog niet. Vraag een gedatailleerd rapport aan om de fouten op te lossen.";
         main.classList.add('sort-of-accessible');
     } else if (accessibilityScore < 90) {
-        inlineScoreTextAdvice = "Je bent er bijna, maar voldoet nog niet. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
+        inlineScoreTextAdvice = "Je bent er bijna, maar voldoet nog niet. Vraag een gedatailleerd rapport aan om de fouten op te lossen.";
         main.classList.add('almost-accessible');
     } else if (accessibilityScore < 100) {
-        inlineScoreTextAdvice = "Je bent er écht bijna, maar voldoet mogelijk nog nét niet helemaal. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
+        inlineScoreTextAdvice = "Je bent er écht bijna, maar voldoet volgens onze schatting mogelijk nog nét niet helemaal. Vaak kun je dit met een aantal kleine aanpassingen al oplossen.";
         main.classList.add('near-accessible');
     } else {
-        inlineScoreTextAdvice = "Je voldoet volledig, goed bezig! Nu is het belangrijk om dit door te blijven zetten.";
+        inlineScoreTextAdvice = "Volgens onze schatting voldoet je website volledig, goed bezig! Nu is het belangrijk om dit door te blijven zetten. Daarnaast raden wij ten zeerste aan om altijd nog een handmatige controle te doen en eventuele alerts ook bekijken.";
         main.classList.add('fully-accessible');
     }
 
