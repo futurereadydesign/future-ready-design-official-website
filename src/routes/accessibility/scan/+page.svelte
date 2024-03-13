@@ -274,7 +274,7 @@ function changeDynamicContent(accessibilityScore) {
         inlineScoreTextAdvice = "Je bent er écht bijna, maar voldoet volgens onze schatting mogelijk nog nét niet helemaal. Vaak kun je dit met een aantal kleine aanpassingen al oplossen.";
         main.classList.add('near-accessible');
     } else {
-        inlineScoreTextAdvice = "Volgens onze schatting voldoet je website volledig, goed bezig! Nu is het belangrijk om dit door te blijven zetten. Daarnaast raden wij ten zeerste aan om altijd nog een handmatige controle te doen en eventuele alerts ook bekijken.";
+        inlineScoreTextAdvice = "Volgens onze schatting voldoet je website dus waarschijnlijk volledig, goed bezig! Nu is het belangrijk om dit door te blijven zetten. Daarnaast raden wij aan om altijd nog een handmatige controle te doen.";
         main.classList.add('fully-accessible');
     }
 
@@ -508,7 +508,7 @@ function submitDataToHubspot(event) {
             <div class="section-block-inner">
                 <h2>Toegankelijkheid scan rapport</h2>
                 <strong bind:this={inlineScoreSubtitle}>Onbekend</strong>
-                <p>Volgens onze uitgevoerde scan, is jouw website voor <strong bind:this={inlineScore}>47% toegankelijk</strong>. <span bind:this={inlineScoreText}>Wij adviseren je om spoedig te bekijken hoe je de toegankelijkheid kunt verbeteren.</span></p>
+                <p>Volgens onze uitgevoerde scan, is jouw website voor <strong bind:this={inlineScore}>47% toegankelijk</strong>. <span bind:this={inlineScoreText}>Wij adviseren je om spoedig te bekijken hoe je de toegankelijkheid kunt verbeteren.<br></span></p>
                 <ul>
                     <li>
                         <span>Rapport voor</span>
