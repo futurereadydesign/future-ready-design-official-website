@@ -153,7 +153,7 @@
         <section class="wrapper-max section-block wcag no-overflow">
             <div class="section-block-inner">
                 <h2>Download de WCAG checklist</h2>
-                <strong>Zo blijf je ook in de toekomst toegankelijk!</strong>
+                <strong>Voorkom toegankelijkheidsfouten bij het doen van aanpassingen aan je website.</strong>
                 <a href="/accessibility/checklist" class="button button-secondary">
                     <span>Checklist downloaden</span>
                     <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
