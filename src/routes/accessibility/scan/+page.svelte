@@ -455,6 +455,26 @@ function submitDataToHubspot(event) {
 </script>
 
 <!-- <body class="accessibility-result"></body> -->
+    <head>
+        <!-- Essential Meta Tags -->
+        <meta name="title" content="Accessibility Scan | Future Ready Design">
+        <meta name="description" content="Ontdek hoe digitaal toegankelijk jouw website is en in hoeverre jij voldoet aan de WCAG richtlijnen.">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.futureready.design/accessibility">
+        <meta property="og:title" content="Accessibility Scan | Future Ready Design">
+        <meta property="og:description" content="Ontdek hoe digitaal toegankelijk jouw website is en in hoeverre jij voldoet aan de WCAG richtlijnen.">
+        <meta property="og:image" content="%sveltekit.assets%/assets/content/thumbnail-accessibility-page-futurereadydesign">
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:url" content="https://www.futureready.design/accessibilit">
+        <meta name="twitter:title" content="Accessibility Scan | Future Ready Design">
+        <meta name="twitter:description" content="Ontdek hoe digitaal toegankelijk jouw website is en in hoeverre jij voldoet aan de WCAG richtlijnen.">
+        <meta name="twitter:image" content="%sveltekit.assets%/assets/content/thumbnail-accessibility-page-futurereadydesign">
+    </head>
+
     <header>
         <a href="https://futureready.design/" target="_blank">
             <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
