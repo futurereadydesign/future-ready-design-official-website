@@ -118,9 +118,9 @@
             scanAria = data.categories.aria.count;
 
             // CALCULATE OVERALL ACCESSIBILITY SCORE
-            var scanTotalElements = scanErrors + scanAlerts + scanContrast + scanFeatures + scanStructural + scanAria;
+            var scanTotalElements = scanErrors + scanContrast + scanFeatures + scanStructural + scanAria;
             // var scanTotalElements = data.statistics.totalelements;
-            var scanTotalErrors = scanErrors + (scanAlerts/2) + scanContrast;
+            var scanTotalErrors = scanErrors + scanContrast;
             var scanMaxScoreAmount = scanTotalElements - scanFeatures;   
 
             var accessibilityScoreCalculated = 100 - ((scanTotalErrors / scanMaxScoreAmount) * 100);
@@ -271,7 +271,7 @@ function changeDynamicContent(accessibilityScore) {
         inlineScoreTextAdvice = "Je bent er bijna, maar voldoet nog niet. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
         main.classList.add('almost-accessible');
     } else if (accessibilityScore < 100) {
-        inlineScoreTextAdvice = "Je bent er écht bijna, maar voldoet nog nét niet helemaal. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
+        inlineScoreTextAdvice = "Je bent er écht bijna, maar voldoet mogelijk nog nét niet helemaal. Doe het juiste, wordt toegankelijk en verklein de juridische risico's.";
         main.classList.add('near-accessible');
     } else {
         inlineScoreTextAdvice = "Je voldoet volledig, goed bezig! Nu is het belangrijk om dit door te blijven zetten.";
