@@ -120,7 +120,7 @@
             // CALCULATE OVERALL ACCESSIBILITY SCORE
             var scanTotalElements = scanErrors + scanAlerts + scanContrast + scanFeatures + scanStructural + scanAria;
             // var scanTotalElements = data.statistics.totalelements;
-            var scanTotalErrors = scanErrors + scanAlerts + scanContrast;
+            var scanTotalErrors = scanErrors + (scanAlerts/2) + scanContrast;
             var scanMaxScoreAmount = scanTotalElements - scanFeatures;   
 
             var accessibilityScoreCalculated = 100 - ((scanTotalErrors / scanMaxScoreAmount) * 100);
@@ -506,9 +506,9 @@ function submitDataToHubspot(event) {
                 </div>
             </div>
             <div class="section-block-inner">
-                <h2>Toegankelijkheids scan rapport</h2>
+                <h2>Toegankelijkheid scan rapport</h2>
                 <strong bind:this={inlineScoreSubtitle}>Onbekend</strong>
-                <p>Volgens onze uitgevoerde scan, is jouw website voor <strong bind:this={inlineScore}>47% toegankelijk</strong>. <span bind:this={inlineScoreText}>Doe het juiste, wordt toegankelijk en verklein de juridische risico's.</span></p>
+                <p>Volgens onze uitgevoerde scan, is jouw website voor <strong bind:this={inlineScore}>47% toegankelijk</strong>. <span bind:this={inlineScoreText}>Wij adviseren je om spoedig te bekijken hoe je de toegankelijkheid kunt verbeteren.</span></p>
                 <ul>
                     <li>
                         <span>Rapport voor</span>

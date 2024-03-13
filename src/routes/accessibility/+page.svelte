@@ -146,8 +146,8 @@
         </form>
 
         <section class="wrapper-small">
-            <p>Om de toegankelijkheid van je website te <strong>analyseren</strong>, kun je eenvoudig je eigen URL invoeren in het bovenstaande veld. Dit helpt je te identificeren hoe goed je site voldoet aan de digitale <strong>toegankelijkheidsnormen</strong> en waar verbeteringen mogelijk zijn. Typ simpelweg de URL van je website in als <strong>"jouw-website.nl"</strong> in het invoerveld en start de scan.</p>
-            <p>Door deze stap te volgen, zet je een <strong>belangrijke stap</strong> naar het verbeteren van de toegankelijkheid en gebruiksvriendelijkheid van je website voor alle gebruikers, <strong>inclusief mensen met beperkingen</strong>.</p>
+            <p>Om de toegankelijkheid van je website te <strong>analyseren</strong>, kun je eenvoudig je eigen URL invoeren in het bovenstaande veld. Dit geeft je een indicatie hoe goed je site voldoet aan de digitale <strong>toegankelijkheidsnormen</strong> en laat je zien waar verbeteringen mogelijk zijn. Typ simpelweg de URL van je website in als <strong>"jouw-website.nl"</strong> in het invoerveld hier boven en start de scan.</p>
+            <p>Door deze stap te volgen, zet je een <strong>belangrijke stap</strong> naar het verbeteren van de toegankelijkheid en gebruiksvriendelijkheid van je website voor alle gebruikers.</p>
         </section>
 
         <section class="wrapper-max section-block wcag no-overflow">
