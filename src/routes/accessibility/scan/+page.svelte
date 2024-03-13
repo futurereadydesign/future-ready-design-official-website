@@ -608,7 +608,7 @@ function submitDataToHubspot(event) {
 
         <section class="wrapper-small scan-cta">
             <h2>Benieuwd naar het volledige rapport?</h2>
-            <strong>Laat een gedetailleerde analyse maken van jouw website!</strong>
+            <strong>Laat een gedetailleerde analyse maken van jouw website.</strong>
             <div class="section-block-inner scan-cta-button-wrapper">
                 <ul>
                     <li>
@@ -619,19 +619,19 @@ function submitDataToHubspot(event) {
                     </li>
                 </ul>
                 <button on:click={openOverlay} class="button button-primary">
-                    <span bind:this={conversationCTAButtonText}>Plan een gesprek in met onze experts</span>
+                    <span bind:this={conversationCTAButtonText}>Vraag jouw gedetailleerde rapport aan</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 </button>
             </div>
 
-            <p>Ontdek de volledige potentie van je website met een <strong>gedetailleerde analyse</strong> door Future Ready Design. Door onze expertise in te zetten, krijg je niet alleen inzicht in de huidige staat van je digitale toegankelijkheid, maar ook <strong>praktische aanbevelingen</strong> voor verbeteringen.</p>
-            <p>Download het <strong>volledige rapport</strong> door vandaag nog contact met ons op te nemen en maak de eerste stap naar een <strong>toekomstbestendige</strong> en <strong>inclusieve</strong> website. Samen werken we aan een internet dat toegankelijk is voor iedereen.</p>
+            <p>Wij helpen je graag in de volgende stap naar digitale toegankelijkheid met een <strong>gedetailleerde analyse</strong> van jouw website. Door onze expertise in te zetten, krijg je niet alleen inzicht in de huidige staat van je digitale toegankelijkheid, maar ook <strong>praktische aanbevelingen</strong> voor verbeteringen die je gelijk kunt uitvoeren.</p>
+            <p>Vraag vandaag nog een <strong>volledige rapport</strong> aan of plan een vrijblijvende kennismaking met onze WCAG experts.</p>
             </section>
 
         <section class="wrapper-max section-block no-overflow">
             <div class="section-block-inner">
                 <h2>Download de WCAG checklist</h2>
-                <strong>Zo blijf je ook in de toekomst toegankelijk!</strong>
+                <strong>Dit helpt je toegankelijkheid voor eens en voor altijd te waarborgen bij elke toekomstige aanpassing aan je website.</strong>
                 <a href="/accessibility/checklist" class="button button-tertiary">
                     <span>Checklist downloaden</span>
                     <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
