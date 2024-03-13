@@ -469,7 +469,7 @@ function submitDataToHubspot(event) {
             <input bind:this={scanSiteURLInput} type="text" name="url" id="site-url-input" autocomplete="off" required disabled>
             <a href="/accessibility" class="button button-tertiary">
                 <span>Nieuwe scan</span>
-                <!-- <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1980_207)">
                         <path d="M0.917969 3.66663V9.16663H6.41797" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M21.082 18.3334V12.8334H15.582" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -480,7 +480,7 @@ function submitDataToHubspot(event) {
                             <rect width="22" height="22" fill="white"/>
                         </clipPath>
                     </defs>
-                </svg> -->
+                </svg>
             </a>
         </form>
 

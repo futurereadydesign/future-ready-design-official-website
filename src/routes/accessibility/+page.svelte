@@ -135,7 +135,7 @@
             <input type="text" name="url" placeholder="Plaats hier de link van je site.." autocomplete="off" id="site-url-input" required bind:this={scanInputField} on:focus={inputURLFocus} on:blur={inputURLBlur}>
             <span class="input-message" role="alert"></span>
             <button type="submit" class="button button-secondary">
-                <span bind:this={scanButtonSubmitText}>Doe de scan!</span>
+                <span bind:this={scanButtonSubmitText}>Scan site</span>
                 <!-- <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.5 11C14.122 11 13 9.878 13 8.5C13 7.122 14.122 6 15.5 6C16.878 6 18 7.122 18 8.5C18 9.878 16.878 11 15.5 11ZM15.5 7C14.673 7 14 7.673 14 8.5C14 9.327 14.673 10 15.5 10C16.327 10 17 9.327 17 8.5C17 7.673 16.327 7 15.5 7Z" fill="black" stroke="black" stroke-width="0.5"/>
                     <path d="M2.50039 22C2.37039 22 2.24239 21.949 2.14639 21.854C2.00939 21.717 1.96339 21.512 2.03039 21.33C3.56939 17.099 5.18739 14.953 6.83839 14.953C7.38339 14.953 7.89239 15.187 8.35339 15.647C9.08139 16.375 9.10739 17.1 9.00139 17.58C8.66739 19.088 6.53739 20.565 2.67139 21.971C2.61539 21.991 2.55739 22 2.50039 22ZM6.83939 15.952C6.34439 15.952 5.76139 16.386 5.15439 17.207C4.55739 18.014 3.95739 19.164 3.36639 20.634C4.70139 20.097 5.77439 19.552 6.56539 19.009C7.63239 18.276 7.94839 17.709 8.02539 17.363C8.10239 17.017 7.97839 16.686 7.64639 16.354C7.37639 16.084 7.11239 15.953 6.83839 15.953L6.83939 15.952Z" fill="black" stroke="black" stroke-width="0.5"/>

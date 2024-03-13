@@ -465,7 +465,7 @@ strong {
     box-shadow: 0px 5px 45px 0px rgba(255, 255, 255, 0.45), 0px 5px 10px 0px rgba(255, 255, 255, 0.15);
 }
 .button-secondary > span::after {
-    background-color: var(--color-light-gray);
+    /* background-color: var(--color-light-gray); */
 }
 .button-tertiary {
     background-color: var(--color-black-35);
