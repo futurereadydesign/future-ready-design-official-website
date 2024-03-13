@@ -203,10 +203,10 @@
     function updateViewportState(smallViewportSize) {
         if (smallViewportSize.matches) {
             // CHANGE BUTTON TO SMALLER TEXT FOR SPACING ISSUES
-            conversationCTAButtonText.textContent = 'Plan een gesprek in';
+            conversationCTAButtonText.textContent = 'Vraag rapport aan';
         } else {
             // CHANGE BUTTON TO SMALLER TEXT FOR SPACING ISSUES
-            conversationCTAButtonText.textContent = 'Plan een gesprek in met onze experts';
+            conversationCTAButtonText.textContent = 'Vraag gedetailleerd rapport aan';
         }
     }
 
@@ -462,7 +462,7 @@ function submitDataToHubspot(event) {
     </header>
 
     <main bind:this={main} in:fade={{duration: 300}} class="accessibility-result">
-        <h1 class="wrapper-max">Ontdek of je website voldoet aan de <strong>ADA</strong> & <strong>WCAG</strong> richtlijnen..</h1>
+        <h1 class="wrapper-max">Ontdek of je website voldoet aan de <strong>ADA</strong> & <strong>WCAG</strong> richtlijnen</h1>
 
         <form action="/accessibility/scan" method="get" class="url-input">
             <label bind:this={inlineLabel} for="site-url-input" role="alert">Bezig met scannen van de website..</label>

@@ -127,8 +127,8 @@
     </header>
 
     <main in:fade={{duration: 300}} class="accessibility-checklist">
-        <h1 class="wrapper-max">Je website <strong>toegankelijk</strong> maken? Gebruik onze <strong>WCAG</strong> checklist!</h1>
-        <h2>Download het gratis PDF-bestand!</h2>
+        <h1 class="wrapper-max">Je website <strong>toegankelijk</strong> maken? Gebruik onze <strong>WCAG</strong> checklist</h1>
+        <h2>Download het gratis PDF-bestand</h2>
         
         <section class="wrapper-small">
             <p>De Web Content Accessibility Guidelines <strong>(WCAG)</strong> zijn internationale richtlijnen die digitale content toegankelijk maken voor mensen met <strong>beperkingen</strong>. Ze bevatten <strong>criteria</strong> voor onder andere tekstalternatieven voor afbeeldingen, navigeerbaarheid en kleurcontrast, waardoor websites en apps voor <strong>iedereen</strong> bruikbaar worden.</p>
@@ -141,21 +141,21 @@
                         <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#00FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M22 4L12 14.01L9 11.01" />
                     </svg>                        
-                    <p><strong>Verhoog de gebruikerservaring:</strong> Verbeter de bruikbaarheid voor alle gebruikers, inclusief mensen met een beperking, door je website toegankelijk en inclusief te maken.</p>
+                    <p><strong>Verbeter de gebruikerservaring:</strong> Verbeter de bruikbaarheid voor alle gebruikers, inclusief mensen met een beperking, door je website toegankelijk en inclusief te maken.</p>
                 </li>
                 <li>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#00FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M22 4L12 14.01L9 11.01" />
                     </svg>                        
-                    <p><strong>Vergroot de zichtbaarheid:</strong> Verbeter de prestaties van je website in zoekmachines en trek een breder publiek aan door te voldoen aan de normen voor digitale toegankelijkheid.</p>
+                    <p><strong>Vergroot je zichtbaarheid:</strong> Verbeter de prestaties van je website in zoekmachines en trek een breder publiek aan door te voldoen aan de normen voor digitale toegankelijkheid.</p>
                 </li>
                 <li>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#00FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M22 4L12 14.01L9 11.01" />
                     </svg>                        
-                    <p><strong>Bouw vertrouwen en geloofwaardigheid op:</strong> Toon je toewijding aan inclusiviteit en maatschappelijke verantwoordelijkheid, en bouw vertrouwen op bij bezoekers en potentiële klanten.</p>
+                    <p><strong>Bouw naar een inclusief merk voor iedereen:</strong> Toon je toewijding aan inclusiviteit en maatschappelijke verantwoordelijkheid als organisatie.</p>
                 </li>
             </ul>
         </section>
