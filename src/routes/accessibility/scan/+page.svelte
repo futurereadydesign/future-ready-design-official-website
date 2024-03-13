@@ -574,7 +574,7 @@ function submitDataToHubspot(event) {
                             <path d="M12 9V13" />
                             <path d="M12 17H12.0086" />
                         </svg>    
-                        <p>Ontbrekende alt-teksten bij afbeeldingen</p>
+                        <p>Ontbrekende alt-teksten bij afbeeldingen (voorbeeld)</p>
                     </li>
                     <li>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -582,7 +582,7 @@ function submitDataToHubspot(event) {
                             <path d="M12 9V13" />
                             <path d="M12 17H12.0086" />
                         </svg>    
-                        <p>Geen H1 aanwezig op de pagina</p>
+                        <p>Geen H1 aanwezig op de pagina (voorbeeld)</p>
                     </li>
                 </ul>
                 <ul class="scan-details-list-approved">
@@ -592,7 +592,7 @@ function submitDataToHubspot(event) {
                             <path d="M12 9V13" />
                             <path d="M12 17H12.0086" />
                         </svg>    
-                        <p>Mogelijkheid om linkjes over te slaan met toetsenbord</p>
+                        <p>Mogelijkheid om linkjes over te slaan met toetsenbord (voorbeeld)</p>
                     </li>
                     <li>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -600,7 +600,7 @@ function submitDataToHubspot(event) {
                             <path d="M12 9V13" />
                             <path d="M12 17H12.0086" />
                         </svg>    
-                        <p>Gebruik van labels bij (formulier) invoervelden</p>
+                        <p>Gebruik van labels bij (formulier) invoervelden (voorbeeld)</p>
                     </li>
                 </ul>
             </div>
