@@ -120,7 +120,7 @@
             // CALCULATE OVERALL ACCESSIBILITY SCORE
             var scanTotalElements = scanErrors + scanContrast + scanFeatures + scanStructural + scanAria;
             // var scanTotalElements = data.statistics.totalelements;
-            var scanTotalErrors = scanErrors + scanContrast;
+            var scanTotalErrors = scanErrors + scanContrast - scanAlerts;
             var scanMaxScoreAmount = scanTotalElements - scanFeatures;   
 
             var accessibilityScoreCalculated = 100 - ((scanTotalErrors / scanMaxScoreAmount) * 100);
