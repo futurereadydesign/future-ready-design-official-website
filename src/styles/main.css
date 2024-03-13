@@ -1326,7 +1326,7 @@ main.scan-failed form.url-input a {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5em 2.5em;
-    margin-top: auto;
+    margin-top: 1.5em;
 }
 .scan-overview .section-block-inner ul li {
     display: flex;
