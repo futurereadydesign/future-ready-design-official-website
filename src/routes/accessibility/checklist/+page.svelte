@@ -230,7 +230,7 @@
                         <span class="checkmark"></span>
                         <label for="wcag-check">Ik ga hierbij akkoord, dat Future Ready Design B.V. mij mag benaderen voor marketing doeleinden.</label>
                     </fieldset>
-                    <button type="submit" class="button button-primary">
+                    <button type="submit" href="#downloadbuttonform" class="button button-primary">
                         <span>Checklist downloaden</span>
                         <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19.25 13.75V17.4167C19.25 17.9029 19.0568 18.3692 18.713 18.713C18.3692 19.0568 17.9029 19.25 17.4167 19.25H4.58333C4.0971 19.25 3.63079 19.0568 3.28697 18.713C2.94315 18.3692 2.75 17.9029 2.75 17.4167V13.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -248,7 +248,7 @@
                 </button>
                 <div bind:this={wcagNotifySection} class="form-notify">
                     <div class="form-notify-success">
-                        <h3>Downloaden de checklist.</h3>
+                        <h3 id=downloadbuttons>Download de checklist.</h3>
                         <p role="alert">Kies de gewenste taal van de WCAG-checklist om te downloaden. Ga er mee aan de slag en maak jouw site toegankelijk!</p>
                         <div class="button-wrapper">
                             <a href="/assets/content/Accessibility-Checklist_Future-Ready-Design.pdf" download="Accessibility-Checklist_Future-Ready-Design.pdf" class="button button-primary downloadbuttonform">
