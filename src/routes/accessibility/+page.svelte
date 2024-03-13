@@ -95,10 +95,10 @@
         function updateViewportState(smallViewportSize) {
             if (smallViewportSize.matches) {
                 // CHANGE BUTTON TO SMALLER TEXT FOR SPACING ISSUES
-                scanButtonSubmitText.textContent = 'Scan!';
+                scanButtonSubmitText.textContent = 'Scan';
             } else {
                 // CHANGE BUTTON TO SMALLER TEXT FOR SPACING ISSUES
-                scanButtonSubmitText.textContent = 'Doe de scan!';
+                scanButtonSubmitText.textContent = 'Scan website';
             }
         }
 
