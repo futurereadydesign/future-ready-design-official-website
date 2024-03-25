@@ -1,17 +1,14 @@
+// De functie haalt de Story's op vanuit Storyblok en returnt deze
+// om te worden gebruikt binnen Sveltekit
+
 /** @type {import('./$types').PageLoad} */
-export async function load({ params, parent }) {
-    const { storyblokApi } = await parent();
-    let slug = params.slug;
-    let path = 'cdn/stories/';
-    if (slug) {
-      path += slug;
-    } else {
-      path += 'blogs';
-    }
-    const dataStory = await storyblokApi.get(path, {
+export async function load({ parent }) {
+  const { storyblokApi } = await parent();
+  const path = 'cdn/stories/blogs';
+  const dataStory = await storyblokApi.get(path, {
       version: 'draft'
-    });
-    return {
+  });
+  return {
       story: dataStory.data.story
-    };
-}  
+  };
+}

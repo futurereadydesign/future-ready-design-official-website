@@ -1,31 +1,43 @@
 <script>
+  // Importeer de storyblokEditable functie vanuit de Storyblok package
   import { storyblokEditable } from '@storyblok/svelte';
-  export let blok;
+
+  // Definieer variabelen voor de blog en slug
+  export let blog;
   export let slug;
 </script>
   
-  <article class="center">
-    <div class="card" use:storyblokEditable={blok}>
-      <img src={blok.image?.filename} alt={blok.image.alt} width="312" height="180">
+<article class="center">
+  <!-- Gebruik de storyblokEditable functie om de inhoud van de blog bewerkbaar te maken -->
+  <div class="card" use:storyblokEditable={blog}>
+    <!-- Toon de afbeelding van de blogpost -->
+    <picture>
+      <source srcset={blog.image?.filename} type="image/png">
+      <img class="image-card" src={blog.image?.filename} alt={blog.image.alt} loading="lazy">
+    </picture>
 
-      <h3 class="title-card">{blok.title}</h3>
+    <!-- Toon de titel van de blogpost -->
+    <h2 class="title-card">{blog.title}</h2>
 
-      <p class="date-card">{blok.date}</p>
+    <!-- Toon de datum van de blogpost -->
+    <p class="date-card">{blog.date}</p>
 
-      <a href=/blog/{slug} class="link">
-        <span class="link-content">
-          Kom meer te weten 
-          <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Voeg een link toe naar de blogpost door gebruik te maken van de slug -->
+    <a href="/{slug}" use:storyblokEditable={blog} class="link">
+      <span class="link-content">
+        Kom meer te weten 
+        <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </a>
+        </svg>
+      </span>
+    </a>
+  </div>
+</article>
 
-    </div>
-  </article>
   
 <style> 
+
   .center {
     display: flex;
     justify-content: center;
@@ -36,13 +48,24 @@
     display: flex; 
     flex-direction: column;
     word-spacing: 0.1em;
-    background-color: #ffffff17;
+    background-color: #ffffff13;
     border-radius: 10px; 
     padding: 1em;
     border: 1.5px solid #ffffff3a; 
     max-width: 350px; 
     height: 20em;
     width: 100%; 
+  }
+
+  picture {
+    width: 312px;
+    height: 180px;
+  }
+
+  .image-card {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
   }
 
   .title-card {
