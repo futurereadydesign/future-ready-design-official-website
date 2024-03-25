@@ -28,3 +28,7 @@
 		<StoryblokComponent blok={data.story.content} />
 	{/if}
 </main>
+
+<style>
+	@import '/src/styles/main.css';
+</style>

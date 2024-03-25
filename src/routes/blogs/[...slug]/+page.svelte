@@ -7,10 +7,10 @@
   export let data;
 </script>
 
-<main class="container">
-  <section class="content">
+<main class="slug-container">
+  <section class="slug-content">
       <!-- Alle data wordt ingeladen -->
-      <article>
+      <article class="slug-article">
           <img class="centered-logo" src={data.post.logo} alt={data.post.imageAlt}>
           
           <img class="centered-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
@@ -30,92 +30,92 @@
 </main>
 
 <style>
-  .container {
-      display: flex;
-      justify-content: center;
-      padding: 0 20px;
-  }
+    .slug-container {
+        display: flex;
+        justify-content: center;
+        padding: 0 20px;
+    }
 
-  .content {
-      max-width: 800px;
-      width: 100%;
-      padding: 20px;
-  }
+    .slug-content {
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+    }
 
-  article {
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 5px;
-  }
+    .slug-article {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 5px;
+    }
 
-  .centered-logo {
-      width: 110px;
-      height: 40px;
-      display: block;
-      margin: 0 auto; 
-      margin-bottom: 3em;
-  }
+    .centered-logo {
+        width: 110px;
+        height: 40px;
+        display: block;
+        margin: 0 auto; 
+        margin-bottom: 3em;
+    }
 
-  .centered-image {
-      display: block;
-      margin: 0 auto; 
-      margin-bottom: 2em;
-  }
+    .centered-image {
+        display: block;
+        margin: 0 auto; 
+        margin-bottom: 2em;
+    }
 
-  img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-  }
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
 
-  .blog-link {
-      color: white;
-      text-decoration: none;
-      display: block; 
-      margin-top: 10px;
-  }
+    .blog-link {
+        color: white;
+        text-decoration: none;
+        display: block; 
+        margin-top: 10px;
+    }
 
-  .blog-link:hover {
-      text-decoration: underline;
-  }
+    .blog-link:hover {
+        text-decoration: underline;
+    }
 
-  svg {
-      width: 1em;
-      height: 1em;
-      margin-bottom: -0.2em;
-  }
+    svg {
+        width: 1em;
+        height: 1em;
+        margin-bottom: -0.2em;
+    }
 
-  .blog-title {
-      font-size: 2em;
-  }
+    .blog-title {
+        font-size: 2em;
+    }
 
-  .blog-date {
-      margin-bottom: 3em;
-  }
+    .blog-date {
+        margin-bottom: 3em;
+    }
 
-  .blog-date {
-      color: rgba(255, 255, 255, 0.694);
-  }
+    .blog-date {
+        color: rgba(255, 255, 255, 0.694);
+    }
 
-  .blog-content {
-      text-align: justify;
-      color: rgba(255, 255, 255, 0.694);
-  }
+    .blog-content {
+        text-align: justify;
+        color: rgba(255, 255, 255, 0.694);
+    }
 
-  .blog-copyright {
-      color: rgba(255, 255, 255, 0.694);
-      display: block;
-      text-align: center;
-      margin-top: 3em;   
-  }
+    .blog-copyright {
+        color: rgba(255, 255, 255, 0.694);
+        display: block;
+        text-align: center;
+        margin-top: 3em;   
+    }
 
-  @media (max-width: 768px) {
-      .container {
-          padding: 0 10px;
-      }
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 10px;
+        }
 
-      .content {
-          padding: 10px;
-      }
-  }
+        .content {
+            padding: 10px;
+        }
+    }
 </style>
