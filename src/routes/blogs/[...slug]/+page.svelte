@@ -20,22 +20,19 @@
     <meta name="description" content="{pageDescription}">
     <meta property="og:image" content="{thumbnailUrl}">
 
-	<meta name="description" content="">
-	<meta property="og:image" content="">
-
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://www.futureready.design/blogs">
+	<meta property="og:url" content="https://www.futureready.design/blogs/">
 	<meta property="og:title" content="{data.story.name} | Future Ready Design">
-	<meta property="og:description" content="">
-	<meta property="og:image" content="">
+	<meta property="og:description" content="#">
+	<meta property="og:image" content="#">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://www.futureready.design/blogs">
+	<meta name="twitter:url" content="https://www.futureready.design/blogs/">
 	<meta name="twitter:title" content="{data.story.name} | Future Ready Design">
-	<meta name="twitter:description" content="">
-	<meta name="twitter:image" content="">
+	<meta name="twitter:description" content="#">
+	<meta name="twitter:image" content="#">
 </svelte:head>
 
 <main class="slug-container">
