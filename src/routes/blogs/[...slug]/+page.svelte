@@ -7,6 +7,9 @@
     // Exporteer de data
     export let data;
 
+    // Exporteer de slug voor de meta data
+    export let slug;
+
     // Voor de meta data
     let pageTitle = data.post.title;
     let pageDescription = data.post.content;
@@ -22,14 +25,14 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://www.futureready.design/blogs/">
+	<meta property="og:url" content="https://www.futureready.design/blogs/{slug}">
 	<meta property="og:title" content=" | Future Ready Design">
 	<meta property="og:description" content="#">
 	<meta property="og:image" content="#">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://www.futureready.design/blogs/">
+	<meta name="twitter:url" content="https://www.futureready.design/blogs/{slug}">
 	<meta name="twitter:title" content=" | Future Ready Design">
 	<meta name="twitter:description" content="#">
 	<meta name="twitter:image" content="#">
