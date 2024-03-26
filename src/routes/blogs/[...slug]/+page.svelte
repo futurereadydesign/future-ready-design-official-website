@@ -1,11 +1,24 @@
 <script>
-  /** @type {import('./$types').PageData} */
-  
-  // Laat het juiste jaartal zien voor de copyright
-  let currentYear = new Date().getFullYear();
+    /** @type {import('./$types').PageData} */
 
-  export let data;
+    // Laat het juiste jaartal zien voor de copyright
+    let currentYear = new Date().getFullYear();
+
+    // Exporteer de data
+    export let data;
+
+    // Voor de meta data
+    let pageTitle = data.post.title;
+    let pageDescription = data.post.content;
+    let thumbnailUrl = data.post.image;
 </script>
+
+<!-- Laat de juiste titel zien en geef de meta data mee wanneer de pagina wordt gedeeld -->
+<svelte:head>
+    <title>Blogs | {pageTitle}</title>
+    <meta name="description" content="{pageDescription}">
+    <meta property="og:image" content="{thumbnailUrl}">
+</svelte:head>
 
 <main class="slug-container">
   <section class="slug-content">

@@ -14,9 +14,11 @@
 	});
 </script>
  
-<!-- Pas de titel aan op basis van de naam van de Story -->
+<!-- Pas de titel aan op basis van de naam van de Story en geef de meta data mee wanneer de website word gedeeld -->
 <svelte:head>
-  <title>{data.story.name}</title>
+	<title>Future Ready Design | {data.story.name}</title>
+	<meta name="description" content="">
+	<meta property="og:image" content="">
 </svelte:head>
 
 <!-- 
@@ -30,5 +32,5 @@
 </main>
 
 <style>
-	@import '/src/styles/main.css';
+	
 </style>

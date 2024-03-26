@@ -35,9 +35,7 @@
   </div>
 </article>
 
-  
-<style> 
-
+<style>
   .center {
     display: flex;
     justify-content: center;
