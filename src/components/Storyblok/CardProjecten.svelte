@@ -1,0 +1,37 @@
+<script>
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from '@storyblok/svelte';
+  
+    // Definieer variabelen voor de blog en slug
+    export let projecten;
+    export let slug;
+  </script>
+    
+  <article class="center">
+    <!-- Gebruik de storyblokEditable functie om de inhoud van de blog bewerkbaar te maken -->
+    <div class="card" use:storyblokEditable={projecten}>
+      <!-- Toon de afbeelding van de blogpost -->
+      <picture>
+        <source srcset={projecten.image?.filename} type="image/png">
+        <img class="image-card" src={projecten.image?.filename} alt={projecten.image.alt} loading="lazy">
+      </picture>
+  
+      <!-- Toon de titel van de blogpost -->
+      <h2 class="title-card">{projecten.title}</h2>
+  
+      <!-- Toon de datum van de blogpost -->
+      <p class="date-card">{projecten.date}</p>
+  
+      <!-- Voeg een link toe naar de blogpost door gebruik te maken van de slug -->
+      <a href="/{slug}" use:storyblokEditable={projecten} class="link">
+        <span class="link-content">
+          Kom meer te weten 
+          <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </article>
+ 

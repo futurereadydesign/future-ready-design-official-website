@@ -4,6 +4,7 @@ import Page from "../components/Storyblok/Page.svelte";
 // Importeer de Nestables
 import Teaser from "../components/Storyblok/Teaser.svelte";
 import AllBlogs from "../components/Storyblok/AllBlogs.svelte";
+import AllProjecten from "../components/Storyblok/AllProjecten.svelte";
 
 // Importeer Storyblok plugins en functionaliteiten
 import { apiPlugin, storyblokInit, useStoryblokApi } from "@storyblok/svelte";
@@ -22,6 +23,7 @@ export async function load() {
             page: Page, 
             teaser: Teaser, 
             'all-blogs': AllBlogs,
+            'all-projecten': AllProjecten,
         },
         // Opties voor de Storyblok API
         apiOptions: {
