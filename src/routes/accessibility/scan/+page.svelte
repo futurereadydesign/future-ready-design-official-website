@@ -732,7 +732,7 @@ function submitDataToHubspot(event) {
                         <legend><span class="accessibility-hide">Marketing doeleinden</span></legend>
                         <input type="checkbox" id="experts-check" name="experts-check" required>
                         <span class="checkmark"></span>
-                        <label for="experts-check">Ik ga hierbij akkoord, dat Future Ready Design B.V. mij mag benaderen voor marketing doeleinden.</label>
+                        <label for="experts-check">Ik ga hierbij akkoord, dat Future Ready Design B.V. mij mag benaderen voor doeleinden omtrend het digitaal toegankelijk maken van mijn website.</label>
                     </fieldset>
                     <button type="submit" class="button button-primary">
                         <span>Volledig rapport aanvragen</span>
