@@ -94,7 +94,7 @@
     left: 1em; 
     text-decoration: none;
     color: inherit;
-    font-weight: 500;
+    /* font-weight: 500; */
   }
 
   .link-content {

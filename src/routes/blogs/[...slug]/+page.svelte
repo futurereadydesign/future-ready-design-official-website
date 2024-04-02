@@ -50,12 +50,15 @@
       <article class="slug-article">
           <img class="centered-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
           <a href="/blogs" class="blog-link">
-              <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M11 17.9166L4.58333 11.5L11 5.08329" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            Terug naar het overzicht
+            <span class="link-content">
+                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 17.9166L4.58333 11.5L11 5.08329" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              Terug naar het overzicht
+            </span> 
           </a>
+
           <h1 class="blog-title">{data.post.title}</h1>
           <p class="blog-date">{data.post.date}</p>
           <p class="blog-content">{data.post.content}</p>
@@ -138,13 +141,20 @@
     }
 
     .blog-link {
-        color: white;
-        text-decoration: none;
         display: block; 
-        margin-top: 10px;
+        bottom: 1em; 
+        left: 1em; 
+        text-decoration: none;
+        color: inherit;
+        /* font-weight: 500; */
     }
 
-    .blog-link:hover {
+    .link-content {
+        display: inline-flex; 
+        align-items: center;
+    }
+
+    .link-content:hover {
         text-decoration: underline;
     }
 
@@ -152,6 +162,7 @@
         width: 1em;
         height: 1em;
         margin-bottom: -0.2em;
+        margin-right: 0.2em;
     }
 
     .blog-title {
