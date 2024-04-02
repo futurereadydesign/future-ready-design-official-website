@@ -128,7 +128,7 @@
     </header>
 
     <main in:fade={{duration: 300}} class="accessibility-landing">
-        <h1 class="wrapper-max">Ontdek of je website voldoet aan de <strong>ADA</strong> & <strong>WCAG</strong> richtlijnen..</h1>
+        <h1 class="wrapper-max">Ontdek hoe <strong>digitaal toegankelijk</strong> jouw website is</h1>
 
         <form action="/accessibility/scan" method="get" class="url-input" bind:this={scanForm} on:keyup={onKeyInput}>
             <label for="site-url-input">Vul hieronder jouw site-URL in!</label>

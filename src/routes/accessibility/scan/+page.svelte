@@ -482,7 +482,7 @@ function submitDataToHubspot(event) {
     </header>
 
     <main bind:this={main} in:fade={{duration: 300}} class="accessibility-result">
-        <h1 class="wrapper-max">Ontdek of je website voldoet aan de <strong>ADA</strong> & <strong>WCAG</strong> richtlijnen</h1>
+        <h1 class="wrapper-max">Ontdek hoe <strong>digitaal toegankelijk</strong> jouw website is</h1>
 
         <form action="/accessibility/scan" method="get" class="url-input">
             <label bind:this={inlineLabel} for="site-url-input" role="alert">Bezig met scannen van de website..</label>
