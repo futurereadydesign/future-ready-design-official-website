@@ -690,7 +690,7 @@ function submitDataToHubspot(event) {
                     </li>
                 </ul>
                 <h2>Goed dat je met digitale toegankelijkheid aan de slag gaat!</h2>
-                <p>Maak een afspraak voor een vrijblijvend adviesgesprek of laat je gegevens achter. Wij nemen snel contact op om <strong bind:this={overlayURL}>jouw website</strong> 100% toegankelijk te maken.</p>
+                <p>Benieuwd naar de verdere resultaten van je rapport? Maak een afspraak voor een vrijblijvend adviesgesprek waarin we dit verder voor je toelichten of laat je gegevens achter! Wij nemen snel contact op om <strong bind:this={overlayURL}>jouw website</strong> 100% toegankelijk te maken.</p>
 
                 <div class="experts-choice">
                     <a href="https://meetings-eu1.hubspot.com/robbin-jansen/frd-accessibility" target="_blank" class="button button-primary">
