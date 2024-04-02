@@ -131,8 +131,8 @@
         <h1 class="wrapper-max">ontdek hoe <strong>digitaal toegankelijk</strong> jouw website is</h1>
 
         <form action="/accessibility/scan" method="get" class="url-input" bind:this={scanForm} on:keyup={onKeyInput}>
-            <label for="site-url-input">Vul hieronder jouw site-URL in!</label>
-            <input type="text" name="url" placeholder="Plaats hier de link van je site.." autocomplete="off" id="site-url-input" required bind:this={scanInputField} on:focus={inputURLFocus} on:blur={inputURLBlur}>
+            <label for="site-url-input">vul hieronder jouw website-URL in</label>
+            <input type="text" name="url" placeholder="Plaats hier de link van je website" autocomplete="off" id="site-url-input" required bind:this={scanInputField} on:focus={inputURLFocus} on:blur={inputURLBlur}>
             <span class="input-message" role="alert"></span>
             <button type="submit" class="button button-secondary">
                 <span bind:this={scanButtonSubmitText}>Scan site</span>
