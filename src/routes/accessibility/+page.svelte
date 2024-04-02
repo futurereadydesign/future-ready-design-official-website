@@ -146,7 +146,7 @@
         </form>
 
         <section class="wrapper-small">
-            <p>Vanaf 2025 is het voor veel bedrijven verplicht om te voldoen aan toegankelijkheidsstandaarden. Daarom is het belangrijk om er nu al wat aan te doen. Om de toegankelijkheid van je website te <strong>analyseren</strong>, kun je eenvoudig je eigen URL invoeren in het bovenstaande veld. Dit geeft je gelijk een indicatie hoe goed je site voldoet aan de digitale <strong>toegankelijkheidsnormen</strong> (WCAG) en laat je zien waar verbeteringen mogelijk zijn. Typ simpelweg de URL van je website in als <strong>"jouw-website.nl"</strong> in het invoerveld hier boven en start de scan.</p>
+            <p>Vanaf <strong>2025</strong> is het voor veel bedrijven verplicht om te voldoen aan toegankelijkheidsstandaarden. Daarom is het belangrijk om er nu al wat aan te doen. Om de toegankelijkheid van je website te <strong>analyseren</strong>, kun je eenvoudig je eigen URL invoeren in het bovenstaande veld. Dit geeft je gelijk een indicatie hoe goed je site voldoet aan de digitale <strong>toegankelijkheidsnormen</strong> (WCAG) en laat je zien waar verbeteringen mogelijk zijn. Typ simpelweg de URL van je website in als <strong>"jouw-website.nl"</strong> in het invoerveld hier boven en start de scan.</p>
             <p>Door deze stap te volgen, zet je een <strong>belangrijke stap</strong> naar het verbeteren van de toegankelijkheid en gebruiksvriendelijkheid van je website voor alle gebruikers.</p>
         </section>
 
