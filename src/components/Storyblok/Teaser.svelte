@@ -69,7 +69,7 @@
     }
 
     /* PARAGRAPHS AND HEADINGS */
-    h1 {
+    /* h1 {
         font-size: 4.15em;
         font-weight: 700;
         line-height: 125%;
@@ -77,7 +77,7 @@
         margin-bottom: 4.165rem;
         max-width: 70%;
         margin: 0 auto; 
-    }
+    } */
 
     h2 {
         text-align: center;

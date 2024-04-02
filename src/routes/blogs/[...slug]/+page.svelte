@@ -40,22 +40,21 @@
 
 <main class="slug-container">
   <section class="slug-content">
+    <picture>
+        <a href="https://futureready.design/" target="_blank">
+            <img src={data.post.logo} alt={data.post.imageAlt}>
+        </a>
+    </picture>
+
       <!-- Alle data wordt ingeladen -->
       <article class="slug-article">
-
-        <picture>
-            <a href="https://futureready.design/" target="_blank">
-                <img src={data.post.logo} alt={data.post.imageAlt}>
-            </a>
-        </picture>
-          
           <img class="centered-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
           <a href="/blogs" class="blog-link">
               <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M11 17.9166L4.58333 11.5L11 5.08329" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Terug naar het overzicht
+            Terug naar het overzicht
           </a>
           <h1 class="blog-title">{data.post.title}</h1>
           <p class="blog-date">{data.post.date}</p>
@@ -96,7 +95,7 @@
     picture {
         display: grid;
         place-items: center;
-        margin-top: 4.15em;
+        margin-top: 3.15em;
         margin-bottom: 2.75em;
     }
     picture a {
@@ -125,14 +124,6 @@
     picture a img {
         height: 2.5em;
     }
-
-    /* .centered-logo {
-        width: 110px;
-        height: 40px;
-        display: block;
-        margin: 0 auto; 
-        margin-bottom: 3em;
-    } */
 
     .centered-image {
         display: block;
@@ -165,9 +156,11 @@
 
     .blog-title {
         font-size: 2em;
+        text-align: left;
     }
 
     .blog-date {
+        margin-top: -3.5rem;
         margin-bottom: 3em;
     }
 

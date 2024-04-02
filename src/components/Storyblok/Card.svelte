@@ -10,11 +10,14 @@
 <article class="center">
   <!-- Gebruik de storyblokEditable functie om de inhoud van de blog bewerkbaar te maken -->
   <div class="card" use:storyblokEditable={blog}>
-    <!-- Toon de afbeelding van de blogpost -->
-    <picture>
-      <source srcset={blog.image?.filename} type="image/png">
-      <img class="image-card" src={blog.image?.filename} alt={blog.image.alt} loading="lazy">
-    </picture>
+    <!-- Container voor de afbeelding -->
+    <div class="image-container">
+      <!-- Toon de afbeelding van de blogpost -->
+      <picture>
+        <source srcset={blog.image?.filename} type="image/png">
+        <img class="image-card" src={blog.image?.filename} alt={blog.image.alt} loading="lazy">
+      </picture>
+    </div>
 
     <!-- Toon de titel van de blogpost -->
     <h2 class="title-card">{blog.title}</h2>
@@ -43,6 +46,7 @@
   }
 
   .card {
+    position: relative; 
     display: flex; 
     flex-direction: column;
     word-spacing: 0.1em;
@@ -50,9 +54,14 @@
     border-radius: 10px; 
     padding: 1em;
     border: 1.5px solid #ffffff3a; 
-    max-width: 350px; 
-    height: 20em;
+    max-width: 21.875em; 
+    height: 21em;
     width: 100%; 
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center; 
   }
 
   picture {
@@ -80,6 +89,9 @@
   }
 
   .link {
+    position: absolute; 
+    bottom: 1em; 
+    left: 1em; 
     text-decoration: none;
     color: inherit;
     font-weight: 500;
@@ -90,9 +102,9 @@
     align-items: center;
   }
 
-  /* .link-content:hover {
-    border-bottom: 1.5px solid white;
-  } */
+  .link-content:hover {
+    text-decoration: underline;
+  }
 
   svg {
     width: 1em;
