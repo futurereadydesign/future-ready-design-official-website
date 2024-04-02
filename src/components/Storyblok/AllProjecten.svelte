@@ -8,7 +8,7 @@
 	// Importeer de useStoryblokApi-functie vanuit de Storyblok package
 	import { useStoryblokApi } from '@storyblok/svelte';
 
-	// Maak een lege array aan genaamd 'blog' om de blogposts op te slaan
+	// Maak een lege array aan genaamd 'projecten' om de projecten op te slaan
 	let projecten = [];
 
 	// Wanneer het component wordt geladen, voer deze functie uit
@@ -21,7 +21,7 @@
 			starts_with: 'projecten', // Zoek alleen naar de Story's die met 'projecten' beginnen
 			is_startpage: false // Deze Story's zijn niet de startpagina
 		});
-		// Sla de opgehaalde verhalen op in de 'blog' array
+		// Sla de opgehaalde verhalen op in de 'projecten' array
 		projecten = data.stories;
 	});
 </script>

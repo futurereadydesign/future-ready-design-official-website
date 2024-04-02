@@ -42,7 +42,7 @@
 		gap: 1em;
 		place-items: center; 
 		margin-bottom: 5em;
-		max-width: 40em;
+		max-width: 36em;
 		margin: 0 auto; 
 		margin-bottom: 4em;
 	}	

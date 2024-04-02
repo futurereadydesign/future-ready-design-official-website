@@ -2,7 +2,7 @@
     // Importeer de storyblokEditable functie vanuit de Storyblok package
     import { storyblokEditable } from '@storyblok/svelte';
   
-    // Definieer variabelen voor de blog en slug
+    // Definieer variabelen voor de projecten en slug
     export let projecten;
     export let slug;
   </script>
@@ -10,19 +10,19 @@
   <article class="center">
     <!-- Gebruik de storyblokEditable functie om de inhoud van de blog bewerkbaar te maken -->
     <div class="card" use:storyblokEditable={projecten}>
-      <!-- Toon de afbeelding van de blogpost -->
+      <!-- Toon de afbeelding van de projecten -->
       <picture>
         <source srcset={projecten.image?.filename} type="image/png">
         <img class="image-card" src={projecten.image?.filename} alt={projecten.image.alt} loading="lazy">
       </picture>
   
-      <!-- Toon de titel van de blogpost -->
+      <!-- Toon de titel van de projecten -->
       <h2 class="title-card">{projecten.title}</h2>
   
-      <!-- Toon de datum van de blogpost -->
+      <!-- Toon de datum van de projecten -->
       <p class="date-card">{projecten.date}</p>
   
-      <!-- Voeg een link toe naar de blogpost door gebruik te maken van de slug -->
+      <!-- Voeg een link toe naar de projecten door gebruik te maken van de slug -->
       <a href="/{slug}" use:storyblokEditable={projecten} class="link">
         <span class="link-content">
           Kom meer te weten 

@@ -47,5 +47,5 @@
 </main>
 
 <style>
-	
+	@import '/src/styles/blog.css';
 </style>

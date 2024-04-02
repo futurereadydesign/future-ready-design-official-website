@@ -26,14 +26,14 @@
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.futureready.design/blogs/{slug}">
-	<meta property="og:title" content=" | Future Ready Design">
+	<meta property="og:title" content="{pageTitle} | Future Ready Design">
 	<meta property="og:description" content="#">
 	<meta property="og:image" content="#">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:url" content="https://www.futureready.design/blogs/{slug}">
-	<meta name="twitter:title" content=" | Future Ready Design">
+	<meta name="twitter:title" content="{pageTitle} | Future Ready Design">
 	<meta name="twitter:description" content="#">
 	<meta name="twitter:image" content="#">
 </svelte:head>
@@ -42,7 +42,12 @@
   <section class="slug-content">
       <!-- Alle data wordt ingeladen -->
       <article class="slug-article">
-          <img class="centered-logo" src={data.post.logo} alt={data.post.imageAlt}>
+
+        <picture>
+            <a href="https://futureready.design/" target="_blank">
+                <img src={data.post.logo} alt={data.post.imageAlt}>
+            </a>
+        </picture>
           
           <img class="centered-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
           <a href="/blogs" class="blog-link">
@@ -55,10 +60,17 @@
           <h1 class="blog-title">{data.post.title}</h1>
           <p class="blog-date">{data.post.date}</p>
           <p class="blog-content">{data.post.content}</p>
-          <p class="blog-copyright">Copyright © {currentYear} Future Ready Design</p>
+          <!-- <p class="blog-copyright">Copyright © {currentYear} Future Ready Design</p> -->
       </article>
   </section>
 </main>
+
+<footer>
+    <div>
+        <a href="https://www.futurereadydesign.nl/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futurereadydesign.nl/privacy-policy" target="_blank">Privacy beleid</a>
+    </div>
+    <span>Copyright © {currentYear} Future Ready Design</span>
+</footer>
 
 <style>
     .slug-container {
@@ -79,13 +91,48 @@
         border-radius: 5px;
     }
 
-    .centered-logo {
+    /* PICTURE -------------------------------- */
+    /* PICTURE -------------------------------- */
+    picture {
+        display: grid;
+        place-items: center;
+        margin-top: 4.15em;
+        margin-bottom: 2.75em;
+    }
+    picture a {
+        transition: 250ms;
+        position: relative;
+    }
+    picture a:hover {
+        opacity: 0.75;
+    }
+    picture a::after {
+        content: '';
+        position: absolute;
+        left: -1em;
+        top: -1em;
+        height: calc(100% + 1.75em);
+        width: calc(100% + 2em);
+        border: var(--border-width) solid var(--color-white);
+        border-radius: 1.15em;
+        z-index: -1;
+        opacity: 0;
+        transition: 250ms opacity;
+    }
+    picture a:focus-visible::after {
+        opacity: 1;
+    }
+    picture a img {
+        height: 2.5em;
+    }
+
+    /* .centered-logo {
         width: 110px;
         height: 40px;
         display: block;
         margin: 0 auto; 
         margin-bottom: 3em;
-    }
+    } */
 
     .centered-image {
         display: block;
@@ -133,19 +180,43 @@
         color: rgba(255, 255, 255, 0.694);
     }
 
-    .blog-copyright {
+    footer {
+        font-family: var(--font-degular);
+        padding: 4.165em 0 1.95em 0;
+        text-align: center;
+    }
+    footer > span {
+        font-size: 0.9em;
+        color: var(--color-white-45);
+    }
+    footer > div {
+        margin-bottom: 0.5em;
+    }
+    footer > div a {
+        color: var(--color-white);
+        text-decoration: none;
+    }
+    footer > div a:hover {
+        text-decoration: underline; 
+    }
+    footer > div a:focus-visible {
+        color: var(--color-lightblue);
+        text-decoration: underline;
+    }
+
+    /* .blog-copyright {
         color: rgba(255, 255, 255, 0.694);
         display: block;
         text-align: center;
         margin-top: 3em;   
-    }
+    } */
 
     @media (max-width: 768px) {
-        .container {
+        .slug-container {
             padding: 0 10px;
         }
 
-        .content {
+        .slug-content {
             padding: 10px;
         }
     }
