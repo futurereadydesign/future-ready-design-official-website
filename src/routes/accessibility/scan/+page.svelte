@@ -206,7 +206,7 @@
             conversationCTAButtonText.textContent = 'Vraag rapport aan';
         } else {
             // CHANGE BUTTON TO SMALLER TEXT FOR SPACING ISSUES
-            conversationCTAButtonText.textContent = 'Vraag gedetailleerd rapport aan';
+            conversationCTAButtonText.textContent = 'Vraag volledig rapport aan';
         }
     }
 
@@ -628,7 +628,7 @@ function submitDataToHubspot(event) {
 
         <section class="wrapper-small scan-cta">
             <h2>Benieuwd naar het volledige rapport?</h2>
-            <strong>Laat een gedetailleerde analyse maken van jouw website.</strong>
+            <strong>Vraag vrijblijvend meer informatie aan, wij helpen je graag op weg.</strong>
             <div class="section-block-inner scan-cta-button-wrapper">
                 <ul>
                     <li>
@@ -689,8 +689,8 @@ function submitDataToHubspot(event) {
                         <p>We helpen je graag!</p>
                     </li>
                 </ul>
-                <h2>Precies weten wat je kunt verbeteren aan je website?</h2>
-                <p>Plan een gesprek in of laat je gegevens achter. Wij nemen contact op om <strong bind:this={overlayURL}>jouw website</strong> 100% toegankelijk te maken.</p>
+                <h2>Goed dat je met toegankelijkheid aan de slag gaat!</h2>
+                <p>Plan een vrijblijvend adviesgesprek in of laat je gegevens achter. Wij nemen snel contact op om jou te helpen om <strong bind:this={overlayURL}>jouw website</strong> helemaal 100% toegankelijk te maken.</p>
 
                 <div class="experts-choice">
                     <a href="https://meetings-eu1.hubspot.com/robbin-jansen/frd-accessibility" target="_blank" class="button button-primary">
