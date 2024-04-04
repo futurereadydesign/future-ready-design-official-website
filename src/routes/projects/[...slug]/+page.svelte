@@ -18,10 +18,9 @@
 
 <!-- Laat de juiste titel zien en geef de meta data mee wanneer de pagina wordt gedeeld -->
 <svelte:head>
-    <title>Future Ready Design | {pageTitle}</title>
     <meta name="title" content="{pageTitle} | Future Ready Design">
-    <meta name="description" content="{pageDescription}">
-    <meta property="og:image" content="{thumbnailUrl}">
+    <meta name="description" content="#">
+    <meta property="og:image" content="#">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">

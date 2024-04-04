@@ -18,24 +18,24 @@
 
 <!-- Laat de juiste titel zien en geef de meta data mee wanneer de pagina wordt gedeeld -->
 <svelte:head>
-    <title>Future Ready Design | {pageTitle}</title>
+    <!-- <title>Future Ready Design | {pageTitle}</title> -->
     <meta name="title" content="{pageTitle} | Future Ready Design">
-    <meta name="description" content="{pageDescription}">
-    <meta property="og:image" content="{thumbnailUrl}">
+    <meta name="description" content="{data.post.metaDescription}">
+    <meta property="og:image" content="{data.post.metaImage}">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.futureready.design/blogs/{slug}">
 	<meta property="og:title" content="{pageTitle} | Future Ready Design">
-	<meta property="og:description" content="#">
-	<meta property="og:image" content="#">
+	<meta property="og:description" content="{data.post.fbMetaDescription}">
+	<meta property="og:image" content="{data.post.fbMetaImage}">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:url" content="https://www.futureready.design/blogs/{slug}">
 	<meta name="twitter:title" content="{pageTitle} | Future Ready Design">
-	<meta name="twitter:description" content="#">
-	<meta name="twitter:image" content="#">
+	<meta name="twitter:description" content="{data.post.twitterMetaDescription}">
+	<meta name="twitter:image" content="{data.post.twitterMetaImage}">
 </svelte:head>
 
 <main class="slug-blog-main">
@@ -74,6 +74,7 @@
 </footer>
 
 <style>
+    @import '/src/styles/blog.css';
     .slug-blog-main {
         display: flex;
         justify-content: center;
@@ -170,12 +171,9 @@
     }
 
     .slug-blog-date {
+        color: rgba(255, 255, 255, 0.694);
         margin-top: -3.5rem;
         margin-bottom: 3em;
-    }
-
-    .slug-blog-date {
-        color: rgba(255, 255, 255, 0.694);
     }
 
     .slug-blog-content {
