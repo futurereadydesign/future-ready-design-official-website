@@ -7,27 +7,27 @@
   export let slug;
 </script>
   
-<article class="center">
+<div class="card-outer">
   <!-- Gebruik de storyblokEditable functie om de inhoud van de blog bewerkbaar te maken -->
   <div class="card" use:storyblokEditable={blog}>
     <!-- Container voor de afbeelding -->
-    <div class="image-container">
+    <div class="card-image-container">
       <!-- Toon de afbeelding van de blogpost -->
       <picture>
         <source srcset={blog.image?.filename} type="image/png">
-        <img class="image-card" src={blog.image?.filename} alt={blog.image.alt} loading="lazy">
+        <img class="card-image" src={blog.image?.filename} alt={blog.image.alt} loading="lazy">
       </picture>
     </div>
 
     <!-- Toon de titel van de blogpost -->
-    <h2 class="title-card">{blog.title}</h2>
+    <h2 class="card-title">{blog.title}</h2>
 
     <!-- Toon de datum van de blogpost -->
-    <p class="date-card">{blog.date}</p>
+    <p class="card-date">{blog.date}</p>
 
     <!-- Voeg een link toe naar de blogpost door gebruik te maken van de slug -->
-    <a href="/{slug}" use:storyblokEditable={blog} class="link">
-      <span class="link-content">
+    <a href="/{slug}" use:storyblokEditable={blog} class="card-link">
+      <span class="card-link-content">
         Kom meer te weten 
         <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -36,10 +36,10 @@
       </span>
     </a>
   </div>
-</article>
+</div>
 
 <style>
-  .center {
+  .card-outer {
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -59,7 +59,7 @@
     width: 100%; 
   }
 
-  .image-container {
+  .card-image-container {
     display: flex;
     justify-content: center; 
   }
@@ -69,26 +69,26 @@
     height: 180px;
   }
 
-  .image-card {
+  .card-image {
     width: 100%;
     height: auto;
     border-radius: 10px 10px 0 0;
   }
 
-  .title-card {
+  .card-title {
     margin-top: 0.5em;
     font-size: 1.1em;
     color: white;
   }
 
-  .date-card {
+  .card-date {
     font-size: 1em;
     font-weight: 400;
     margin-bottom: 0.8em;
     color: rgba(255, 255, 255, 0.507);
   }
 
-  .link {
+  .card-link {
     position: absolute; 
     bottom: 1em; 
     left: 1em; 
@@ -97,12 +97,12 @@
     /* font-weight: 500; */
   }
 
-  .link-content {
+  .card-link-content {
     display: inline-flex; 
     align-items: center;
   }
 
-  .link-content:hover {
+  .card-link-content:hover {
     text-decoration: underline;
   }
 

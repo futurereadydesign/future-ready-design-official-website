@@ -10,12 +10,12 @@
  
 {#key blok}
   <!-- Gebruik de storyblokEditable functie om de inhoud van het blok bewerkbaar te maken -->
-  <section use:storyblokEditable={blok} class="page">
+  <main use:storyblokEditable={blok} class="page-main">
     {#each blok.body as blok}
       <!-- Render Storyblok componenten op basis van de inhoud van het blok -->
       <StoryblokComponent {blok} />
     {/each}
-  </section>
+  </main>
 
   <footer>
     <div>
@@ -26,7 +26,7 @@
 {/key}
 
 <style>
-  .page {
+  .page-main {
     padding-left: 1.5rem;
     padding-right: 1.5rem; 
   }

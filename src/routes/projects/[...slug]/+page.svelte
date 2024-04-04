@@ -40,6 +40,12 @@
 
 <main class="slug-container">
   <section class="slug-content">
+    <picture>
+        <a href="https://futureready.design/" target="_blank">
+            <img src={data.post.logo} alt={data.post.imageAlt}>
+        </a>
+    </picture>
+
       <!-- Alle data wordt ingeladen -->
       <article class="slug-article">
           <img class="centered-logo" src={data.post.logo} alt={data.post.imageAlt}>
@@ -60,6 +66,74 @@
   </section>
 </main>
 
+<footer>
+    <div>
+        <a href="https://www.futurereadydesign.nl/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futurereadydesign.nl/privacy-policy" target="_blank">Privacy beleid</a>
+    </div>
+    <span>Copyright © {currentYear} Future Ready Design</span>
+</footer>
+
 <style>
     
+    /* PICTURE -------------------------------- */
+    /* PICTURE -------------------------------- */
+    picture {
+        display: grid;
+        place-items: center;
+        margin-top: 3.15em;
+        margin-bottom: 2.75em;
+    }
+    picture a {
+        transition: 250ms;
+        position: relative;
+    }
+    picture a:hover {
+        opacity: 0.75;
+    }
+    picture a::after {
+        content: '';
+        position: absolute;
+        left: -1em;
+        top: -1em;
+        height: calc(100% + 1.75em);
+        width: calc(100% + 2em);
+        border: var(--border-width) solid var(--color-white);
+        border-radius: 1.15em;
+        z-index: -1;
+        opacity: 0;
+        transition: 250ms opacity;
+    }
+    picture a:focus-visible::after {
+        opacity: 1;
+    }
+    picture a img {
+        height: 2.5em;
+    }
+
+    /* FOOTER -------------------------------- */
+    /* FOOTER -------------------------------- */
+    footer {
+        font-family: var(--font-degular);
+        padding: 4.165em 0 1.95em 0;
+        text-align: center;
+    }
+    footer > span {
+        font-size: 0.9em;
+        color: var(--color-white-45);
+    }
+    footer > div {
+        margin-bottom: 0.5em;
+    }
+    footer > div a {
+        color: var(--color-white);
+        text-decoration: none;
+    }
+    footer > div a:hover {
+        text-decoration: underline; 
+    }
+    footer > div a:focus-visible {
+        color: var(--color-lightblue);
+        text-decoration: underline;
+    }
+
 </style>

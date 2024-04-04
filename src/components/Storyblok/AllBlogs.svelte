@@ -26,9 +26,9 @@
 	});
 </script>
 
-<section class="container">
+<section class="all-blogs-section">
 	{#each blog as blog}
-		<article class="article">
+		<article class="all-blogs-article">
 			<!-- Render de Card-component voor elke blogpost -->
 			<Card blog={blog.content} slug={blog.full_slug} />
 		</article>	
@@ -36,7 +36,7 @@
 </section>
 
 <style>
-	.container {
+	.all-blogs-section {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
 		gap: 1em;
@@ -47,14 +47,14 @@
 		margin-bottom: 4em;
 	}	
 
-	.article {
+	.all-blogs-article {
 		padding-left: 1.5rem;
 		padding-right: 1.5rem; 
 		flex: 1 1 auto; 
 	}
 
   @media (min-width: 768px) { 
-    .container {
+    .all-blogs-section {
       grid-template-columns: repeat(2, minmax(0, 1fr)); 
     }
   }

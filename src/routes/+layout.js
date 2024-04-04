@@ -2,7 +2,7 @@
 import Page from "../components/Storyblok/Page.svelte";
 
 // Importeer de Nestables
-import Teaser from "../components/Storyblok/Teaser.svelte";
+import Header from "../components/Storyblok/Header.svelte";
 import AllBlogs from "../components/Storyblok/AllBlogs.svelte";
 import AllProjects from "../components/Storyblok/AllProjects.svelte";
 
@@ -21,7 +21,7 @@ export async function load() {
         // Definieer de componenten die in Storyblok zijn gedefinieerd
         components: {
             page: Page, 
-            teaser: Teaser, 
+            header: Header, 
             'all-blogs': AllBlogs,
             'all-projects': AllProjects,
         },

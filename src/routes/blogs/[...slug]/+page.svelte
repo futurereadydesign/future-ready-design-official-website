@@ -184,6 +184,8 @@
         color: rgba(255, 255, 255, 0.694);
     }
 
+    /* FOOTER -------------------------------- */
+    /* FOOTER -------------------------------- */
     footer {
         font-family: var(--font-degular);
         padding: 4.165em 0 1.95em 0;
@@ -208,13 +210,8 @@
         text-decoration: underline;
     }
 
-    /* .blog-copyright {
-        color: rgba(255, 255, 255, 0.694);
-        display: block;
-        text-align: center;
-        margin-top: 3em;   
-    } */
-
+    /* MEDIA QUERIES -------------------------------- */
+    /* MEDIA QUERIES -------------------------------- */
     @media (max-width: 768px) {
         .slug-container {
             padding: 0 10px;
