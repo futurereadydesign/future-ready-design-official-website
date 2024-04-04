@@ -23,14 +23,14 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://www.futureready.design/projecten">
+	<meta property="og:url" content="https://www.futureready.design/projects">
 	<meta property="og:title" content="{data.story.name} | Future Ready Design">
 	<meta property="og:description" content="#">
 	<meta property="og:image" content="#">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://www.futureready.design/projecten">
+	<meta name="twitter:url" content="https://www.futureready.design/projects">
 	<meta name="twitter:title" content="{data.story.name} | Future Ready Design">
 	<meta name="twitter:description" content="#">
 	<meta name="twitter:image" content="#">

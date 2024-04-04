@@ -25,14 +25,14 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://www.futureready.design/projecten/{slug}">
+	<meta property="og:url" content="https://www.futureready.design/projects/{slug}">
 	<meta property="og:title" content="{pageTitle} | Future Ready Design">
 	<meta property="og:description" content="#">
 	<meta property="og:image" content="#">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://www.futureready.design/projecten/{slug}">
+	<meta name="twitter:url" content="https://www.futureready.design/projects/{slug}">
 	<meta name="twitter:title" content="{pageTitle} | Future Ready Design">
 	<meta name="twitter:description" content="#">
 	<meta name="twitter:image" content="#">
@@ -45,7 +45,7 @@
           <img class="centered-logo" src={data.post.logo} alt={data.post.imageAlt}>
           
           <img class="centered-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
-          <a href="/projecten" class="blog-link">
+          <a href="/projects" class="blog-link">
               <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M11 17.9166L4.58333 11.5L11 5.08329" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

@@ -1,6 +1,6 @@
 <script>
 	// Importeer de Card-component
-	import CardProjecten from './CardProjecten.svelte';
+	import CardProjects from './CardProjects.svelte';
 
 	// Importeer de onMount-functie vanuit Svelte
 	import { onMount } from 'svelte';
@@ -8,8 +8,8 @@
 	// Importeer de useStoryblokApi-functie vanuit de Storyblok package
 	import { useStoryblokApi } from '@storyblok/svelte';
 
-	// Maak een lege array aan genaamd 'projecten' om de projecten op te slaan
-	let projecten = [];
+	// Maak een lege array aan genaamd 'projects' om de projects op te slaan
+	let projects = [];
 
 	// Wanneer het component wordt geladen, voer deze functie uit
 	onMount(async () => {
@@ -18,19 +18,19 @@
 		// Maak een verzoek naar Storyblok om de Story's op te halen
 		const { data } = await storyblokApi.get('cdn/stories', {
 			version: 'draft', // Gebruik de draft versie van de Story's
-			starts_with: 'projecten', // Zoek alleen naar de Story's die met 'projecten' beginnen
+			starts_with: 'projects', // Zoek alleen naar de Story's die met 'projects' beginnen
 			is_startpage: false // Deze Story's zijn niet de startpagina
 		});
-		// Sla de opgehaalde verhalen op in de 'projecten' array
-		projecten = data.stories;
+		// Sla de opgehaalde verhalen op in de 'projects' array
+		projects = data.stories;
 	});
 </script>
 
 <section class="container">
-	{#each projecten as projecten}
+	{#each projects as projects}
 		<article class="article">
 			<!-- Render de Card-component voor elke blogpost -->
-			<CardProjecten projecten={projecten.content} slug={projecten.full_slug} />
+			<CardProjects projects={projects.content} slug={projects.full_slug} />
 		</article>	
 	{/each}
 </section>
