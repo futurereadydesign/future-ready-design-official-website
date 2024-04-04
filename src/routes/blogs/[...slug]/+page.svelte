@@ -12,7 +12,7 @@
 
     // Voor de meta data
     let pageTitle = data.post.title;
-    let pageDescription = data.post.content;
+    let pageDescription = data.post.metaDescription;
     let thumbnailUrl = data.post.image;
 </script>
 
@@ -20,7 +20,7 @@
 <svelte:head>
     <!-- <title>Future Ready Design | {pageTitle}</title> -->
     <meta name="title" content="{pageTitle} | Future Ready Design">
-    <meta name="description" content="{data.post.metaDescription}">
+    <meta name="description" content="{pageDescription}">
     <meta property="og:image" content="{data.post.metaImage}">
 
 	<!-- Open Graph / Facebook -->
