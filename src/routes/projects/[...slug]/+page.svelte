@@ -38,8 +38,8 @@
 	<meta name="twitter:image" content="#">
 </svelte:head>
 
-<main class="slug-container">
-  <section class="slug-content">
+<main class="slug-projects-main">
+  <section class="slug-projects-section">
     <picture>
         <a href="https://futureready.design/" target="_blank">
             <img src={data.post.logo} alt={data.post.imageAlt}>
@@ -47,21 +47,20 @@
     </picture>
 
       <!-- Alle data wordt ingeladen -->
-      <article class="slug-article">
-          <img class="centered-logo" src={data.post.logo} alt={data.post.imageAlt}>
-          
-          <img class="centered-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
-          <a href="/projects" class="blog-link">
-              <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M11 17.9166L4.58333 11.5L11 5.08329" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Terug naar het overzicht
+      <article class="slug-projects-article">
+          <img class="slug-projects-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
+          <a href="/projects" class="slug-projects-link">
+            <span class="slug-projects-link-content">
+                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 17.9166L4.58333 11.5L11 5.08329" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Terug naar het overzicht
+            </span>  
           </a>
-          <h1 class="blog-title">{data.post.title}</h1>
-          <p class="blog-date">{data.post.date}</p>
-          <p class="blog-content">{data.post.description}</p>
-          <p class="blog-copyright">Copyright © {currentYear} Future Ready Design</p>
+          <h1 class="slug-projects-title">{data.post.title}</h1>
+          <p class="slug-projects-date">{data.post.date}</p>
+          <p class="slug-projects-content">{data.post.content}</p>
       </article>
   </section>
 </main>
@@ -74,7 +73,24 @@
 </footer>
 
 <style>
-    
+    .slug-projects-main {
+        display: flex;
+        justify-content: center;
+        padding: 0 20px;
+    }
+
+    .slug-projects-section {
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .slug-projects-article {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
     /* PICTURE -------------------------------- */
     /* PICTURE -------------------------------- */
     picture {
@@ -110,6 +126,62 @@
         height: 2.5em;
     }
 
+    .slug-projects-image {
+        display: block;
+        margin: 0 auto; 
+        margin-bottom: 2em;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .slug-projects-link {
+        display: block; 
+        bottom: 1em; 
+        left: 1em; 
+        text-decoration: none;
+        color: inherit;
+        /* font-weight: 500; */
+    }
+
+    .slug-projects-link-content {
+        display: inline-flex; 
+        align-items: center;
+    }
+
+    .slug-projects-link-content:hover {
+        text-decoration: underline;
+    }
+
+    svg {
+        width: 1em;
+        height: 1em;
+        margin-bottom: -0.2em;
+        margin-right: 0.2em;
+    }
+
+    .slug-projects-title {
+        font-size: 2em;
+        text-align: left;
+    }
+
+    .slug-projects-date {
+        margin-top: -3.5rem;
+        margin-bottom: 3em;
+    }
+
+    .slug-projects-date {
+        color: rgba(255, 255, 255, 0.694);
+    }
+
+    .slug-projects-content {
+        text-align: justify;
+        color: rgba(255, 255, 255, 0.694);
+    }
+
     /* FOOTER -------------------------------- */
     /* FOOTER -------------------------------- */
     footer {
@@ -134,6 +206,18 @@
     footer > div a:focus-visible {
         color: var(--color-lightblue);
         text-decoration: underline;
+    }
+
+    /* MEDIA QUERIES -------------------------------- */
+    /* MEDIA QUERIES -------------------------------- */
+    @media (max-width: 768px) {
+        .slug-projects-main {
+            padding: 0 10px;
+        }
+
+        .slug-projects-section {
+            padding: 10px;
+        }
     }
 
 </style>

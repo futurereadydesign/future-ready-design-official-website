@@ -40,11 +40,9 @@
 	Er wordt gecheckt of de Story er is, als dat zo is
 	 dan wordt de content van de Story weergegeven door StoryblokComponent 
 -->
-<main>
-	{#if data.story}
-		<StoryblokComponent blok={data.story.content} />
-	{/if}
-</main>
+{#if data.story}
+	<StoryblokComponent blok={data.story.content} />
+{/if}
 
 <style>
 	@import '/src/styles/blog.css';

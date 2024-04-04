@@ -38,8 +38,8 @@
 	<meta name="twitter:image" content="#">
 </svelte:head>
 
-<main class="slug-container">
-  <section class="slug-content">
+<main class="slug-blog-main">
+  <section class="slug-blog-section">
     <picture>
         <a href="https://futureready.design/" target="_blank">
             <img src={data.post.logo} alt={data.post.imageAlt}>
@@ -47,10 +47,10 @@
     </picture>
 
       <!-- Alle data wordt ingeladen -->
-      <article class="slug-article">
-          <img class="centered-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
-          <a href="/blogs" class="blog-link">
-            <span class="link-content">
+      <article class="slug-blog-article">
+          <img class="slug-blog-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
+          <a href="/blogs" class="slug-blog-link">
+            <span class="slug-blog-link-content">
                 <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M11 17.9166L4.58333 11.5L11 5.08329" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -59,10 +59,9 @@
             </span> 
           </a>
 
-          <h1 class="blog-title">{data.post.title}</h1>
-          <p class="blog-date">{data.post.date}</p>
-          <p class="blog-content">{data.post.content}</p>
-          <!-- <p class="blog-copyright">Copyright © {currentYear} Future Ready Design</p> -->
+          <h1 class="slug-blog-title">{data.post.title}</h1>
+          <p class="slug-blog-date">{data.post.date}</p>
+          <p class="slug-blog-content">{data.post.content}</p>
       </article>
   </section>
 </main>
@@ -75,19 +74,19 @@
 </footer>
 
 <style>
-    .slug-container {
+    .slug-blog-main {
         display: flex;
         justify-content: center;
         padding: 0 20px;
     }
 
-    .slug-content {
+    .slug-blog-section {
         max-width: 800px;
         width: 100%;
         padding: 20px;
     }
 
-    .slug-article {
+    .slug-blog-article {
         margin-top: 20px;
         padding: 20px;
         border-radius: 5px;
@@ -128,7 +127,7 @@
         height: 2.5em;
     }
 
-    .centered-image {
+    .slug-blog-image {
         display: block;
         margin: 0 auto; 
         margin-bottom: 2em;
@@ -140,7 +139,7 @@
         display: block;
     }
 
-    .blog-link {
+    .slug-blog-link {
         display: block; 
         bottom: 1em; 
         left: 1em; 
@@ -149,12 +148,12 @@
         /* font-weight: 500; */
     }
 
-    .link-content {
+    .slug-blog-link-content {
         display: inline-flex; 
         align-items: center;
     }
 
-    .link-content:hover {
+    .slug-blog-link-content:hover {
         text-decoration: underline;
     }
 
@@ -165,21 +164,21 @@
         margin-right: 0.2em;
     }
 
-    .blog-title {
+    .slug-blog-title {
         font-size: 2em;
         text-align: left;
     }
 
-    .blog-date {
+    .slug-blog-date {
         margin-top: -3.5rem;
         margin-bottom: 3em;
     }
 
-    .blog-date {
+    .slug-blog-date {
         color: rgba(255, 255, 255, 0.694);
     }
 
-    .blog-content {
+    .slug-blog-content {
         text-align: justify;
         color: rgba(255, 255, 255, 0.694);
     }
@@ -213,11 +212,11 @@
     /* MEDIA QUERIES -------------------------------- */
     /* MEDIA QUERIES -------------------------------- */
     @media (max-width: 768px) {
-        .slug-container {
+        .slug-blog-main {
             padding: 0 10px;
         }
 
-        .slug-content {
+        .slug-blog-section {
             padding: 10px;
         }
     }
