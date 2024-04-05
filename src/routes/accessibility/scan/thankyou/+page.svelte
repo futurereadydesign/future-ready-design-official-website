@@ -14,9 +14,7 @@
 </header>
 
 <main in:fade={{duration: 300}} class="accessibility-confirmation">
-    
-    <!-- <h2>Download het gratis PDF-bestand</h2> -->
-    
+
     <section class="wrapper-large section-block no-borders">
         <div class="section-block-inner">
             <h1 class="wrapper-large">Je rapport is succesvol aangevraagd!</h1>
