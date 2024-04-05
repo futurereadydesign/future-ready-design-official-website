@@ -1203,6 +1203,25 @@ footer > div a:focus-visible {
 }
 
 
+/* ACCESSIBILITY CONFIRMATION */
+.accessibility-confirmation h1 {
+    font-size: 1.95em;
+    text-align: left;
+    margin-bottom: 1em;
+}
+.accessibility-confirmation a {
+    margin-top: 1.5em;
+    width: fit-content;
+}
+
+.accessibility-landing .section-block {
+    margin-top: 6.95em;
+}
+/* .accessibility-landing .section-block .section-block-inner:last-of-type {
+    w
+} */
+
+
 /* ACCESSIBILITY RESULT */
 .accessibility-result section {
     display: none;
