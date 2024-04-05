@@ -17,11 +17,11 @@
 
     <section class="wrapper-large section-block no-borders">
         <div class="section-block-inner">
-            <h1 class="wrapper-large">je rapport is succesvol aangevraagd!</h1>
-            <h2>we nemen spoedig contact met je op</h2>
-            <p>Bedankt voor het versturen van je formulier! <strong>Je kunt dit tabblad nu sluiten</strong>. Het bericht is <strong>succesvol verzonden</strong> en ons team zal zo snel mogelijk contact met je opnemen.</p>
+            <h1 class="wrapper-large">download de checklist!</h1>
+            <h2>word digitaal toegankelijk</h2>
+            <p>Kies de gewenste taal van de <strong>WCAG-checklist</strong> om te downloaden. Ga er mee aan de slag en maak jouw site volledig toegankelijk!</p>
             <div class="button-wrapper">
-                <a href="https://futureready.design/accessibility" class="button button-primary">
+                <!-- <a href="https://futureready.design" class="button button-primary">
                     <span>Nieuwe scan</span>
                     <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_1980_207)">
@@ -37,7 +37,7 @@
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
-                </a>
+                </a> -->
             </div>
             
         </div>
