@@ -325,7 +325,7 @@ let showContactFormButton;
 
 function openOverlay() {
     overlay.classList.add('overlay-active');
-    trapFocus(overlay);
+    // trapFocus(overlay);
 }
 
 function closeOverlay() {

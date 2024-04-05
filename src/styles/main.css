@@ -295,6 +295,7 @@
 
 
 
+
 /* GLOBAL -------------------------------- */
 /* GLOBAL -------------------------------- */
 html {
@@ -344,6 +345,13 @@ body.no-scrollbar::-webkit-scrollbar {
     width: 100px;
     height: auto;
     overflow: hidden;
+}
+
+.no-borders {
+    background: transparent !important;
+}
+.no-borders::before {
+    display: none;
 }
 
 
@@ -1207,19 +1215,31 @@ footer > div a:focus-visible {
 .accessibility-confirmation h1 {
     font-size: 1.95em;
     text-align: left;
-    margin-bottom: 1em;
+    margin-bottom: 0em;
+}
+.accessibility-confirmation h2 {
+    margin: 0.25em 0 1.5em 0;
+    font-size: 1.375em;
+    font-weight: 300;
+    line-height: 125%;
+    color: var(--color-white-75);
 }
 .accessibility-confirmation a {
     margin-top: 1.5em;
     width: fit-content;
 }
 
-.accessibility-landing .section-block {
-    margin-top: 6.95em;
+.button-wrapper {
+    display: flex;
+    gap: 1.11em;
 }
-/* .accessibility-landing .section-block .section-block-inner:last-of-type {
-    w
-} */
+.accessibility-confirmation .section-block .section-block-inner {
+    flex: unset;
+}
+.accessibility-confirmation .section-block .wcag-visual {
+    width: 27.5em;
+}
+
 
 
 /* ACCESSIBILITY RESULT */
