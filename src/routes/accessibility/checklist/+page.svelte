@@ -111,7 +111,10 @@
         .then(data => {
             // console.log('Success:', data);
             wcagNotifySection.classList.add('success');
-            
+
+            // REDIRECT TO EXTERNAL THANKYOU PAGE
+            var thankYouPage = window.location.origin + '/accessibility/checklist/thankyou?succes';
+            window.open(thankYouPage, '_blank');
         })
         .catch((error) => {
             // console.error('Error:', error);

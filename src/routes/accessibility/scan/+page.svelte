@@ -444,6 +444,10 @@ function submitDataToHubspot(event) {
         // console.log('Success:', data);
         expertsNotifySection.classList.add('success');
         expertsOverlaySuccesTitle.textContent = 'Gelukt ' + succesName + '!';
+
+        // REDIRECT TO EXTERNAL THANKYOU PAGE
+        var thankYouPage = window.location.origin + '/accessibility/scan/thankyou?succes';
+        window.open(thankYouPage, '_blank');
     })
     .catch((error) => {
         // console.error('Error:', error);

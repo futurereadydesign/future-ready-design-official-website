@@ -1,6 +1,17 @@
 <script>
     import { fade } from 'svelte/transition';
-    import { onMount, onDestroy } from 'svelte';
+    import { onMount } from 'svelte';
+
+    onMount(() => {
+        if (typeof window !== 'undefined') {
+            if (!(new URLSearchParams(window.location.search).has('succes'))) {
+
+                // REDIRECT TO ACCESSIBILITY PAGE
+                var thankYouPage = window.location.origin + '/accessibility';
+                window.location.replace(thankYouPage);
+            } 
+        }
+    });
 
     // FOOTER YEAR COPYRIGHT --------------------
     let currentYear = new Date().getFullYear();
@@ -42,8 +53,8 @@
             
         </div>
         <div class="section-block-inner wcag-visual">
-            <img src="/assets/content/Accessibility-Checklist-visual.png" alt="Visualisatie 1 van de Future Ready Design WCAG checklist PDF-document.">
-            <img src="/assets/content/Accessibility-Checklist-visual-2.png" alt="Visualisatie 2 van de Future Ready Design WCAG checklist PDF-document.">
+            <img src="/assets/content/Accessibility-Scan-visual.png" alt="Visualisatie 1 van de Future Ready Design WCAG checklist PDF-document.">
+            <img src="/assets/content/Accessibility-Scan-visual-2.png" alt="Visualisatie 2 van de Future Ready Design WCAG checklist PDF-document.">
         </div>
     </section>
 
