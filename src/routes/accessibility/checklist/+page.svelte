@@ -130,8 +130,8 @@
     </header>
 
     <main in:fade={{duration: 300}} class="accessibility-checklist">
-        <h1 class="wrapper-max">Je website <strong>toegankelijk</strong> maken? Gebruik onze <strong>WCAG</strong> checklist</h1>
-        <h2>Download het gratis PDF-bestand</h2>
+        <h1 class="wrapper-max">je website <strong>toegankelijk</strong> maken? Gebruik onze <strong>WCAG</strong> checklist</h1>
+        <h2>download het gratis PDF-bestand</h2>
         
         <section class="wrapper-small">
             <p>De Web Content Accessibility Guidelines <strong>(WCAG)</strong> zijn internationale richtlijnen die digitale content toegankelijk maken voor mensen met <strong>beperkingen</strong>. Ze bevatten <strong>criteria</strong> voor onder andere tekstalternatieven voor afbeeldingen, navigeerbaarheid en kleurcontrast, waardoor websites en apps voor <strong>iedereen</strong> bruikbaar worden.</p>
@@ -165,7 +165,7 @@
         
         <section class="wrapper-max section-block wcag no-overflow">
             <div class="section-block-inner">
-                <h2>Download de WCAG checklist</h2>
+                <h2>download de WCAG checklist</h2>
                 <strong>Zo blijf je ook in de toekomst toegankelijk!</strong>
                 <button on:click={openOverlay} class="button button-secondary">
                     <span>Checklist downloaden</span>
@@ -213,7 +213,7 @@
         <!-- WCAG CHECKLIST OVERLAY -->
         <section bind:this={overlay} class="overlay wcag-overlay">
             <div class="overlay-content">
-                <h2>Zo maak jij jouw website beter (toegankelijk) voor iedereen!</h2>
+                <h2>zo maak jij jouw website beter (toegankelijk) voor iedereen!</h2>
                 <p>Laat je gegevens achter en <strong>download</strong> de WCAG-checklist direct.</p>
 
                 <form on:submit={submitDataToHubspot}>
@@ -251,7 +251,7 @@
                 </button>
                 <div bind:this={wcagNotifySection} class="form-notify">
                     <div class="form-notify-success">
-                        <h3 id=downloadbuttons>Download de checklist.</h3>
+                        <h3 id=downloadbuttons>download de checklist</h3>
                         <p role="alert">Kies de gewenste taal van de WCAG-checklist om te downloaden. Ga er mee aan de slag en maak jouw site toegankelijk!</p>
                         <div class="button-wrapper">
                             <a href="/assets/content/Accessibility-Checklist_Future-Ready-Design.pdf" download="Accessibility-Checklist_Future-Ready-Design.pdf" class="button button-primary downloadbuttonform">
@@ -273,7 +273,7 @@
                         </div>
                     </div>
                     <div class="form-notify-error">
-                        <h3>Ohjee..</h3>
+                        <h3>ohjee..</h3>
                         <p role="alert">De WCAG-checklist kon niet worden gedownload. Probeer het later nog eens, excuses voor het ongemak.</p>
                     </div>
                 </div>

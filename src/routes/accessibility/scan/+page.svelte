@@ -279,7 +279,7 @@ function changeDynamicContent(accessibilityScore) {
     }
 
     // CHANGE CONTENT/TEXT OF ELEMENTS
-    inlineLabel.textContent = 'Bekijk de resultaten van de scan..';
+    inlineLabel.textContent = 'bekijk de resultaten van de scan..';
 
     inlineScore.textContent = accessibilityScore + '% toegankelijk';
     inlineScoreSubtitle.textContent = inlineScoreSubtitleAdvice;
@@ -489,7 +489,7 @@ function submitDataToHubspot(event) {
         <h1 class="wrapper-max">benieuwd hoe <strong>digitaal toegankelijk</strong> jouw website is?</h1>
 
         <form action="/accessibility/scan" method="get" class="url-input">
-            <label bind:this={inlineLabel} for="site-url-input" role="alert">Bezig met scannen van de website..</label>
+            <label bind:this={inlineLabel} for="site-url-input" role="alert">bezig met scannen van de website..</label>
             <input bind:this={scanSiteURLInput} type="text" name="url" id="site-url-input" autocomplete="off" required disabled>
             <a href="/accessibility" class="button button-tertiary">
                 <span>Nieuwe scan</span>
@@ -530,16 +530,16 @@ function submitDataToHubspot(event) {
                 </div>
             </div>
             <div class="section-block-inner">
-                <h2>Toegankelijkheid scan rapport</h2>
+                <h2>toegankelijkheid scan rapport</h2>
                 <strong bind:this={inlineScoreSubtitle}>Onbekend</strong>
                 <p>Volgens onze uitgevoerde scan, is jouw website voor <strong bind:this={inlineScore}>47% toegankelijk</strong>. <span bind:this={inlineScoreText}>Wij adviseren je om spoedig te bekijken hoe je de toegankelijkheid kunt verbeteren.<br></span></p>
                 <ul>
                     <li>
-                        <span>Rapport voor</span>
+                        <span>rapport voor</span>
                         <strong bind:this={inlineURL}>Onbekend</strong>
                     </li>
                     <li>
-                        <span>Status toegankelijkheid</span>
+                        <span>status toegankelijkheid</span>
                         <strong bind:this={inlineStatus}>Onbekend</strong>
                     </li>
                 </ul>
@@ -583,7 +583,7 @@ function submitDataToHubspot(event) {
         <section class="wrapper-max section-block scan-details">
             <div class="section-block-inner-left-right-parent">
                 <div class="section-block-inner-left">
-                    <h2>Details van de scan</h2>
+                    <h2>details van de scan</h2>
                     <strong>Zie de volledige resultaten met mogelijke actiepunten.</strong>
                 </div>
                 <div class="section-block-inner-right">
@@ -631,7 +631,7 @@ function submitDataToHubspot(event) {
         </section>
 
         <section class="wrapper-small scan-cta">
-            <h2>Benieuwd naar het volledige rapport?</h2>
+            <h2>benieuwd naar het volledige rapport?</h2>
             <strong>Vraag vrijblijvend meer informatie aan, wij helpen je graag op weg.</strong>
             <div class="section-block-inner scan-cta-button-wrapper">
                 <ul>
@@ -654,7 +654,7 @@ function submitDataToHubspot(event) {
 
         <section class="wrapper-max section-block no-overflow">
             <div class="section-block-inner">
-                <h2>Download de WCAG checklist</h2>
+                <h2>download de WCAG checklist</h2>
                 <strong>Dit helpt je toegankelijkheid voor eens en voor altijd te waarborgen bij elke toekomstige aanpassing aan je website.</strong>
                 <a href="/accessibility/checklist" class="button button-tertiary">
                     <span>Checklist downloaden</span>
@@ -673,7 +673,7 @@ function submitDataToHubspot(event) {
         </section>
         
         <section class="wrapper-small scan-error">
-            <h2 role="alert">De website kon niet worden gescand..</h2>
+            <h2 role="alert">de website kon niet worden gescand..</h2>
             <strong>Mogelijk is de URL niet juist, probeer het anders later nog eens.</strong>
          </section>
         
@@ -693,7 +693,7 @@ function submitDataToHubspot(event) {
                         <p>We helpen je graag!</p>
                     </li>
                 </ul>
-                <h2>Goed dat je met digitale toegankelijkheid aan de slag gaat!</h2>
+                <h2>goed dat je met digitale toegankelijkheid aan de slag gaat!</h2>
                 <p>Benieuwd naar de verdere resultaten van je rapport? Maak een afspraak voor een vrijblijvend adviesgesprek waarin we dit verder voor je toelichten of laat je gegevens achter! Wij nemen snel contact op om <strong bind:this={overlayURL}>jouw website</strong> 100% toegankelijk te maken.</p>
 
                 <div class="experts-choice">
