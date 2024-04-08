@@ -34,7 +34,7 @@
         <div class="section-block-inner">
             <h1 class="wrapper-large">je gesprek is succesvol ingepland!</h1>
             <h2>we spreken elkaar snel online</h2>
-            <p>Bedankt voor het inplannen van eeen kennismakings-gesprek! <strong>Je kunt dit tabblad nu sluiten</strong>. Bekijk je mail voor de details en datum/tijd.</p>
+            <p>Bedankt voor het inplannen van eeen kennismakings-gesprek! <strong>Je kunt dit tabblad nu sluiten</strong>. Bekijk je mail voor de uitnodiging voor het videogesprek (Google Meet).</p>
             <div class="button-wrapper">
                 <a href="https://futureready.design/accessibility" class="button button-primary">
                     <span>Nieuwe scan</span>
