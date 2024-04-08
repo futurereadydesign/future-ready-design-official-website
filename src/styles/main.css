@@ -306,6 +306,7 @@ body {
     color: var(--color-white);
     font-family: var(--font-outfit);
     font-size: var(--font-size-global);
+    /* test */
     /* background-image: url('/assets/images/branding/future-ready-design_noise.svg'); */
     background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
     transition: background-position 5ms ease;
