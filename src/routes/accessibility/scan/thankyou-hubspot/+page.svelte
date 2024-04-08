@@ -9,7 +9,11 @@
                 // REDIRECT TO ACCESSIBILITY PAGE
                 var thankYouPage = window.location.origin + '/accessibility';
                 window.location.replace(thankYouPage);
-            } 
+            } else {
+                // // AUTOMATIC REDIRECT TO HUBSPOT FORM
+                // var hubspotFormPage = 'https://meetings-eu1.hubspot.com/robbin-jansen/frd-accessibility';
+                // window.open(hubspotFormPage, '_blank');
+            }
         }
     });
 
@@ -28,9 +32,9 @@
 
     <section class="wrapper-large section-block no-borders">
         <div class="section-block-inner">
-            <h1 class="wrapper-large">je rapport is succesvol aangevraagd!</h1>
-            <h2>we nemen spoedig contact met je op</h2>
-            <p>Bedankt voor het versturen van je formulier! <strong>Je kunt dit tabblad nu sluiten</strong>. Het bericht is <strong>succesvol verzonden</strong> en ons team zal zo snel mogelijk contact met je opnemen.</p>
+            <h1 class="wrapper-large">je gesprek is succesvol ingepland!</h1>
+            <h2>we spreken elkaar snel online</h2>
+            <p>Bedankt voor het inplannen van eeen kennismakings-gesprek! <strong>Je kunt dit tabblad nu sluiten</strong>. Bekijk je mail voor de details en datum/tijd.</p>
             <div class="button-wrapper">
                 <a href="https://futureready.design/accessibility" class="button button-primary">
                     <span>Nieuwe scan</span>
