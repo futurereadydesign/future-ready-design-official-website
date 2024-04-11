@@ -174,12 +174,13 @@
     .slug-blog-title {
         font-size: 2em;
         text-align: left;
+        margin-bottom: 1em;
     }
 
     .slug-blog-date {
         color: rgba(255, 255, 255, 0.694);
-        margin-top: -3.5rem;
-        margin-bottom: 3em;
+        margin-top: -1.5em; 
+        margin-bottom: 1em; 
     }
 
     .slug-blog-content {
