@@ -37,26 +37,26 @@
 
 <style>
 	.all-blogs-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-  gap: 1em;
-  margin-bottom: 5em;
-  max-width: 36em;
-  margin: 0 auto;
-  margin-bottom: 4em;
-  place-items: center;
-  justify-content: center;
-}
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+		gap: 1em;
+		margin-bottom: 5em;
+		max-width: 36em;
+		margin: 0 auto;
+		margin-bottom: 4em;
+		place-items: center;
+		justify-content: center;
+	}
 
-.all-blogs-article {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  flex: 1 1 auto;
-}
+	.all-blogs-article {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		flex: 1 1 auto;
+	}
 
-@media (min-width: 768px) {
-  .all-blogs-section {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+	@media (min-width: 768px) {
+		.all-blogs-section {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
 </style>
