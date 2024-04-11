@@ -112,4 +112,41 @@
     margin-top: 0.2em;
     margin-left: 0.5em;
   }
+
+  @media (max-width: 380px) {
+    .card-outer {
+    flex-direction: column; 
+    align-items: center; 
+  }
+  
+  .card {
+    width: 90%; 
+    max-width: none; 
+    height: auto; 
+    margin-bottom: 1.25em; 
+  }
+
+    picture {
+      width: 100%; 
+      height: auto; 
+    }
+
+    .card-image {
+      border-radius: 0.625em; 
+    }
+
+    .card-title {
+      font-size: 1em;
+    }
+
+    .card-date {
+      font-size: 0.9em;
+      margin-bottom: 3em; 
+    }
+
+    .card-link {
+      bottom: 1em; 
+      left: 1em; 
+    }
+  }
 </style>
