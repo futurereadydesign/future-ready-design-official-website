@@ -10,31 +10,39 @@
     // Exporteer de slug voor de meta data
     export let slug;
 
-    // Voor de meta data
+    /* Meta data */
     let pageTitle = data.post.title;
-    let pageDescription = data.post.content;
-    let thumbnailUrl = data.post.image;
+    let pageDescription = data.post.metaDescription;
+    let thumbnailUrl = data.post.metaImage;
+
+    // Facebook
+    let fbPageDescription = data.post.fbMetaDescription;
+    let fbThumbnailUrl = data.post.fbMetaImage;
+
+    // Twitter
+    let twitterPageDescription = data.post.twitterMetaDescription;
+    let twitterThumbnailUrl = data.post.twitterMetaImage;
 </script>
 
 <!-- Laat de juiste titel zien en geef de meta data mee wanneer de pagina wordt gedeeld -->
 <svelte:head>
     <meta name="title" content="{pageTitle} | Future Ready Design">
-    <meta name="description" content="#">
-    <meta property="og:image" content="#">
+    <meta name="description" content="{pageDescription}">
+    <meta property="og:image" content="{thumbnailUrl}">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://www.futureready.design/projects/{slug}">
+	<meta property="og:url" content="https://www.futureready.design/blogs/{slug}">
 	<meta property="og:title" content="{pageTitle} | Future Ready Design">
-	<meta property="og:description" content="#">
-	<meta property="og:image" content="#">
+	<meta property="og:description" content="{fbPageDescription}">
+	<meta property="og:image" content="{fbThumbnailUrl}">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://www.futureready.design/projects/{slug}">
+	<meta name="twitter:url" content="https://www.futureready.design/blogs/{slug}">
 	<meta name="twitter:title" content="{pageTitle} | Future Ready Design">
-	<meta name="twitter:description" content="#">
-	<meta name="twitter:image" content="#">
+	<meta name="twitter:description" content="{twitterPageDescription}">
+	<meta name="twitter:image" content="{twitterThumbnailUrl}">
 </svelte:head>
 
 <main class="slug-projects-main">

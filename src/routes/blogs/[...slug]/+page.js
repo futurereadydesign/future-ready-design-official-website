@@ -20,8 +20,12 @@ export async function load({ parent, params }) {
     // De meta data wat uit Storyblok wordt gehaald
     const metaDescription = data.story.content.meta_description || '';
     const metaImage = data.story.content.meta_image || '';
+
+    // Facebook
     const fbMetaDescription = data.story.content.fb_meta_description || '';
     const fbMetaImage = data.story.content.fb_meta_image || '';
+
+    // Twitter
     const twitterMetaDescription = data.story.content.twitter_meta_description || '';
     const twitterMetaImage = data.story.content.twitter_meta_image || '';
 
