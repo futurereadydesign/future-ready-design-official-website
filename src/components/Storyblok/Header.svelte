@@ -15,7 +15,7 @@
     </picture>
 
     <!-- Toon de title van het blok -->
-    <h1 class="header-title" use:storyblokEditable={blok}>
+    <h1 class="wrapper-max" use:storyblokEditable={blok}>
         {blok.title} 
     </h1>
 
@@ -70,10 +70,16 @@
 
     /* HEADINGS & PARAGRAPHS -------------------------------- */
     /* HEADINGS & PARAGRAPHS -------------------------------- */
-    .header-title {
+    /* .header-title {
         font-size: 4.5em;
         max-width: 70%;
         margin: 0 auto; 
+    } */
+
+    .wrapper-max {
+        margin: 0 auto;
+        max-width: 1200px;
+        width: 100%;
     }
 
     .header-subtitle {
@@ -107,5 +113,47 @@
 
     p:not(:first-of-type) {
         margin-top: 1.4em;
+    }
+
+    @media screen and (max-width: 1250px) {
+        h1 {
+            font-size: 3em;
+            margin-bottom: 1em;
+        }
+        h2 {
+            font-size: 1.65em;
+        }
+        .wrapper-max {
+            width: calc(100% - 5em);
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        h1 {
+            font-size: 2.5em;
+        }
+        h2 {
+            font-size: 1.35em;
+        }
+        .wrapper-max {
+            width: calc(100% - 4.5em);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        :root {
+            --font-size-global: 16px;
+            --filter-blur: 50px;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+        h2 {
+            font-size: 1.45em;
+        }
+        .wrapper-max {
+            width: calc(100% - 2em);
+        }
     }
 </style>
