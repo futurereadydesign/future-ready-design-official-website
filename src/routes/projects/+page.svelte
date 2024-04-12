@@ -1,4 +1,7 @@
 <script>
+	// Importeer het juiste css bestand
+	import '/src/styles/global.css';
+	
 	// Importeer Storyblok binnen Sveltekit om de functies te kunnen gebruiken
 	// en content te kunnen integreren 
 	import { onMount } from 'svelte';
@@ -42,7 +45,3 @@
 {#if data.story}
 	<StoryblokComponent blok={data.story.content} />
 {/if}
-
-<style>
-	@import '/src/styles/blog.css';
-</style>

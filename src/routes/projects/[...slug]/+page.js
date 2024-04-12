@@ -21,14 +21,6 @@ export async function load({ parent, params }) {
     const metaDescription = data.story.content.meta_description || '';
     const metaImage = data.story.content.meta_image || '';
 
-    // Facebook
-    const fbMetaDescription = data.story.content.fb_meta_description || '';
-    const fbMetaImage = data.story.content.fb_meta_image || '';
-
-    // Twitter
-    const twitterMetaDescription = data.story.content.twitter_meta_description || '';
-    const twitterMetaImage = data.story.content.twitter_meta_image || '';
-  
     // De code returnt een object met alle waardes van de blogpost
     return {
         post: {
@@ -41,11 +33,7 @@ export async function load({ parent, params }) {
             link: link,
             // De meta data wat uit Storyblok wordt gehaald
             metaDescription: metaDescription,
-            metaImage: metaImage,
-            fbMetaDescription: fbMetaDescription,
-            fbMetaImage: fbMetaImage,
-            twitterMetaDescription: twitterMetaDescription,
-            twitterMetaImage: twitterMetaImage
+            metaImage: metaImage
         }
     };
   }

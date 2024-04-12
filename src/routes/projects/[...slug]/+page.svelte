@@ -14,14 +14,6 @@
     let pageTitle = data.post.title;
     let pageDescription = data.post.metaDescription;
     let thumbnailUrl = data.post.metaImage;
-
-    // Facebook
-    let fbPageDescription = data.post.fbMetaDescription;
-    let fbThumbnailUrl = data.post.fbMetaImage;
-
-    // Twitter
-    let twitterPageDescription = data.post.twitterMetaDescription;
-    let twitterThumbnailUrl = data.post.twitterMetaImage;
 </script>
 
 <!-- Laat de juiste titel zien en geef de meta data mee wanneer de pagina wordt gedeeld -->
@@ -34,15 +26,15 @@
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.futureready.design/blogs/{slug}">
 	<meta property="og:title" content="{pageTitle} | Future Ready Design">
-	<meta property="og:description" content="{fbPageDescription}">
-	<meta property="og:image" content="{fbThumbnailUrl}">
+	<meta property="og:description" content="{pageDescription}">
+	<meta property="og:image" content="{thumbnailUrl}">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:url" content="https://www.futureready.design/blogs/{slug}">
 	<meta name="twitter:title" content="{pageTitle} | Future Ready Design">
-	<meta name="twitter:description" content="{twitterPageDescription}">
-	<meta name="twitter:image" content="{twitterThumbnailUrl}">
+	<meta name="twitter:description" content="{pageDescription}">
+	<meta name="twitter:image" content="{thumbnailUrl}">
 </svelte:head>
 
 <main class="slug-projects-main">

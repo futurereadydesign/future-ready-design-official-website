@@ -120,7 +120,7 @@
   }
   
   .card {
-    width: 90%; 
+    width: 100%; 
     max-width: none; 
     height: auto; 
     margin-bottom: 1.25em; 
