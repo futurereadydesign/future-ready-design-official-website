@@ -1,6 +1,9 @@
 <script>
     /** @type {import('./$types').PageData} */
 
+    // Importeer het juiste css bestand
+    import '/src/styles/global.css';
+
     // Laat het juiste jaartal zien voor de copyright
     let currentYear = new Date().getFullYear();
 
@@ -73,7 +76,6 @@
 </footer>
 
 <style>
-    @import '/src/styles/blog.css';
     .slug-blog-main {
         display: flex;
         justify-content: center;

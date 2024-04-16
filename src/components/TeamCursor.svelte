@@ -1,44 +1,66 @@
 <script>
-    let isMouseInside = false;
+    // let isMouseInside = false;
 
-    function handleMouseEnter() {
-        const section = document.getElementById('cursor-effect');
-        const svg = document.getElementById('you');
-        
-        // Verander de cursor in de SVG
-        section.style.cursor = `url('data:image/svg+xml;utf8,${encodeURIComponent(svg.outerHTML)}'), auto`;
-        // Stop de animatie
-        svg.style.animationPlayState = 'paused';
-        isMouseInside = true;
-    }
-
-    function handleMouseLeave() {
-        const section = document.getElementById('cursor-effect');
-        const svg = document.getElementById('you');
-        
-        // Verander de cursor terug naar de standaard
-        section.style.cursor = 'auto';
-        // Start de animatie als de muis buiten de sectie is
-        if (!isMouseInside) {
-            svg.style.animationPlayState = 'running';
+    let requestId;
+    function getCursor(event) {
+        if (requestId) {
+            cancelAnimationFrame(requestId);
         }
+        requestId = requestAnimationFrame(() => {
+            let x = event.clientX;
+            let y = event.clientY;
+
+            const infoElement = document.getElementById('you-card');
+            infoElement.style.top = y + "px";
+            infoElement.style.left = (x + 20) + "px";
+        });
     }
 
-    function handleSvgMouseEnter() {
-        isMouseInside = true;
-    }
+//     function handleMouseEnter() {
+//     console.log("Mouse entered section");
+//     const section = document.getElementById('cursor-effect');
+//     const svg = document.getElementById('you');
+    
+//     // Verander de cursor in de SVG
+//     section.style.cursor = `url('data:image/svg+xml;utf8,${encodeURIComponent(svg.outerHTML)}'), auto`;
+//     // Stop de animatie
+//     svg.style.animationPlayState = 'paused';
+//     isMouseInside = true;
+// }
 
-    function handleSvgMouseLeave() {
-        const svg = document.getElementById('you');
-        isMouseInside = false;
-        // Start de animatie als de muis buiten de SVG is
-        svg.style.animationPlayState = 'running';
-    }
+// function handleMouseLeave() {
+//     console.log("Mouse left section");
+//     const section = document.getElementById('cursor-effect');
+//     const svg = document.getElementById('you');
+    
+//     // Verander de cursor terug naar de standaard
+//     section.style.cursor = 'auto';
+//     // Start de animatie als de muis buiten de sectie is
+//     if (!isMouseInside) {
+//         svg.style.animationPlayState = 'running';
+//     }
+// }
+
+// function handleSvgMouseEnter() {
+//     console.log("Mouse entered SVG");
+//     isMouseInside = true;
+// }
+
+// function handleSvgMouseLeave() {
+//     console.log("Mouse left SVG");
+//     const svg = document.getElementById('you');
+//     isMouseInside = false;
+//     // Start de animatie als de muis buiten de SVG is
+//     svg.style.animationPlayState = 'running';
+// }
 </script>
 
-<section id="cursor-effect"on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave}>
+<section id="cursor-effect" on:mousemove={getCursor}>
+
+    <div id="you-card"><p>You?</p></div>
+
     <h2>we are driven by the goal of empowering individuals and organisations with human-first design.</h2>
-    <div></div>
+    <div class="underline"></div>
 
     <!-- YOU -->
     <svg id="you" width="379" height="337" viewBox="0 0 379 337" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -393,12 +415,29 @@
 </section>
 
 <style lang="scss">
-    div {
-        margin-top: 10em;
-    }
-
-    section {
+    #cursor-effect {
         margin-top: 13em;
+        cursor: none;
+
+        #you-card {
+            display: flex; 
+            align-items: center;
+
+            padding: 5px; 
+            border-radius: 7.5px; 
+            position: absolute;
+            user-select: none;
+            width: 80px; 
+            height: 1.9em; 
+            background-image: linear-gradient(to right, #21DBD0, #86e1db, #9cf3ed); 
+
+            p {
+                color: #000000;
+                text-align: center;
+                width: 100%; 
+                font-weight: 600;
+            }
+        }
 
         h2 {
             text-align: center;
@@ -408,7 +447,7 @@
             display: block; 
         }
 
-        div {
+        .underline {
             position: relative;
             width: 17em;
             height: 0.125em;
@@ -416,6 +455,7 @@
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #21DBD0, white);
             margin: 0 auto;
             border-radius: 1em;
+            z-index: -1;
         }
 
         svg {
@@ -425,45 +465,45 @@
         #you {
             display: block;
             margin: -25em auto; 
-            animation: YouAnimation 8s ease-in-out infinite alternate;
+            // animation: YouAnimation 8s ease-in-out infinite alternate;
         }
         .douwe {
             position: absolute;
             left: 22%; 
             top: 25%; 
             transform: translateY(-50%); 
-            animation: DouweAnimation 6s ease-in-out infinite alternate;
+            // animation: DouweAnimation 6s ease-in-out infinite alternate;
         }
         .mark {
             position: absolute;
             right: 10%; 
             top: 50%; 
             transform: translateY(-50%); 
-            animation: MarkAnimation 9s ease-in-out infinite alternate;
+            // animation: MarkAnimation 9s ease-in-out infinite alternate;
         }
         .robbin {
             position: absolute;
             left: 15%; 
             bottom: 25%; 
-            animation: RobbinAnimation 7s ease-in-out infinite alternate;
+            // animation: RobbinAnimation 7s ease-in-out infinite alternate;
         }
         .rowin {
             position: absolute;
             right: 18%;
             top: 10%;
-            animation: RowinAnimation 5s ease-in-out infinite alternate;
+            // animation: RowinAnimation 5s ease-in-out infinite alternate;
         }
         .tyco {
             position: absolute;
             left: 35%;
             bottom: 10%;
-            animation: TycoAnimation 10s ease-in-out infinite alternate;
+            // animation: TycoAnimation 10s ease-in-out infinite alternate;
         }
         .yunus {
             position: absolute;
             right: 22%;
             bottom: 15%;
-            animation: YunusAnimation 7s ease-in-out infinite alternate;
+            // animation: YunusAnimation 7s ease-in-out infinite alternate;
         }
     }
 
