@@ -6,6 +6,7 @@
     --font-size-global: 20px;
 
     --wrapper-max-width: 1200px;
+    --wrapper-large-width: 1050px;
     --wrapper-medium-width: 750px;
     --wrapper-small-width: 600px;
 
@@ -332,6 +333,11 @@ body.no-scrollbar::-webkit-scrollbar {
     max-width: var(--wrapper-max-width);
     width: 100%;
 }
+.wrapper-large {
+    margin: 0 auto;
+    max-width: var(--wrapper-large-width);
+    width: 100%;
+}
 .wrapper-small {
     margin: 0 auto;
     max-width: var(--wrapper-small-width);
@@ -358,14 +364,14 @@ body.no-scrollbar::-webkit-scrollbar {
 
 /* PARAGRAPHS AND HEADINGS */
 h1 {
-    font-size: 4.15em;
+    font-size: 4em;
     font-weight: 700;
     line-height: 125%;
     text-align: center;
     margin-bottom: 4.165rem;
 }
 h2 {
-    font-size: 1.95em;
+    font-size: 1.85em;
     font-weight: 600;
     line-height: 125%;
     margin-bottom: 0.15em;
@@ -491,6 +497,20 @@ strong {
 .button-tertiary > svg path {
     stroke: var(--color-white);
 }
+.button-quaternary {
+    padding: 0;
+    gap: 0.5em;
+    height: fit-content;
+    background-color: transparent;
+    color: var(--color-white);
+}
+.button-quaternary > span::after {
+    display: none;
+}
+.button-quaternary > svg path {
+    stroke: var(--color-white);
+}
+
 .button-icon-only {
     padding: 0.25em;
     border-radius: 0;
@@ -509,6 +529,18 @@ strong {
 .button-icon-only > svg {
     height: 1.75em;
     width: 1.75em;
+}
+/* LINK */
+.link {
+    color: var(--color-white);
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline
+}
+.link:focus-visible {
+    color: var(--color-lightblue);
+    text-decoration: underline
 }
 
 /* OVERLAY */
