@@ -73,7 +73,7 @@
 </footer>
 
 <style>
-    @import '/src/styles/blog.css';
+    /* @import '/src/styles/blog.css'; */
     .slug-blog-main {
         display: flex;
         justify-content: center;
