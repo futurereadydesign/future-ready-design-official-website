@@ -3,9 +3,11 @@
     import '/src/styles/global.css';
 
     // Importeer het juiste component. In dit geval TeamCursor.svelte
-    import TeamCursor from '/src/components/Nav.svelte'
+    import Nav from '/src/components/Nav.svelte'
+    import OurStory from '/src/components/OurStory.svelte'
 
 </script>
 
 <!-- Laat het juiste component zien op de pagina -->
-<TeamCursor/>
+<Nav/>
+<OurStory/>
