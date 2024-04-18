@@ -491,6 +491,19 @@ strong {
 .button-tertiary > svg path {
     stroke: var(--color-white);
 }
+.button-quaternary {
+    padding: 0;
+    gap: 0.5em;
+    height: fit-content;
+    background-color: transparent;
+    color: var(--color-white);
+}
+.button-quaternary > span::after {
+    display: none;
+}
+.button-quaternary > svg path {
+    stroke: var(--color-white);
+}
 .button-icon-only {
     padding: 0.25em;
     border-radius: 0;
