@@ -6,6 +6,7 @@
     --font-size-global: 20px;
 
     --wrapper-max-width: 1200px;
+    --wrapper-large-width: 1050px;
     --wrapper-medium-width: 750px;
     --wrapper-small-width: 600px;
 
@@ -523,6 +524,19 @@ strong {
     height: 1.75em;
     width: 1.75em;
 }
+/* LINK */
+.link {
+    color: var(--color-white);
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline
+}
+.link:focus-visible {
+    color: var(--color-lightblue);
+    text-decoration: underline
+}
+
 
 /* OVERLAY */
 .overlay {
