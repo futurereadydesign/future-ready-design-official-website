@@ -20,9 +20,9 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: #FFFFFF;
+  align-items: left;
+  text-align: left;
+  color: var(white);
 
   .story-image {
     max-width: 100%;
@@ -32,28 +32,34 @@
 
   .story-title {
     font-size: 20px;
+    font-weight: 200;
     margin-top: 20px;
     opacity: 50%;
+    margin-left: 1em;
   }
 
   .story-text {
     margin-top: 10px;
     font-size: 35px;
+    max-width: 12em;
+    margin-left: .5em;
   }
 
   .story-button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.25);
     color: #fff;
-    border: none;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: 1em;
 
     &:hover {
-      background-color: #0056b3;
+      background-color: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(0, 0, 0, 0.35);
     }
   }
 
