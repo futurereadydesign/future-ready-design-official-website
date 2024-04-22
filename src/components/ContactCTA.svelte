@@ -87,7 +87,7 @@
                     Future Ready Design B.V.<br>
                     Raadhuisstraat 22,<br>
                     1016DE Amsterdam
-                </li>
+                </li> 
             </ul>
         </div>
         
