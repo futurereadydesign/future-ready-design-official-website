@@ -333,6 +333,11 @@ body.no-scrollbar::-webkit-scrollbar {
     max-width: var(--wrapper-max-width);
     width: 100%;
 }
+.wrapper-large {
+    margin: 0 auto;
+    max-width: var(--wrapper-large-width);
+    width: 100%;
+}
 .wrapper-small {
     margin: 0 auto;
     max-width: var(--wrapper-small-width);

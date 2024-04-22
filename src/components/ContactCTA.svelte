@@ -12,7 +12,7 @@
                 <fieldset>
                     <legend><span class="accessibility-hide">Personal information</span></legend>
                     <label for="contact-name">Name</label>
-                    <input type="text" id="contact-name" name="name" placeholder="What is your name?" bind:this={contactInputName} required>
+                    <input type="text" id="contact-name" name="name" placeholder="What is your name?" bind:this={contactInputName}  required>
                 </fieldset>
                 <fieldset>
                     <legend><span class="accessibility-hide">Mail information</span></legend>
@@ -34,7 +34,7 @@
                             <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <a href="#" class="button button-quaternary">
+                    <a href="/support" class="button button-quaternary">
                         <span>Or submit a support ticket</span>
                         <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -184,6 +184,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 1.11em;
+                width: 100%;
                 
                 fieldset {
                     position: relative;
@@ -214,6 +215,7 @@
                     }
                     textarea {
                         min-height: 7.5em;
+                        resize: none; 
                     }
                     input:hover,
                     textarea:hover {
@@ -301,7 +303,38 @@
     let contactInputEmail;
     let contactInputMessage;
 
+
+    function onKeyInputContactName(event){
+        
+        if (contactInputName.value != '') {
+                console.log("niet leeg");
+                
+                // increaseHyperSpeed();
+        } else {
+            console.log("leeg");
+        }
+    }
+
+
     // HYPERDRIVE ANIMATION / INTERACTION BUTTON --------------------
+    // onMount(() => {
+    //     if (typeof window !== 'undefined') {
+    //         scanForm.addEventListener('keydown', contactInputMessageKeyInput);
+    //     }
+    // });
+
+    // onDestroy(() => {
+    //     if (typeof window !== 'undefined') {
+    //         scanForm.removeEventListener('keydown', handleEnterKey);
+    //     }
+    // });
+
+    let contactFilledInInputsAmount = 0;
+    let nameInputIsEmpty = true;
+    let emailInputIsEmpty = true;
+    let messageInputIsEmpty = true;
+
+
     onMount(() => {
 
         // getInTouchCTA.addEventListener('mouseover', function() {
@@ -312,7 +345,7 @@
         //     getInTouchSection.classList.remove('hovering');
         // });
 
-
+        
 
 
         // CANVAS HYPERDRIVE ANIMATION
@@ -539,48 +572,45 @@
             if(w !== innerWidth || h !== innerHeight){
             resizeCanvas();
             }
-            // if mouse down then go to hyper speed
-            // if(mouse.button){
-            //     if(hyperSpeed < 1.75){
-            //         hyperSpeed += 0.01;
-            //     }
-            // }else{
-            //     if(hyperSpeed > 1.01){
-            //         hyperSpeed -= 0.01;
-            //     }else if(hyperSpeed > 1.001){
-            //         hyperSpeed -= 0.001;
-            //     }
-            // }
-            getInTouchCTA.addEventListener('mouseover', function() {
-                if(hyperSpeed < 1.75){
-                    hyperSpeed += 0.00005;
-                } 
-            });
-
-            // getInTouchCTA.addEventListener('mouseout', function() {
-            //     if (hyperSpeed > 1.01){
-            //         hyperSpeed -= 0.01;
-            //     } else if(hyperSpeed > 1.001){
-            //         hyperSpeed -= 0.001;
-            //     }
-            // });
+  
             
 
-            // CHANGE ANIMATION SPEED BASED ON FORM PROGRESS
-            function onKeyInput(event){
-                console.log("Test");
-                
-                let contactInputNameValue = contactInputName.value;
-                console.log(contactInputNameValue);
-                // let urlStatus = isValidURL(userInputURL);
+            // CHANGE ANIMATION SPEED BASED ON FORM PROGRESS -----------------------
+        
+            // CONTACT INPUT NAME 
+            contactInputName.addEventListener('keyup', function() {
+                if (contactInputName.value != '') {   
+                    nameInputIsEmpty = false;            
+                } else {
+                    nameInputIsEmpty = true;
+                }
+                changeFIlledInInputsAmount();
+            });
 
+            // CONTACT INPUT EMAIL 
+            contactInputEmail.addEventListener('keyup', function() {
+                if (contactInputEmail.value != '') {   
+                    emailInputIsEmpty = false;               
+                } else {
+                    emailInputIsEmpty = true;
+                }
+                changeFIlledInInputsAmount();
+            });
 
-                // console.log(isValidURL(userInputURL));
-            }
+            // MESSAGE INPUT EMAIL 
+            contactInputMessage.addEventListener('keyup', function() {
+                if (contactInputMessage.value != '') {   
+                    messageInputIsEmpty = false;               
+                } else {
+                    messageInputIsEmpty = true;
+                }
+                changeFIlledInInputsAmount();
+            });
 
-            // if (this.value == '' || this.value == this.defaultValue) {
-            //     // value is empty or is default value
-            // }
+            
+        
+
+  
             
 
             
@@ -634,9 +664,49 @@
   
             requestAnimationFrame(loop);
         }
-        requestAnimationFrame(loop);
+        requestAnimationFrame(loop);    
+
+
+
+        // CHECK AMOUNT OF FILLED INPUTS
+       function changeFIlledInInputsAmount() {
+            if ((nameInputIsEmpty == false) && (emailInputIsEmpty == false) && (messageInputIsEmpty == false)) {
+                contactFilledInInputsAmount = 3;
+            } else if (((nameInputIsEmpty == false) && (emailInputIsEmpty == false)) || ((nameInputIsEmpty == false) && (messageInputIsEmpty == false)) || ((emailInputIsEmpty == false) && (messageInputIsEmpty == false))) {
+                contactFilledInInputsAmount = 2;
+            } else if (((nameInputIsEmpty == false)) || ((emailInputIsEmpty == false)) || ((messageInputIsEmpty == false))) {
+                contactFilledInInputsAmount = 1;
+            } else {
+                contactFilledInInputsAmount = 0;
+            }
+            changeHyperSpeed();
+        }
+
+        // CHANGE HYPERSPEED BASED ON FILLED IN INPUTS
+        function changeHyperSpeed() {
+            if (contactFilledInInputsAmount >= 3) {
+                contactFilledInInputsAmount = 3;
+                hyperSpeed = 1.031;
+            } else if (contactFilledInInputsAmount == 2) {
+                hyperSpeed = 1.021;
+            } else if (contactFilledInInputsAmount == 1) {
+                hyperSpeed = 1.011;
+            } else if (contactFilledInInputsAmount <= 0) {
+                contactFilledInInputsAmount = 0;
+                hyperSpeed = 1.001;
+            }
+
+            console.log(contactFilledInInputsAmount + ' inputs');
+            console.log(hyperSpeed);
+        }
+        
 
 
     });
+
+
+       
+
+    
 
 </script>

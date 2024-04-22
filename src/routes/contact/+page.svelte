@@ -5,6 +5,7 @@
 
     // Importeer de juiste componenten. 
     import ContactCTA from '/src/components/contactCTA.svelte';
+    import TeamCursor from '/src/components/TeamCursor.svelte';
 
 </script>
 
@@ -17,3 +18,4 @@
 
 
 <ContactCTA/>
+<!-- <TeamCursor/> -->
