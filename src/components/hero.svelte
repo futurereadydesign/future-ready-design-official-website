@@ -75,6 +75,8 @@
                     z-index: -5;
                     will-change: transform;
                     opacity: 0;
+                    bottom: 50%;
+                    transform: translateY(50%);
                 }
             }
             div::before,
