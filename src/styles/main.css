@@ -510,7 +510,6 @@ strong {
 .button-quaternary > svg path {
     stroke: var(--color-white);
 }
-
 .button-icon-only {
     padding: 0.25em;
     border-radius: 0;
