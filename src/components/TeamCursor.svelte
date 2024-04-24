@@ -57,6 +57,7 @@
 
 <section id="cursor-effect" on:mousemove={getCursor}>
 
+    <div class="you-cursor"></div>
     <div id="you-card"><p>You?</p></div>
 
     <h2>we are driven by the goal of empowering individuals and organisations with human-first design.</h2>

@@ -28,7 +28,7 @@
     <!-- Voeg een link toe naar de blogpost door gebruik te maken van de slug -->
     <a href="/{slug}" use:storyblokEditable={blog} class="card-link">
       <span class="card-link-content">
-        Kom meer te weten 
+        Learn more 
         <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
