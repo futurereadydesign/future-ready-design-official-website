@@ -150,6 +150,23 @@
         /* font-weight: 500; */
     }
 
+    .slug-blog-link::after {
+        content: '';
+        position: absolute;
+        left: 23.6em;
+        top: 31em;
+        height: calc(2% + 2em);
+        width: calc(10% + 5em);
+        border: var(--border-width) solid var(--color-white);
+        border-radius: 1.15em;
+        z-index: -1;
+        opacity: 0;
+        transition: 250ms opacity;
+    }
+    .slug-blog-link:focus-visible::after {
+        opacity: 1;
+    }
+
     .slug-blog-link-content {
         display: inline-flex; 
         align-items: center;

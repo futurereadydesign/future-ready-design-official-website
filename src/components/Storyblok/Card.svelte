@@ -97,6 +97,23 @@
     /* font-weight: 500; */
   }
 
+  .card-link::after {
+    content: '';
+    position: absolute;
+    left: -1em;
+    top: -1em;
+    height: calc(90% + 2.2em);
+    width: calc(90% + 2.5em);
+    border: var(--border-width) solid var(--color-white);
+    border-radius: 1.15em;
+    z-index: -1;
+    opacity: 0;
+    transition: 250ms opacity;
+  }
+  .card-link:focus-visible::after {
+      opacity: 1;
+  }
+
   .card-link-content {
     display: inline-flex; 
     align-items: center;
