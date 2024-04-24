@@ -49,7 +49,7 @@
     position: relative; 
     display: flex; 
     flex-direction: column;
-    word-spacing: 0.1em;
+    /* word-spacing: 0.1em; */
     background-color: #ffffff13;
     border-radius: 10px; 
     padding: 1em;

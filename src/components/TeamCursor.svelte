@@ -16,6 +16,8 @@
         });
     }
 
+    
+
 //     function handleMouseEnter() {
 //     console.log("Mouse entered section");
 //     const section = document.getElementById('cursor-effect');
@@ -57,7 +59,6 @@
 
 <section id="cursor-effect" on:mousemove={getCursor}>
 
-    <div class="you-cursor"></div>
     <div id="you-card"><p>You?</p></div>
 
     <h2>we are driven by the goal of empowering individuals and organisations with human-first design.</h2>
@@ -470,44 +471,69 @@
         }
         .douwe {
             position: absolute;
-            left: 22%; 
-            top: 25%; 
+            left: 25%; //22%
+            top: 40%; // 25%
             transform: translateY(-50%); 
-            // animation: DouweAnimation 6s ease-in-out infinite alternate;
+            animation-delay: 2s;
+            animation-duration: 3s; 
+            animation-timing-function: linear; 
+            animation-fill-mode: forwards; 
+            animation-name: DouweAnimation; 
         }
         .mark {
             position: absolute;
-            right: 10%; 
-            top: 50%; 
+            right: 25%; //10%
+            top: 45%; //50%
             transform: translateY(-50%); 
-            // animation: MarkAnimation 9s ease-in-out infinite alternate;
+            animation-delay: 2s; 
+            animation-duration: 3s; 
+            animation-timing-function: linear; 
+            animation-fill-mode: forwards; 
+            animation-name: MarkAnimation;
         }
         .robbin {
             position: absolute;
-            left: 15%; 
-            bottom: 25%; 
-            // animation: RobbinAnimation 7s ease-in-out infinite alternate;
+            left: 35%; //15%
+            bottom: 40%; //25%
+            animation-delay: 2s; 
+            animation-duration: 3s; 
+            animation-timing-function: linear; 
+            animation-fill-mode: forwards; 
+            animation-name: RobbinAnimation;
         }
         .rowin {
             position: absolute;
-            right: 18%;
-            top: 10%;
-            // animation: RowinAnimation 5s ease-in-out infinite alternate;
+            right: 32%; //18%
+            top: 20%; //10%
+            animation-delay: 2s; 
+            animation-duration: 3s; 
+            animation-timing-function: linear; 
+            animation-fill-mode: forwards; 
+            animation-name: RowinAnimation;
         }
         .tyco {
             position: absolute;
-            left: 35%;
-            bottom: 10%;
-            // animation: TycoAnimation 10s ease-in-out infinite alternate;
+            left: 35%; //35%
+            bottom: 30%; //10%
+            animation-delay: 2s; 
+            animation-duration: 3s; 
+            animation-timing-function: linear; 
+            animation-fill-mode: forwards; 
+            animation-name: TycoAnimation;
         }
         .yunus {
             position: absolute;
-            right: 22%;
-            bottom: 15%;
-            // animation: YunusAnimation 7s ease-in-out infinite alternate;
+            right: 33%; //22%
+            bottom: 30%; //15%
+            animation-delay: 2s;
+            animation-duration: 3s; 
+            animation-timing-function: linear; 
+            animation-fill-mode: forwards; 
+            animation-name: YunusAnimation;
         }
     }
 
+    // Animaties
     @keyframes YouAnimation {
         0% {
             transform: translate(0, 0); 
@@ -528,37 +554,21 @@
 
     @keyframes DouweAnimation {
         0% {
-            transform: translate(0, 0);
-        }
-        25% {
-            transform: translate(30px, 70px);
-        }
-        50% {
-            transform: translate(-45px, 35px);
-        }
-        75% {
-            transform: translate(60px, -12.5px);
+            transform: translateY(-50%);
         }
         100% {
-            transform: translate(0, 0);
+            left: 22%; 
+            top: 25%; 
         }
     }
 
     @keyframes MarkAnimation {
         0% {
-            transform: translateX(0);
-        }
-        25% {
-            transform: translateX(50px);
-        }
-        50% {
-            transform: translateX(100px);
-        }
-        75% {
-            transform: translateX(120px);
+            transform: translateY(-50%);
         }
         100% {
-            transform: translateX(130px);
+            right: 10%; 
+            top: 50%; 
         }
     }
 
@@ -566,71 +576,39 @@
         0% {
             transform: translateY(0) translateX(0);
         }
-        25% {
-            transform: translateY(-50px) translateX(50px);
-        }
-        50% {
-            transform: translateY(0) translateX(100px);
-        }
-        75% {
-            transform: translateY(50px) translateX(50px);
-        }
         100% {
-            transform: translateY(0) translateX(0);
+            left: 15%; 
+            bottom: 25%; 
         }
     }
 
     @keyframes RowinAnimation {
         0% {
-            transform: translateY(0);
-        }
-        25% {
-            transform: translateY(-50px);
-        }
-        50% {
-            transform: translateY(0);
-        }
-        75% {
-            transform: translateY(-50px);
+            transform: translateY(0) translateX(0);
         }
         100% {
-            transform: translateY(0);
+            right: 18%; 
+            top: 10%; 
         }
     }
 
     @keyframes TycoAnimation {
         0% {
-            transform: translate(0, 0);
-        }
-        25% {
-            transform: translate(-50px, -50px);
-        }
-        50% {
-            transform: translate(-100px, -100px);
-        }
-        75% {
-            transform: translate(-150px, -150px);
+            transform: translateY(0) translateX(0);
         }
         100% {
-            transform: translate(-200px, -200px);
+            left: 35%; 
+            bottom: 15%; 
         }
     }
 
     @keyframes YunusAnimation {
         0% {
-            transform: translateY(0);
-        }
-        25% {
-            transform: translateY(-25px);
-        }
-        50% {
-            transform: translateY(0);
-        }
-        75% {
-            transform: translateY(25px);
+            transform: translateY(0) translateX(0);
         }
         100% {
-            transform: translateY(0);
+            right: 22%; 
+            bottom: 15%; 
         }
     }
 </style>

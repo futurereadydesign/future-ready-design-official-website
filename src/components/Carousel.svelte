@@ -57,8 +57,7 @@
       <Splide
         options={{
           rewind: true,
-          perPage: 3,
-          width: 1100,
+          fixedWidth: '16.5em',
           gap: '1em',
           pagination: false,
           arrows: false,
@@ -92,15 +91,15 @@
       <!-- Custom arrow buttons -->
       <div class="splide-arrows">
         <button class="custom-prev">
-          <svg width="32" height="33" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-            <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M11 17.9166L4.58333 11.5L11 5.08329" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+          <svg fill="#000000" width="40px" height="40px" viewBox="0 0 24 24" id="left-arrow" xmlns="http://www.w3.org/2000/svg" class="icon line">
+            <path id="primary" d="M21,12H3M6,9,3,12l3,3" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5;"></path>
+          </svg>
         </button>
+
         <button class="custom-next">
-          <svg width="32" height="33" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-            <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <svg fill="#000000" width="40px" height="40px" viewBox="0 0 24 24" id="right-arrow" xmlns="http://www.w3.org/2000/svg" class="icon line">
+            <path id="primary" d="M3,12H21m-3,3,3-3L18,9" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5;"></path>
           </svg>
         </button>
       </div>
@@ -114,7 +113,7 @@
           </svg>
         </a>
       </div>
-      
+
     </article>
 </section>
 
