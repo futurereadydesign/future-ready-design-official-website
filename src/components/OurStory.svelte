@@ -1,7 +1,7 @@
 <div class="story-container">
   <img src="/assets/content/foto-van-robbin-en-yunus.png" alt="foto van Robbin en Yunus">
   <div>
-    <h2>Our story in brief...</h2>
+    <h3>Our story in brief...</h3>
     <p>“we believe in technology that enriches real-life experiences, acting as an extension rather than a replacement.”</p>
     <button>Learn our story</button>
   </div>
@@ -31,7 +31,7 @@
     max-width: 100%;
   }
 
-  h2 {
+  h3 {
     font-size: 1em;
     font-weight: 200;
     margin-top: 20px;
@@ -45,7 +45,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     color: #fff;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: .8em;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
