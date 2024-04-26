@@ -38,8 +38,8 @@
             <button>More about this project →</button>
         </section>
     </article>
+    <button>Explore more of our work →</button>
 </section>
-
 
 <style lang="scss">
 
@@ -47,11 +47,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2em;
 }
 
 .content-container {
+    max-width: 1200px;
+    margin: 3em auto 3em; 
+    padding: 1em;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    color: white;
 }
 
 .left-container, .right-container {
@@ -60,11 +67,17 @@
 }
 
 .left-container {
-    flex-direction: row-reverse; // Image on the left, text on the right
+    flex-direction: row; 
 }
 
 .right-container {
-    flex-direction: row; // Text on the left, image on the right
+    flex-direction: row-reverse; 
+    
+    .image-container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
 }
 
 .image-container, .text-container {
@@ -80,5 +93,4 @@
         width: 100%;
     }
 }
-
 </style>
