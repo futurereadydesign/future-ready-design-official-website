@@ -38,7 +38,9 @@
             <button>More about this project →</button>
         </section>
     </article>
-    <button>Explore more of our work  →</button>
+    <section class="button-container">
+        <button>Explore more of our work  →</button>
+    </section>
 </section>
 
 <style lang="scss">
@@ -60,6 +62,27 @@
     align-items: flex-start;
     text-align: left;
     color: white;
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(11,214,239);
+        background: linear-gradient(31deg, rgba(11,214,239,1) 66%, rgba(255,255,255,1) 100%);
+        color: black;
+        border-radius: 15px;
+        padding: 1em;
+        border: none;
+        margin-bottom: 1em;
+        font-weight: 600;
+        cursor: pointer;
+    }
 }
 
 .left-container, .right-container {
