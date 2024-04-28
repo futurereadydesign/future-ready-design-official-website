@@ -179,8 +179,14 @@
 }
 
 @media (max-width: 950px) {
+    .content-container {
+        align-items: center;
+        text-align: left;
+    }
+
     .left-container, .right-container {
         flex-direction: column;
+        max-width: 600px;
     }
 
     .image-container img, .text-container {
