@@ -3,7 +3,7 @@
   <div>
     <h3>Our story in brief...</h3>
     <p>“we believe in technology that enriches real-life experiences, acting as an extension rather than a replacement.”</p>
-    <button>Learn our story</button>
+    <button class="button button-tertiary">Learn our story</button>
   </div>
 </div>
 
@@ -36,23 +36,6 @@
     font-weight: 200;
     margin-top: 20px;
     opacity: 0.5;
-  }
-
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    color: #fff;
-    border-radius: 5px;
-    font-size: .8em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(0, 0, 0, 0.35);
-    }
   }
 
   @media (min-width: 850px) {

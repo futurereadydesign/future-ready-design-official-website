@@ -1,6 +1,7 @@
 <script>    
     // Importeer de CSS
     import '/src/styles/global.css';
+    import '/src/styles/main.css';
 
     // Importeer het juiste component. In dit geval TeamCursor.svelte
     import Nav from '/src/components/Nav.svelte'

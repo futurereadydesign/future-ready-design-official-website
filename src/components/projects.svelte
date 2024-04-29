@@ -39,7 +39,7 @@
         </section>
     </article>
     <section class="button-container">
-        <button>Explore more of our work  →</button>
+        <button class="button button-primary">Explore more of our work  →</button>
     </section>
 </section>
 
@@ -67,21 +67,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: rgb(11,214,239);
-        background: linear-gradient(31deg, rgba(11,214,239,1) 66%, rgba(255,255,255,1) 100%);
-        color: black;
-        border-radius: 15px;
-        padding: 1em;
-        border: none;
-        margin-bottom: 1em;
-        font-weight: 600;
-        cursor: pointer;
     }
 }
 

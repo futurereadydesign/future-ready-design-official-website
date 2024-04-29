@@ -8,7 +8,7 @@
         <li><a href="#" class="hover-line">Our work</a></li>
         <li><a href="#" class="hover-line">Accessibility</a></li>
         <li><a href="#" class="hover-line">Design blog</a></li>
-        <li><a href="#">Get in touch</a></li>
+        <li><a href="#">a</a></li>
       </ul>
     </nav>
     <div class="text">
