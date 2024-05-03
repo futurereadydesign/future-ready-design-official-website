@@ -57,7 +57,8 @@
       <Splide
         options={{
           rewind: true,
-          fixedWidth: '16.5em',
+          // fixedWidth: '16.5em',
+          perPage: 3,
           gap: '1em',
           pagination: false,
           arrows: false,
@@ -67,12 +68,12 @@
             next: 'custom-next', 
           },
           breakpoints: {
-            1139: {
+            1000: {
               gap: '1em',
               perPage: 2,
               
             },
-            730: {
+            650: {
               perPage: 1,
             },
           },
@@ -91,15 +92,16 @@
       <!-- Custom arrow buttons -->
       <div class="splide-arrows">
         <button class="custom-prev">
-          <svg fill="#000000" width="40px" height="40px" viewBox="0 0 24 24" id="left-arrow" xmlns="http://www.w3.org/2000/svg" class="icon line">
-            <path id="primary" d="M21,12H3M6,9,3,12l3,3" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5;"></path>
+          <svg width="27" height="28" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)">
+            <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
 
         <button class="custom-next">
-
-          <svg fill="#000000" width="40px" height="40px" viewBox="0 0 24 24" id="right-arrow" xmlns="http://www.w3.org/2000/svg" class="icon line">
-            <path id="primary" d="M3,12H21m-3,3,3-3L18,9" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5;"></path>
+          <svg width="27" height="28" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </div>
@@ -119,75 +121,75 @@
 
 <style lang="scss">
 
-  section {
-      margin-top: 30em; 
+section {
+  margin-top: 4em;
 
-      h2 {
-          text-align: center;
-
-          margin: 0 auto 0.5em;
-          display: block; 
-      }
-
-      p {
-          text-align: center;
-          max-width: 21em; 
-          margin: 0 auto;
-          display: block; 
-      }
-
-      .splide-container {
-        width: 90%; 
-        max-width: 1100px; 
-        margin: 3em auto 0;
-        
-        .splide-arrows {
-          display: flex;
-          justify-content: flex-end;
-          padding: 0 20px;
-          margin-top: 1em; 
-
-          .custom-prev, .custom-next {
-            background: none;
-            border: none;
-            cursor: pointer;
-            margin-left: 3em;
-            color: var(--color-white);
-          }
-        }
-
-        .button-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 2em;
-        }
-      }
+  h2 {
+    text-align: center;
+    margin: 0 auto 0.5em;
+    display: block;
   }
 
-        // .all-blogs-article {
-        //     display: grid;
-        //     grid-template-columns: repeat(auto-fit, minmax(20em, 1fr)); /* Verander auto-fill naar auto-fit */
-        //     gap: 18.8em;
-        //     margin-bottom: 5em;
-        //     max-width: 36em;
-        //     margin: 0 auto;
-        //     margin-bottom: 4em;
-        //     place-items: center;
-        //     justify-content: center;
-        // }
+  p {
+    text-align: center;
+    max-width: 21em;
+    margin: 0 auto;
+    display: block;
+  }
 
-        // .all-blogs-div {
-        //     padding-left: 1.5rem;
-        //     padding-right: 1.5rem;
-        //     flex: 1 1 auto;
-        //     margin: 4em;
-        // }
+  .splide-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 3em auto 0;
 
-        // @media (min-width: 768px) {
-        //     .all-blogs-article {
-        //         grid-template-columns: repeat(6, minmax(0, 2fr));
-        //     }
-        // }
+    .splide-arrows {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 20px;
+      margin-top: 1em;
+
+      .custom-prev, .custom-next {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 3em;
+        color: var(--color-white);
+
+        &::after {
+          content: '';
+          position: absolute;
+          height: calc(4% + 0.5em);
+          width: calc(4% + 0.5em);
+          border: var(--border-width) solid var(--color-white);
+          border-radius: 1.15em;
+          z-index: -1;
+          opacity: 0;
+          transition: 250ms opacity;
+        }
+
+        &:focus-visible::after {
+          opacity: 1;
+        }
+      }
+
+      .custom-prev::after {
+        left: 94.3em;
+        top: 110.9em;
+      }
+
+      .custom-next::after {
+        left: 99.4em;
+        top: 110.9em;
+      }
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2em;
+    }
+  }
+}
 </style>

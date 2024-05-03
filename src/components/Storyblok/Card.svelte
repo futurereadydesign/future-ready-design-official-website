@@ -47,8 +47,8 @@
 
   .card {
     position: relative; 
-    display: flex; 
-    flex-direction: column;
+    /* display: flex; 
+    flex-direction: column; */
     /* word-spacing: 0.1em; */
     background-color: #ffffff13;
     border-radius: 10px; 
@@ -62,12 +62,13 @@
   .card-image-container {
     display: flex;
     justify-content: center; 
+    margin-bottom: 0.5em
   }
 
-  picture {
+  /* picture {
     width: 312px;
     height: 180px;
-  }
+  } */
 
   .card-image {
     width: 100%;
@@ -76,7 +77,7 @@
   }
 
   .card-title {
-    margin-top: 0.5em;
+    /* margin-top: 0.5em; */
     font-size: 1.1em;
     color: white;
   }

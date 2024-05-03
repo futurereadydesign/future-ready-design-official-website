@@ -8,5 +8,5 @@
 </script>
 
 <!-- Laat de juiste componenten zien op de pagina -->
-<TeamCursor/>
 <Carousel/>
+<TeamCursor/>
