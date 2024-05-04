@@ -3,8 +3,12 @@
         <div class="wrapper-large">
             <div>
                 <strong>Hello there.. 👋</strong>
-                <h2>ready to start? or do you just want to ask us something?</h2>
+                <h2>ready to start? <span>or do you just want to ask us something?</span></h2>
                 <p>Fill in the form and receive your answers. We hope to hear from you soon!</p>
+                <span>
+                    <span> <!-- PULSATE --> </span>
+                    Available for work
+                </span>
             </div>
 
             <!-- <form on:submit={submitDataToHubspot} id="experts-form"> -->
@@ -17,7 +21,7 @@
                 <fieldset>
                     <legend><span class="accessibility-hide">Mail information</span></legend>
                     <label for="contact-mailadres">Email</label>
-                    <input type="email" id="contact-mailadres" name="email" placeholder="Wat is your email?" bind:this={contactInputEmail} required>
+                    <input type="email" id="contact-mailadres" name="email" placeholder="What is your email?" bind:this={contactInputEmail} required>
                 </fieldset>
                 <fieldset>
                     <legend><span class="accessibility-hide">Message or question</span></legend>
@@ -102,7 +106,8 @@
 
     .contact-cta {
         position: relative;
-        min-height: 100dvh;
+        // min-height: 100dvh;
+        padding-top: 10em;
         width: 100dvw;
         display: flex;
         flex-direction: column;
@@ -155,6 +160,8 @@
 
             div {
                 position: relative;
+                display: flex;
+                flex-direction: column;
                 max-width: 17.5em;
                 padding-right: 5em;
 
@@ -177,6 +184,46 @@
                 }
                 p {
                     margin-top: 1.25em;
+                }
+                > span {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin-top: auto;
+                    font-weight: 500;
+
+                    span {
+                        position: relative;
+                        display: inline-block;
+                        background-color: var(--color-green);
+                        background-image: radial-gradient(circle, rgba(138,255,185,1) 0%, rgba(0,255,102,1) 100%);
+                        height: 0.65em;
+                        width: 0.65em;
+                        border-radius: 50%;
+                        margin-right: 0.5em;
+                        box-shadow: var(--color-green) 0 0 5em 0.5em,
+                                    var(--color-green) 0 0 0.45em 0em;
+
+                        &::before,
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            background-color: inherit;
+                            z-index: -1;
+                            border-radius: inherit;
+                            filter: blur(var(--filter-blur-less));
+                            opacity: 0.75;
+                        }
+                        &::after {
+                            filter: blur(var(--filter-blur-moderate));
+                            transform: scale(1.5);
+                            opacity: 1;
+                        }
+                    }
                 }
             }
 
@@ -282,6 +329,148 @@
             z-index: -10;
             -webkit-mask-image: linear-gradient(to bottom, #000 80%, #0000);
             mask-image: linear-gradient(to bottom, #000 80%, #0000);
+        }
+    }
+
+
+
+    /* MEDIUM / MODERATE SCREEN */
+    @media screen and (max-width: 1100px) {
+        .contact-cta {
+            
+            // CONTACT FORM BLOCK
+            > div:first-of-type {
+                flex-direction: column;
+
+                div {
+                    position: relative;
+                    max-width: 100%;
+                    padding-right: 10em;
+
+                    &::after {
+                        height: var(--border-width);
+                        width: 100%;
+
+                        top: unset;
+                        right: unset;
+                        left: 0;
+                        bottom: 0;
+                        transform: translateY(calc(2.5em - 50%));
+                    }
+
+                    h2 {
+
+                        span {
+                            display: block;
+                        }
+                    }
+
+                    p {
+                        margin-top: 0.5em;
+                    }
+
+                    > span {
+                        position: absolute;
+                        right: 0;
+                    }
+                }
+
+                form {
+                    margin-top: 5em;
+                }
+            }
+
+            > div:last-of-type {
+                justify-content: space-between;
+
+                ul {
+                    max-width: fit-content;
+                }
+            }
+        }
+    }
+
+    /* MEDIUM SCREEN */
+    @media screen and (max-width: 900px) {
+        .contact-cta { 
+
+            > div:first-of-type {
+                padding: 1.5em 1.65em;
+            }
+
+            > div:last-of-type {
+                padding: 0 1.65em;
+
+                ul:last-of-type {
+                    // max-width: fit-content;
+
+                    li:first-of-type {
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 0;
+                        gap: 0.1rem;
+
+                        a {
+                            font-size: var(--font-size-global);
+                        }
+                    }
+                }
+            }            
+        }
+    }
+
+    /* EXTRA SMALL SCREEN */
+    @media screen and (max-width: 500px) {
+        .contact-cta {
+            
+            // CONTACT FORM BLOCK
+            > div:first-of-type {
+
+                div {
+                    padding-right: 0;
+
+                    &::after {
+                        transform: translateY(calc(2em - 50%));
+                    }
+
+                    > span {
+                        position: relative;
+                        right: unset;
+                        margin-top: 1em;
+                    }
+                }
+
+                form {
+                    margin-top: 4em;
+
+                    display: flex;
+                    flex-direction: column;
+                    grid-template-columns: none;
+
+                    fieldset {
+
+                        textarea {
+                            min-height: 10em;
+                        }
+                        
+                        &:last-of-type {
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 1.25em;
+                        }
+                    }
+                }
+            }
+
+            > div:last-of-type {
+                flex-direction: column;
+
+                ul:last-of-type {
+                    margin-top: 2.5em;
+                    align-items: flex-start;
+                    text-align: left;
+                }
+            }
         }
     }
 
@@ -584,7 +773,7 @@
                 } else {
                     nameInputIsEmpty = true;
                 }
-                changeFIlledInInputsAmount();
+                // changeFIlledInInputsAmount();
             });
 
             // CONTACT INPUT EMAIL 
@@ -594,7 +783,7 @@
                 } else {
                     emailInputIsEmpty = true;
                 }
-                changeFIlledInInputsAmount();
+                // changeFIlledInInputsAmount();
             });
 
             // MESSAGE INPUT EMAIL 
@@ -604,7 +793,7 @@
                 } else {
                     messageInputIsEmpty = true;
                 }
-                changeFIlledInInputsAmount();
+                // changeFIlledInInputsAmount();
             });
 
             

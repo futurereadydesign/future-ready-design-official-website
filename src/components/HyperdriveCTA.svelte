@@ -25,10 +25,10 @@
 
 <style lang="scss">
     // Tijdelijk
-    .scan-cta-button-wrapper::before, 
-    .scan-cta-button-wrapper::after {
-        animation-play-state: running;
-    }
+    // .scan-cta-button-wrapper::before, 
+    // .scan-cta-button-wrapper::after {
+    //     animation-play-state: running;
+    // }
 
     .hyperdrive-cta {
         position: relative;
@@ -94,6 +94,46 @@
             }
         }
     }
+
+
+
+    /* MEDIUM SCREEN */
+    @media screen and (max-width: 900px) {
+        .hyperdrive-cta {
+
+            h2 { 
+                font-size: 2.25em;
+            }
+        }
+    }
+
+    /* SMALL SCREEN */
+    @media screen and (max-width: 768px) {
+        .hyperdrive-cta {
+
+            h2 { 
+                max-width: 10em;
+                text-align: center;
+
+                > span {
+                    transform: translateX(0);
+                    margin-left: 1em;
+                }
+            }
+        }
+
+        .hyperdrive-cta.hovering {
+
+            h2 { 
+
+                span {
+                    margin-left: 0em;
+                }
+            }
+        }
+    }
+    
+
 
 
 

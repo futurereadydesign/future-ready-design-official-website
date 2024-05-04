@@ -192,6 +192,73 @@
         }
     }
 
+    /* LARGE SCREEN */
+    @media screen and (max-width: 1250px) {
+        .hero-main {
+
+            .inner-hero-sticky {
+
+                h1 {
+                    font-size: 3.25em;
+                }
+            }
+        }
+    }
+
+    /* MODERATE SCREEN */
+    @media screen and (max-width: 1100px) {
+        .hero-main {
+
+            .inner-hero-sticky {
+
+                h1 {
+                    font-size: 3em;
+                }
+            }
+        }
+    }
+
+    /* MEDIUM SCREEN */
+    @media screen and (max-width: 900px) {
+        .hero-main {
+
+            .inner-hero-sticky {
+
+                h1 {
+                    font-size: 2.75em;
+                }
+            }
+        }
+    }
+
+    /* SMALL SCREEN */
+    @media screen and (max-width: 768px) { 
+        .hero-main {
+
+            .inner-hero-sticky {
+
+                h1 {
+                    font-size: 2.75em;
+                    padding: 0 1em;
+                }
+            }
+        }
+    }
+
+    /* EXTRA SMALL SCREEN */
+    @media screen and (max-width: 500px) {
+        .hero-main {
+
+            .inner-hero-sticky {
+
+                h1 {
+                    font-size: 2.5em;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
 
     // KEYFRAMES
     @keyframes moveLight {
@@ -217,7 +284,7 @@
         }
     }
     @keyframes impactWave {
-        0%, 100% {
+        5%, 100% {
             opacity: 0;
             transform: scale(1);
         }
@@ -251,31 +318,38 @@
     let innerHeroSphereHeight;
     let innerHeroTarget;
     let innerHeroTargetPositionY;
+    let innerHeroScrollingRange;
     
+    function updateDimensions() {
+        innerHeroStickyPositionY = innerHeroSticky.getBoundingClientRect().top + window.scrollY;
+        // console.log(innerHeroStickyPositionY);
+
+        innerHeroSpherePositionY = innerHeroSphere.getBoundingClientRect().top + window.scrollY;
+        innerHeroSphereHeight = innerHeroSphere.getBoundingClientRect().height;
+        // console.log(innerHeroSphereHeight);
+        console.log("Positie Y: " + innerHeroSpherePositionY);
+
+        innerHeroTargetPositionY = innerHeroTarget.getBoundingClientRect().top + window.scrollY;
+        console.log("Positie Y: " + innerHeroTargetPositionY);
+
+        // innerHeroScrollingRange = innerHeroSpherePositionY - innerHeroStickyPositionY;
+        innerHeroScrollingRange = innerHeroTargetPositionY - innerHeroSpherePositionY;
+        console.log("Scroll range: " + innerHeroScrollingRange);
+    }
 
     // SCROLL ANIMATION / INTERACTION SPHERE --------------------
     onMount(() => {
-        innerHeroStickyPositionY = innerHeroSticky.getBoundingClientRect().top + window.pageYOffset;
-        // console.log(innerHeroStickyPositionY);
-
-        innerHeroSpherePositionY = innerHeroSphere.getBoundingClientRect().top + window.pageYOffset;
-        innerHeroSphereHeight = innerHeroSphere.getBoundingClientRect().height;
-        // console.log(innerHeroSphereHeight);
-        // console.log(innerHeroSpherePositionY);
-
-        innerHeroTargetPositionY = innerHeroTarget.getBoundingClientRect().top + window.pageYOffset;
-        // console.log(innerHeroTargetPositionY);
-
-        let innerHeroScrollingRange = innerHeroSpherePositionY - innerHeroStickyPositionY;
-        // console.log(innerHeroScrollingRange);
-
+        window.addEventListener('resize', updateDimensions);
+        updateDimensions(); // Set initial dimensions
 
 
         // SCROLLING TRIGGER
         let lastScrollTop = 0;  // This will store the last scroll position processed
         let isSnapping = false;  // Flag to prevent re-triggering during snap
         let snapped = false;
-        let snapThreshold = innerHeroScrollingRange - (innerHeroSphereHeight / 2); // The point to snap to
+        // let snapThreshold = innerHeroScrollingRange - (innerHeroSphereHeight / 2); // The point to snap to
+        let snapThreshold = innerHeroScrollingRange;
+        console.log("treshold:" + snapThreshold);
         const snapRange = 25; // Range within which to snap
 
         document.addEventListener('scroll', handleScroll);
@@ -354,9 +428,14 @@
         
         
 
+        
 
+        
 
-
+        // Cleanup function
+        return () => {
+            window.removeEventListener('resize', updateDimensions);
+        };
 
     });
 

@@ -4,13 +4,12 @@
     import '/src/styles/main.css'
 
     // Importeer de juiste componenten. 
-    import ContactCTA from '/src/components/contactCTA.svelte';
-    import Partners from '/src/components/Partners.svelte';
     import Footer from '/src/components/Footer.svelte';
-
+    import HeroText from '../../components/HeroText.svelte';
+    import ContentText from '../../components/ContentText.svelte';
 </script>
 
 <!-- Laat het juiste component zien op de pagina -->
-<ContactCTA/>
-<Partners/>
+<HeroText/>
+<ContentText/>
 <Footer/>

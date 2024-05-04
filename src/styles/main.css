@@ -338,6 +338,7 @@ body.no-scrollbar::-webkit-scrollbar {
     max-width: var(--wrapper-large-width);
     width: 100%;
 }
+
 .wrapper-small {
     margin: 0 auto;
     max-width: var(--wrapper-small-width);
@@ -1475,7 +1476,7 @@ main.scan-failed form.url-input a {
     animation: rotation-percentage 250ms ease;
     animation-delay: 750ms;
     animation-fill-mode: forwards;
-    animation-play-state: paused;
+    animation-play-state: running;
     opacity: 0;
 }
 .percentage-visualizer svg path:last-of-type {
@@ -1486,7 +1487,7 @@ main.scan-failed form.url-input a {
     animation: rotation-percentage 250ms ease;
     animation-delay: 750ms;
     animation-fill-mode: forwards;
-    animation-play-state: paused;
+    animation-play-state: running;
     opacity: 0;
 } 
 main.scan-completed .percentage-visualizer svg path:first-of-type,
@@ -1756,7 +1757,7 @@ main.scan-completed .percentage-visualizer svg path:last-of-type {
     background-position: 50% 50%;
     border-radius: calc(1.1em + var(--border-width));
     animation: rotation-glow 5s linear infinite;
-    animation-play-state: paused;
+    animation-play-state: running;
     transition: --gradient-color-black-35 750ms, --gradient-color-lightblue 750ms, --gradient-color-white 750ms, --gradient-color-lightblue-2 750ms;
     z-index: -1;
     will-change: transform; /* IMPROVE PERFORMANCE */
@@ -1929,8 +1930,9 @@ main.scan-failed .section-between::after {
     h2 {
         font-size: 1.65em;
     }
-    .wrapper-max {
-        width: calc(100% - 5em);
+    .wrapper-max,
+    .wrapper-large {
+        width: calc(100% - 5rem);
     }
     .section-block {
         padding: 2em 2.25em;
@@ -2004,8 +2006,9 @@ main.scan-failed .section-between::after {
     h2 {
         font-size: 1.35em;
     }
-    .wrapper-max {
-        width: calc(100% - 4.5em);
+    .wrapper-max,
+    .wrapper-large {
+        width: calc(100% - 4.5rem);
     }
 
     .section-block {
@@ -2081,8 +2084,9 @@ main.scan-failed .section-between::after {
         font-size: 1.45em;
     }
     .wrapper-max,
+    .wrapper-large,
     .wrapper-small {
-        width: calc(100% - 2em);
+        width: calc(100% - 2rem);
     }
     .button {
         gap: 1.25em;
@@ -2091,6 +2095,10 @@ main.scan-failed .section-between::after {
     }
     .button > span::after {
         transform: translateX(0.7em) translateY(-50%);
+    }
+    .button-quaternary {
+        gap: 0.5em;
+        padding: 0;
     }
     header {
         margin-top: 2.15em;

@@ -6,6 +6,8 @@
     // Importeer de juiste componenten. 
     import Hero from '/src/components/Hero.svelte';
     import HyperdriveCTA from '/src/components/HyperdriveCTA.svelte';
+    import FeaturedV2 from '/src/components/FeaturedV2.svelte';
+    import Footer from '/src/components/Footer.svelte';
 
 </script>
 
@@ -18,3 +20,5 @@
 
 
 <HyperdriveCTA/>
+<FeaturedV2/>
+<Footer/>
