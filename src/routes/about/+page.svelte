@@ -7,9 +7,13 @@
     import Footer from '/src/components/Footer.svelte';
     import HeroText from '../../components/HeroText.svelte';
     import ContentText from '../../components/ContentText.svelte';
+    import ContentSphere from '../../components/ContentSphere.svelte';
+    import Partners from '/src/components/Partners.svelte';
 </script>
 
 <!-- Laat het juiste component zien op de pagina -->
 <HeroText/>
 <ContentText/>
+<ContentSphere/>
+<Partners/>
 <Footer/>

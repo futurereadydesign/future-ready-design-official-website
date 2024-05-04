@@ -18,6 +18,7 @@
     },
     "type": "module",
     "dependencies": {
+        "@splinetool/runtime": "^1.2.5",
         "@storyblok/svelte": "^4.0.4",
         "@vitejs/plugin-basic-ssl": "^1.1.0",
         "aos": "^2.3.4"

@@ -11,4 +11,26 @@
             margin-bottom: 1em;
         }
     }
+
+
+    /* MODERATE SCREEN */
+    @media screen and (max-width: 1100px) {
+        .hero-text {
+
+            h1 {
+                font-size: 2.75em;
+            }
+        }
+    }
+
+    /* EXTRA SMALL SCREEN */
+    @media screen and (max-width: 500px) {
+        .hero-text {
+
+            h1 {
+                font-size: 2.5em;
+                text-align: left;
+            }
+        }
+    }
 </style>
