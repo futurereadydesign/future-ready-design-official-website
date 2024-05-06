@@ -59,7 +59,7 @@
     padding: 1em;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     text-align: left;
     color: white;
 
@@ -67,6 +67,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 4em;
     }
 }
 
@@ -190,6 +191,10 @@
     .content-container {
         align-items: center;
         text-align: left;
+
+        .button-container {
+            margin-top: 2em;
+        }
     }
 
     .left-container, .right-container {

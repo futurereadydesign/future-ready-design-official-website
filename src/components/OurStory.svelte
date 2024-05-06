@@ -3,7 +3,7 @@
   <div>
     <h3>Our story in brief...</h3>
     <p>“we believe in technology that enriches real-life experiences, acting as an extension rather than a replacement.”</p>
-    <button class="button button-tertiary">Learn our story</button>
+    <button class="button button-tertiary">Learn our story<svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="s-W6XJD25np45u"><path d="M19.25 13.75V17.4167C19.25 17.9029 19.0568 18.3692 18.713 18.713C18.3692 19.0568 17.9029 19.25 17.4167 19.25H4.58333C4.0971 19.25 3.63079 19.0568 3.28697 18.713C2.94315 18.3692 2.75 17.9029 2.75 17.4167V13.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="s-W6XJD25np45u"></path><path d="M6.41602 9.16669L10.9993 13.75L15.5827 9.16669" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="s-W6XJD25np45u"></path><path d="M11 13.75V2.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="s-W6XJD25np45u"></path></svg></button>
   </div>
 </div>
 
@@ -36,6 +36,10 @@
     font-weight: 200;
     margin-top: 20px;
     opacity: 0.5;
+  }
+
+  button {
+    margin-top: 1em;
   }
 
   @media (min-width: 850px) {

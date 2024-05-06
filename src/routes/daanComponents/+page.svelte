@@ -3,7 +3,7 @@
     import '/src/styles/global.css';
     import '/src/styles/main.css';
 
-    // Importeer het juiste component. In dit geval TeamCursor.svelte
+    // Importeer het juiste component.
     import Nav from '/src/components/Nav.svelte'
     import OurStory from '/src/components/OurStory.svelte'
     import Projects from '/src/components/Projects.svelte'

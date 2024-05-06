@@ -1444,7 +1444,7 @@ main.scan-failed form.url-input a {
     animation: rotation-percentage 250ms ease;
     animation-delay: 750ms;
     animation-fill-mode: forwards;
-    animation-play-state: paused;
+    animation-play-state: running;
     opacity: 0;
 }
 .percentage-visualizer svg path:last-of-type {
@@ -1455,7 +1455,7 @@ main.scan-failed form.url-input a {
     animation: rotation-percentage 250ms ease;
     animation-delay: 750ms;
     animation-fill-mode: forwards;
-    animation-play-state: paused;
+    animation-play-state: running;
     opacity: 0;
 } 
 main.scan-completed .percentage-visualizer svg path:first-of-type,
@@ -1725,7 +1725,7 @@ main.scan-completed .percentage-visualizer svg path:last-of-type {
     background-position: 50% 50%;
     border-radius: calc(1.1em + var(--border-width));
     animation: rotation-glow 5s linear infinite;
-    animation-play-state: paused;
+    animation-play-state: running;
     transition: --gradient-color-black-35 750ms, --gradient-color-lightblue 750ms, --gradient-color-white 750ms, --gradient-color-lightblue-2 750ms;
     z-index: -1;
     will-change: transform; /* IMPROVE PERFORMANCE */
