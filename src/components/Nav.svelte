@@ -5,18 +5,22 @@
       <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
     </div>
   </div>
-  <div class="nav-btn">
-    <label for="nav-check">
-      <img src="/assets/icons/menu.svg" alt="Future Ready Design logo"><p>menu</p>
-    </label>
-  </div>
-  
-  <div class="nav-links">
+  <section class="nav-links">
     <a href="#">Our philosophy</a>
     <a href="#">Our work</a>
     <a href="#">Accessibility</a>
     <a href="#">Design blog</a>
     <a href="#" class="get-in-touch">Get in touch</a>
+  </section>
+
+  <section class="available">
+    <img src="/assets/icons/available.svg" alt="">
+  </section>
+
+  <div class="nav-btn">
+    <label for="nav-check">
+      <img src="/assets/icons/menu.svg" alt=""><p>menu</p>
+    </label>
   </div>
 </div>
 
@@ -29,58 +33,69 @@
   width: 100%;
   position: relative;
   z-index: 9999;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  & > .nav-header {
-    display: inline;
+  .nav-header {
+    display: flex;
+    align-items: center;
   }
 
-  & > .nav-header > .nav-title {
-    display: inline-block;
+  .nav-title {
     font-size: 22px;
     color: #fff;
     padding: 10px;
   }
 
-  & > .nav-btn {
-    display: none;
+  .nav-btn {
+    display: none; // Initially hidden
 
-    & > label {
-      display: flex;
+    @media (max-width: 800px) {
+      display: flex; // Displayed when media query is active
       align-items: center;
-      justify-content: center;
-      width: fit-content;
-      height: fit-content;
-      padding: 13px;
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      top: 0;
 
-      img {
-        margin-right: 10px; // Adjust as needed
-      }
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 13px;
 
-      p {
-        color: #fff;
-        font-size: 18px;
+        img {
+          margin-right: 10px;
+        }
+
+        p {
+          color: #fff;
+          font-size: 18px;
+        }
       }
     }
   }
 
-  & > .nav-links {
-    display: inline;
-    float: right;
+  .nav-links {
+    display: flex;
+    align-items: center;
     font-size: 18px;
+    margin-left: 3.5em;
 
-    & > a {
-      display: inline-block;
+    a {
       padding: 13px 10px;
       text-decoration: none;
       color: #efefef;
-
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.3);
-      }
     }
   }
 
-  & > #nav-check {
+  .available {
+    margin-top: 1.6em;
+  }
+
+  #nav-check {
     display: none;
   }
 
@@ -121,7 +136,7 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     border-radius: calc(1.1em + var(--border-width));
-    animation: rotation-glow 6s linear infinite;
+    animation: rotation-glow 8s linear infinite;
     animation-play-state: running;
     transition: --gradient-color-black-35 750ms, --gradient-color-lightblue 750ms, --gradient-color-white 750ms, --gradient-color-lightblue-2 750ms;
     z-index: -1;
@@ -151,6 +166,15 @@
       max-width: 8em;
     }
 
+    .available {
+      display: none;
+    }
+
+    & > .nav-links {
+      background-color: black;
+      margin-left: 0em;
+    }
+
     & > .nav-btn {
       display: inline-block;
       position: absolute;
@@ -167,7 +191,7 @@
         padding: 13px;
 
         img {
-          margin-right: 10px; // Adjust as needed
+          margin-right: 10px;
         }
       }
     }
@@ -176,16 +200,20 @@
       position: absolute;
       display: block;
       width: 100%;
-      background-color: #333;
+      background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
       height: 0px;
       transition: all 0.3s ease-in;
       overflow-y: hidden;
-      top: 5em; // Adjust top spacing as needed
+      top: 2.5em;
       left: 0px;
       z-index: 9999;
+      font-size: 2em;
+      font-weight: 600;
 
       & > a {
         display: block;
+        margin-left: 1em;
+        margin-top: .05em;
         width: 100%;
       }
     }
