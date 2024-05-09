@@ -9,7 +9,7 @@
         </span>
     </h2>
     <div class="scan-cta-button-wrapper">
-        <a href="contact" bind:this={getInTouchCTA} class="button button-primary">
+        <a href="/contact" bind:this={getInTouchCTA} class="button button-primary">
             <span>Get in touch to start your journey</span>
             <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -24,11 +24,6 @@
 
 
 <style lang="scss">
-    // Tijdelijk
-    // .scan-cta-button-wrapper::before, 
-    // .scan-cta-button-wrapper::after {
-    //     animation-play-state: running;
-    // }
 
     .hyperdrive-cta {
         position: relative;

@@ -68,6 +68,10 @@
     width: 312px;
     height: 180px;
   }
+  picture img {
+    height: 100%;
+    width: 100%;
+  }
 
   .card-image {
     width: 100%;

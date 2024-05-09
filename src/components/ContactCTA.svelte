@@ -1,6 +1,6 @@
-<main in:fade={{duration: 300}}>
+<main>
     <section class="contact-cta" bind:this={getInTouchForm}>
-        <div class="wrapper-large">
+        <div class="wrapper-large" in:fade={{duration: 300}}>
             <div>
                 <strong>Hello there.. 👋</strong>
                 <h2>ready to start? <span>or do you just want to ask us something?</span></h2>
