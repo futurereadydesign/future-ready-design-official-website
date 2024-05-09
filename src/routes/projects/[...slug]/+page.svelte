@@ -1,4 +1,7 @@
 <script>
+    import '/src/styles/main.css';
+    import Footer from '/src/components/Footer.svelte';
+
     /** @type {import('./$types').PageData} */
 
     // Laat het juiste jaartal zien voor de copyright
@@ -14,6 +17,7 @@
     let pageTitle = data.post.title;
     let pageDescription = data.post.metaDescription;
     let thumbnailUrl = data.post.metaImage;
+
 </script>
 
 <!-- Laat de juiste titel zien en geef de meta data mee wanneer de pagina wordt gedeeld -->
@@ -38,40 +42,224 @@
 </svelte:head>
 
 <main class="slug-projects-main">
-  <section class="slug-projects-section">
-    <picture>
-        <a href="https://futureready.design/" target="_blank">
-            <img src={data.post.logo} alt={data.post.imageAlt}>
-        </a>
-    </picture>
+ 
 
-      <!-- Alle data wordt ingeladen -->
-      <article class="slug-projects-article">
-          <img class="slug-projects-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
-          <a href="/projects" class="slug-projects-link">
-            <span class="slug-projects-link-content">
-                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M11 17.9166L4.58333 11.5L11 5.08329" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Terug naar het overzicht
-            </span>  
-          </a>
-          <h1 class="slug-projects-title">{data.post.title}</h1>
-          <p class="slug-projects-date">{data.post.date}</p>
-          <p class="slug-projects-content">{data.post.content}</p>
-      </article>
-  </section>
+    <!-- Alle data wordt ingeladen -->
+    <article>
+        <section class="projects-header wrapper-max">
+            <div>
+                <a href="/projects" class="button button-quaternary button-flipped">
+                    <span class="s-nrtRPbawfH4D" data-svelte-h="svelte-18x73jy">Back to previous page</span> 
+                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="s-nrtRPbawfH4D"><path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="s-nrtRPbawfH4D"></path><path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="s-nrtRPbawfH4D"></path>
+                    </svg>
+                </a>
+                <h1 class="slug-projects-title">{data.post.title}</h1>
+                <p>{data.post.intro}</p>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <strong>Client / partner</strong>
+                        <h2>{data.post.clientOrPartner}</h2>
+                    </li>
+                    <li>
+                        <strong>Project type</strong>
+                        <h2>{data.post.projectType}</h2>
+                    </li>
+                    <li>
+                        <strong>Project overview</strong>
+                        <h2>{data.post.projectOverview}</h2>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="projects-main wrapper-large">
+            <img src={data.post.image} alt={data.post.imageAlt}>
+            <h2 class="wrapper-medium">{data.post.subtitle}</h2>
+            <p class="wrapper-medium">{data.post.content}</p>
+        </section>
+        <section class="projects-extra">
+            <ul>
+                <li>
+                    <img src={data.post.image} alt="">
+                    <h3>Digital Design (UX/UI)</h3>
+                    <p>We design user interfaces, websites and applications to high quality standards. User tested and validated before we even write a single line of code.</p>
+                </li>
+                <li>
+                    <img src={data.post.image} alt="">
+                    <h3>Accessibility improvement</h3>
+                    <p>We help you in making your existing digital services more accessible for everyone. Making you comply to the WCAG guidelines.</p>
+                </li>
+                <li>
+                    <img src={data.post.image} alt="">
+                    <h3>Product development</h3>
+                    <p>Launching a new digital product can be challenging. We guide you in finding the best possible strategy that will get you from zero to a successful launch achieving product-market fit.</p>
+                </li>
+                <li>
+                    <img src={data.post.image} alt="">
+                    <h3>Web and App development</h3>
+                    <p>We help you by developing your new website or app for you.  We find the framework that fits best for you solution and always keep scalability and accessibility in mind.</p>
+                </li>
+            </ul>
+        </section>
+
+        
+           
+    
+
+        
+        
+        
+    </article>
+
+
 </main>
 
-<footer>
-    <div>
-        <a href="https://www.futurereadydesign.nl/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futurereadydesign.nl/privacy-policy" target="_blank">Privacy beleid</a>
-    </div>
-    <span>Copyright © {currentYear} Future Ready Design</span>
-</footer>
+<Footer/>
 
-<style>
+<style lang="scss">
+
+    article {
+        margin-top: 10em;
+
+        .projects-header {
+            display: flex;
+            gap: 5em;
+
+            div:nth-of-type(1) {
+                flex: 1;
+
+                a {
+                    width: fit-content;
+                }
+
+                h1 {
+                    font-size: 4em;
+                    margin-top: 2.5rem;
+                    margin-bottom: 1rem;
+                    text-align: left;
+                }
+                p {
+                    font-size: 1.25em;
+                    color: var(--color-white-45);
+                }
+            }
+
+            div:nth-of-type(2) {
+                max-width: 25em;
+                width: 100%;
+                height: fit-content;
+                position: relative;
+                padding: 2.25em 2.5em;
+                margin-top: 3.25em;
+                border-radius: 1.11em;
+                background-color: var(--color-white-05);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    border: var(--border-width) solid var(--color-light-gray-65);
+                    border-radius: inherit;
+                    z-index: -1;
+                }
+                ul {
+                    list-style: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 2.5em 2.25em;
+                    
+                    li {
+                        
+                        strong {
+                            color: var(--color-white-45);
+                        }
+                        h2 {
+                            margin-top: 0.25rem;
+                            font-size: 1.75em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .projects-main {
+            margin-top: 6.25em;
+
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 1em;
+            }
+            h2 {
+                font-size: 2em;
+                margin-top: 3.75rem;
+            }
+            p {
+                margin-top: .75em;
+                white-space: pre-line;
+            }
+        }
+
+        .projects-extra {
+            overflow: hidden;
+            margin-top: 6.25em;
+
+            ul {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 1.5em;
+                overflow: auto;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                scroll-snap-type: x mandatory;
+                list-style: none;
+
+                li {
+                    flex: 0 0 25em;
+                    scroll-snap-align: start;
+                    scroll-margin: calc((100vw - 1200px) / 2);
+
+                    &:first-of-type {
+                        margin-left: calc((100vw - 1200px) / 2);
+                    }
+                    &:last-of-type {
+                        margin-right: calc((100vw - 1200px) / 2);
+                    }
+                    img {
+                        width: 100%;
+                        border-radius: 0.65em;
+                        margin-bottom: 1.25em;
+                    }
+                    h3 {
+                        font-size: 1.25em;
+                        margin-bottom: 0.25em;
+                    }
+                    p {
+                        color: var(--color-white-45);
+                    }
+                }
+
+                &::-webkit-scrollbar { 
+                    display: none; 
+                }
+            }
+        }
+
+
+
+
+
+    }
+
+
+</style>
+
+
+<!-- <style>
     .slug-projects-main {
         display: flex;
         justify-content: center;
@@ -219,4 +407,4 @@
         }
     }
 
-</style>
+</style> -->

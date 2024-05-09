@@ -3,16 +3,24 @@
     <p>We couldn't do without them</p>
     <ul>
         <li>
-            <img src="/assets/partners/accessiBe-partner-alt.svg" alt="Logo of parner: New Future Lab">
+            <a href="https://accessibe.com/" target="_blank" class="clickable">
+                <img src="/assets/partners/accessiBe-partner-alt.svg" alt="Logo of parner: AccessiBe">
+            </a>
         </li>
         <li>
-            <img src="/assets/partners/ssb-erkend-leerbedrijf.png" alt="Logo of parner: New Future Lab">
+            <a href="https://www.s-bb.nl/" target="_blank" class="clickable">
+                <img src="/assets/partners/ssb-erkend-leerbedrijf.png" alt="Logo of parner: SSB">
+            </a>
         </li>
         <li>
-            <img src="/assets/partners/stripe-climate-logo-text.svg" alt="Logo of parner: New Future Lab">
+            <a href="https://climate.stripe.com/76GUkX" target="_blank" class="clickable">
+                <img src="/assets/partners/stripe-climate-logo-text.svg" alt="Logo of parner: Stripe Climate">
+            </a>
         </li>
         <li>
-            <img src="/assets/partners/nfl-logo.svg" alt="Logo of parner: New Future Lab">
+            <a href="https://www.newfuturelab.nl/" target="_blank" class="clickable">
+                <img src="/assets/partners/nfl-logo.svg" alt="Logo of parner: New Future Lab">
+            </a>
         </li>
     </ul>
 </section>

@@ -1,6 +1,7 @@
 <script>
 	// Importeer het juiste css bestand
-	import '/src/styles/global.css';
+	// import '/src/styles/global.css';
+	import '/src/styles/main.css';
 	
 	// Importeer Storyblok binnen Sveltekit om de functies te kunnen gebruiken
 	// en content te kunnen integreren 

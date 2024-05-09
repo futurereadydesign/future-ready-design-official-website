@@ -338,7 +338,11 @@ body.no-scrollbar::-webkit-scrollbar {
     max-width: var(--wrapper-large-width);
     width: 100%;
 }
-
+.wrapper-medium {
+    margin: 0 auto;
+    max-width: var(--wrapper-medium-width);
+    width: 100%;
+}
 .wrapper-small {
     margin: 0 auto;
     max-width: var(--wrapper-small-width);
@@ -530,6 +534,13 @@ strong {
     height: 1.75em;
     width: 1.75em;
 }
+.button-flipped {
+    flex-direction: row-reverse;
+}
+.button-flipped > svg {
+    transform: scale(-1);
+}
+
 /* LINK */
 .link {
     color: var(--color-white);
@@ -542,6 +553,28 @@ strong {
     color: var(--color-lightblue);
     text-decoration: underline
 }
+/* CLICKABLE ELEMENT */
+.clickable {
+    position: relative;
+    display: block;
+}
+.clickable::after {
+    content: '';
+    position: absolute;
+    left: -0.5em;
+    top: -0.5em;
+    height: calc(100% + 1em);
+    width: calc(100% + 1em);
+    border: var(--border-width) solid var(--color-white);
+    border-radius: 1.15em;
+    z-index: -1;
+    opacity: 0;
+    transition: 250ms opacity;
+}
+.clickable:focus-visible::after {
+    opacity: 1;
+}
+
 
 /* OVERLAY */
 .overlay {
@@ -2085,6 +2118,7 @@ main.scan-failed .section-between::after {
     }
     .wrapper-max,
     .wrapper-large,
+    .wrapper-medium,
     .wrapper-small {
         width: calc(100% - 2rem);
     }

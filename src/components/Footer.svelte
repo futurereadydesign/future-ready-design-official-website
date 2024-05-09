@@ -2,7 +2,7 @@
     <section class="footer-content-left">
         <ul>
             <li>
-                <a href="/">
+                <a href="/" class="clickable">
                     <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
                 </a>
             </li>

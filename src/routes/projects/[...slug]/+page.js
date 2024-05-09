@@ -14,6 +14,12 @@ export async function load({ parent, params }) {
     const logo = data.story.content.logo ? data.story.content.logo.filename : null;
     const image = data.story.content.image ? data.story.content.image.filename : null;
     const imageAlt = data.story.content.image ? data.story.content.image.alt : '';
+    const intro = data.story.content.intro ?? '';
+    const clientOrPartner = data.story.content.client_or_partner ?? '';
+    const projectType = data.story.content.project_type ?? '';
+    const projectOverview = data.story.content.project_overview ?? '';
+    const subtitle = data.story.content.subtitle ?? '';
+
     const date = data.story.content.date ?? '';
     const link = data.story.content.link?.cached_url ?? '';
 
@@ -26,6 +32,11 @@ export async function load({ parent, params }) {
         post: {
             title: data.story.content.title || `${slug}`,
             content: data.story.content.content || `${slug}`,
+            intro: intro,
+            clientOrPartner: clientOrPartner,
+            projectType: projectType,
+            projectOverview: projectOverview,
+            subtitle: subtitle,
             logo: logo,
             image: image,
             imageAlt: imageAlt,
