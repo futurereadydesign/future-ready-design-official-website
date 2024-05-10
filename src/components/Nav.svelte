@@ -11,10 +11,11 @@
     <a href="#">Accessibility</a>
     <a href="#">Design blog</a>
     <a href="#" class="get-in-touch">Get in touch</a>
+    <img class="available-mobile" src="/assets/icons/available-mobile.svg" alt="Available for work">
   </section>
 
   <section class="available">
-    <img src="/assets/icons/available.svg" alt="">
+    <img src="/assets/icons/available.svg" alt="Available for work">
   </section>
 
   <div class="nav-btn">
@@ -44,16 +45,19 @@
   }
 
   .nav-title {
-    font-size: 22px;
     color: #fff;
     padding: 10px;
   }
 
-  .nav-btn {
-    display: none; // Initially hidden
+  .available-mobile {
+    display: none;
+  }
 
-    @media (max-width: 800px) {
-      display: flex; // Displayed when media query is active
+  .nav-btn {
+    display: none; 
+
+    @media (max-width: 900px) {
+      display: flex; 
       align-items: center;
       cursor: pointer;
       position: absolute;
@@ -77,18 +81,19 @@
       }
     }
   }
-
   .nav-links {
     display: flex;
     align-items: center;
     font-size: 18px;
     margin-left: 3.5em;
+    white-space: nowrap;
 
     a {
       padding: 13px 10px;
       text-decoration: none;
       color: #efefef;
     }
+
   }
 
   .available {
@@ -161,9 +166,13 @@
     opacity: 0.45;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     .get-in-touch {
       max-width: 8em;
+    }
+
+    .nav-title {
+      margin-top: 1em;
     }
 
     .available {
@@ -216,6 +225,17 @@
         margin-top: .05em;
         width: 100%;
       }
+
+      .available-mobile {
+        position: absolute;
+        bottom: 0;
+        left: 15%;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+      }
     }
 
     & > #nav-check:not(:checked) ~ .nav-links {
@@ -225,10 +245,6 @@
     & > #nav-check:checked ~ .nav-links {
       height: calc(100vh - 50px);
       overflow-y: auto;
-    }
-
-    #nav-check:checked ~ body {
-      overflow: hidden;
     }
   }
 }

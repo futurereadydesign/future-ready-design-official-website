@@ -15,12 +15,13 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   text-align: left;
   color: white;
 
   img {
     width: 100%;
+    max-width: 30em;
     height: auto;
   }
 
