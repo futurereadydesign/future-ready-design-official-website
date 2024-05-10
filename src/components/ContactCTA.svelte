@@ -1,6 +1,6 @@
 <main>
-    <section class="contact-cta" bind:this={getInTouchForm}>
-        <div class="wrapper-large" in:fade={{duration: 300}}>
+    <section class="contact-cta awaiting-submission" bind:this={getInTouchForm}>
+        <div class="contact-cta-inner contact-cta-inner-form wrapper-large" in:fade={{duration: 300}}>
             <div>
                 <strong>Hello there.. 👋</strong>
                 <h2>ready to start? <span>or do you just want to ask us something?</span></h2>
@@ -12,11 +12,11 @@
             </div>
 
             <!-- <form on:submit={submitDataToHubspot} id="experts-form"> -->
-            <form action="#">
+            <form on:submit={submitDataToHubspot}>
                 <fieldset>
                     <legend><span class="accessibility-hide">Personal information</span></legend>
                     <label for="contact-name">Name</label>
-                    <input type="text" id="contact-name" name="name" placeholder="What is your name?" bind:this={contactInputName}  required>
+                    <input type="text" id="contact-name" name="firstname" placeholder="What is your name?" bind:this={contactInputName}  required>
                 </fieldset>
                 <fieldset>
                     <legend><span class="accessibility-hide">Mail information</span></legend>
@@ -26,7 +26,7 @@
                 <fieldset>
                     <legend><span class="accessibility-hide">Message or question</span></legend>
                     <label for="contact-message">Message / question</label>
-                    <textarea id="contact-message" name="contact-message" placeholder="Why do you reach out?" bind:this={contactInputMessage} required></textarea>
+                    <textarea id="contact-message" name="message___question" placeholder="Why do you reach out?" bind:this={contactInputMessage} required></textarea>
                 </fieldset>
 
                 <fieldset>
@@ -49,6 +49,52 @@
                 
             </form>
         </div>
+
+
+        <!-- HIDDEN FORM ELEMENTS > VISIBLE AFTER SUBMIT -->
+        <div class="contact-cta-inner-hidden contact-cta-inner wrapper-large">
+            <div>
+                <strong>Hello <span bind:this={contactPersonNameSpan}>there</span> 👋</strong>
+                <h2 bind:this={contactSubmittedTitle}>thank you for reaching out!</h2>
+                <p bind:this={contactSubmittedText}>We've received your message, you will hear from us soon.</p>
+                <span>
+                    <span> <!-- PULSATE --> </span>
+                    Available for work
+                </span>
+            </div>
+            <div class="info-after-submit">
+                <h3>In the meantime..</h3>
+                <p>Explore our blog posts or connect with us on Instagram or LinkedIn to learn more about us!</p>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/futurereadydesign" target="_blank" class="button button-tertiary">
+                            <img src="/assets/icons/instagram.svg" alt="Instagram logo">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/future-ready-design/" target="_blank" class="button button-tertiary">
+                            <img src="/assets/icons/linkedin.svg" alt="Instagram logo">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog" class="button button-primary">
+                            <span>Read our blog</span>
+                            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </a>
+                    </li>
+                </ul>
+                <p>If you need personalized assistance. We're here to help!</p>
+                <a href="/support" class="button button-quaternary">
+                    <span>Submit a support ticket</span>
+                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        
         <!-- CONTACT INFO & LINKS -->
         <div class="wrapper-large">
             <!-- LINKS AND REFERENCES -->
@@ -115,7 +161,7 @@
         align-items: center;
         
         // CONTACT FORM BLOCK
-        > div:first-of-type {
+        > .contact-cta-inner {
             position: relative;
             display: flex;
             padding: 2.5em 2.75em;
@@ -158,7 +204,7 @@
                 border-radius: inherit;
             }
 
-            div {
+            div:first-of-type {
                 position: relative;
                 display: flex;
                 flex-direction: column;
@@ -186,7 +232,7 @@
                     margin-top: 1.25em;
                 }
                 > span {
-                    display: flex;
+                    display: none;
                     justify-content: flex-start;
                     align-items: center;
                     margin-top: auto;
@@ -288,6 +334,9 @@
                 }
             }
         }
+        > div.contact-cta-inner-form {
+            display: none;
+        }
         > div:last-of-type {
             display: flex;
             flex-direction: row;
@@ -317,6 +366,39 @@
             }
         }
 
+        // HIDDEN FORM ELEMENTS
+        > div.contact-cta-inner-hidden {
+            display: flex;
+
+            > .info-after-submit {
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 0.5em;
+                    list-style: none;
+                    margin-top: 1.5em;
+
+                    .button-tertiary {
+                        padding: 0 1em;
+                        height: 100%;
+                        width: fit-content;
+                        position: relative;
+                    }
+                }
+
+                p:last-of-type{
+                    margin-top: 2.75em;
+                    margin-bottom: 0.5em;
+                }
+                a {
+                    width: fit-content;
+                }
+
+            }
+        }
+
+
         // HYPERDRIVE ANIMATION
         canvas {
             position: absolute;
@@ -332,6 +414,29 @@
         }
     }
 
+    // HIDDEN FORM ELEMENTS
+    .awaiting-submission {
+
+        div.contact-cta-inner {
+            span {
+                display: flex !important;
+
+                span {
+                    display: inline-block !important;
+                }
+            }
+        }
+        > div.contact-cta-inner-hidden {
+            display: none !important;
+        }
+
+        > div.contact-cta-inner-form {
+            display: flex !important;
+            // background-color: red !important;
+
+        }
+    }
+
 
 
     /* MEDIUM / MODERATE SCREEN */
@@ -339,10 +444,10 @@
         .contact-cta {
             
             // CONTACT FORM BLOCK
-            > div:first-of-type {
+            > .contact-cta-inner {
                 flex-direction: column;
 
-                div {
+                div:first-of-type {
                     position: relative;
                     max-width: 100%;
                     padding-right: 10em;
@@ -394,7 +499,7 @@
     @media screen and (max-width: 900px) {
         .contact-cta { 
 
-            > div:first-of-type {
+            > .contact-cta-inner {
                 padding: 1.5em 1.65em;
             }
 
@@ -424,9 +529,9 @@
         .contact-cta {
             
             // CONTACT FORM BLOCK
-            > div:first-of-type {
+            > .contact-cta-inner {
 
-                div {
+                div:first-of-type {
                     padding-right: 0;
 
                     &::after {
@@ -492,17 +597,85 @@
     let contactInputEmail;
     let contactInputMessage;
 
+    let contactPersonNameSpan;
+    let contactSubmittedTitle;
+    let contactSubmittedText;
 
-    function onKeyInputContactName(event){
-        
-        if (contactInputName.value != '') {
-                console.log("niet leeg");
-                
-                // increaseHyperSpeed();
-        } else {
-            console.log("leeg");
+
+
+// HUBSPOT INTEGRATION (EXPERT FORM OVERLAY) --------------------
+// let getInTouchForm;
+
+function submitDataToHubspot(event) {
+    event.preventDefault();
+
+    getInTouchForm.classList.remove('awaiting-submission');
+    contactPersonNameSpan.textContent = contactInputName.value;
+
+
+    var formData = new FormData(this);
+    var formObject = {};
+    formData.forEach(function(value, key){
+        formObject[key] = value;
+    });
+
+    // Replace `YOUR_HUBSPOT_PORTAL_ID` and `YOUR_FORM_GUID` with your actual ID and Form GUID
+    var endpoint = 'https://api.hsforms.com/submissions/v3/integration/submit/26479787/e57a03f5-c01d-452f-a2d6-f926f94b7fdc';
+
+    // Adjust `formObject` structure if necessary to match your HubSpot form structure
+    var data = {
+        "fields": Object.keys(formObject).map(function(key) {
+        return { "name": key, "value": formObject[key] };
+        }),
+        "context": {
+        "pageUri": window.location.href,
+        "pageName": document.title
         }
-    }
+        // Include other necessary fields like `context` as per your requirement
+    };
+
+    fetch(endpoint, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // console.log('Success:', data);
+        
+        // // REDIRECT TO EXTERNAL THANKYOU PAGE
+        // var thankYouPage = window.location.origin + '/accessibility/scan/thankyou?succes';
+        // window.open(thankYouPage, '_blank');
+    })
+    .catch((error) => {
+        // console.error('Error:', error);
+
+        contactSubmittedTitle.textContent = 'Something went wrong..';
+        contactSubmittedText.textContent = 'We encountered an issue while processing your request. Try again later. Sorry for this inconvenience.';
+        // expertsNotifySection.classList.add('error');
+    });
+}
+
+
+
+
+
+
+
+    // function onKeyInputContactName(event){
+        
+    //     if (contactInputName.value != '') {
+    //             console.log("niet leeg");
+                
+    //             // increaseHyperSpeed();
+    //     } else {
+    //         console.log("leeg");
+    //     }
+    // }
+
+
 
 
     // HYPERDRIVE ANIMATION / INTERACTION BUTTON --------------------

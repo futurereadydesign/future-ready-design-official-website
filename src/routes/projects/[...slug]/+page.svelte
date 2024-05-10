@@ -9,7 +9,7 @@
 
     // Exporteer de data
     export let data;
-    console.log(data);
+    // console.log(data);
 
     // Exporteer de slug voor de meta data
     export let slug;
