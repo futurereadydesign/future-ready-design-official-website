@@ -10,11 +10,11 @@ Follow these steps to install and use the project locally:
 ```
 npm install
 ```
-5. Run the project:
+4. Run the project:
 ```
 npm run dev
 ```
-6. The project is now running locally. Open the webrowser shown in the terminal to view it.
+5. The project is now running locally. Open the webrowser shown in the terminal to view it.
 
 ## Contributing
 If you'd like to contribute to this project, follow these steps:
