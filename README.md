@@ -1,5 +1,5 @@
 
-# Future Ready Design - New website 
+# Future Ready Design - How To Get Started
 
 ## Installation 
 Follow these steps to install and use the project locally:
