@@ -183,7 +183,7 @@
             user-select: none;
 
             opacity: 1; 
-            transition: 250ms opacity;
+            transition: 150ms opacity;
 
             z-index: 1;
 
