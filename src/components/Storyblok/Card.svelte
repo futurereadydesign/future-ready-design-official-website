@@ -51,7 +51,7 @@
     flex-direction: column; */
     /* word-spacing: 0.1em; */
     background-color: #ffffff13;
-    border-radius: 10px; 
+    border-radius: 1em; 
     padding: 1em;
     border: 1.5px solid #ffffff3a; 
     max-width: 21.875em; 

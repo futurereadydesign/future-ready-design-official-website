@@ -1,12 +1,12 @@
 <script>
-  import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-  import '@splidejs/svelte-splide/css';
+  import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
   import '@splidejs/svelte-splide/css/core';
-
+  import '@splidejs/svelte-splide/css';
+  
   // Importeer het juiste css bestand
   import '/src/styles/global.css';
 
-    // Importeer de Card-component
+  // Importeer de Card-component
 	import Card from './Storyblok/Card.svelte';
 
   // Importeer de onMount-functie vanuit Svelte
@@ -45,6 +45,7 @@
       splide.go('>');
     });
   });
+  
 </script>
 
 <section>
@@ -57,7 +58,6 @@
       <Splide
         options={{
           rewind: true,
-          // fixedWidth: '16.5em',
           perPage: 3,
           gap: '1em',
           pagination: false,
@@ -71,7 +71,6 @@
             1000: {
               gap: '1em',
               perPage: 2,
-              
             },
             650: {
               perPage: 1,
@@ -84,7 +83,9 @@
 
         {#each blog as blog}
           <SplideSlide>
-            <Card blog={blog.content} slug={blog.full_slug}/>
+            <SplideTrack>
+              <Card blog={blog.content} slug={blog.full_slug}/>
+            </SplideTrack>
           </SplideSlide>
         {/each}
       </Splide>
@@ -120,76 +121,86 @@
 </section>
 
 <style lang="scss">
+  section {
+    margin-top: 4em;
 
-section {
-  margin-top: 4em;
+    h2 {
+      text-align: center;
+      margin: 0 auto 0.5em;
+      display: block;
+    }
 
-  h2 {
-    text-align: center;
-    margin: 0 auto 0.5em;
-    display: block;
-  }
+    p {
+      text-align: center;
+      max-width: 21em;
+      margin: 0 auto;
+      display: block;
+    }
 
-  p {
-    text-align: center;
-    max-width: 21em;
-    margin: 0 auto;
-    display: block;
-  }
+    .splide-container {
+      width: 90%;
+      max-width: 55em;
+      margin: 3em auto 0;
 
-  .splide-container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 3em auto 0;
+      .splide-arrows {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 20px;
+        margin-top: 1em;
+
+        .custom-prev, .custom-next {
+          background: none;
+          border: none;
+          cursor: pointer;
+          margin-left: 3em;
+          color: var(--color-white);
+
+          &::after {
+            content: '';
+            position: absolute;
+            height: calc(4% + 0.5em);
+            width: calc(4% + 0.5em);
+            border: var(--border-width) solid var(--color-white);
+            border-radius: 1.15em;
+            z-index: -1;
+            opacity: 0;
+            transition: 250ms opacity;
+          }
+
+          &:focus-visible::after {
+            opacity: 1;
+          }
+        }
+
+        .custom-prev::after {
+          left: 94.3em;
+          top: 110.9em;
+        }
+
+        .custom-next::after {
+          left: 99.4em;
+          top: 110.9em;
+        }
+      }
+
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1em;
+        margin-bottom: 2em;
+      }
+    }
 
     .splide-arrows {
-      display: flex;
-      justify-content: flex-end;
-      padding: 0 20px;
-      margin-top: 1em;
-
-      .custom-prev, .custom-next {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-left: 3em;
-        color: var(--color-white);
-
-        &::after {
-          content: '';
-          position: absolute;
-          height: calc(4% + 0.5em);
-          width: calc(4% + 0.5em);
-          border: var(--border-width) solid var(--color-white);
-          border-radius: 1.15em;
-          z-index: -1;
-          opacity: 0;
-          transition: 250ms opacity;
-        }
-
-        &:focus-visible::after {
-          opacity: 1;
-        }
-      }
-
-      .custom-prev::after {
-        left: 94.3em;
-        top: 110.9em;
-      }
-
-      .custom-next::after {
-        left: 99.4em;
-        top: 110.9em;
-      }
-    }
-
-    .button-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 2em;
+      margin-bottom: 1em;
     }
   }
-}
+
+  @media (max-width: 650px) {
+      .splide-arrows {
+        padding-right: 5em;
+      }
+  }
 </style>

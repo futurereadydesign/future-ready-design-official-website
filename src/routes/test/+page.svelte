@@ -4,9 +4,11 @@
 
     // Importeer de juiste componenten
     import TeamCursor from '/src/components/TeamCursor.svelte'
-    import Carousel from '/src/components/Carousel.svelte'
+    import BlogsCarousel from '/src/components/BlogsCarousel.svelte'
+    import ForAnyDevice from '/src/components/ForAnyDevice.svelte'
 </script>
 
 <!-- Laat de juiste componenten zien op de pagina -->
-<Carousel/>
+<BlogsCarousel/>
 <TeamCursor/>
+<ForAnyDevice/>

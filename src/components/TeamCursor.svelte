@@ -16,12 +16,9 @@
             let x = event.screenX;
             let y = event.clientY;
 
-            let offSetX = 0;
-            let offSetY = 0;
-
             const infoCard = document.getElementById('you');
-            infoCard.style.top = (y + offSetY) + "px";
-            infoCard.style.left = (x + offSetX) + "px";
+            infoCard.style.top = (y + 0) + "px";
+            infoCard.style.left = (x + 0) + "px";
         });
     }
 
@@ -38,7 +35,7 @@
                     "--scroll",
                     //  Dit berekent de scrollpositie als een percentage van hoe ver de pagina is gescrold 
                     // in verhouding tot de totale hoogte van de pagina
-                    window.pageYOffset / (document.body.offsetHeight - window.innerHeight) 
+                    window.scrollY / (document.body.offsetHeight - window.innerHeight) 
                 );
             },
             false
@@ -50,14 +47,13 @@
         };
     });
 
-
     // Definieer de variabele buiten de onMount
     let cursorEffectSection;
 
     // Voer de code uit wanneer de component is ingeladen
     onMount(() => {
         // Selecteer het element met de id 'cursor-effect' nadat de component is ingeladen
-        // cursorEffectSection = document.getElementById('cursor-effect');
+        cursorEffectSection = document.getElementById('cursor-effect');
 
         // Voeg een event listener toe voor wanneer de muis de sectie binnenkomt
         cursorEffectSection.addEventListener('mouseenter', () => {
@@ -78,7 +74,7 @@
 
 </script>
 
-<section id="cursor-effect" on:mousemove={getCursor} on:mouseenter={cursorEffectSection}>
+<section id="cursor-effect" on:mousemove={getCursor}>
 
     <!-- <div id="you-card"><p>You?</p></div> -->
     
@@ -154,7 +150,7 @@
     #cursor-effect {
         position: relative;
         margin-top: 13em;
-        margin-bottom: 50em;
+        margin-bottom: 20em;
         cursor: none;
 
         h2 {
@@ -186,8 +182,12 @@
             position: fixed;
             user-select: none;
 
-            opacity: 0; 
-            transition: opacity 0.3s ease;
+            opacity: 1; 
+            transition: 250ms opacity;
+
+            z-index: 1;
+
+            margin-top: -2em;
 
             svg {
                 display: block; 
@@ -204,14 +204,13 @@
                 white-space: nowrap; 
                 margin-left: -0.4em; 
                 margin-top: 3.6em; 
-                }
+            }
         }
         .douwe {
             position: absolute;
             left: 40%; //22%
             top: 24%; // 25%
-            transform: translateY(-50%); 
-            animation: DouweAnimation 1.2s ease-in-out infinite;
+            animation: DouweAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -1s);
 
@@ -238,7 +237,6 @@
             position: absolute;
             right: 34%; //10%
             top: 42%; //50%
-            transform: translateY(-42%); 
             animation: MarkAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -1s);
@@ -266,8 +264,7 @@
             position: absolute;
             left: 45%; //15%
             bottom: 23%; //25%
-            transform: translateY(-50%); 
-            animation: RobbinAnimation 1.7s ease-in-out infinite;
+            animation: RobbinAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -1s);
 
@@ -294,8 +291,7 @@
             position: absolute;
             right: 43%; //18%
             top: 15%; //10%
-            transform: translateY(-50%); 
-            animation: RowinAnimation 2s ease-in-out infinite;
+            animation: RowinAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -1s);
 
@@ -322,7 +318,7 @@
             position: absolute;
             left: 35%; //35%
             bottom: 38%; //10%
-            animation: TycoAnimation 1.6s ease-in-out infinite;
+            animation: TycoAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -1s);
 
@@ -349,7 +345,7 @@
             position: absolute;
             right: 36%; //22%
             bottom: 20%; //15%
-            animation: YunusAnimation 1.1s ease-in-out infinite;
+            animation: YunusAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -1s);
 
