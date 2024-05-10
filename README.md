@@ -1,38 +1,29 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# Future Ready Design - New website 
 
-## Creating a project
+## Installation 
+Follow these steps to install and use the project locally:
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+1. Clone or download this repository to the desired folder
+2. Open the root directory of this project and open it in a code editor of your choice (e.g. Visual Studio Code)
+3. Open the terminal in the code editor and type in the following to install the dependencies:
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+npm install
+```
+5. Run the project:
+```
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
+6. The project is now running locally. Open the webrowser shown in the terminal to view it.
 
-## Building
+## Contributing
+If you'd like to contribute to this project, follow these steps:
 
-To create a production version of your app:
+1. Fork the project.
+2. Create a new branch
+3. Commit your changes into the newly made branch
+4. Push to the branch 
+5. Create a pull request if allowed to push to the main branche
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Issues
+If you encounter any issues with the project, please open an issue in the GitHub repository and describe the problem in detail.
