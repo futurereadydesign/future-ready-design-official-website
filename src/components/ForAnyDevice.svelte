@@ -295,7 +295,7 @@
             list-style: none;
 
             li {
-                margin-right: 2em; 
+                margin-right: 2.5em; 
 
                 &:last-child {
                     margin-right: 0;

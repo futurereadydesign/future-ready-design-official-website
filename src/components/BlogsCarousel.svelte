@@ -1,7 +1,7 @@
 <script>
-  import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
+  import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import '@splidejs/svelte-splide/css/core';
-  import '@splidejs/svelte-splide/css';
+  // import '@splidejs/svelte-splide/css';
   
   // Importeer het juiste css bestand
   import '/src/styles/global.css';
@@ -63,7 +63,7 @@
           pagination: false,
           arrows: false,
           classes: {
-            arrows: 'splide-arrows', 
+            arrows: 'splide__arrows', 
             prev: 'custom-prev', 
             next: 'custom-next', 
           },
@@ -83,15 +83,13 @@
 
         {#each blog as blog}
           <SplideSlide>
-            <SplideTrack>
               <Card blog={blog.content} slug={blog.full_slug}/>
-            </SplideTrack>
           </SplideSlide>
         {/each}
       </Splide>
 
       <!-- Custom arrow buttons -->
-      <div class="splide-arrows">
+      <div class="splide__arrows">
         <button class="custom-prev">
           <svg width="27" height="28" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)">
             <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -142,47 +140,18 @@
       max-width: 55em;
       margin: 3em auto 0;
 
-      .splide-arrows {
+      .splide__arrows {
         display: flex;
         justify-content: flex-end;
-        padding: 0 20px;
-        margin-top: 1em;
 
         .custom-prev, .custom-next {
           background: none;
           border: none;
           cursor: pointer;
-          margin-left: 3em;
-          color: var(--color-white);
-
-          &::after {
-            content: '';
-            position: absolute;
-            height: calc(4% + 0.5em);
-            width: calc(4% + 0.5em);
-            border: var(--border-width) solid var(--color-white);
-            border-radius: 1.15em;
-            z-index: -1;
-            opacity: 0;
-            transition: 250ms opacity;
-          }
-
-          &:focus-visible::after {
-            opacity: 1;
-          }
-        }
-
-        .custom-prev::after {
-          left: 94.3em;
-          top: 110.9em;
-        }
-
-        .custom-next::after {
-          left: 99.4em;
-          top: 110.9em;
+          margin: 1em 3em 1em 0;
         }
       }
-
+      
       .button-container {
         display: flex;
         flex-direction: column;
@@ -192,15 +161,11 @@
         margin-bottom: 2em;
       }
     }
-
-    .splide-arrows {
-      margin-bottom: 1em;
-    }
   }
 
   @media (max-width: 650px) {
-      .splide-arrows {
-        padding-right: 5em;
+      .splide__arrows {
+        padding: 0 3.2em;
       }
   }
 </style>

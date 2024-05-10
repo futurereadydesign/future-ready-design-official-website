@@ -206,6 +206,7 @@
                 white-space: nowrap; 
                 margin-left: -0.4em; 
                 margin-top: 3.6em; 
+                box-shadow: 0 0 40px 30px rgba(33, 219, 208, 0.203);
             }
         }
         .douwe {
@@ -233,6 +234,7 @@
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
+                box-shadow: 0 0 40px 30px rgba(0, 236, 39, 0.203);
             }
         }
         .mark {
@@ -260,6 +262,7 @@
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
+                box-shadow: 0 0 40px 30px rgba(219, 33, 44, 0.203);  
             }
         }
         .robbin {
@@ -287,6 +290,7 @@
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
+                box-shadow: 0 0 40px 30px rgba(204, 0, 255, 0.203);
             }
         }
         .rowin {
@@ -314,6 +318,7 @@
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
+                box-shadow: 0 0 40px 30px rgba(251, 161, 8, 0.203);
             }
         }
         .tyco {
@@ -341,6 +346,7 @@
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
+                box-shadow: 0 0 40px 30px rgba(18, 127, 255, 0.203);
             }
         }
         .yunus {
@@ -369,6 +375,7 @@
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
+                box-shadow: 0 0 40px 30px rgba(189, 255, 0, 0.203);
             }
     }
 
@@ -435,7 +442,7 @@
             left: 26%; 
         }
         100% {
-            left: 26%; 
+            left: 20%; 
         }
     }
 
@@ -450,6 +457,27 @@
         100% {
             right: 28%; 
             bottom: 6%; 
+        }
+    }
+
+    // Media-queries
+    // @media screen and (max-width: 1250px) {
+    
+    // }
+
+    // @media screen and (max-width: 900px) {
+
+    // }
+
+    @media screen and (max-width: 768px) {
+        @keyframes DouweAnimation {
+            0% {
+                transform: translateY(-50%);
+            }
+            100% {
+                left: -250vw; 
+                top: 74%; 
+            }
         }
     }
 </style>
