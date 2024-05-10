@@ -73,6 +73,8 @@
 
 .left-container, .right-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
 
     h4 {
@@ -177,6 +179,7 @@
     align-items: center;
     justify-content: center;
     padding: 0 1em;
+    max-width: 30em;
 }
 
 .text-container {

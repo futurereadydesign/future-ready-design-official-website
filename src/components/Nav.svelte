@@ -1,3 +1,4 @@
+<div class="spacer"></div>
 <div class="nav">
   <input type="checkbox" id="nav-check">
   <div class="nav-header">
@@ -27,14 +28,17 @@
 
 <style lang="scss">
 
+.spacer {
+  height: 3.8em;
+}
+
 .nav {
   padding: 1em;
   margin-bottom: 2em;
   height: 4em;
   width: 100%;
-  position: relative;
+  position: fixed;
   z-index: 9999;
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -167,6 +171,7 @@
   }
 
   @media (max-width: 900px) {
+    
     .get-in-touch {
       max-width: 8em;
     }
@@ -206,7 +211,7 @@
     }
 
     & > .nav-links {
-      position: absolute;
+      position: fixed;
       display: block;
       width: 100%;
       background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
@@ -245,6 +250,10 @@
     & > #nav-check:checked ~ .nav-links {
       height: calc(100vh - 50px);
       overflow-y: auto;
+
+      .nav {
+        background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
+      }
     }
   }
 }
