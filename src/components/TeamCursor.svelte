@@ -6,19 +6,21 @@
     // Importeer het juiste css bestand
     import '/src/styles/global.css';
 
-    let requestId;
+    // Variabele om het ID van het animatieverzoek bij te houden
+    let requestId; 
 
-    function getCursor(event) {
+    // Functie om de positie van de muis te verkrijgen
+    function getCursor(event) { 
         if (requestId) {
-            cancelAnimationFrame(requestId);
+            cancelAnimationFrame(requestId); // Als er al een animatieverzoek is, annuleer het dan
         }
-        requestId = requestAnimationFrame(() => {
-            let x = event.screenX;
-            let y = event.clientY;
+        requestId = requestAnimationFrame(() => { // Maak een nieuw animatieverzoek
+            let x = event.screenX; // X-coördinaat van de muispositie op het scherm
+            let y = event.clientY; // Y-coördinaat van de muispositie binnen het viewport
 
-            const infoCard = document.getElementById('you');
-            infoCard.style.top = (y + 0) + "px";
-            infoCard.style.left = (x + 0) + "px";
+            const infoCard = document.getElementById('you'); // Haal het element op met de id 'you'
+            infoCard.style.top = (y + 0) + "px"; // Stel de 'top' CSS-stijl in op de Y-coördinaat van de muis
+            infoCard.style.left = (x + 0) + "px"; // Stel de 'left' CSS-stijl in op de X-coördinaat van de muis
         });
     }
 
