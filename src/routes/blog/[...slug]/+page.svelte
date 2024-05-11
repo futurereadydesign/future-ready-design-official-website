@@ -1,6 +1,9 @@
 <script>
     /** @type {import('./$types').PageData} */
 
+    // Importeer het juiste css bestand
+    import '/src/styles/global.css';
+
     // Laat het juiste jaartal zien voor de copyright
     let currentYear = new Date().getFullYear();
 
@@ -146,6 +149,23 @@
         text-decoration: none;
         color: inherit;
         /* font-weight: 500; */
+    }
+
+    .slug-blog-link::after {
+        content: '';
+        position: absolute;
+        left: 23.6em;
+        top: 31em;
+        height: calc(2% + 2em);
+        width: calc(10% + 5em);
+        border: var(--border-width) solid var(--color-white);
+        border-radius: 1.15em;
+        z-index: -1;
+        opacity: 0;
+        transition: 250ms opacity;
+    }
+    .slug-blog-link:focus-visible::after {
+        opacity: 1;
     }
 
     .slug-blog-link-content {

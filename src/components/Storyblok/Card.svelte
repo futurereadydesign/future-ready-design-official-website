@@ -28,7 +28,7 @@
     <!-- Voeg een link toe naar de blogpost door gebruik te maken van de slug -->
     <a href="/{slug}" use:storyblokEditable={blog} class="card-link">
       <span class="card-link-content">
-        Kom meer te weten 
+        Learn more 
         <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -47,11 +47,11 @@
 
   .card {
     position: relative; 
-    display: flex; 
-    flex-direction: column;
-    word-spacing: 0.1em;
+    /* display: flex; 
+    flex-direction: column; */
+    /* word-spacing: 0.1em; */
     background-color: #ffffff13;
-    border-radius: 10px; 
+    border-radius: 1em; 
     padding: 1em;
     border: 1.5px solid #ffffff3a; 
     max-width: 21.875em; 
@@ -62,16 +62,13 @@
   .card-image-container {
     display: flex;
     justify-content: center; 
+    margin-bottom: 0.5em
   }
 
-  picture {
+  /* picture {
     width: 312px;
     height: 180px;
-  }
-  picture img {
-    height: 100%;
-    width: 100%;
-  }
+  } */
 
   .card-image {
     width: 100%;
@@ -80,7 +77,7 @@
   }
 
   .card-title {
-    margin-top: 0.5em;
+    /* margin-top: 0.5em; */
     font-size: 1.1em;
     color: white;
   }
@@ -99,6 +96,23 @@
     text-decoration: none;
     color: inherit;
     /* font-weight: 500; */
+  }
+
+  .card-link::after {
+    content: '';
+    position: absolute;
+    left: -1em;
+    top: -1em;
+    height: calc(90% + 2.2em);
+    width: calc(90% + 2.5em);
+    border: var(--border-width) solid var(--color-white);
+    border-radius: 1.15em;
+    z-index: -1;
+    opacity: 0;
+    transition: 250ms opacity;
+  }
+  .card-link:focus-visible::after {
+      opacity: 1;
   }
 
   .card-link-content {
