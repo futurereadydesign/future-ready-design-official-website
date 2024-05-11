@@ -20,23 +20,27 @@ Oude FRD website wordt laten zien
     import HyperdriveCTA from '/src/components/HyperdriveCTA.svelte';
     import FeaturedV1 from '/src/components/FeaturedV1.svelte';
     import FeaturedV2 from '/src/components/FeaturedV2.svelte';
+    import BlogsCarousel from '../components/BlogsCarousel.svelte';
     import Footer from '/src/components/Footer.svelte';
     import Grid from '/src/components/Grid.svelte';
+    import OurStory from '../components/OurStory.svelte';
+    import Nav from '../components/Nav.svelte';
+    import Projects from '../components/Projects.svelte';
 
 </script>
 
 <!-- Laat het juiste component zien op de pagina -->
+<Nav/>
 <Hero/>
-
-
-<!-- TEMP -->
-<!-- <div style="height: 50vh;"></div> -->
-
+<OurStory/>
 <TeamCursor/>
+<Projects/>
+
 <FeaturedV1/>
 <ForAnyDevice/>
 <HyperdriveCTA/>
 <Grid/>
+<BlogsCarousel/>
 <FeaturedV2/>
 <Footer/>
 

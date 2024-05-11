@@ -18,7 +18,7 @@
 		// Maak een verzoek naar Storyblok om de Story's op te halen
 		const { data } = await storyblokApi.get('cdn/stories', {
 			version: 'draft', // Gebruik de draft versie van de Story's
-			starts_with: 'blogs', // Zoek alleen naar de Story's die met 'blogs' beginnen
+			starts_with: 'blog', // Zoek alleen naar de Story's die met 'blogs' beginnen
 			is_startpage: false // Deze Story's zijn niet de startpagina
 		});
 		// Sla de opgehaalde verhalen op in de 'blog' array

@@ -25,7 +25,7 @@
       // Maak een verzoek naar Storyblok om de Story's op te halen
       const { data } = await storyblokApi.get('cdn/stories', {
           version: 'draft', // Gebruik de draft versie van de Story's
-          starts_with: 'blogs', // Zoek alleen naar de Story's die met 'blogs' beginnen
+          starts_with: 'blog', // Zoek alleen naar de Story's die met 'blogs' beginnen
           is_startpage: false // Deze Story's zijn niet de startpagina
       });
       // Sla de opgehaalde verhalen op in de 'blog' array
@@ -106,7 +106,7 @@
       </div>
 
       <div class="button-container">
-        <a href="/blogs" class="button button-tertiary">
+        <a href="/blog" class="button button-tertiary">
           <span>Read more interesting tips on our blog</span> 
           <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
             <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
