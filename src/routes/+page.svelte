@@ -15,6 +15,8 @@ Oude FRD website wordt laten zien
 
     // Importeer de juiste componenten. 
     import Hero from '/src/components/Hero.svelte';
+    import TeamCursor from '/src/components/TeamCursor.svelte';
+    import ForAnyDevice from '/src/components/ForAnyDevice.svelte';
     import HyperdriveCTA from '/src/components/HyperdriveCTA.svelte';
     import FeaturedV1 from '/src/components/FeaturedV1.svelte';
     import FeaturedV2 from '/src/components/FeaturedV2.svelte';
@@ -28,9 +30,11 @@ Oude FRD website wordt laten zien
 
 
 <!-- TEMP -->
-<div style="height: 50vh;"></div>
+<!-- <div style="height: 50vh;"></div> -->
 
+<TeamCursor/>
 <FeaturedV1/>
+<ForAnyDevice/>
 <HyperdriveCTA/>
 <Grid/>
 <FeaturedV2/>
