@@ -27,7 +27,7 @@
 
         // Hier word de eventlistener verwijderd
         return () => {
-            window.removeEventListener("scroll");
+            window.removeEventListener("scroll", window);
         };
     });
 </script>

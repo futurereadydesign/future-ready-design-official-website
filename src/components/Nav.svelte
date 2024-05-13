@@ -11,7 +11,7 @@
     <a href="#">Our work</a>
     <a href="#">Accessibility</a>
     <a href="#">Design blog</a>
-    <a href="#" class="get-in-touch">Get in touch</a>
+    <a href="/contact" class="get-in-touch">Get in touch</a>
     <img class="available-mobile" src="/assets/icons/available-mobile.svg" alt="Available for work">
   </section>
 
