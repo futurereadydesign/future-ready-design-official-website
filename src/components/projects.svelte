@@ -11,7 +11,13 @@
             <h4>Showcased project</h4>
             <h3>how we are changing education with Crelo</h3>
             <p>Shifting the focus from grades to personal development. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin purus vitae enim vestibulum sollicitudin. Aenean ac faucibus arcu. Mauris molestie, augue nec pharetra ullamcorper, nisl mauris mattis tortor, aliquet pulvinar turpis lectus ut nulla. Nunc ut eros id purus pulvinar rhoncus eu egestas eros.</p>
-            <button>More about this project →</button>
+            <a href="/projects" class="button button-quaternary">
+                <span>More about this project</span>
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </section>
     </article>
 
@@ -23,7 +29,13 @@
             <h4>Showcased project</h4>
             <h3>how we are making the web accessible with AccessDash</h3>
             <p>More than 90% of the web is currently not usable for more than 100 million people in Europe alone with disabilities and how we’re fixing it. Praesent sollicitudin purus vitae enim vestibulum sollicitudin. Aenean ac faucibus arcu. Mauris molestie, augue nec pharetra ullamcorper, nisl mauris mattis tortor, aliquet pulvinar turpis lectus ut nulla. Nunc ut eros id purus pulvinar rhoncus eu egestas eros.</p>
-            <button>More about this project →</button>
+            <a href="/projects" class="button button-quaternary">
+                <span>More about this project</span>
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </section>
     </article>
 
@@ -35,11 +47,23 @@
             <h4>Showcased project</h4>
             <h3>how we are changing higher education with Onyx</h3>
             <p>Helping higher education make the shift towards didactic coaching. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin purus vitae enim vestibulum sollicitudin. Aenean ac faucibus arcu. Mauris molestie, augue nec pharetra ullamcorper, nisl mauris mattis tortor, aliquet pulvinar turpis lectus ut nulla. Nunc ut eros id purus pulvinar rhoncus eu egestas eros.</p>
-            <button>More about this project →</button>
+            <a href="/projects" class="button button-quaternary">
+                <span>More about this project</span>
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </section>
     </article>
     <section class="button-container">
-        <button class="button button-primary">Explore more of our work  →</button>
+        <a href="/projects" class="button button-primary">
+            <span>Explore more of our work</span>
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
     </section>
 </section>
 
@@ -79,7 +103,9 @@
 
     h4 {
         opacity: 50%;
-        margin-bottom: .6em;
+        margin-bottom: .25em;
+        font-weight: 300;
+        font-size: 1em;
     }
 
     h3 {
@@ -93,14 +119,6 @@
         font-size: 1em;
     }
 
-    button {
-        margin-bottom: .6em;
-        color: white;
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: .8em;
-    }
 }
 
 .left-container:nth-last-child(2) {
@@ -151,7 +169,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-end; 
+        align-items: flex-start; 
         padding: 0 0.5em;
     }
 }

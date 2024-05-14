@@ -1,5 +1,5 @@
 <div class="spacer"></div>
-<div class="nav">
+<nav class="nav">
   <input type="checkbox" id="nav-check">
   <div class="nav-header">
     <div class="nav-title">
@@ -24,7 +24,7 @@
       <img src="/assets/icons/menu.svg" alt=""><p>menu</p>
     </label>
   </div>
-</div>
+</nav>
 
 <style lang="scss">
 
@@ -42,6 +42,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: calc(100% + 5em);
+    background-image: linear-gradient(0deg, rgba(37, 37, 37, 0) 0%, rgba(25, 25, 25, 0.85) 90%);
+    z-index: -1;
+    pointer-events: none;
+  }
 
   .nav-header {
     display: flex;
