@@ -461,13 +461,65 @@
     }
 
     // Media-queries
-    // @media screen and (max-width: 1250px) {
-    
-    // }
+    @media screen and (min-width: 1900px) {
+        @keyframes DouweAnimation {
+            0% {
+                transform: translateY(-50%);
+            }
+            100% {
+                left: -550vw; 
+                top: 74%; 
+            }
+        }
 
-    // @media screen and (max-width: 900px) {
+        @keyframes TycoAnimation {
+            0% {
+            transform: translateY(38%);
+            }
+            100% {
+                left: -500vw; 
+            }
+        }
 
-    // }
+        @keyframes RobbinAnimation {
+            0% {
+                transform: translateY(-38%);
+            }
+            100% {
+                left: -610vw; 
+                bottom: -50vh;
+            }
+        }
+
+        @keyframes RowinAnimation {
+            0% {
+                transform: translateY(-38%);
+            }
+            100% {
+                right: -600vw; 
+                top: -30vh;  
+            }
+        }
+
+        @keyframes MarkAnimation {
+            0% {
+                transform: translateY(-42%);
+            }
+            100% {
+                right: -510vw;  
+            }
+        }
+
+        @keyframes YunusAnimation {
+            0% {
+                transform: translateY(20%);
+            }
+            100% {
+                right: -730vw; 
+                bottom: 10vh; 
+            }
+        }
+    }
 
     @media screen and (max-width: 768px) {
         @keyframes DouweAnimation {
@@ -477,6 +529,54 @@
             100% {
                 left: -250vw; 
                 top: 74%; 
+            }
+        }
+
+        @keyframes TycoAnimation {
+            0% {
+            transform: translateY(38%);
+            }
+            100% {
+                left: -200vw; 
+            }
+        }
+
+        @keyframes RobbinAnimation {
+            0% {
+                transform: translateY(-38%);
+            }
+            100% {
+                left: -310vw; 
+                bottom: -50vh;
+            }
+        }
+
+        @keyframes RowinAnimation {
+            0% {
+                transform: translateY(-38%);
+            }
+            100% {
+                right: -300vw; 
+                top: -30vh;  
+            }
+        }
+
+        @keyframes MarkAnimation {
+            0% {
+                transform: translateY(-42%);
+            }
+            100% {
+                right: -210vw;  
+            }
+        }
+
+        @keyframes YunusAnimation {
+            0% {
+                transform: translateY(20%);
+            }
+            100% {
+                right: -230vw; 
+                bottom: 10vh; 
             }
         }
     }
