@@ -6,6 +6,12 @@
     // Importeer het juiste css bestand
     import '/src/styles/global.css';
 
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from "@storyblok/svelte";
+
+    // Definieer de blok
+    export let blok;
+
     // Variabele om het ID van het animatieverzoek bij te houden
     let requestId; 
 
@@ -76,11 +82,11 @@
 
 </script>
 
-<section id="cursor-effect" on:mousemove={getCursor}>
+<section id="cursor-effect" on:mousemove={getCursor} use:storyblokEditable={blok}>
 
     <!-- <div id="you-card"><p>You?</p></div> -->
     
-    <h2>we are driven by the goal of empowering individuals and organisations with human-first design.</h2>
+    <h2>{blok.title}</h2>
     <div class="underline"></div>
 
     <!-- YOU? -->

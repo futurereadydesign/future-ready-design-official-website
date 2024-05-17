@@ -6,6 +6,12 @@
     // Importeer het juiste css bestand
     import '/src/styles/global.css';
 
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from "@storyblok/svelte";
+
+    // Definieer de blok
+    export let blok;
+
     // Deze functie wordt uitgevoerd wanneer de component is ingeladen
     onMount(() => {
         // Hier word er een eventlistener toegevoegd aan het window object voor het "scroll" event
@@ -32,9 +38,9 @@
     });
 </script>
 
-<section class="for-any-device">
-    <h2>for any device on <span>any</span> platform</h2>
-    <p>Keeping user friendliness top of mind</p>
+<section class="for-any-device" use:storyblokEditable={blok}>
+    <h2>{blok.title}</h2>
+    <p>{blok.subtitle}</p>
 
     <ul class="icons">
         <li>
@@ -266,7 +272,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin-bottom: 50em;      
+        margin-bottom: 3em;      
         overflow: hidden;
 
         h2 {

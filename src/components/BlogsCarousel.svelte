@@ -1,4 +1,10 @@
 <script>
+  // Importeer de storyblokEditable functie vanuit de Storyblok package
+  import { storyblokEditable } from "@storyblok/svelte";
+
+  // Definieer de blok
+  export let blok;
+
   import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import '@splidejs/svelte-splide/css/core';
   // import '@splidejs/svelte-splide/css';
@@ -49,9 +55,9 @@
 </script>
 
 <section>
-    <h2>free candy</h2>
+    <h2 use:storyblokEditable={blok}>{blok.title}</h2>
     <p>
-        Just kidding, but here are some free tips and tricks we offer you if you want anything digital.
+      {blok.subtitle}
     </p>
 
     <article class="splide-container">
