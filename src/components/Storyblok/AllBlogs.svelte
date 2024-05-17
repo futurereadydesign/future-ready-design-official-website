@@ -18,7 +18,7 @@
 		// Maak een verzoek naar Storyblok om de Story's op te halen
 		const { data } = await storyblokApi.get('cdn/stories', {
 			version: 'draft', // Gebruik de draft versie van de Story's
-			starts_with: 'blogs', // Zoek alleen naar de Story's die met 'blogs' beginnen
+			starts_with: 'blog', // Zoek alleen naar de Story's die met 'blogs' beginnen
 			is_startpage: false // Deze Story's zijn niet de startpagina
 		});
 		// Sla de opgehaalde verhalen op in de 'blog' array
@@ -39,8 +39,8 @@
 	.all-blogs-section {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-		gap: 1em;
-		margin-bottom: 5em;
+		/* gap: -1em; */
+		/* margin-bottom: 9em; */
 		max-width: 36em;
 		margin: 0 auto;
 		margin-bottom: 4em;
@@ -49,9 +49,11 @@
 	}
 
 	.all-blogs-article {
+		width: 109%; 
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
 		flex: 1 1 auto;
+		margin-bottom: 0.8em;
 	}
 
 	@media (min-width: 768px) {

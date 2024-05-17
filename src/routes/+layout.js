@@ -6,6 +6,10 @@ import Header from "../components/Storyblok/Header.svelte";
 import AllBlogs from "../components/Storyblok/AllBlogs.svelte";
 import AllProjects from "../components/Storyblok/AllProjects.svelte";
 
+import BlogsCarousel from "../components/BlogsCarousel.svelte";
+import ForAnyDevice from "../components/ForAnyDevice.svelte";
+import TeamCursors from "../components/TeamCursors.svelte";
+
 // Importeer Storyblok plugins en functionaliteiten
 import { apiPlugin, storyblokInit, useStoryblokApi } from "@storyblok/svelte";
 
@@ -22,6 +26,9 @@ export async function load() {
         components: {
             page: Page, 
             header: Header, 
+            'blogs-carousel' : BlogsCarousel,
+            'team-cursors': TeamCursors,
+            'for-any-device': ForAnyDevice,
             'all-blogs': AllBlogs,
             'all-projects': AllProjects,
         },

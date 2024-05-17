@@ -4,7 +4,7 @@
 /** @type {import('./$types').PageLoad} */
 export async function load({ parent }) {
   const { storyblokApi } = await parent();
-  const path = 'cdn/stories/blogs';
+  const path = 'cdn/stories/blog';
   const dataStory = await storyblokApi.get(path, {
       version: 'draft'
   });

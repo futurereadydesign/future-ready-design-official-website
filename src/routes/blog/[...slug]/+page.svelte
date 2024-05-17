@@ -1,6 +1,9 @@
 <script>
     /** @type {import('./$types').PageData} */
 
+    // Importeer het juiste css bestand
+    import '/src/styles/global.css';
+
     // Laat het juiste jaartal zien voor de copyright
     let currentYear = new Date().getFullYear();
 
@@ -24,14 +27,14 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://www.futureready.design/blogs/{slug}">
+	<meta property="og:url" content="https://www.futureready.design/blog/{slug}">
 	<meta property="og:title" content="{pageTitle} | Future Ready Design">
 	<meta property="og:description" content="{pageDescription}">
 	<meta property="og:image" content="{thumbnailUrl}">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://www.futureready.design/blogs/{slug}">
+	<meta name="twitter:url" content="https://www.futureready.design/blog/{slug}">
 	<meta name="twitter:title" content="{pageTitle} | Future Ready Design">
 	<meta name="twitter:description" content="{pageDescription}">
 	<meta name="twitter:image" content="{thumbnailUrl}">
@@ -48,7 +51,7 @@
       <!-- Alle data wordt ingeladen -->
       <article class="slug-blog-article">
           <img class="slug-blog-image" src={data.post.image} alt={data.post.imageAlt} width="800" height="600">
-          <a href="/blogs" class="slug-blog-link">
+          <a href="/blog" class="slug-blog-link">
             <span class="slug-blog-link-content">
                 <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.418 11.5L4.58464 11.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -146,6 +149,23 @@
         text-decoration: none;
         color: inherit;
         /* font-weight: 500; */
+    }
+
+    .slug-blog-link::after {
+        content: '';
+        position: absolute;
+        left: 23.6em;
+        top: 31em;
+        height: calc(2% + 2em);
+        width: calc(10% + 5em);
+        border: var(--border-width) solid var(--color-white);
+        border-radius: 1.15em;
+        z-index: -1;
+        opacity: 0;
+        transition: 250ms opacity;
+    }
+    .slug-blog-link:focus-visible::after {
+        opacity: 1;
     }
 
     .slug-blog-link-content {

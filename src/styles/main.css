@@ -338,6 +338,11 @@ body.no-scrollbar::-webkit-scrollbar {
     max-width: var(--wrapper-large-width);
     width: 100%;
 }
+.wrapper-medium {
+    margin: 0 auto;
+    max-width: var(--wrapper-medium-width);
+    width: 100%;
+}
 .wrapper-small {
     margin: 0 auto;
     max-width: var(--wrapper-small-width);
@@ -510,7 +515,6 @@ strong {
 .button-quaternary > svg path {
     stroke: var(--color-white);
 }
-
 .button-icon-only {
     padding: 0.25em;
     border-radius: 0;
@@ -530,6 +534,13 @@ strong {
     height: 1.75em;
     width: 1.75em;
 }
+.button-flipped {
+    flex-direction: row-reverse;
+}
+.button-flipped > svg {
+    transform: scale(-1);
+}
+
 /* LINK */
 .link {
     color: var(--color-white);
@@ -542,6 +553,28 @@ strong {
     color: var(--color-lightblue);
     text-decoration: underline
 }
+/* CLICKABLE ELEMENT */
+.clickable {
+    position: relative;
+    display: block;
+}
+.clickable::after {
+    content: '';
+    position: absolute;
+    left: -0.5em;
+    top: -0.5em;
+    height: calc(100% + 1em);
+    width: calc(100% + 1em);
+    border: var(--border-width) solid var(--color-white);
+    border-radius: 1.15em;
+    z-index: -1;
+    opacity: 0;
+    transition: 250ms opacity;
+}
+.clickable:focus-visible::after {
+    opacity: 1;
+}
+
 
 /* OVERLAY */
 .overlay {
@@ -1476,7 +1509,7 @@ main.scan-failed form.url-input a {
     animation: rotation-percentage 250ms ease;
     animation-delay: 750ms;
     animation-fill-mode: forwards;
-    animation-play-state: paused;
+    animation-play-state: running;
     opacity: 0;
 }
 .percentage-visualizer svg path:last-of-type {
@@ -1487,7 +1520,7 @@ main.scan-failed form.url-input a {
     animation: rotation-percentage 250ms ease;
     animation-delay: 750ms;
     animation-fill-mode: forwards;
-    animation-play-state: paused;
+    animation-play-state: running;
     opacity: 0;
 } 
 main.scan-completed .percentage-visualizer svg path:first-of-type,
@@ -1757,7 +1790,7 @@ main.scan-completed .percentage-visualizer svg path:last-of-type {
     background-position: 50% 50%;
     border-radius: calc(1.1em + var(--border-width));
     animation: rotation-glow 5s linear infinite;
-    animation-play-state: paused;
+    animation-play-state: running;
     transition: --gradient-color-black-35 750ms, --gradient-color-lightblue 750ms, --gradient-color-white 750ms, --gradient-color-lightblue-2 750ms;
     z-index: -1;
     will-change: transform; /* IMPROVE PERFORMANCE */
@@ -1930,8 +1963,9 @@ main.scan-failed .section-between::after {
     h2 {
         font-size: 1.65em;
     }
-    .wrapper-max {
-        width: calc(100% - 5em);
+    .wrapper-max,
+    .wrapper-large {
+        width: calc(100% - 5rem);
     }
     .section-block {
         padding: 2em 2.25em;
@@ -2005,8 +2039,9 @@ main.scan-failed .section-between::after {
     h2 {
         font-size: 1.35em;
     }
-    .wrapper-max {
-        width: calc(100% - 4.5em);
+    .wrapper-max,
+    .wrapper-large {
+        width: calc(100% - 4.5rem);
     }
 
     .section-block {
@@ -2082,8 +2117,10 @@ main.scan-failed .section-between::after {
         font-size: 1.45em;
     }
     .wrapper-max,
+    .wrapper-large,
+    .wrapper-medium,
     .wrapper-small {
-        width: calc(100% - 2em);
+        width: calc(100% - 2rem);
     }
     .button {
         gap: 1.25em;
@@ -2092,6 +2129,10 @@ main.scan-failed .section-between::after {
     }
     .button > span::after {
         transform: translateX(0.7em) translateY(-50%);
+    }
+    .button-quaternary {
+        gap: 0.5em;
+        padding: 0;
     }
     header {
         margin-top: 2.15em;
