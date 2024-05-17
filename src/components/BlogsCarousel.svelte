@@ -127,6 +127,7 @@
 <style lang="scss">
   section {
     margin-top: 4em;
+    max-width: calc(100vw - 1em);
 
     h2 {
       text-align: center;
