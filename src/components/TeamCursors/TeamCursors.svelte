@@ -2,19 +2,18 @@
     // Importeer de onMount-functie uit de 'svelte' bibliotheek
     // Dit wordt gebruikt om code uit te voeren wanneer de component is ingeladen in de DOM
     import { onMount } from 'svelte';
-
     // Importeer het juiste css bestand
     import '/src/styles/global.css';
-
     // Importeer de storyblokEditable functie vanuit de Storyblok package
     import { storyblokEditable } from "@storyblok/svelte";
 
     // Definieer de blok
     export let blok;
 
+    console.log(blok);
+
     // Variabele om het ID van het animatieverzoek bij te houden
     let requestId; 
-
     // Functie om de positie van de muis te verkrijgen
     function getCursor(event) { 
         if (requestId) {
@@ -78,8 +77,7 @@
             // Verander de opacity van het 'you'-element naar 0 wanneer de muis de sectie verlaat
             youElement.style.opacity = 0;
         });
-    });
-
+    }); 
 </script>
 
 <section id="cursor-effect" on:mousemove={getCursor} use:storyblokEditable={blok}>
@@ -98,60 +96,17 @@
         <span>You?</span>
     </div>
 
-    <!-- DOUWE -->
-    <div class="douwe">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="#00EC26"/>
-        </svg>
-        <span>Douwe</span>
-    </div>
-
-    <!-- MARK -->
-    <div class="mark">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="#DB212C"/>
-        </svg>
-        <span>Mark</span>        
-    </div>
-        
-    <!-- ROBBIN -->
-    <div class="robbin">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52653L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37705L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37705Z" fill="#CC00FF"/>
-        </svg>
-        <span>Robbin</span>
-    </div>
-
-    <!-- ROWIN -->
-    <div class="rowin">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="#FBA108"/>
-        </svg>
-        <span>Rowin</span>
-    </div>
-        
-    <!-- TYCO -->
-    <div class="tyco">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37705L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37705Z" fill="#127FFF"/>
-        </svg>
-    <span>Tyco</span>        
-    </div>
-
-    <!-- YUNUS -->
-    <div class="yunus">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52653L23.651 20.0799L11.5249 22.2079L11.2091 22.4419L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37705L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0786L2.46484 7.37705Z" fill="#BDFF00"/>
-        </svg>
-        <span>Yunus Emre</span>        
-    </div>
-        
+    <!-- {#if data.svgItems[0]}
+        <div class="douwe">
+            {#each data.svgItems as svgItems}
+            <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
+                <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill={blok.svgItems.color}/>
+            </svg>
+            <span>{blok.name}</span>
+            {/each}
+        </div>
+    {/if}        -->
 </section>
 
 <style lang="scss">

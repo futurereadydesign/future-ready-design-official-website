@@ -12,4 +12,3 @@ export async function load({ parent }) {
         story: dataStory.data.story
     };
   }
-  

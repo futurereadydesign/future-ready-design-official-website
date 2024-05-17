@@ -17,7 +17,7 @@
 	});
 </script>
  
-<!-- Oude FRD website wordt laten zien -->
+<!-- Laat de content van de story 'Home' -->
 {#if data.story}
 	<StoryblokComponent blok={data.story.content} />
 {/if}

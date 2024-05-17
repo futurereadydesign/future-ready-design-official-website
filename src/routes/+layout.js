@@ -8,7 +8,7 @@ import AllProjects from "../components/Storyblok/AllProjects.svelte";
 
 import BlogsCarousel from "../components/BlogsCarousel.svelte";
 import ForAnyDevice from "../components/ForAnyDevice.svelte";
-import TeamCursors from "../components/TeamCursors.svelte";
+import TeamCursors from "../components/TeamCursors/TeamCursors.svelte";
 
 // Importeer Storyblok plugins en functionaliteiten
 import { apiPlugin, storyblokInit, useStoryblokApi } from "@storyblok/svelte";
@@ -46,7 +46,3 @@ export async function load() {
         storyblokApi: storyblokApi,
     };
 }
-
-
-
-
