@@ -30,7 +30,8 @@
     </section>
 
     <section class="available">
-      <img src="/assets/icons/available.svg" alt="Available for work">
+        <span> <!-- PULSATE --> </span>
+        Available for work
     </section>
 
     <div class="nav-btn">
@@ -43,20 +44,15 @@
 
 <style lang="scss">
 
-.spacer {
-  height: 3.8em;
-}
-
-.nav {
+header {
+  left: 0;
+  top: 0;
   padding: 1em;
   margin-bottom: 2em;
   height: 4em;
   width: 100%;
-  position: fixed;
+  position: sticky;
   z-index: 9999;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
   &::before {
     content: '';
@@ -70,13 +66,19 @@
     pointer-events: none;
   }
 
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .nav-header {
     display: flex;
     align-items: center;
   }
 
   .nav-title {
-    color: #fff;
+    color: var(--color-white);
     padding: 10px;
   }
 
@@ -127,9 +129,50 @@
 
   }
 
+ 
+
+
   .available {
-    margin-top: 1.6em;
-  }
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 500;
+
+    span {
+        position: relative;
+        display: inline-block;
+        background-color: var(--color-green);
+        background-image: radial-gradient(circle, rgba(138,255,185,1) 0%, rgba(0,255,102,1) 100%);
+        height: 0.65em;
+        width: 0.65em;
+        border-radius: 50%;
+        margin-right: 0.5em;
+        box-shadow: var(--color-green) 0 0 5em 0.5em,
+                    var(--color-green) 0 0 0.45em 0em;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: inherit;
+            z-index: -1;
+            border-radius: inherit;
+            filter: blur(var(--filter-blur-less));
+            opacity: 0.75;
+        }
+        &::after {
+            filter: blur(var(--filter-blur-moderate));
+            transform: scale(1.5);
+            opacity: 1;
+        }
+    }
+}
+
+
 
   #nav-check {
     display: none;

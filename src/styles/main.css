@@ -922,7 +922,7 @@ strong {
 
 /* HEADER -------------------------------- */
 /* HEADER -------------------------------- */
-header {
+/* header {
     display: grid;
     place-items: center;
     margin-top: 4.15em;
@@ -953,7 +953,7 @@ header a:focus-visible::after {
 }
 header a img {
     height: 2.5em;
-}
+} */
 
 
 
