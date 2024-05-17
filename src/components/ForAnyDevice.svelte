@@ -274,6 +274,7 @@
         text-align: center;
         margin-bottom: 3em;      
         overflow: hidden;
+        width: calc(100vw - 1em);
 
         h2 {
             span {
