@@ -96,17 +96,17 @@
         <span>You?</span>
     </div>
 
-    <!-- {#if data.svgItems[0]}
-        <div class="douwe">
-            {#each data.svgItems as svgItems}
+    {#if blok.cursors[0]}
+    {#each blok.cursors as svgItems}
+        <div class="cursor-item">
             <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-                <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill={blok.svgItems.color}/>
+                <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="{svgItems.color.color}"/>
             </svg>
-            <span>{blok.name}</span>
-            {/each}
+            <span style="background-image: linear-gradient(to right, {svgItems.color.color}, {svgItems.color.color}, {svgItems.gradient_color.color});">{svgItems.name}</span>
         </div>
-    {/if}        -->
+    {/each} 
+    {/if}       
 </section>
 
 <style lang="scss">
@@ -170,7 +170,7 @@
                 box-shadow: 0 0 40px 30px rgba(33, 219, 208, 0.203);
             }
         }
-        .douwe {
+        .cursor-item:nth-of-type(3) {
             position: absolute;
             left: 40%; //22%
             top: 24%; // 25%
@@ -198,7 +198,7 @@
                 box-shadow: 0 0 40px 30px rgba(0, 236, 39, 0.203);
             }
         }
-        .mark {
+        .cursor-item:nth-of-type(4) {
             position: absolute;
             right: 34%; //10%
             top: 42%; //50%

@@ -10,15 +10,15 @@ export async function load({ parent }) {
     // Extract common data as before
     const post = {
         name: homeContent.name ?? '',
-        color: homeContent.color ?? '',
-        gradient_color: homeContent.gradient_color ?? ''
+        // color: homeContent.color ?? '',
+        // gradient_color: homeContent.gradient_color ?? ''
     };
 
     // Extract svg items if available
     const svgItems = homeContent.svg_item ? homeContent.svg_item.map(svgItems => ({
         name: svgItems.name || '',
-        color: svgItems.color ? svgItems.color.color : '',
-        gradientColor: svgItems.gradient_color ? svgItems.gradient_color.color : ''
+        // color: svgItems.color ? svgItems.color.color : '',
+        // gradientColor: svgItems.gradient_color ? svgItems.gradient_color.color : ''
     })) : [];
 
     return {
