@@ -1,30 +1,45 @@
-<div class="spacer"></div>
-<nav class="nav">
-  <input type="checkbox" id="nav-check">
-  <div class="nav-header">
-    <div class="nav-title">
-      <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
+<script>
+  // import { onMount } from 'svelte';
+
+  // Importeer het juiste css bestand
+  import '/src/styles/global.css';
+
+  // Importeer de storyblokEditable functie vanuit de Storyblok package
+  import { storyblokEditable } from "@storyblok/svelte";
+
+  // Definieer de blok
+  export let blok;
+</script>
+
+<header use:storyblokEditable={blok}>
+  <div class="spacer"></div>
+  <nav class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
+      </div>
     </div>
-  </div>
-  <section class="nav-links">
-    <a href="#">Our philosophy</a>
-    <a href="#">Our work</a>
-    <a href="#">Accessibility</a>
-    <a href="#">Design blog</a>
-    <a href="/contact" class="get-in-touch">Get in touch</a>
-    <img class="available-mobile" src="/assets/icons/available-mobile.svg" alt="Available for work">
-  </section>
+    <section class="nav-links">
+      <a href="#">Our philosophy</a>
+      <a href="#">Our work</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Design blog</a>
+      <a href="/contact" class="get-in-touch">Get in touch</a>
+      <img class="available-mobile" src="/assets/icons/available-mobile.svg" alt="Available for work">
+    </section>
 
-  <section class="available">
-    <img src="/assets/icons/available.svg" alt="Available for work">
-  </section>
+    <section class="available">
+      <img src="/assets/icons/available.svg" alt="Available for work">
+    </section>
 
-  <div class="nav-btn">
-    <label for="nav-check">
-      <img src="/assets/icons/menu.svg" alt=""><p>menu</p>
-    </label>
-  </div>
-</nav>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <img src="/assets/icons/menu.svg" alt=""><p>menu</p>
+      </label>
+    </div>
+  </nav>
+</header>
 
 <style lang="scss">
 
