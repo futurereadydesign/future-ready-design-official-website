@@ -1,25 +1,35 @@
-<section class="heading-container">
-    <h2>not just talking but taking action</h2>
+<script>
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from "@storyblok/svelte";
+
+    // Definieer de blok
+    export let blok;
+</script>
+
+<section class="heading-container" use:storyblokEditable={blok}>
+    <h2>{blok.title}</h2>
 </section>
 
 <section class="content-container">
-    <article class="left-container">
-        <section class="image-container">
-            <img src="/assets/content/yunus-ipon.png" alt="">
-        </section>
-        <section class="text-container">
-            <h4>Showcased project</h4>
-            <h3>how we are changing education with Crelo</h3>
-            <p>Shifting the focus from grades to personal development. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin purus vitae enim vestibulum sollicitudin. Aenean ac faucibus arcu. Mauris molestie, augue nec pharetra ullamcorper, nisl mauris mattis tortor, aliquet pulvinar turpis lectus ut nulla. Nunc ut eros id purus pulvinar rhoncus eu egestas eros.</p>
-            <a href="/projects" class="button button-quaternary">
-                <span>More about this project</span>
-                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </section>
-    </article>
+    {#each blok.projects as listItem}
+        <article class="left-container">
+            <section class="image-container">
+                <img src={listItem.image.filename} alt={listItem.image.alt}>
+            </section>
+            <section class="text-container">
+                <h4>{listItem.subtitle}</h4>
+                <h3>{listItem.title}</h3>
+                <p>{listItem.text}</p>
+                <a href={listItem.button_link.cached_url} class="button button-quaternary">
+                    <span>{listItem.button_text}</span>
+                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </section>
+        </article>
+    {/each}
 
     <article class="right-container">
         <section class="image-container">
@@ -56,15 +66,18 @@
             </a>
         </section>
     </article>
-    <section class="button-container">
-        <a href="/projects" class="button button-primary">
-            <span>Explore more of our work</span>
-            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
-    </section>
+
+    {#if blok.button_text}
+        <section class="button-container">
+            <a href={blok.button_link.cached_url} class="button button-primary">
+                <span>{blok.button_text}</span>
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </section>
+    {/if}
 </section>
 
 <style lang="scss">
@@ -133,6 +146,10 @@
         display: flex;
         align-items: center;
         justify-content: flex-start; 
+
+        img {
+            border-radius: 1em;
+        }
     }
 
     .text-container {

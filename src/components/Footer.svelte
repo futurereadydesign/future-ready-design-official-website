@@ -9,16 +9,16 @@
             <li>
                 <ul>
                     <li>
-                        <a href="#" class="link">Our philosophy</a>
+                        <a href="about" class="link">Our philosophy</a>
                     </li>
                     <li>
-                        <a href="#" class="link">Our work</a>
+                        <a href="projects" class="link">Our work</a>
                     </li>
                     <li>
-                        <a href="#" class="link">Accessibility</a>
+                        <a href="accessibility" class="link">Accessibility</a>
                     </li>
                     <li>
-                        <a href="#" class="link">Design blog</a>
+                        <a href="blog" class="link">Design blog</a>
                     </li>
                 </ul>
             </li>
@@ -31,7 +31,7 @@
                         <a href="#" class="link">Privacy policy</a>
                     </li>
                     <li>
-                        <a href="#" class="link">Get support</a>
+                        <a href="support" class="link">Get support</a>
                     </li>
                 </ul>
             </li>

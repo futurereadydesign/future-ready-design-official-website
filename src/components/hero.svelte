@@ -1,7 +1,7 @@
-<section class="hero-main">
+<section class="hero-main" use:storyblokEditable={blok}>
     <div class="inner-hero-sticky" bind:this={innerHeroSticky}>
         <h1 class="wrapper-max">
-            we create digital solutions for those that want to make impact
+            {blok.title}
         </h1>
         <div bind:this={innerHeroSphere}>
             <!-- SPHERE -->
@@ -21,7 +21,7 @@
         <svg viewBox="0 0 54 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M51 3C49.2941 5.27111 47.2735 7.29221 45.0029 8.99854C39.9885 12.7669 33.7549 15 27 15C20.2451 15 14.0115 12.7669 8.99708 8.99854C6.72652 7.29221 4.70591 5.27111 3 3" stroke-width="5" stroke-linecap="round"/>
         </svg>
-        <span>Like this. Scroll for more impact.</span>
+        <span>{blok.text_after_snap}</span>
     </div>
 </section>
 
@@ -309,6 +309,14 @@
     // GLOBAL SVELTE FUNCTIONS
     import { fade } from 'svelte/transition';
     import { onMount, onDestroy } from 'svelte';
+
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from "@storyblok/svelte";
+
+    // Definieer de blok
+    export let blok;
+
+
 
     // DEFINE VARIABLES
     let innerHeroSticky;

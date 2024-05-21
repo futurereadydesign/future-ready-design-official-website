@@ -1,9 +1,10 @@
 <script>
     export let imgPath;
+    export let imgAlt;
 </script>
 
 <div class="grid-item">
-    <img src={imgPath} alt="Organisation logo">
+    <img src={imgPath} alt={imgAlt}>
 </div>
 
 <style lang="scss">

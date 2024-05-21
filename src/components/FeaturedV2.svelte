@@ -1,28 +1,24 @@
-<section class="featured-v2 wrapper-max">
-    <h2>to the highest <span>quality standard</span></h2>
-    <p>Making sure whatever we deliver is ready for the future</p>
+<script>
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from "@storyblok/svelte";
+
+    // Definieer de blok
+    export let blok;
+</script>
+
+<section class="featured-v2 wrapper-max" use:storyblokEditable={blok}>
+    <!-- <h2>to the highest <span>quality standard</span></h2> -->
+    <h2>{blok.title}</h2>
+    <p>{blok.subtitle}</p>
 
     <ul>
-        <li>
-            <img src="/assets/icons/featured-rocket.svg" alt="Illustration of a rocket, suiting 'User tested'">
-            <h3>User tested</h3>
-            <p>Lorem ipsum dolor sit amet, aqueta consectetur adipiscing elit. Praesent sollicitudin purus vitae enim darin ini vestibulum sollicitudin bella.</p>
-        </li>
-        <li>
-            <img src="/assets/icons/featured-rocket.svg" alt="Illustration of a rocket, suiting 'User tested'">
-            <h3>Accessible</h3>
-            <p>Lorem ipsum dolor sit amet, aqueta consectetur adipiscing elit. Praesent sollicitudin purus vitae enim darin ini vestibulum sollicitudin bella.</p>
-        </li>
-        <li>
-            <img src="/assets/icons/featured-rocket.svg" alt="Illustration of a rocket, suiting 'User tested'">
-            <h3>Human centered</h3>
-            <p>Lorem ipsum dolor sit amet, aqueta consectetur adipiscing elit. Praesent sollicitudin purus vitae enim darin ini vestibulum sollicitudin bella.</p>
-        </li>
-        <li>
-            <img src="/assets/icons/featured-rocket.svg" alt="Illustration of a rocket, suiting 'User tested'">
-            <h3>Fast and efficient</h3>
-            <p>Lorem ipsum dolor sit amet, aqueta consectetur adipiscing elit. Praesent sollicitudin purus vitae enim darin ini vestibulum sollicitudin bella.</p>
-        </li>
+        {#each blok.items as listItem}
+            <li>
+                <img src={listItem.illustration.filename} alt={listItem.illustration.alt}>
+                <h3>{listItem.title}</h3>
+                <p>{listItem.text}</p>
+            </li>
+        {/each}
     </ul>
 </section>
 

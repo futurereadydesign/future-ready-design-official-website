@@ -6,11 +6,9 @@
     // Importeer de juiste componenten. 
     import ContactCTA from '/src/components/contactCTA.svelte';
     import Partners from '/src/components/Partners.svelte';
-    import Footer from '/src/components/Footer.svelte';
 
 </script>
 
 <!-- Laat het juiste component zien op de pagina -->
 <ContactCTA/>
 <Partners/>
-<Footer/>

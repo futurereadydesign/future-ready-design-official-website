@@ -937,6 +937,21 @@ function submitDataToHubspot(event) {
   
             
 
+            getInTouchCTA.addEventListener('mouseover', function() {
+                if(hyperSpeed < 1.75){
+                    hyperSpeed += 0.01;
+                } 
+            });
+
+            getInTouchCTA.addEventListener('mouseout', function() {
+                if (hyperSpeed > 1.01){
+                    hyperSpeed -= 0.01;
+                } else if(hyperSpeed > 1.001){
+                    hyperSpeed -= 0.001;
+                }
+            });
+
+
             // CHANGE ANIMATION SPEED BASED ON FORM PROGRESS -----------------------
         
             // CONTACT INPUT NAME 

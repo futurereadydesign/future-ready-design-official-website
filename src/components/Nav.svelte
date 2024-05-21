@@ -17,15 +17,17 @@
     <input type="checkbox" id="nav-check">
     <div class="nav-header">
       <div class="nav-title">
-        <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
+        <a href="/" class="clickable">
+          <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
+        </a>
       </div>
     </div>
     <section class="nav-links">
-      <a href="#">Our philosophy</a>
-      <a href="#">Our work</a>
-      <a href="#">Accessibility</a>
-      <a href="#">Design blog</a>
-      <a href="/contact" class="get-in-touch">Get in touch</a>
+      <a href="about">Our philosophy</a>
+      <a href="projects">Our work</a>
+      <a href="accessibility">Accessibility</a>
+      <a href="blog">Design blog</a>
+      <a href="contact" class="get-in-touch">Get in touch</a>
       <img class="available-mobile" src="/assets/icons/available-mobile.svg" alt="Available for work">
     </section>
 
@@ -36,7 +38,8 @@
 
     <div class="nav-btn">
       <label for="nav-check">
-        <img src="/assets/icons/menu.svg" alt=""><p>menu</p>
+        <img src="/assets/icons/menu.svg" alt="Menu icon">
+        <p>menu</p>
       </label>
     </div>
   </nav>
@@ -61,7 +64,7 @@ header {
     top: 0;
     right: 0;
     height: calc(100% + 5em);
-    background-image: linear-gradient(0deg, rgba(37, 37, 37, 0) 0%, rgba(25, 25, 25, 0.85) 90%);
+    background-image: linear-gradient(0deg, rgba(37, 37, 37, 0) 0%, rgba(25, 25, 25, 0.85) 75%);
     z-index: -1;
     pointer-events: none;
   }
@@ -70,6 +73,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1em 1.25em;
   }
 
   .nav-header {
@@ -79,7 +83,7 @@ header {
 
   .nav-title {
     color: var(--color-white);
-    padding: 10px;
+    // padding: 10px;
   }
 
   .available-mobile {
@@ -108,7 +112,7 @@ header {
         }
 
         p {
-          color: #fff;
+          color: var(--color-white);
           font-size: 18px;
         }
       }
@@ -117,12 +121,11 @@ header {
   .nav-links {
     display: flex;
     align-items: center;
-    font-size: 18px;
-    margin-left: 3.5em;
+    font-size: 1em;
     white-space: nowrap;
+    gap: 1.5em;
 
     a {
-      padding: 13px 10px;
       text-decoration: none;
       color: #efefef;
     }
@@ -179,14 +182,14 @@ header {
   }
 
   .get-in-touch {
-    padding: 0.55em;
+    padding: 0.55em 0.75em;
     position: relative;
     display: flex;
     justify-content: center;
     width: fit-content;
     background-color: var(--color-dark);
     background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
-    border-radius: 1.1em;
+    border-radius: 0.5em;
   }
 
   .get-in-touch::before,
@@ -214,7 +217,7 @@ header {
     background-size: 200% 100%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    border-radius: calc(1.1em + var(--border-width));
+    border-radius: calc(0.5em + var(--border-width));
     animation: rotation-glow 8s linear infinite;
     animation-play-state: running;
     transition: --gradient-color-black-35 750ms, --gradient-color-lightblue 750ms, --gradient-color-white 750ms, --gradient-color-lightblue-2 750ms;
@@ -247,7 +250,7 @@ header {
     }
 
     .nav-title {
-      margin-top: 1em;
+      // margin-top: 1em;
     }
 
     .available {
