@@ -12,10 +12,7 @@
 </script>
 
 Laat het juiste component zien op de pagina -->
-<!-- <HeroText/>
-<ContentText/>
-<ContentSphere/>
-<Partners/>
+<!-- <ContentSphere/>
 <Footer/> -->
 
 <script>
@@ -37,7 +34,7 @@ Laat het juiste component zien op de pagina -->
 	});
 </script>
  
-<!-- Laat de content van de story 'Home' -->
+<!-- Laat de content van de story 'About' -->
 {#if data.story}
 	<StoryblokComponent blok={data.story.content} />
 {/if}

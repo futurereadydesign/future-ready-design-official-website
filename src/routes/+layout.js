@@ -17,6 +17,11 @@ import Grid from "../components/Grid.svelte";
 import FeaturedV1 from "../components/FeaturedV1.svelte";
 import FeaturedV2 from "../components/FeaturedV2.svelte";
 
+import HeroText from "../components/HeroText.svelte";
+import ContentText from "../components/ContentText.svelte";
+import ContentSphere from "../components/ContentSphere.svelte";
+import Partners from "../components/Partners.svelte";
+
 // Importeer Storyblok plugins en functionaliteiten
 import { apiPlugin, storyblokInit, useStoryblokApi } from "@storyblok/svelte";
 
@@ -45,6 +50,10 @@ export async function load() {
             'organisations-grid': Grid,
             'featured-v1': FeaturedV1,
             'featured-v2': FeaturedV2,
+            'hero-text': HeroText,
+            'content-text': ContentText,
+            'content-sphere': ContentSphere,
+            partners: Partners,
         },
         // Opties voor de Storyblok API
         apiOptions: {

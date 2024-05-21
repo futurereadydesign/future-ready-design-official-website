@@ -1,7 +1,12 @@
 <script>
     import { onMount } from 'svelte';
-    import { Application } from '@splinetool/runtime';
+    // import { Application } from '@splinetool/runtime';
 
+    // Definieer de richtext uit Storyblok
+    import { renderRichText } from "@storyblok/js";
+
+    // Definieer de blok
+    export let blok;
 
     let app;
     
@@ -14,9 +19,19 @@
 </script>
 
 <section class="content-sphere wrapper-max">
-    <h2>we believe in technology that</h2>
+    <h2>{blok.title}</h2>
+    {#if blok.sphere_list[0]}
+        {#each blok.sphere_list as sphereItems}
+            <div class="sphere-container">
+                <ul>
+                    <li>{@html renderRichText(sphereItems.content)}</li>
+                </ul>
+                <canvas id="beliefs-sphere"></canvas>
+            </div>
+        {/each} 
+    {/if}   
 
-    <div class="sphere-container">
+    <!-- <div class="sphere-container">
         <ul>
             <li><span>respects</span> human nature</li>
             <li><span>minimizes</span> harmful consequences</li>
@@ -26,10 +41,10 @@
             <li><span>helps</span> people thrive</li>
         </ul>
         <canvas id="beliefs-sphere"></canvas>
-    </div>
+    </div> -->
 
     <a href="https://www.humanetech.com/" target="_blank" class="button">
-        <img src="/assets/content/humane-tech.png" alt="Logo of organisation: Foundations of Humane Technology">
+        <img src={blok.humanetech.filename} alt={blok.humanetech.alt}>
     </a>
 </section>
 

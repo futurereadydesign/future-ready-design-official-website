@@ -1,25 +1,30 @@
+<script>
+    // Definieer de blok
+    export let blok;
+</script>
+
 <section class="partners">
-    <h2>Partnered with</h2>
-    <p>We couldn't do without them</p>
+    <h2>{blok.title}</h2>
+    <p>{blok.content}</p>
     <ul>
         <li>
             <a href="https://accessibe.com/" target="_blank" class="clickable">
-                <img src="/assets/partners/accessiBe-partner-alt.svg" alt="Logo of parner: AccessiBe">
+                <img src={blok.accessibe.filename} alt={blok.accessibe.alt}>
             </a>
         </li>
         <li>
             <a href="https://www.s-bb.nl/" target="_blank" class="clickable">
-                <img src="/assets/partners/ssb-erkend-leerbedrijf.png" alt="Logo of parner: SSB">
+                <img src={blok.ssb.filename} alt={blok.ssb.alt}>
             </a>
         </li>
         <li>
             <a href="https://climate.stripe.com/76GUkX" target="_blank" class="clickable">
-                <img src="/assets/partners/stripe-climate-logo-text.svg" alt="Logo of parner: Stripe Climate">
+                <img src={blok.stripeclimate.filename} alt={blok.stripeclimate.alt}>
             </a>
         </li>
         <li>
             <a href="https://www.newfuturelab.nl/" target="_blank" class="clickable">
-                <img src="/assets/partners/nfl-logo.svg" alt="Logo of parner: New Future Lab">
+                <img src={blok.newfuturelab.filename} alt={blok.newfuturelab.alt}>
             </a>
         </li>
     </ul>
