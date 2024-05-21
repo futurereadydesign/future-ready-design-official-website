@@ -103,7 +103,11 @@
                 <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
                 <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="{svgItems.color.color}"/>
             </svg>
-            <span style="background-image: linear-gradient(to right, {svgItems.color.color}, {svgItems.color.color}, {svgItems.gradient_color.color});">{svgItems.name}</span>
+            <span style="
+                background-image: linear-gradient(to right, {svgItems.color.color}, {svgItems.color.color}, {svgItems.gradient_color.color});
+                box-shadow: 0 0 40px 30px {svgItems.box_shadow.color};">
+                {svgItems.name}
+            </span>
         </div>
     {/each} 
     {/if}       
@@ -189,13 +193,11 @@
                 color: var(--color-black);
                 font-weight: 500;
                 display: inline-block; 
-                background: linear-gradient(to right, #00EC26, #00EC26, #9FFDAE); 
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(0, 236, 39, 0.203);
             }
         }
         .cursor-item:nth-of-type(4) {
@@ -217,16 +219,14 @@
                 color: var(--color-black);
                 font-weight: 500;
                 display: inline-block; 
-                background: linear-gradient(to right, #DB212C, #DB212C, #F78188); 
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(219, 33, 44, 0.203);  
             }
         }
-        .robbin {
+        .cursor-item:nth-of-type(5) {
             position: absolute;
             left: 45%; //15%
             bottom: 23%; //25%
@@ -245,16 +245,14 @@
                 color: var(--color-black);
                 font-weight: 500;
                 display: inline-block; 
-                background: linear-gradient(to right, #CC00FF, #CC00FF, #D592E6); 
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(204, 0, 255, 0.203);
             }
         }
-        .rowin {
+        .cursor-item:nth-of-type(6) {
             position: absolute;
             right: 43%; //18%
             top: 15%; //10%
@@ -279,10 +277,9 @@
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(251, 161, 8, 0.203);
             }
         }
-        .tyco {
+        .cursor-item:nth-of-type(7) {
             position: absolute;
             left: 35%; //35%
             bottom: 38%; //10%
@@ -300,17 +297,15 @@
             span {
                 color: var(--color-black);
                 font-weight: 500;
-                display: inline-block; 
-                background: linear-gradient(to right, #127FFF, #127FFF, #529FF9); 
+                display: inline-block;  
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(18, 127, 255, 0.203);
             }
         }
-        .yunus {
+        .cursor-item:nth-of-type(8) {
             position: absolute;
             right: 36%; //22%
             bottom: 20%; //15%
@@ -329,14 +324,12 @@
             span {
                 color: var(--color-black);
                 font-weight: 500;
-                display: inline-block; 
-                background: linear-gradient(to right, #BDFF00, #BDFF00, #F5FFD9); 
+                display: inline-block;  
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(189, 255, 0, 0.203);
             }
     }
 
