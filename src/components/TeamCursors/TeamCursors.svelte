@@ -116,16 +116,19 @@
 <style lang="scss">
     #cursor-effect {
         position: relative;
-        margin-top: 13em;
-        margin-bottom: 20em;
+        margin-top: 12.5em;
+        margin-bottom: 12.5em;
         cursor: none;
 
         h2 {
             text-align: center;
             max-width: 21em; 
             padding: 1em;
-            margin: 0 auto;
             display: block; 
+            margin: 0 auto;
+
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
         }
 
         .underline {
@@ -180,7 +183,7 @@
             top: 24%; // 25%
             animation: DouweAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -206,7 +209,7 @@
             top: 42%; //50%
             animation: MarkAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -232,7 +235,7 @@
             bottom: 23%; //25%
             animation: RobbinAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -258,7 +261,7 @@
             top: 15%; //10%
             animation: RowinAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -285,7 +288,7 @@
             bottom: 38%; //10%
             animation: TycoAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -311,7 +314,7 @@
             bottom: 20%; //15%
             animation: YunusAnimation 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -339,7 +342,7 @@
             transform: translateY(-50%);
         }
         50% {
-            left: 20%;
+            left: 15%;
             top: 12%;
         }
         100% {
@@ -353,7 +356,7 @@
             transform: translateY(-42%);
         }
         50% {
-            right: 21%; 
+            right: 17%; 
         }
         100% {
             right: 21%;  
@@ -390,7 +393,7 @@
 
     @keyframes TycoAnimation {
         0% {
-        transform: translateY(38%);
+        transform: translateY(100%);
         }
         50% {
             left: 26%; 
@@ -422,6 +425,14 @@
     // @media screen and (max-width: 900px) {
 
     // }
+
+    @media screen and (max-width: 900px) {
+        #cursor-effect {
+            h2 {
+                font-size: 2.25em;
+            }
+        }
+    }
 
     @media screen and (max-width: 768px) {
         @keyframes DouweAnimation {

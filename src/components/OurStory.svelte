@@ -49,7 +49,7 @@
     font-size: 1em;
     font-weight: 200;
     margin-top: 20px;
-    opacity: 0.5;
+    color: var(--color-white-45);
   }
 
   a {

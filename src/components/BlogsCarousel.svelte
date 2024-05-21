@@ -54,8 +54,8 @@
   
 </script>
 
-<section>
-    <h2 use:storyblokEditable={blok}>{blok.title}</h2>
+<section use:storyblokEditable={blok}>
+    <h2>{blok.title}</h2>
     <p>
       {blok.subtitle}
     </p>
@@ -112,8 +112,8 @@
       </div>
 
       <div class="button-container">
-        <a href="/blog" class="button button-tertiary">
-          <span>Read more interesting tips on our blog</span> 
+        <a href={blok.button_link.cached_url} class="button button-tertiary">
+          <span>{blok.button_text}</span> 
           <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
             <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -126,13 +126,14 @@
 
 <style lang="scss">
   section {
-    margin-top: 4em;
-    max-width: calc(100vw - 1em);
+    margin-top: 7.5em;
+    // max-width: calc(100vw - 1em);
 
     h2 {
       text-align: center;
-      margin: 0 auto 0.5em;
       display: block;
+      font-size: 2.5em;
+      margin-bottom: 0.5rem;
     }
 
     p {
@@ -175,4 +176,11 @@
         padding: 0 3.2em;
       }
   }
+
+
+  @media screen and (max-width: 900px) {        
+    h2 {
+        font-size: 2.25em;
+    }
+}
 </style>

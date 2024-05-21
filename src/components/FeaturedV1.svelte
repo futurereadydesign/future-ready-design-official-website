@@ -26,6 +26,7 @@
     .featured-v1 {
         text-align: center;
         margin-top: 7.5em;
+        width: calc(100% - 5rem);
 
         h2 {
             font-size: 2.5em;

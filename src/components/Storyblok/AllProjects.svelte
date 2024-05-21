@@ -26,7 +26,7 @@
 	});
 </script>
 
-<section class="all-projects-section">
+<section class="all-projects-section wrapper-large">
 	{#each projects as projects}
 		<article class="all-projects-article">
 			<!-- Render de Card-component voor elke blogpost -->
@@ -37,6 +37,12 @@
 
 <style>
 	.all-projects-section {
+		
+	}
+
+
+	
+/* .all-projects-section {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
 		gap: 1em;
@@ -57,5 +63,5 @@
     .all-projects-section {
       grid-template-columns: repeat(2, minmax(0, 1fr)); 
     }
-  }
+  } */
 </style>

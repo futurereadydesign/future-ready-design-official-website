@@ -8,11 +8,11 @@
 
 <header class="header-container">
     <!-- Toon het logo van het blok als dat beschikbaar is -->
-    <picture>
+    <!-- <picture>
         <a href="https://futureready.design/" target="_blank">
             <img src={blok.logo?.filename} alt={blok.logo.name}>
         </a>
-    </picture>
+    </picture> -->
 
     <!-- Toon de title van het blok -->
     <h1 class="wrapper-max" use:storyblokEditable={blok}>
@@ -84,10 +84,10 @@
 
     .header-subtitle {
         text-align: center;
-        color: white;
+        color: var(--color-white-45);
         font-size: 1.1em;
         font-weight: 400;
-        margin: 1em 0 3em 0;
+        margin: 1em 0 2em 0;
     }   
 
     .header-description-container {
@@ -98,7 +98,7 @@
     }
 
     .header-description {
-        color: rgba(255, 255, 255, 0.694);
+        color: var(--color-white-45);
         text-align: left;
         word-wrap: break-word;
         width: 30em;

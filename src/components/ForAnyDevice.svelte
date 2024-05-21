@@ -272,11 +272,14 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin-bottom: 3em;      
         overflow: hidden;
-        width: calc(100vw - 1em);
+        // width: calc(100vw - 1em);
+        margin-top: 7.5em;
 
         h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+
             span {
                 position: relative;
             }
@@ -360,7 +363,10 @@
         } 
     }
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 900px) {        
+        h2 {
+            font-size: 2.25em;
+        }
         .animation {
             font-size: 1.33em; 
         }
