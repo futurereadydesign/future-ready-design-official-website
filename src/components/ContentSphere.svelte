@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    // import { Application } from '@splinetool/runtime';
+    import { Application } from '@splinetool/runtime';
 
     // Definieer de richtext uit Storyblok
     import { renderRichText } from "@storyblok/js";
@@ -21,27 +21,15 @@
 <section class="content-sphere wrapper-max">
     <h2>{blok.title}</h2>
     {#if blok.sphere_list[0]}
-        {#each blok.sphere_list as sphereItems}
-            <div class="sphere-container">
-                <ul>
-                    <li>{@html renderRichText(sphereItems.content)}</li>
-                </ul>
-                <canvas id="beliefs-sphere"></canvas>
-            </div>
-        {/each} 
-    {/if}   
-
-    <!-- <div class="sphere-container">
-        <ul>
-            <li><span>respects</span> human nature</li>
-            <li><span>minimizes</span> harmful consequences</li>
-            <li><span>centers</span> on values</li>
-            <li><span>creates</span> shared understanding</li>
-            <li><span>supports</span> fairness and justice</li>
-            <li><span>helps</span> people thrive</li>
-        </ul>
+        <div class="sphere-container">
+            <ul>
+                {#each blok.sphere_list as sphereItems}
+                    <li class="sphere-items">{@html renderRichText(sphereItems.content)}</li>
+                {/each}
+            </ul>
         <canvas id="beliefs-sphere"></canvas>
-    </div> -->
+        </div> 
+    {/if}   
 
     <a href="https://www.humanetech.com/" target="_blank" class="button">
         <img src={blok.humanetech.filename} alt={blok.humanetech.alt}>
@@ -70,7 +58,7 @@
                 list-style: none;
                 font-family: var(--font-degular);
 
-                li {
+                .sphere-items {
                     display: inline-block;
                     position: absolute;
                     font-size: 1.5em;
