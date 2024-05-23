@@ -5,7 +5,12 @@
     // OVERLAY --------------------
     let overlay;
 
-    function openOverlay() {
+
+    onMount(() => {
+        if (typeof window !== 'undefined') {
+            
+
+            function openOverlay() {
         overlay.classList.add('overlay-active');
         trapFocus(overlay);
     }  
@@ -13,6 +18,11 @@
     function closeOverlay() {    
         overlay.classList.remove('overlay-active');
     }
+
+        }
+    });
+
+    
 
 
     // FOCUS ONLY ON OVERLAY ELEMENTS, WHEN OVERLAY IS ACTIVE

@@ -460,6 +460,7 @@ strong {
 .button > svg {
     position: relative;
     height: 1.22em;
+    transition: 450ms;
 }
 .button-primary {
     background-color: var(--color-lightblue);
@@ -540,6 +541,13 @@ strong {
 }
 .button-flipped > svg {
     transform: scale(-1);
+}
+
+.button-tertiary:hover svg,
+.button-tertiary:focus svg,
+.button-quaternary:hover svg,
+.button-quaternary:focus svg {
+    transform: translateX(0.25em);
 }
 
 /* LINK */
@@ -2135,10 +2143,10 @@ main.scan-failed .section-between::after {
         gap: 0.5em;
         padding: 0;
     }
-    header {
+    /* header {
         margin-top: 2.15em;
         margin-bottom: 1.75em;
-    }
+    } */
     .section-block {
         flex-direction: column;
         align-items: center;

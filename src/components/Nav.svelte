@@ -2,16 +2,51 @@
   // import { onMount } from 'svelte';
 
   // Importeer het juiste css bestand
-  import '/src/styles/global.css';
+  import '/src/styles/main.css';
 
   // Importeer de storyblokEditable functie vanuit de Storyblok package
   import { storyblokEditable } from "@storyblok/svelte";
 
   // Definieer de blok
   export let blok;
+
+
+  let header;
+  let navOverlayButtonClosed;
+  let navOverlayButtonOpened;
+
+  let isActive = false;
+
+  function toggleOverlay() {
+    // header.classList.toggle('overlay-visible');
+    isActive = !isActive;
+
+    if (header.classList.contains('active')) {
+      // isActive = !isActive;
+      
+      navOverlayButtonClosed.style.display = 'block';
+      navOverlayButtonOpened.style.display = 'none';
+      // navOverlayButton.textContent = "Sluiten";
+      console.log("Open");
+    } else {
+      // isActive = isActive;
+
+      navOverlayButtonClosed.style.display = 'none';
+      navOverlayButtonOpened.style.display = 'block';
+      // navOverlayButton.textContent = "Menu";
+      console.log("Gesloten");
+    }
+
+    // navOverlayButton.textContent = "Sluiten";
+        // overlay.classList.add('overlay-active');
+        // trapFocus(overlay);
+
+    
+    }  
+
 </script>
 
-<header use:storyblokEditable={blok}>
+<header use:storyblokEditable={blok} bind:this={header} class={isActive ? 'active' : ''}>
   <div class="spacer"></div>
   <nav class="nav">
     <input type="checkbox" id="nav-check">
@@ -23,25 +58,23 @@
       </div>
     </div>
     <section class="nav-links">
-      <a href="about">Our philosophy</a>
-      <a href="projects">Our work</a>
-      <a href="accessibility">Accessibility</a>
-      <a href="blog">Design blog</a>
-      <a href="contact" class="get-in-touch">Get in touch</a>
-      <img class="available-mobile" src="/assets/icons/available-mobile.svg" alt="Available for work">
+      <a href="about" class="link" on:click={toggleOverlay}>Onze filosofie</a>
+      <!-- <a href="projects" class="link" on:click={toggleOverlay}>Ons werk</a> -->
+      <a href="accessibility" class="link" on:click={toggleOverlay}>Toegankelijkheid</a>
+      <a href="blog" class="link" on:click={toggleOverlay}>Ontwerp blog</a>
+      <a href="contact" class="get-in-touch link" on:click={toggleOverlay}>Kom in contact</a>
     </section>
 
     <section class="available">
         <span> <!-- PULSATE --> </span>
-        Available for work
+        Open voor werk
     </section>
 
-    <div class="nav-btn">
-      <label for="nav-check">
+    <button class="nav-btn button button-tertiary" on:click={toggleOverlay}>
         <img src="/assets/icons/menu.svg" alt="Menu icon">
-        <p>menu</p>
-      </label>
-    </div>
+        <span bind:this={navOverlayButtonClosed}>Menu</span>
+        <span bind:this={navOverlayButtonOpened} style="display: none;">Sluiten</span>
+    </button>
   </nav>
 </header>
 
@@ -92,32 +125,15 @@ header {
 
   .nav-btn {
     display: none; 
+    // background-color: transparent;
+    // border: none;
+    // color: var(--color-white);
 
-    @media (max-width: 900px) {
-      display: flex; 
-      align-items: center;
-      cursor: pointer;
-      position: absolute;
-      right: 0;
-      top: 0;
-
-      label {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 13px;
-
-        img {
-          margin-right: 10px;
-        }
-
-        p {
-          color: var(--color-white);
-          font-size: 18px;
-        }
-      }
+    span::after {
+      display: none;
     }
   }
+
   .nav-links {
     display: flex;
     align-items: center;
@@ -127,8 +143,14 @@ header {
 
     a {
       text-decoration: none;
-      color: #efefef;
+      color: var(--color-white);
+
+      &:focus-visible {
+        color: var(--gradient-color-lightblue);
+        text-decoration: underline;
+      }
     }
+
 
   }
 
@@ -243,92 +265,250 @@ header {
     opacity: 0.45;
   }
 
-  @media (max-width: 900px) {
+}
+
+
+
+@media (max-width: 1200px) {
+  header {
+    margin-top: 0;
     
-    .get-in-touch {
-      max-width: 8em;
+    .nav {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0.25em 0;
+      gap: 2em;
+
+      .nav-header {
+        flex: 1;
+      }
+
+      .nav-links {
+        // display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        order: 1;
+        margin-top: 3.25em;
+        padding-left: 1.5em;
+        transform: translateX(-100vw);
+        transition: 0;
+        transition-delay: 0;
+        display: none;
+        width: 100%;
+
+        a {
+          font-size: 2em;
+          font-weight: 600;
+        }
+        a.get-in-touch {
+          padding: 0.35em 0.5em;
+          margin-left: -0.5em;
+        }
+      }
+
+      .available {
+        display: flex;
+      //   order: 2;
+      //   position: absolute;
+      //   bottom: 2em;
+      //   left: 50%;
+      //   transform: translateX(-50%);
+      //   opacity: 0;
+      //   transition: 0;
+      //   transition-delay: 0;
+      }
+    }    
+
+
+
+    .nav-btn {
+      display: flex;
+      backdrop-filter: blur(var(--filter-blur-less));
     }
 
-    .nav-title {
-      // margin-top: 1em;
-    }
+  }
 
-    .available {
+  // IF OVERLAY IS ACTIVE
+  header.active {
+    height: 100dvh;
+    position: fixed;
+    background-color: var(--color-dark);
+    background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
+    
+    &::before {
       display: none;
     }
 
-    & > .nav-links {
-      background-color: black;
-      margin-left: 0em;
-    }
+    .nav {
 
-    & > .nav-btn {
-      display: inline-block;
-      position: absolute;
-      right: 0px;
-      cursor: pointer;
-      // top: 10px;
-
-      & > label {
+      .nav-links {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: fit-content;
-        height: fit-content;
-        padding: 13px;
-
-        img {
-          margin-right: 10px;
-        }
+        transform: translateX(0);
+        transition: 450ms;
       }
+      // .available {
+      //   display: flex;
+      //   transition: 1s;
+      //   transition-delay: 500ms;
+      //   opacity: 1;
+      // }
+
     }
+    
+  }
+}
 
-    & > .nav-links {
-      position: fixed;
-      display: block;
-      width: 100%;
-      background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
-      height: 0px;
-      transition: all 0.3s ease-in;
-      overflow-y: hidden;
-      top: 2.5em;
-      left: 0px;
-      z-index: 9999;
-      font-size: 2em;
-      font-weight: 600;
+@media (max-width: 600px) {
+  header {
+    .nav {
+      gap: 0;
 
-      & > a {
-        display: block;
-        margin-left: 1em;
-        margin-top: .05em;
-        width: 100%;
+      .nav-header {
+        flex: unset;
       }
 
-      .available-mobile {
+      .available {
+        display: none;
+        order: 2;
         position: absolute;
-        bottom: 0;
-        left: 15%;
-        width: 70%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
+        bottom: 2em;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: 0;
+        transition-delay: 0;
       }
     }
+  }
 
-    & > #nav-check:not(:checked) ~ .nav-links {
-      height: 0px;
-    }
-
-    & > #nav-check:checked ~ .nav-links {
-      height: calc(100vh - 50px);
-      overflow-y: auto;
-
-      .nav {
-        background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
+  header.active {
+    .nav {
+      .available {
+        display: flex;
+        transition: 1s;
+        transition-delay: 500ms;
+        opacity: 1;
       }
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   @media (max-width: 900px) {
+    
+//     .get-in-touch {
+//       max-width: 8em;
+//     }
+
+//     .nav-title {
+//       // margin-top: 1em;
+//     }
+
+//     .available {
+//       display: none;
+//     }
+
+//     & > .nav-links {
+//       background-color: black;
+//       margin-left: 0em;
+//     }
+
+//     & > .nav-btn {
+//       display: inline-block;
+//       position: absolute;
+//       right: 0px;
+//       cursor: pointer;
+//       // top: 10px;
+
+//       & > label {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         width: fit-content;
+//         height: fit-content;
+//         padding: 13px;
+
+//         img {
+//           margin-right: 10px;
+//         }
+//       }
+//     }
+
+//     .nav-links {
+//       position: fixed;
+//       display: block;
+//       width: 100%;
+//       background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
+//       height: 0px;
+//       transition: all 0.3s ease-in;
+//       overflow-y: hidden;
+//       top: 2.5em;
+//       left: 0px;
+//       z-index: 9999;
+//       font-size: 2em;
+//       font-weight: 600;
+
+//       & > a {
+//         display: block;
+//         margin-left: 1em;
+//         margin-top: .05em;
+//         width: 100%;
+//       }
+
+//       .available-mobile {
+//         position: absolute;
+//         bottom: 0;
+//         left: 15%;
+//         width: 70%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         padding: 10px;
+//       }
+//     }
+
+//     // & > #nav-check:not(:checked) ~ .nav-links {
+//     //   height: 0px;
+//     // }
+
+//     // & > #nav-check:checked ~ .nav-links {
+//     //   height: calc(100vh - 50px);
+//     //   overflow-y: auto;
+
+//     //   .nav {
+//     //     background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
+//     //   }
+//     // }
+//   }
+// }
+
+
+
+
+
 
 </style>

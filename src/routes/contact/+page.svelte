@@ -11,4 +11,4 @@
 
 <!-- Laat het juiste component zien op de pagina -->
 <ContactCTA/>
-<Partners/>
+<!-- <Partners/> -->

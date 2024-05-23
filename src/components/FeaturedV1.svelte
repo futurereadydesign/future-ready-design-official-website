@@ -198,10 +198,17 @@
             }
 
             h2 {
+                padding: 0 1rem;
+                text-align: left;
 
                 span {
                     display: inline-block;
                 }
+            }
+
+            p {
+                padding: 0 1rem;
+                text-align: left;
             }
         }
     }
@@ -222,7 +229,7 @@
             }
 
             h2 {
-                max-width: 8.5em;
+                // max-width: 8.5em;
                 margin: 0 auto 0.5rem auto;
             }
         }

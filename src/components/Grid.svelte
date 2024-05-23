@@ -37,7 +37,7 @@
         <GridItem imgPath={imagePath.logo.filename} imgAlt={imagePath.logo.alt}></GridItem>
       {/each}
     </div>
-    <div class="google-review">
+    <a href={blok.google_url.url} target="_blank" class="google-review button">
       <div class="top">
         <div class="google-logo">
           <img src="/assets/google-blur.svg" alt="blurred google logo" />
@@ -45,8 +45,8 @@
         </div>
         <img src="/assets/stars.svg" alt="review stars" />
       </div>
-      <p>5 stars on Google!</p>
-    </div>
+      <p>{blok.google_rating}</p>
+    </a>
   </section>
   
   <style lang="scss">
@@ -76,6 +76,10 @@
       
     }
     .google-review {
+      display: inline-block;
+      width: fit-content;
+      text-decoration: none;
+
       .top {
         display: flex;
         align-items: center;
