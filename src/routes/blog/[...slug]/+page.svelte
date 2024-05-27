@@ -4,6 +4,9 @@
     // Importeer het juiste css bestand
     import '/src/styles/global.css';
 
+    // GLOBAL STORYBLOK FUNCTIONS
+    import { renderRichText } from "@storyblok/js";
+
     // Laat het juiste jaartal zien voor de copyright
     let currentYear = new Date().getFullYear();
 
@@ -63,7 +66,7 @@
 
           <h1 class="slug-blog-title">{data.post.title}</h1>
           <p class="slug-blog-date">{data.post.date}</p>
-          <p class="slug-blog-content">{data.post.content}</p>
+          <p class="slug-blog-content">{@html renderRichText(data.post.content)}</p>
       </article>
   </section>
 </main>

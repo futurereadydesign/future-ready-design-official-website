@@ -1,6 +1,3 @@
-// GLOBAL STORYBLOK FUNCTIONS
-import { renderRichText } from "@storyblok/js";
-
 // Haal de Storyblok API op om toegang te krijgen tot de API methoden
 // Haal de specifieke slug uit de parameters en haal de juiste blogpost op via een bepaalde pad
 /** @type {import('./$types').PageLoad} */
@@ -11,7 +8,7 @@ export async function load({ parent, params }) {
         const { data } = await storyblokApi.get(path, {
             version: 'draft'
     });
-    
+
     // Controleren of de benodigde velden aanwezig zijn in de content, zo niet...
     // Geef dan een waarde van null of een lege string
     const logo = data.story.content.logo ? data.story.content.logo.filename : null;
