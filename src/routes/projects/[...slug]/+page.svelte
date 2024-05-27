@@ -7,6 +7,9 @@
     // Laat het juiste jaartal zien voor de copyright
     let currentYear = new Date().getFullYear();
 
+    // GLOBAL STORYBLOK FUNCTIONS
+    import { renderRichText } from "@storyblok/js";
+
     // Exporteer de data
     export let data;
     // console.log(data);
@@ -378,7 +381,7 @@
                     </svg>
                 </a>
                 <h1 class="slug-projects-title">{data.post.title}</h1>
-                <p>{data.post.intro}</p>
+                <p>{@html renderRichText(data.post.intro)}</p>
             </div>
             <div>
                 <ul>
@@ -402,7 +405,7 @@
             <img src={data.post.image} alt={data.post.imageAlt}>
             {#if data.post.subtitle}
                 <h2 class="wrapper-medium">{data.post.subtitle}</h2>
-                <p class="wrapper-medium">{data.post.subtitleText}</p>
+                <p class="wrapper-medium">{@html renderRichText(data.post.subtitleText)}</p>
             {/if}
         </section>
         
@@ -422,7 +425,7 @@
         {#if data.post.finalWordsTitle}
             <section class="projects-final">
                 <h2 class="wrapper-medium">{data.post.finalWordsTitle}</h2>
-                <p class="wrapper-medium">{data.post.finalWordsText}</p>
+                <p class="wrapper-medium">{@html renderRichText(data.post.finalWordsText)}</p>
             </section>
         {/if}
         <section class="hyperdrive-cta" bind:this={getInTouchSection}>
