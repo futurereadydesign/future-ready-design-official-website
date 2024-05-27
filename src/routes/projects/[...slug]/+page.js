@@ -30,7 +30,9 @@ export async function load({ parent, params }) {
         date: projectContent.date ?? '',
         link: projectContent.link?.cached_url ?? '',
         metaDescription: projectContent.meta_description || '',
-        metaImage: projectContent.meta_image || ''
+        metaImage: projectContent.meta_image || '',
+        getInTouchTitle: projectContent.get_in_touch_title ?? '',
+        getInTouchSpan: projectContent.get_in_touch_span ?? '',
     };
 
     // Extract slider items if available

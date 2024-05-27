@@ -429,10 +429,10 @@
             </section>
         {/if}
         <section class="hyperdrive-cta" bind:this={getInTouchSection}>
-            <h2>Are you next? Let's work together!</h2>
+            <h2>{data.post.getInTouchTitle}</h2>
             <div class="scan-cta-button-wrapper">
                 <a href="/contact" bind:this={getInTouchCTA} class="button button-primary">
-                    <span>Get in touch to start your journey</span>
+                    <span>{data.post.getInTouchSpan}</span>
                     <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
