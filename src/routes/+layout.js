@@ -22,6 +22,8 @@ import ContentText from "../components/ContentText.svelte";
 import ContentSphere from "../components/ContentSphere.svelte";
 import Partners from "../components/Partners.svelte";
 
+import ContactCTA from "../components/ContactCTA.svelte";
+
 // Importeer Storyblok plugins en functionaliteiten
 import { apiPlugin, storyblokInit, useStoryblokApi } from "@storyblok/svelte";
 
@@ -54,6 +56,7 @@ export async function load() {
             'content-text': ContentText,
             'content-sphere': ContentSphere,
             partners: Partners,
+            ContactCTA: ContactCTA,
         },
         // Opties voor de Storyblok API
         apiOptions: {

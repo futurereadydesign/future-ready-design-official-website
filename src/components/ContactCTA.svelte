@@ -2,145 +2,156 @@
     <section class="contact-cta awaiting-submission" bind:this={getInTouchForm}>
         <div class="contact-cta-inner contact-cta-inner-form wrapper-large" in:fade={{duration: 300}}>
             <div>
-                <strong>Hello there.. 👋</strong>
-                <h2>ready to start? <span>or do you just want to ask us something?</span></h2>
-                <p>Fill in the form and receive your answers. We hope to hear from you soon!</p>
+                <strong>{blok.strong}</strong>
+                <h2>{blok.title} <span>{blok.title_span}</span></h2>
+                <p>{blok.subheading}</p>
                 <span>
                     <span> <!-- PULSATE --> </span>
-                    Available for work
+                    {blok.span}
                 </span>
             </div>
 
             <!-- <form on:submit={submitDataToHubspot} id="experts-form"> -->
-            <form on:submit={submitDataToHubspot}>
-                <fieldset>
-                    <legend><span class="accessibility-hide">Personal information</span></legend>
-                    <label for="contact-name">Name</label>
-                    <input type="text" id="contact-name" name="firstname" placeholder="What is your name?" bind:this={contactInputName}  required>
-                </fieldset>
-                <fieldset>
-                    <legend><span class="accessibility-hide">Mail information</span></legend>
-                    <label for="contact-mailadres">Email</label>
-                    <input type="email" id="contact-mailadres" name="email" placeholder="What is your email?" bind:this={contactInputEmail} required>
-                </fieldset>
-                <fieldset>
-                    <legend><span class="accessibility-hide">Message or question</span></legend>
-                    <label for="contact-message">Message / question</label>
-                    <textarea id="contact-message" name="message___question" placeholder="Why do you reach out?" bind:this={contactInputMessage} required></textarea>
-                </fieldset>
+            {#if blok.visible_form[0]}
+                <form on:submit={submitDataToHubspot}>
+                    {#each blok.visible_form as visibleFormItems}
+                        <fieldset>
+                            <legend><span class="accessibility-hide">{visibleFormItems.personal}</span></legend>
+                            <label for="contact-name">{visibleFormItems.name}</label>
+                            <input type="text" id="contact-name" name="firstname" placeholder={visibleFormItems.placeholder_name} bind:this={contactInputName}  required>
+                        </fieldset>
+                        <fieldset>
+                            <legend><span class="accessibility-hide">{visibleFormItems.mail_info}</span></legend>
+                            <label for="contact-mailadres">{visibleFormItems.email}</label>
+                            <input type="email" id="contact-mailadres" name="email" placeholder={visibleFormItems.placeholder_email} bind:this={contactInputEmail} required>
+                        </fieldset>
+                        <fieldset>
+                            <legend><span class="accessibility-hide">{visibleFormItems.message_or_question}</span></legend>
+                            <label for="contact-message">{visibleFormItems.message_question}</label>
+                            <textarea id="contact-message" name="message___question" placeholder={visibleFormItems.placeholder_reach_out} bind:this={contactInputMessage} required></textarea>
+                        </fieldset>
 
-                <fieldset>
-                    <legend><span class="accessibility-hide">Form buttons</span></legend>
-                    <button type="submit" class="button button-primary" bind:this={getInTouchCTA}>
-                        <span>Get in touch</span>
-                        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <a href="/support" class="button button-quaternary">
-                        <span>Or submit a support ticket</span>
-                        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </fieldset>
-                
-            </form>
+                        <fieldset>
+                            <legend><span class="accessibility-hide">{visibleFormItems.form_buttons}</span></legend>
+                            <button type="submit" class="button button-primary" bind:this={getInTouchCTA}>
+                                <span>{visibleFormItems.get_in_touch}</span>
+                                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <a href="/support" class="button button-quaternary">
+                                <span>{visibleFormItems.submit_support}</span>
+                                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </fieldset> 
+                    {/each}  
+                </form>
+            {/if}
         </div>
-
 
         <!-- HIDDEN FORM ELEMENTS > VISIBLE AFTER SUBMIT -->
-        <div class="contact-cta-inner-hidden contact-cta-inner wrapper-large">
-            <div>
-                <strong>Hello <span bind:this={contactPersonNameSpan}>there</span> 👋</strong>
-                <h2 bind:this={contactSubmittedTitle}>thank you for reaching out!</h2>
-                <p bind:this={contactSubmittedText}>We've received your message, you will hear from us soon.</p>
-                <span>
-                    <span> <!-- PULSATE --> </span>
-                    Available for work
-                </span>
+        {#if blok.hidden_form[0]}
+            <div class="contact-cta-inner-hidden contact-cta-inner wrapper-large">
+                {#each blok.hidden_form as hiddenFormItems}
+                    <div>
+                        <strong>Hello <span bind:this={contactPersonNameSpan}>there</span> 👋</strong>
+                        <h2 bind:this={contactSubmittedTitle}>{hiddenFormItems.title}</h2>
+                        <p bind:this={contactSubmittedText}>{hiddenFormItems.subheading}</p>
+                        <span>
+                            <span> <!-- PULSATE --> </span>
+                            {hiddenFormItems.span}
+                        </span>
+                    </div>
+                    <div class="info-after-submit">
+                        <h3>{hiddenFormItems.h3_title}</h3>
+                        <p>{hiddenFormItems.h3_subheading}</p>
+                        <ul>
+                            <li>
+                                <a href="https://www.instagram.com/futurereadydesign" target="_blank" class="button button-tertiary">
+                                    <img src={hiddenFormItems.insta.filename} alt={hiddenFormItems.insta.alt}>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/company/future-ready-design/" target="_blank" class="button button-tertiary">
+                                    <img src={hiddenFormItems.linkedin.filename} alt={hiddenFormItems.linkedin.alt}>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog" class="button button-primary">
+                                    <span>{hiddenFormItems.blogs_button_span}</span>
+                                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <p>{hiddenFormItems.assisstence}</p>
+                        <a href="/support" class="button button-quaternary">
+                            <span>{hiddenFormItems.support_button_span}</span>
+                            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                {/each}
             </div>
-            <div class="info-after-submit">
-                <h3>In the meantime..</h3>
-                <p>Explore our blog posts or connect with us on Instagram or LinkedIn to learn more about us!</p>
-                <ul>
-                    <li>
-                        <a href="https://www.instagram.com/futurereadydesign" target="_blank" class="button button-tertiary">
-                            <img src="/assets/icons/instagram.svg" alt="Instagram logo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/company/future-ready-design/" target="_blank" class="button button-tertiary">
-                            <img src="/assets/icons/linkedin.svg" alt="Instagram logo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/blog" class="button button-primary">
-                            <span>Read our blog</span>
-                            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                        </a>
-                    </li>
-                </ul>
-                <p>If you need personalized assistance. We're here to help!</p>
-                <a href="/support" class="button button-quaternary">
-                    <span>Submit a support ticket</span>
-                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
+        {/if}
 
         
         <!-- CONTACT INFO & LINKS -->
         <div class="wrapper-large">
             <!-- LINKS AND REFERENCES -->
-            <ul>
-                <li>
-                    <a href="#" class="button button-quaternary">
-                        <span>Terms and conditions</span>
-                        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="button button-quaternary">
-                        <span>Privacy policy</span>
-                        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="button button-quaternary">
-                        <span>Accessibility</span>
-                        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
+            {#if blok.links_and_references[0]}
+                <ul>
+                    {#each blok.links_and_references as linksAndReferences}
+                        <li>
+                            <a href="#" class="button button-quaternary">
+                                <span>{linksAndReferences.terms}</span>
+                                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="button button-quaternary">
+                                <span>{linksAndReferences.privacy}</span>
+                                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="button button-quaternary">
+                                <span>{linksAndReferences.accessibility}</span>
+                                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </li>
+                    {/each}
+                </ul>
+            {/if} 
 
             <!-- COMPANY INFO -->
-            <ul>
-                <li>
-                    <a href="mailto:contact@futureready.design" class="link">contact@futureready.design</a> &#183; <a href="tel:0202101259" class="link">020 21 01 259</a>
-                </li>
-                <li>
-                    Future Ready Design B.V.<br>
-                    Raadhuisstraat 22,<br>
-                    1016DE Amsterdam
-                </li> 
-            </ul>
+            {#if blok.company_info[0]}
+                <ul>
+                    {#each blok.company_info as companyInfoItems}
+                        <li>
+                            <a href="mailto:contact@futureready.design" class="link">{companyInfoItems.email}</a> &#183; <a href="tel:0202101259" class="link">{companyInfoItems.phone_number}</a>
+                        </li>
+                        <li>
+                            {@html renderRichText(companyInfoItems.address)}
+                        </li> 
+                    {/each}
+                </ul>
+            {/if} 
         </div>
-        
 
         <!-- HYPERDRIVE ANIMATION -->
         <canvas bind:this={canvas}></canvas>
@@ -588,6 +599,9 @@
     import { fade } from 'svelte/transition';
     import { onMount, onDestroy } from 'svelte';
 
+    // GLOBAL STORYBLOK FUNCTIONS
+    import { renderRichText } from "@storyblok/js";
+
     // DEFINE VARIABLES
     let getInTouchForm;
     let getInTouchCTA;
@@ -600,6 +614,10 @@
     let contactPersonNameSpan;
     let contactSubmittedTitle;
     let contactSubmittedText;
+
+    // DEFINE VARIABLES STORYBLOK
+    export let blok;
+    
 
 
 
