@@ -7,7 +7,9 @@
 </script>
 
 <section class="story-container wrapper-large" use:storyblokEditable={blok}>
-  <img src={blok.image.filename} alt={blok.image.alt}>
+  <!-- <div class="image-glow-container"> -->
+    <img src={blok.image.filename} alt={blok.image.alt}>
+  <!-- </div> -->
   <div>
     <h3>{blok.subtitle}</h3>
     <p>“{blok.quote}”</p>
@@ -29,17 +31,27 @@
   flex-direction: column;
   align-items: center;
   text-align: left;
-  color: white;
+  color: var(--color-white);
 
   img {
     width: 100%;
     max-width: 30em;
     height: auto;
     border-radius: 1em;
+
+    &::before {
+      content: '';
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      background-color: red;
+    }
   }
 
   p {
-    color: white;
+    color: var(--color-white);
     margin-top: 10px;
     font-size: 1.5em;
     max-width: 100%;

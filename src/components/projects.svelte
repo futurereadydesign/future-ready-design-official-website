@@ -234,6 +234,9 @@ article:nth-of-type(even) {
 
 /* SMALL SCREEN */
 @media screen and (max-width: 600px) {
+    .heading-container {
+        margin-top: 0;
+    }
     .content-container {
         gap: 5em;
 

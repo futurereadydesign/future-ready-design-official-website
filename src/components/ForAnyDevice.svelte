@@ -331,7 +331,7 @@
 
             animation: moveLeftAndBack 8s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -373,6 +373,11 @@
     }
 
     @media screen and (max-width: 768px) {
+        section {
+            .animation {
+                animation-delay: calc(var(--scroll) * -8.5s);
+            }
+        }
         .animation {
             font-size: 1.11em; 
         }

@@ -9,29 +9,29 @@
             <li>
                 <ul>
                     <li>
-                        <a href="about" class="link">Our philosophy</a>
+                        <a href="about" class="link">Onze filosofie</a>
                     </li>
                     <li>
-                        <a href="projects" class="link">Our work</a>
+                        <a href="projects" class="link">Ons werk</a>
                     </li>
                     <li>
-                        <a href="accessibility" class="link">Accessibility</a>
+                        <a href="accessibility" class="link">Toegankelijkheid</a>
                     </li>
                     <li>
-                        <a href="blog" class="link">Design blog</a>
+                        <a href="blog" class="link">Ontwerp blog</a>
                     </li>
                 </ul>
             </li>
             <li>
                 <ul>
                     <li>
-                        <a href="#" class="link">Terms and conditions</a>
+                        <a href="#" class="link">Algemene voorwaarden</a>
                     </li>
                     <li>
-                        <a href="#" class="link">Privacy policy</a>
+                        <a href="#" class="link">Privacy verklaring</a>
                     </li>
                     <li>
-                        <a href="support" class="link">Get support</a>
+                        <a href="support" class="link">Hulp nodig?</a>
                     </li>
                 </ul>
             </li>
@@ -59,7 +59,7 @@
                         </li>
                         <li>
                             <a href="/contact" class="button button-primary">
-                                <span>Get in touch</span>
+                                <span>Kom in contact</span>
                                 <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                             </a>
                         </li>

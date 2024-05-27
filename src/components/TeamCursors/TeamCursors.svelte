@@ -9,8 +9,7 @@
 
     // Definieer de blok
     export let blok;
-
-    console.log(blok);
+    // console.log(blok);
 
     // Variabele om het ID van het animatieverzoek bij te houden
     let requestId; 
@@ -20,8 +19,9 @@
             cancelAnimationFrame(requestId); // Als er al een animatieverzoek is, annuleer het dan
         }
         requestId = requestAnimationFrame(() => { // Maak een nieuw animatieverzoek
-            let x = event.screenX; // X-coördinaat van de muispositie op het scherm
+            let x = event.clientX; // X-coördinaat van de muispositie op het scherm
             let y = event.clientY; // Y-coördinaat van de muispositie binnen het viewport
+            console.log("cursor: " + x + ' - ' + y);
 
             const infoCard = document.getElementById('you'); // Haal het element op met de id 'you'
             infoCard.style.top = (y + 0) + "px"; // Stel de 'top' CSS-stijl in op de Y-coördinaat van de muis
@@ -60,7 +60,7 @@
     // Voer de code uit wanneer de component is ingeladen
     onMount(() => {
         // Selecteer het element met de id 'cursor-effect' nadat de component is ingeladen
-        cursorEffectSection = document.getElementById('cursor-effect');
+        // cursorEffectSection = document.getElementById('cursor-effect');
 
         // Voeg een event listener toe voor wanneer de muis de sectie binnenkomt
         cursorEffectSection.addEventListener('mouseenter', () => {
@@ -80,7 +80,7 @@
     }); 
 </script>
 
-<section id="cursor-effect" on:mousemove={getCursor} use:storyblokEditable={blok}>
+<section id="cursor-effect" on:mousemove={getCursor} bind:this={cursorEffectSection} use:storyblokEditable={blok}>
 
     <!-- <div id="you-card"><p>You?</p></div> -->
     
@@ -116,9 +116,10 @@
 <style lang="scss">
     #cursor-effect {
         position: relative;
-        margin-top: 12.5em;
-        margin-bottom: 12.5em;
+        padding-top: 12.5em;
+        padding-bottom: 12.5em;
         cursor: none;
+        overflow: hidden;
 
         h2 {
             text-align: center;
@@ -177,11 +178,19 @@
                 box-shadow: 0 0 40px 30px rgba(33, 219, 208, 0.203);
             }
         }
+
+        .cursor-item {
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            // animation: none !important;
+        }
+
         .cursor-item:nth-of-type(3) {
             position: absolute;
-            left: 40%; //22%
-            top: 24%; // 25%
-            animation: DouweAnimation 1s ease-in-out infinite;
+            // left: 40%; //22%
+            // top: 24%; // 25%
+            animation: SVGAnimation1 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -2s);
 
@@ -205,9 +214,9 @@
         }
         .cursor-item:nth-of-type(4) {
             position: absolute;
-            right: 34%; //10%
-            top: 42%; //50%
-            animation: MarkAnimation 1s ease-in-out infinite;
+            // right: 34%; //10%
+            // top: 42%; //50%
+            animation: SVGAnimation2 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -2s);
 
@@ -231,9 +240,9 @@
         }
         .cursor-item:nth-of-type(5) {
             position: absolute;
-            left: 45%; //15%
-            bottom: 23%; //25%
-            animation: RobbinAnimation 1s ease-in-out infinite;
+            // left: 45%; //15%
+            // bottom: 23%; //25%
+            animation: SVGAnimation3 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -2s);
 
@@ -257,9 +266,9 @@
         }
         .cursor-item:nth-of-type(6) {
             position: absolute;
-            right: 43%; //18%
-            top: 15%; //10%
-            animation: RowinAnimation 1s ease-in-out infinite;
+            // right: 43%; //18%
+            // top: 15%; //10%
+            animation: SVGAnimation4 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -2s);
 
@@ -284,9 +293,9 @@
         }
         .cursor-item:nth-of-type(7) {
             position: absolute;
-            left: 35%; //35%
-            bottom: 38%; //10%
-            animation: TycoAnimation 1s ease-in-out infinite;
+            // left: 35%; //35%
+            // bottom: 38%; //10%
+            animation: SVGAnimation5 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -2s);
 
@@ -310,9 +319,9 @@
         }
         .cursor-item:nth-of-type(8) {
             position: absolute;
-            right: 36%; //22%
-            bottom: 20%; //15%
-            animation: YunusAnimation 1s ease-in-out infinite;
+            // right: 36%; //22%
+            // bottom: 20%; //15%
+            animation: SVGAnimation6 1s ease-in-out infinite;
             animation-play-state: paused;
             animation-delay: calc(var(--scroll) * -2s);
 
@@ -337,111 +346,125 @@
     }
 
     // Animaties
-    @keyframes DouweAnimation {
-        0% {
-            transform: translateY(-50%);
+    @keyframes SVGAnimation1 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            left: 15%;
-            top: 12%;
-        }
-        100% {
-            left: 17%; 
-            top: 25%; 
+        50%, 100% {
+            transform: translateX(-25em) translateY(5em);
         }
     }
 
-    @keyframes MarkAnimation {
-        0% {
-            transform: translateY(-42%);
+    @keyframes SVGAnimation2 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            right: 17%; 
-        }
-        100% {
-            right: 21%;  
+        50%, 100% {
+            transform: translateX(20em) translateY(4.5em);
         }
     }
 
-    @keyframes RobbinAnimation {
-        0% {
-            transform: translateY(-38%);
+    @keyframes SVGAnimation3 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            left: 31%; 
-            bottom: -20%;
-        }
-        100% {
-            left: 31%; 
-            bottom: -20%;
+        50%, 100% {
+            transform: translateX(-10em) translateY(-11em);
         }
     }
 
-    @keyframes RowinAnimation {
-        0% {
-            transform: translateY(-38%);
+    @keyframes SVGAnimation4 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            right: 30%; 
-            top: -10%; 
-        }
-        100% {
-            right: 30%; 
-            top: -10%;  
+        50%, 100% {
+            transform: translateX(2.5em) translateY(7.5em);
         }
     }
 
-    @keyframes TycoAnimation {
-        0% {
-        transform: translateY(100%);
+    @keyframes SVGAnimation5 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            left: 26%; 
-        }
-        100% {
-            left: 20%; 
+        50%, 100% {
+            transform: translateX(-27.5em) translateY(-8.5em);
         }
     }
 
-    @keyframes YunusAnimation {
-        0% {
-            transform: translateY(20%);
+    @keyframes SVGAnimation6 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50%{
-            right: 28%; 
-            bottom: 6%; 
-        }
-        100% {
-            right: 28%; 
-            bottom: 6%; 
+        50%, 100% {
+            transform: translateX(12.5em) translateY(-9em);
         }
     }
 
-    // Media-queries
-    // @media screen and (max-width: 1250px) {
-    
-    // }
 
-    // @media screen and (max-width: 900px) {
 
-    // }
-
+    // MEDIAQUERIES
     @media screen and (max-width: 900px) {
         #cursor-effect {
+            padding-top: 10em;
+            padding-bottom: 12.5em;
             h2 {
                 font-size: 2.25em;
             }
         }
     }
 
-    @media screen and (max-width: 768px) {
-        @keyframes DouweAnimation {
-            0% {
-                transform: translateY(-50%);
+    @media screen and (max-width: 600px) {
+        @keyframes SVGAnimation1 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
             }
-            100% {
-                left: -250vw; 
-                top: 74%; 
+            50%, 100% {
+                transform: translateX(-15em) translateY(11em);
+            }
+        }
+
+        @keyframes SVGAnimation2 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(16em) translateY(7.5em);
+            }
+        }
+
+        @keyframes SVGAnimation3 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(-10em) translateY(-22em);
+            }
+        }
+
+        @keyframes SVGAnimation4 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(2.5em) translateY(12.5em);
+            }
+        }
+
+        @keyframes SVGAnimation5 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(-17.5em) translateY(-8.5em);
+            }
+        }
+
+        @keyframes SVGAnimation6 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(12.5em) translateY(-9em);
             }
         }
     }
