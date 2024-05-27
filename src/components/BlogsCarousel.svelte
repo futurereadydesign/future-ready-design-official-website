@@ -65,6 +65,7 @@
         options={{
           rewind: true,
           perPage: 3,
+          perMove: 1,
           gap: '1em',
           pagination: false,
           arrows: false,
