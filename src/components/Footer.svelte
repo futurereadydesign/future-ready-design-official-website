@@ -18,7 +18,7 @@
                         <a href="/accessibility" class="link">Toegankelijkheid</a>
                     </li>
                     <li>
-                        <a href="/blog" class="link">Ontwerp blog</a>
+                        <a href="/blog" class="link">Blog</a>
                     </li>
                 </ul>
             </li>

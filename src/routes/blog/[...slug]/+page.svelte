@@ -54,7 +54,7 @@
       <!-- Alle data wordt ingeladen -->
       <article class="slug-blog-article wrapper-large">
           <img class="slug-blog-image " src={data.post.image} alt={data.post.imageAlt} >
-          <div class="wrapper-medium">
+          <section class="wrapper-medium">
             <button onclick="javascript:history.back()" class="button button-quaternary button-flipped">
                 <span class="s-nrtRPbawfH4D" data-svelte-h="svelte-18x73jy">Terug naar vorige pagina</span> 
                 <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="s-nrtRPbawfH4D"><path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="s-nrtRPbawfH4D"></path><path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="s-nrtRPbawfH4D"></path>
@@ -64,7 +64,35 @@
             <h1 class="slug-blog-title">{data.post.title}</h1>
             <p class="slug-blog-date">{data.post.date}</p>
             <p class="slug-blog-content">{@html renderRichText(data.post.content)}</p>
-          </div>
+        </section>
+
+          <!-- <section class="blog-footer wrapper-medium">
+            <div>
+                <strong>Hope this helped!</strong>
+                <h2>any questions?</h2>
+                <a href="/terms-and-conditions" class="button button-quaternary">
+                    <span>Get in touch</span>
+                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            <div>
+                <figure>
+                    <img src={data.post.image} alt={data.post.imageAlt} >
+                </figure>
+                <ul>
+                    <li>
+                        <h3>Robbin</h3>
+                    </li>
+                    <li>
+                        <span>Accessibility expert</span>
+                        <span>Future Ready Design</span>
+                    </li>
+                </ul>
+            </div>
+          </section> -->
       </article>
   </section>
 </main>
@@ -130,6 +158,92 @@
     .slug-blog-content {
         text-align: justify;
         color: rgba(255, 255, 255, 0.694);
+    }
+
+
+
+
+
+    .blog-footer {
+        margin-top: 3.75em;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2.75em;
+        padding: 2.5em 2.75em;
+        border-radius: 1.11em;
+        background-color: var(--color-white-05);
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            border: var(--border-width) solid var(--color-light-gray-65);
+            border-radius: inherit;
+            z-index: -1;
+        }
+
+        div {
+
+            &:nth-of-type(2) {
+                display: flex;
+                flex-direction: row;
+            }
+
+            strong {
+                font-family: var(--font-degular);
+                font-weight: 400;
+            }
+            a {
+                width: fit-content;
+                margin-top: 1.5em;
+            }
+
+            figure {
+                position: relative;
+                height: 4em;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    border-radius: inherit;
+                    object-fit: cover;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    border: var(--border-width) solid var(--color-black-35);
+                    border-radius: inherit;
+                }
+            }
+
+            ul {
+
+                li {
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        color: var(--color-white-45);
+                    }
+                }
+            }
+
+        }
     }
 
     

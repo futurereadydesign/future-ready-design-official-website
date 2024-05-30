@@ -42,7 +42,7 @@
             </a>
         </section>
     {/if}
-</section>
+</section> 
 
 <style lang="scss">
     :global(.legal-content a) {
