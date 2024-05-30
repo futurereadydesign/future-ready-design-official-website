@@ -9,7 +9,7 @@ import AllProjects from "../components/Storyblok/AllProjects.svelte";
 import BlogsCarousel from "../components/BlogsCarousel.svelte";
 import ForAnyDevice from "../components/ForAnyDevice.svelte";
 import TeamCursors from "../components/TeamCursors/TeamCursors.svelte";
-import Hero from "../components/Hero.svelte";
+// import Hero from "../components/Hero.svelte";
 import OurStory from "../components/OurStory.svelte";
 import Projects from "../components/Projects.svelte";
 import HyperdriveCTA from "../components/HyperdriveCTA.svelte";
