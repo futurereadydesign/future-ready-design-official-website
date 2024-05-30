@@ -454,7 +454,7 @@
 
 <style lang="scss">
 
-    :global(article a) {
+    :global(article p a) {
             color: var(--color-lightblue);
             text-decoration: underline;
 
