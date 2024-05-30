@@ -1,28 +1,23 @@
-<section class="featured-v1 wrapper-max">
-    <h2>work we do to make a <span>change</span></h2>
-    <p>Some call it magic, we call it passion pixelated</p>
+<script>
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from "@storyblok/svelte";
+
+    // Definieer de blok
+    export let blok;
+</script>
+
+<section class="featured-v1 wrapper-max" use:storyblokEditable={blok}>
+    <h2>{blok.title}</h2>
+    <p>{blok.subtitle}</p>
 
     <ul>
-        <li>
-            <img src="/assets/content/featured-web-and-app-development.png" alt="Picture 'User tested'">
-            <h3>Digital Design (UX/UI)</h3>
-            <p>We design user interfaces, websites and applications to high quality standards. User tested and validated before we even write a single line of code.</p>
-        </li>
-        <li>
-            <img src="/assets/content/featured-web-and-app-development.png" alt="Illustration of a rocket, suiting 'User tested'">
-            <h3>Accessibility improvement</h3>
-            <p>We help you in making your existing digital services more accessible for everyone. Making you comply to the WCAG guidelines.</p>
-        </li>
-        <li>
-            <img src="/assets/content/featured-web-and-app-development.png" alt="Illustration of a rocket, suiting 'User tested'">
-            <h3>Product development</h3>
-            <p>Launching a new digital product can be challenging. We guide you in finding the best possible strategy that will get you from zero to a successful launch achieving product-market fit.</p>
-        </li>
-        <li>
-            <img src="/assets/content/featured-web-and-app-development.png" alt="Illustration of a rocket, suiting 'User tested'">
-            <h3>Web and App development</h3>
-            <p>We help you by developing your new website or app for you.  We find the framework that fits best for you solution and always keep scalability and accessibility in mind.</p>
-        </li>
+        {#each blok.items as listItem}
+            <li>
+                <img src={listItem.image.filename} alt={listItem.image.alt}>
+                <h3>{listItem.title}</h3>
+                <p>{listItem.text}</p>
+            </li>
+        {/each}
     </ul>
 </section>
 
@@ -31,6 +26,7 @@
     .featured-v1 {
         text-align: center;
         margin-top: 7.5em;
+        width: calc(100% - 5rem);
 
         h2 {
             font-size: 2.5em;
@@ -202,10 +198,17 @@
             }
 
             h2 {
+                padding: 0 1rem;
+                text-align: left;
 
                 span {
                     display: inline-block;
                 }
+            }
+
+            p {
+                padding: 0 1rem;
+                text-align: left;
             }
         }
     }
@@ -226,7 +229,7 @@
             }
 
             h2 {
-                max-width: 8.5em;
+                // max-width: 8.5em;
                 margin: 0 auto 0.5rem auto;
             }
         }

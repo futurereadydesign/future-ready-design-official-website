@@ -2,27 +2,26 @@
     // Importeer de onMount-functie uit de 'svelte' bibliotheek
     // Dit wordt gebruikt om code uit te voeren wanneer de component is ingeladen in de DOM
     import { onMount } from 'svelte';
-
     // Importeer het juiste css bestand
     import '/src/styles/global.css';
-
     // Importeer de storyblokEditable functie vanuit de Storyblok package
     import { storyblokEditable } from "@storyblok/svelte";
 
     // Definieer de blok
     export let blok;
+    // console.log(blok);
 
     // Variabele om het ID van het animatieverzoek bij te houden
     let requestId; 
-
     // Functie om de positie van de muis te verkrijgen
     function getCursor(event) { 
         if (requestId) {
             cancelAnimationFrame(requestId); // Als er al een animatieverzoek is, annuleer het dan
         }
         requestId = requestAnimationFrame(() => { // Maak een nieuw animatieverzoek
-            let x = event.screenX; // X-coördinaat van de muispositie op het scherm
+            let x = event.clientX; // X-coördinaat van de muispositie op het scherm
             let y = event.clientY; // Y-coördinaat van de muispositie binnen het viewport
+            console.log("cursor: " + x + ' - ' + y);
 
             const infoCard = document.getElementById('you'); // Haal het element op met de id 'you'
             infoCard.style.top = (y + 0) + "px"; // Stel de 'top' CSS-stijl in op de Y-coördinaat van de muis
@@ -61,7 +60,7 @@
     // Voer de code uit wanneer de component is ingeladen
     onMount(() => {
         // Selecteer het element met de id 'cursor-effect' nadat de component is ingeladen
-        cursorEffectSection = document.getElementById('cursor-effect');
+        // cursorEffectSection = document.getElementById('cursor-effect');
 
         // Voeg een event listener toe voor wanneer de muis de sectie binnenkomt
         cursorEffectSection.addEventListener('mouseenter', () => {
@@ -78,11 +77,10 @@
             // Verander de opacity van het 'you'-element naar 0 wanneer de muis de sectie verlaat
             youElement.style.opacity = 0;
         });
-    });
-
+    }); 
 </script>
 
-<section id="cursor-effect" on:mousemove={getCursor} use:storyblokEditable={blok}>
+<section id="cursor-effect" on:mousemove={getCursor} bind:this={cursorEffectSection} use:storyblokEditable={blok}>
 
     <!-- <div id="you-card"><p>You?</p></div> -->
     
@@ -98,75 +96,40 @@
         <span>You?</span>
     </div>
 
-    <!-- DOUWE -->
-    <div class="douwe">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="#00EC26"/>
-        </svg>
-        <span>Douwe</span>
-    </div>
-
-    <!-- MARK -->
-    <div class="mark">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="#DB212C"/>
-        </svg>
-        <span>Mark</span>        
-    </div>
-        
-    <!-- ROBBIN -->
-    <div class="robbin">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52653L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37705L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37705Z" fill="#CC00FF"/>
-        </svg>
-        <span>Robbin</span>
-    </div>
-
-    <!-- ROWIN -->
-    <div class="rowin">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="#FBA108"/>
-        </svg>
-        <span>Rowin</span>
-    </div>
-        
-    <!-- TYCO -->
-    <div class="tyco">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37705L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37705Z" fill="#127FFF"/>
-        </svg>
-    <span>Tyco</span>        
-    </div>
-
-    <!-- YUNUS -->
-    <div class="yunus">
-        <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.90529 31.2229L0 3.52653L23.651 20.0799L11.5249 22.2079L11.2091 22.4419L4.90529 31.2229Z" fill="white"/>
-            <path d="M2.46484 7.37705L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0786L2.46484 7.37705Z" fill="#BDFF00"/>
-        </svg>
-        <span>Yunus Emre</span>        
-    </div>
-        
+    {#if blok.cursors[0]}
+    {#each blok.cursors as svgItems}
+        <div class="cursor-item">
+            <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
+                <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="{svgItems.color.color}"/>
+            </svg>
+            <span style="
+                background-image: linear-gradient(to right, {svgItems.color.color}, {svgItems.color.color}, {svgItems.gradient_color.color});
+                box-shadow: 0 0 40px 30px {svgItems.box_shadow.color};">
+                {svgItems.name}
+            </span>
+        </div>
+    {/each} 
+    {/if}       
 </section>
 
 <style lang="scss">
     #cursor-effect {
         position: relative;
-        margin-top: 13em;
-        margin-bottom: 20em;
+        padding-top: 12.5em;
+        padding-bottom: 12.5em;
         cursor: none;
+        overflow: hidden;
 
         h2 {
             text-align: center;
             max-width: 21em; 
             padding: 1em;
-            margin: 0 auto;
             display: block; 
+            margin: 0 auto;
+
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
         }
 
         .underline {
@@ -215,13 +178,21 @@
                 box-shadow: 0 0 40px 30px rgba(33, 219, 208, 0.203);
             }
         }
-        .douwe {
+
+        .cursor-item {
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            // animation: none !important;
+        }
+
+        .cursor-item:nth-of-type(3) {
             position: absolute;
-            left: 40%; //22%
-            top: 24%; // 25%
-            animation: DouweAnimation 1s ease-in-out infinite;
+            // left: 40%; //22%
+            // top: 24%; // 25%
+            animation: SVGAnimation1 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -234,22 +205,20 @@
                 color: var(--color-black);
                 font-weight: 500;
                 display: inline-block; 
-                background: linear-gradient(to right, #00EC26, #00EC26, #9FFDAE); 
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(0, 236, 39, 0.203);
             }
         }
-        .mark {
+        .cursor-item:nth-of-type(4) {
             position: absolute;
-            right: 34%; //10%
-            top: 42%; //50%
-            animation: MarkAnimation 1s ease-in-out infinite;
+            // right: 34%; //10%
+            // top: 42%; //50%
+            animation: SVGAnimation2 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -262,22 +231,20 @@
                 color: var(--color-black);
                 font-weight: 500;
                 display: inline-block; 
-                background: linear-gradient(to right, #DB212C, #DB212C, #F78188); 
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(219, 33, 44, 0.203);  
             }
         }
-        .robbin {
+        .cursor-item:nth-of-type(5) {
             position: absolute;
-            left: 45%; //15%
-            bottom: 23%; //25%
-            animation: RobbinAnimation 1s ease-in-out infinite;
+            // left: 45%; //15%
+            // bottom: 23%; //25%
+            animation: SVGAnimation3 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -290,22 +257,20 @@
                 color: var(--color-black);
                 font-weight: 500;
                 display: inline-block; 
-                background: linear-gradient(to right, #CC00FF, #CC00FF, #D592E6); 
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(204, 0, 255, 0.203);
             }
         }
-        .rowin {
+        .cursor-item:nth-of-type(6) {
             position: absolute;
-            right: 43%; //18%
-            top: 15%; //10%
-            animation: RowinAnimation 1s ease-in-out infinite;
+            // right: 43%; //18%
+            // top: 15%; //10%
+            animation: SVGAnimation4 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -324,16 +289,15 @@
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(251, 161, 8, 0.203);
             }
         }
-        .tyco {
+        .cursor-item:nth-of-type(7) {
             position: absolute;
-            left: 35%; //35%
-            bottom: 38%; //10%
-            animation: TycoAnimation 1s ease-in-out infinite;
+            // left: 35%; //35%
+            // bottom: 38%; //10%
+            animation: SVGAnimation5 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -345,23 +309,21 @@
             span {
                 color: var(--color-black);
                 font-weight: 500;
-                display: inline-block; 
-                background: linear-gradient(to right, #127FFF, #127FFF, #529FF9); 
+                display: inline-block;  
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(18, 127, 255, 0.203);
             }
         }
-        .yunus {
+        .cursor-item:nth-of-type(8) {
             position: absolute;
-            right: 36%; //22%
-            bottom: 20%; //15%
-            animation: YunusAnimation 1s ease-in-out infinite;
+            // right: 36%; //22%
+            // bottom: 20%; //15%
+            animation: SVGAnimation6 1s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -374,115 +336,135 @@
             span {
                 color: var(--color-black);
                 font-weight: 500;
-                display: inline-block; 
-                background: linear-gradient(to right, #BDFF00, #BDFF00, #F5FFD9); 
+                display: inline-block;  
                 border-radius: 0.4em; 
                 padding: 0.3em 0.7em; 
                 box-sizing: border-box; 
                 white-space: nowrap; 
                 margin-left: 0.8em; 
-                box-shadow: 0 0 40px 30px rgba(189, 255, 0, 0.203);
             }
     }
 
     // Animaties
-    @keyframes DouweAnimation {
-        0% {
-            transform: translateY(-50%);
+    @keyframes SVGAnimation1 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            left: 20%;
-            top: 12%;
-        }
-        100% {
-            left: 17%; 
-            top: 25%; 
+        50%, 100% {
+            transform: translateX(-25em) translateY(5em);
         }
     }
 
-    @keyframes MarkAnimation {
-        0% {
-            transform: translateY(-42%);
+    @keyframes SVGAnimation2 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            right: 21%; 
-        }
-        100% {
-            right: 21%;  
+        50%, 100% {
+            transform: translateX(20em) translateY(4.5em);
         }
     }
 
-    @keyframes RobbinAnimation {
-        0% {
-            transform: translateY(-38%);
+    @keyframes SVGAnimation3 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            left: 31%; 
-            bottom: -20%;
-        }
-        100% {
-            left: 31%; 
-            bottom: -20%;
+        50%, 100% {
+            transform: translateX(-10em) translateY(-11em);
         }
     }
 
-    @keyframes RowinAnimation {
-        0% {
-            transform: translateY(-38%);
+    @keyframes SVGAnimation4 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            right: 30%; 
-            top: -10%; 
-        }
-        100% {
-            right: 30%; 
-            top: -10%;  
+        50%, 100% {
+            transform: translateX(2.5em) translateY(7.5em);
         }
     }
 
-    @keyframes TycoAnimation {
-        0% {
-        transform: translateY(38%);
+    @keyframes SVGAnimation5 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50% {
-            left: 26%; 
-        }
-        100% {
-            left: 20%; 
+        50%, 100% {
+            transform: translateX(-27.5em) translateY(-8.5em);
         }
     }
 
-    @keyframes YunusAnimation {
-        0% {
-            transform: translateY(20%);
+    @keyframes SVGAnimation6 {
+        from {
+            transform: translateX(-50%) translateY(-50%);
         }
-        50%{
-            right: 28%; 
-            bottom: 6%; 
-        }
-        100% {
-            right: 28%; 
-            bottom: 6%; 
+        50%, 100% {
+            transform: translateX(12.5em) translateY(-9em);
         }
     }
 
-    // Media-queries
-    // @media screen and (max-width: 1250px) {
-    
-    // }
 
-    // @media screen and (max-width: 900px) {
 
-    // }
-
-    @media screen and (max-width: 768px) {
-        @keyframes DouweAnimation {
-            0% {
-                transform: translateY(-50%);
+    // MEDIAQUERIES
+    @media screen and (max-width: 900px) {
+        #cursor-effect {
+            padding-top: 10em;
+            padding-bottom: 12.5em;
+            h2 {
+                font-size: 2.25em;
             }
-            100% {
-                left: -250vw; 
-                top: 74%; 
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        @keyframes SVGAnimation1 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(-15em) translateY(11em);
+            }
+        }
+
+        @keyframes SVGAnimation2 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(16em) translateY(7.5em);
+            }
+        }
+
+        @keyframes SVGAnimation3 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(-10em) translateY(-22em);
+            }
+        }
+
+        @keyframes SVGAnimation4 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(2.5em) translateY(12.5em);
+            }
+        }
+
+        @keyframes SVGAnimation5 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(-17.5em) translateY(-8.5em);
+            }
+        }
+
+        @keyframes SVGAnimation6 {
+            from {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            50%, 100% {
+                transform: translateX(12.5em) translateY(-9em);
             }
         }
     }

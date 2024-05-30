@@ -46,6 +46,7 @@
 		margin-bottom: 4em;
 		place-items: center;
 		justify-content: center;
+		gap: 1em 0;
 	}
 
 	.all-blogs-article {
@@ -53,7 +54,8 @@
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
 		flex: 1 1 auto;
-		margin-bottom: 0.8em;
+		/* margin-bottom: 0.8em; */
+		height: 100%;
 	}
 
 	@media (min-width: 768px) {

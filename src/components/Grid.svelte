@@ -1,43 +1,52 @@
 <script>
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from "@storyblok/svelte";
+
+    // Definieer de blok
+    export let blok;
+    // console.log(blok.organisation[0].logo);
+
+    
     import GridItem from "./GridItem.svelte";
-    let orgsImagePaths = [
-      "/assets/organisations/10meer.png",
-      "/assets/organisations/angelineau.png",
-      "/assets/organisations/crelo.png",
-      "/assets/organisations/duva.png",
-      "/assets/organisations/endurans.png",
-      "/assets/organisations/jongleren.png",
-      "/assets/organisations/nfl.png",
-      "/assets/organisations/thebin.png",
-      "/assets/organisations/10meer.png",
-      "/assets/organisations/angelineau.png",
-      "/assets/organisations/crelo.png",
-      "/assets/organisations/duva.png",
-      "/assets/organisations/endurans.png",
-      "/assets/organisations/jongleren.png",
-      "/assets/organisations/nfl.png",
-      "/assets/organisations/thebin.png",
-    ];
+    // let orgsImagePaths = [
+    //   "/assets/organisations/10meer.png",
+    //   "/assets/organisations/angelineau.png",
+    //   "/assets/organisations/crelo.png",
+    //   "/assets/organisations/duva.png",
+    //   "/assets/organisations/endurans.png",
+    //   "/assets/organisations/jongleren.png",
+    //   "/assets/organisations/nfl.png",
+    //   "/assets/organisations/thebin.png",
+    //   "/assets/organisations/10meer.png",
+    //   "/assets/organisations/angelineau.png",
+    //   "/assets/organisations/crelo.png",
+    //   "/assets/organisations/duva.png",
+    //   "/assets/organisations/endurans.png",
+    //   "/assets/organisations/jongleren.png",
+    //   "/assets/organisations/nfl.png",
+    //   "/assets/organisations/thebin.png",
+    // ];
+
   </script>
   
-  <section class="wrapper-large">
-    <h2>we made digital impact with over 100+ organisations already</h2>
-    <p>Are you next?</p>
+  <section class="wrapper-large" use:storyblokEditable={blok}>
+    <h2>{blok.title}</h2>
+    <p>{blok.subtitle}</p>
     <div class="organisation-grid">
-      {#each orgsImagePaths as imagePath}
-        <GridItem imgPath={imagePath}></GridItem>
+      {#each blok.organisation as imagePath}
+        <GridItem imgPath={imagePath.logo.filename} imgAlt={imagePath.logo.alt}></GridItem>
       {/each}
     </div>
-    <div class="google-review">
+    <a href={blok.google_url.url} target="_blank" class="google-review button">
       <div class="top">
         <div class="google-logo">
-          <img src="/assets/google-blur.svg" alt="blurred google logo" />
+          <img src="/assets/google-blur.svg" alt="" />
           <img src="/assets/google-logo.svg" alt="google logo" />
         </div>
         <img src="/assets/stars.svg" alt="review stars" />
       </div>
-      <p>5 stars on Google!</p>
-    </div>
+      <p>{blok.google_rating}</p>
+    </a>
   </section>
   
   <style lang="scss">
@@ -59,7 +68,7 @@
     .organisation-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
+      // grid-template-rows: repeat(4, 1fr);
       grid-column-gap: 20px;
       grid-row-gap: 20px;
       margin-bottom: 2.5em;
@@ -67,6 +76,10 @@
       
     }
     .google-review {
+      display: inline-block;
+      width: fit-content;
+      text-decoration: none;
+
       .top {
         display: flex;
         align-items: center;

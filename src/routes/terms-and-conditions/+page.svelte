@@ -1,6 +1,7 @@
 <script>
 	// Importeer het juiste css bestand
-	import '/src/styles/main.css';
+	import '/src/styles/global.css';
+    import '/src/styles/main.css'
 
 	// Importeer Storyblok binnen Sveltekit om de functies te kunnen gebruiken
 	// en content te kunnen integreren 
@@ -17,7 +18,7 @@
 	});
 </script>
  
-<!-- Laat de content van de story 'Home' -->
+<!-- Laat de content van de story 'Terms and Conditions' -->
 {#if data.story}
 	<StoryblokComponent blok={data.story.content} />
 {/if}

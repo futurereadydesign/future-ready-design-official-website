@@ -4,6 +4,7 @@
 
     // OVERLAY --------------------
     let overlay;
+    
 
     function openOverlay() {
         overlay.classList.add('overlay-active');
@@ -13,6 +14,24 @@
     function closeOverlay() {    
         overlay.classList.remove('overlay-active');
     }
+
+    // onMount(() => {
+    //     if (typeof window !== 'undefined') {
+            
+
+    //         function openOverlay() {
+    //             overlay.classList.add('overlay-active');
+    //             trapFocus(overlay);
+    //         }  
+
+    //         function closeOverlay() {    
+    //             overlay.classList.remove('overlay-active');
+    //         }
+
+    //     }
+    // });
+
+    
 
 
     // FOCUS ONLY ON OVERLAY ELEMENTS, WHEN OVERLAY IS ACTIVE
@@ -123,13 +142,7 @@
     }
 </script>
 
-    <header>
-        <a href="https://futureready.design/" target="_blank">
-            <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
-        </a>
-    </header>
-
-    <main in:fade={{duration: 300}} class="accessibility-checklist">
+    <main in:fade={{duration: 300}} class="accessibility-checklist header-margin">
         <h1 class="wrapper-max">je website <strong>toegankelijk</strong> maken? Gebruik onze <strong>WCAG</strong> checklist</h1>
         <h2>download het gratis PDF-bestand</h2>
         
@@ -282,12 +295,6 @@
         </section>
     </main>
 
-    <footer>
-        <div>
-            <a href="https://www.futurereadydesign.nl/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futurereadydesign.nl/privacy-policy" target="_blank">Privacy beleid</a>
-        </div>
-        <span>Copyright © {currentYear} Future Ready Design</span>
-    </footer>
 
 <style>
     @import '/src/styles/main.css';

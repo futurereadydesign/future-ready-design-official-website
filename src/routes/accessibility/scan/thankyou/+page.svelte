@@ -18,13 +18,8 @@
 
 </script>
 
-<header>
-    <a href="https://futureready.design/" target="_blank">
-        <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
-    </a>
-</header>
 
-<main in:fade={{duration: 300}} class="accessibility-confirmation">
+<main in:fade={{duration: 300}} class="accessibility-confirmation header-margin">
 
     <section class="wrapper-large section-block no-borders">
         <div class="section-block-inner">
@@ -62,13 +57,7 @@
 
 </main>
 
-<footer>
-    <div>
-        <a href="https://www.futurereadydesign.nl/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futurereadydesign.nl/privacy-policy" target="_blank">Privacy beleid</a>
-    </div>
-    <span>Copyright © {currentYear} Future Ready Design</span>
-</footer>
-    
+
 <style>
     @import '/src/styles/main.css';
 </style>

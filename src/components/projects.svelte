@@ -1,111 +1,104 @@
-<section class="heading-container">
-    <h2>not just talking but taking action</h2>
+<script>
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from "@storyblok/svelte";
+
+    // Definieer de blok
+    export let blok;
+</script>
+
+<section class="heading-container wrapper-large" use:storyblokEditable={blok}>
+    <h2>{blok.title}</h2>
 </section>
 
-<section class="content-container">
-    <article class="left-container">
-        <section class="image-container">
-            <img src="/assets/content/yunus-ipon.png" alt="">
-        </section>
-        <section class="text-container">
-            <h4>Showcased project</h4>
-            <h3>how we are changing education with Crelo</h3>
-            <p>Shifting the focus from grades to personal development. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin purus vitae enim vestibulum sollicitudin. Aenean ac faucibus arcu. Mauris molestie, augue nec pharetra ullamcorper, nisl mauris mattis tortor, aliquet pulvinar turpis lectus ut nulla. Nunc ut eros id purus pulvinar rhoncus eu egestas eros.</p>
-            <a href="/projects" class="button button-quaternary">
-                <span>More about this project</span>
-                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </section>
-    </article>
+<section class="content-container wrapper-large">
+    {#each blok.projects as listItem}
+        <article class="left-container">
+            <section class="image-container">
+                <img src={listItem.image.filename} alt={listItem.image.alt}>
+            </section>
+            <section class="text-container">
+                <h4>{listItem.subtitle}</h4>
+                <h3>{listItem.title}</h3>
+                <p>{listItem.text}</p>
+                <a href={listItem.button_link.cached_url} class="button button-quaternary">
+                    <span>{listItem.button_text}</span>
+                    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </section>
+        </article>
+    {/each}
 
-    <article class="right-container">
-        <section class="image-container">
-            <img src="/assets/content/oude-mac.png" alt="">
-        </section>
-        <section class="text-container">
-            <h4>Showcased project</h4>
-            <h3>how we are making the web accessible with AccessDash</h3>
-            <p>More than 90% of the web is currently not usable for more than 100 million people in Europe alone with disabilities and how we’re fixing it. Praesent sollicitudin purus vitae enim vestibulum sollicitudin. Aenean ac faucibus arcu. Mauris molestie, augue nec pharetra ullamcorper, nisl mauris mattis tortor, aliquet pulvinar turpis lectus ut nulla. Nunc ut eros id purus pulvinar rhoncus eu egestas eros.</p>
-            <a href="/projects" class="button button-quaternary">
-                <span>More about this project</span>
+    {#if blok.button_text}
+        <section class="button-container">
+            <a href={blok.button_link.cached_url} class="button button-primary">
+                <span>{blok.button_text}</span>
                 <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </a>
         </section>
-    </article>
-
-    <article class="left-container">
-        <section class="image-container">
-            <img src="/assets/content/frd-muur.png" alt="">
-        </section>
-        <section class="text-container">
-            <h4>Showcased project</h4>
-            <h3>how we are changing higher education with Onyx</h3>
-            <p>Helping higher education make the shift towards didactic coaching. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin purus vitae enim vestibulum sollicitudin. Aenean ac faucibus arcu. Mauris molestie, augue nec pharetra ullamcorper, nisl mauris mattis tortor, aliquet pulvinar turpis lectus ut nulla. Nunc ut eros id purus pulvinar rhoncus eu egestas eros.</p>
-            <a href="/projects" class="button button-quaternary">
-                <span>More about this project</span>
-                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </section>
-    </article>
-    <section class="button-container">
-        <a href="/projects" class="button button-primary">
-            <span>Explore more of our work</span>
-            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
-    </section>
-</section>
+    {/if}
+</section> 
 
 <style lang="scss">
+    :global(.legal-content a) {
+        color: var(--color-lightblue);
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            color: var(--color-white);
+        }
+    }
+
 
 .heading-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2em;
-    font-size: 1.2em;
+    margin-top: 7.5em;
+
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 0.5rem;
+    }
 }
 
 .content-container {
-    max-width: 1200px;
+    // max-width: 1200px;
     margin: 3em auto 3em; 
     padding: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: left;
-    color: white;
+    color: var(--color-white);
+    gap: 6.25em;
 
     .button-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 4em;
+        margin-top: -2.5em;
     }
 }
 
-.left-container, .right-container {
+article {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 
     h4 {
-        opacity: 50%;
         margin-bottom: .25em;
         font-weight: 300;
         font-size: 1em;
+        font-family: var(--font-degular);
+        color: var(--color-white-45);
     }
 
     h3 {
@@ -115,17 +108,14 @@
 
     p {
         margin-bottom: 1em;
-        opacity: 65%;
         font-size: 1em;
+        color: var(--color-white-45);
     }
 
 }
 
-.left-container:nth-last-child(2) {
-    margin-top: 5em; 
-}
-
-.left-container {
+// .left-container {
+article {
     display: flex;
     flex-direction: row;
 
@@ -133,6 +123,11 @@
         display: flex;
         align-items: center;
         justify-content: flex-start; 
+
+        img {
+            border-radius: 1em;
+            max-width: 22.5em;
+        }
     }
 
     .text-container {
@@ -145,10 +140,11 @@
     }
 }
 
-.right-container {
+// .right-container {
+article:nth-of-type(even) {
     display: flex;
     flex-direction: row-reverse; 
-    margin-top: 5em; 
+    // margin-top: 5em; 
 
     h4 {
         align-self: flex-start;
@@ -174,11 +170,11 @@
     }
 }
 
-.left-container {
+article:nth-of-type(odd) {
     flex-direction: row; 
 }
 
-.right-container {
+article:nth-of-type(even) {
     flex-direction: row-reverse; 
     
     .image-container {
@@ -208,7 +204,7 @@
     padding: 0 1em;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 900px) {
     .content-container {
         align-items: center;
         text-align: left;
@@ -218,17 +214,21 @@
         }
     }
 
-    .left-container, .right-container {
+    article {
         flex-direction: column;
-        max-width: 600px;
+        // max-width: 600px;
     }
 
     .image-container img, .text-container {
         width: 100%;
     }
 
+
     .heading-container {
-        padding: 1em;
+
+        h2 {
+            font-size: 2.25em;
+        }
     }
 
     .content-container {
@@ -237,6 +237,50 @@
 
     h4 {
         margin-top: 1em;
+    }
+}
+
+
+
+/* SMALL SCREEN */
+@media screen and (max-width: 600px) {
+    .heading-container {
+        margin-top: 0;
+    }
+    .content-container {
+        gap: 5em;
+
+        article {
+            flex-direction: column;
+            align-items: flex-start;
+
+            img {
+                max-width: 20em;
+                border-radius: 0.75em;
+            }
+
+            .text-container,
+            .image-container {
+                padding: 0;
+            }
+        }
+
+        .button-container {
+            margin-top: -1.5em;
+        }
+    }
+}
+
+/* SMALL SCREEN */
+@media screen and (max-width: 500px) {
+    .content-container {
+
+        article {
+
+            img {
+                max-width: 100%;
+            }
+        }
     }
 }
 </style>

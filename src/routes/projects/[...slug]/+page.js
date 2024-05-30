@@ -20,6 +20,9 @@ export async function load({ parent, params }) {
         clientOrPartner: projectContent.client_or_partner ?? '',
         projectType: projectContent.project_type ?? '',
         projectOverview: projectContent.project_overview ?? '',
+        clientOrPartnerLabel: projectContent.client_or_partner_label ?? '',
+        projectTypeLabel: projectContent.project_type_label ?? '',
+        projectOverviewLabel: projectContent.project_overview_label ?? '',
         subtitle: projectContent.subtitle ?? '',
         subtitleText: projectContent.subtitle_text ?? '',
         finalWordsTitle: projectContent.final_words_title ?? '',
@@ -30,7 +33,9 @@ export async function load({ parent, params }) {
         date: projectContent.date ?? '',
         link: projectContent.link?.cached_url ?? '',
         metaDescription: projectContent.meta_description || '',
-        metaImage: projectContent.meta_image || ''
+        metaImage: projectContent.meta_image || '',
+        getInTouchTitle: projectContent.get_in_touch_title ?? '',
+        getInTouchSpan: projectContent.get_in_touch_span ?? '',
     };
 
     // Extract slider items if available

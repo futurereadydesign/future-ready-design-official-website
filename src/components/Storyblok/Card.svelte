@@ -7,7 +7,8 @@
   export let slug;
 </script>
   
-<div class="card-outer">
+<!-- <div class="card-outer"> -->
+  <a href="/{slug}" use:storyblokEditable={blog} class="card-outer">
   <!-- Gebruik de storyblokEditable functie om de inhoud van de blog bewerkbaar te maken -->
   <div class="card" use:storyblokEditable={blog}>
     <!-- Container voor de afbeelding -->
@@ -26,43 +27,54 @@
     <p class="card-date">{blog.date}</p>
 
     <!-- Voeg een link toe naar de blogpost door gebruik te maken van de slug -->
-    <a href="/{slug}" use:storyblokEditable={blog} class="card-link">
-      <span class="card-link-content">
-        Learn more 
-        <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
-    </a>
+    <div class="card-link button button-quaternary">
+      <span>Artikel bekijken</span>
+      <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
   </div>
-</div>
+</a>
 
-<style>
+<style lang="scss">
   .card-outer {
     display: flex;
     justify-content: center;
     align-items: stretch;
+    height: 100%;
+    text-decoration: none;
+
+    &:focus-visible .card .card-link::after {
+      opacity: 1;
+    }
+
   }
 
   .card {
     position: relative; 
+    display: flex;
+    flex-direction: column;
     /* display: flex; 
     flex-direction: column; */
     /* word-spacing: 0.1em; */
-    background-color: #ffffff13;
+    background-color: var(--color-white-05);
     border-radius: 1em; 
     padding: 1em;
-    border: 1.5px solid #ffffff3a; 
+    border: var(--border-width) solid var(--color-light-gray-65);
     max-width: 21.875em; 
-    height: 21em;
+    /* height: 21em; */
+    height: 100%;
     width: 100%; 
   }
 
   .card-image-container {
     display: flex;
     justify-content: center; 
-    margin-bottom: 0.5em
+    margin-bottom: 1em;
+    aspect-ratio: 1.5 / 1;
+    border-radius: 0.45em;
+    overflow: hidden;
   }
 
   /* picture {
@@ -72,8 +84,8 @@
 
   .card-image {
     width: 100%;
-    height: auto;
-    border-radius: 10px 10px 0 0;
+    height: 100%;
+    object-fit: cover;
   }
 
   .card-title {
@@ -85,51 +97,32 @@
   .card-date {
     font-size: 1em;
     font-weight: 400;
-    margin-bottom: 0.8em;
+    margin-bottom: 1em;
     color: rgba(255, 255, 255, 0.507);
   }
 
   .card-link {
-    position: absolute; 
-    bottom: 1em; 
-    left: 1em; 
-    text-decoration: none;
-    color: inherit;
+    margin-top: auto;
+    width: fit-content;
     /* font-weight: 500; */
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -0.5em;
+      top: -0.5em;
+      height: calc(100% + 1em);
+      width: calc(100% + 1em);
+      border: var(--border-width) solid var(--color-white);
+      border-radius: 1.15em;
+      z-index: -1;
+      opacity: 0;
+      transition: 250ms opacity;
+    }
   }
 
-  .card-link::after {
-    content: '';
-    position: absolute;
-    left: -1em;
-    top: -1em;
-    height: calc(90% + 2.2em);
-    width: calc(90% + 2.5em);
-    border: var(--border-width) solid var(--color-white);
-    border-radius: 1.15em;
-    z-index: -1;
-    opacity: 0;
-    transition: 250ms opacity;
-  }
-  .card-link:focus-visible::after {
-      opacity: 1;
-  }
 
-  .card-link-content {
-    display: inline-flex; 
-    align-items: center;
-  }
 
-  .card-link-content:hover {
-    text-decoration: underline;
-  }
-
-  svg {
-    width: 1em;
-    height: 1em;
-    margin-top: 0.2em;
-    margin-left: 0.5em;
-  }
 
   @media (max-width: 380px) {
     .card-outer {
@@ -162,9 +155,5 @@
       margin-bottom: 3em; 
     }
 
-    .card-link {
-      bottom: 1em; 
-      left: 1em; 
-    }
   }
 </style>

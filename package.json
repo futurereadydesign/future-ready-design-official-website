@@ -18,9 +18,9 @@
     },
     "type": "module",
     "dependencies": {
-        "@splinetool/runtime": "^1.2.5",
         "@splidejs/splide": "^4.1.4",
         "@splidejs/svelte-splide": "^0.2.9",
+        "@splinetool/runtime": "^1.4.0",
         "@storyblok/svelte": "^4.0.4",
         "@vitejs/plugin-basic-ssl": "^1.1.0",
         "aos": "^2.3.4"

@@ -318,6 +318,7 @@ body {
 }
 main {
     flex: 1;
+    margin: 0 !important;
 }
 /* body.no-scrollbar {
     -ms-overflow-style: none;
@@ -366,6 +367,10 @@ body.no-scrollbar::-webkit-scrollbar {
     display: none;
 }
 
+
+.header-margin {
+    margin-top: 7.5em !important;
+}
 
 /* PARAGRAPHS AND HEADINGS */
 h1 {
@@ -459,6 +464,7 @@ strong {
 .button > svg {
     position: relative;
     height: 1.22em;
+    transition: 450ms;
 }
 .button-primary {
     background-color: var(--color-lightblue);
@@ -503,11 +509,11 @@ strong {
     stroke: var(--color-white);
 }
 .button-quaternary {
-    padding: 0;
-    gap: 0.5em;
-    height: fit-content;
-    background-color: transparent;
-    color: var(--color-white);
+    padding: 0 !important;
+    gap: 0.5em !important;
+    height: fit-content !important;
+    background-color: transparent !important;
+    color: var(--color-white) !important;
 }
 .button-quaternary > span::after {
     display: none;
@@ -539,6 +545,13 @@ strong {
 }
 .button-flipped > svg {
     transform: scale(-1);
+}
+
+.button-tertiary:hover svg,
+.button-tertiary:focus svg,
+.button-quaternary:hover svg,
+.button-quaternary:focus svg {
+    transform: translateX(0.25em);
 }
 
 /* LINK */
@@ -922,7 +935,7 @@ strong {
 
 /* HEADER -------------------------------- */
 /* HEADER -------------------------------- */
-header {
+/* header {
     display: grid;
     place-items: center;
     margin-top: 4.15em;
@@ -953,7 +966,7 @@ header a:focus-visible::after {
 }
 header a img {
     height: 2.5em;
-}
+} */
 
 
 
@@ -1965,7 +1978,7 @@ main.scan-failed .section-between::after {
     }
     .wrapper-max,
     .wrapper-large {
-        width: calc(100% - 5rem);
+        width: calc(100% - 5rem) !important;
     }
     .section-block {
         padding: 2em 2.25em;
@@ -2041,7 +2054,7 @@ main.scan-failed .section-between::after {
     }
     .wrapper-max,
     .wrapper-large {
-        width: calc(100% - 4.5rem);
+        width: calc(100% - 4.5rem) !important;
     }
 
     .section-block {
@@ -2120,7 +2133,7 @@ main.scan-failed .section-between::after {
     .wrapper-large,
     .wrapper-medium,
     .wrapper-small {
-        width: calc(100% - 2rem);
+        width: calc(100% - 2rem) !important;
     }
     .button {
         gap: 1.25em;
@@ -2134,10 +2147,10 @@ main.scan-failed .section-between::after {
         gap: 0.5em;
         padding: 0;
     }
-    header {
+    /* header {
         margin-top: 2.15em;
         margin-bottom: 1.75em;
-    }
+    } */
     .section-block {
         flex-direction: column;
         align-items: center;
@@ -2281,6 +2294,10 @@ main.scan-failed .section-between::after {
 
 /* EXTRA SMALL SCREEN */
 @media screen and (max-width: 500px) {
+    .header-margin {
+        margin-top: 5em !important;
+    }
+
     main form.url-input button {
         right: 0.375em;
     }

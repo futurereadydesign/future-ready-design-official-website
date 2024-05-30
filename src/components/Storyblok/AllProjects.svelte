@@ -26,7 +26,7 @@
 	});
 </script>
 
-<section class="all-projects-section">
+<section class="all-projects-section wrapper-large">
 	{#each projects as projects}
 		<article class="all-projects-article">
 			<!-- Render de Card-component voor elke blogpost -->
@@ -34,28 +34,3 @@
 		</article>	
 	{/each}
 </section>
-
-<style>
-	.all-projects-section {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-		gap: 1em;
-		place-items: center; 
-		margin-bottom: 5em;
-		max-width: 40em;
-		margin: 0 auto; 
-		margin-bottom: 4em;
-	}	
-
-	.all-projects-article {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem; 
-		flex: 1 1 auto; 
-	}
-
-  @media (min-width: 768px) { 
-    .all-projects-section {
-      grid-template-columns: repeat(2, minmax(0, 1fr)); 
-    }
-  }
-</style>

@@ -54,8 +54,8 @@
   
 </script>
 
-<section>
-    <h2 use:storyblokEditable={blok}>{blok.title}</h2>
+<section use:storyblokEditable={blok}>
+    <h2>{blok.title}</h2>
     <p>
       {blok.subtitle}
     </p>
@@ -65,6 +65,7 @@
         options={{
           rewind: true,
           perPage: 3,
+          perMove: 1,
           gap: '1em',
           pagination: false,
           arrows: false,
@@ -96,14 +97,14 @@
 
       <!-- Custom arrow buttons -->
       <div class="splide__arrows">
-        <button class="custom-prev">
+        <button class="custom-prev clickable" aria-label="Carousel previous">
           <svg width="27" height="28" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)">
             <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
 
-        <button class="custom-next">
+        <button class="custom-next clickable" aria-label="Carousel next">
           <svg width="27" height="28" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -112,8 +113,8 @@
       </div>
 
       <div class="button-container">
-        <a href="/blog" class="button button-tertiary">
-          <span>Read more interesting tips on our blog</span> 
+        <a href={blok.button_link.cached_url} class="button button-tertiary">
+          <span>{blok.button_text}</span> 
           <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
             <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M11 5.08331L17.4167 11.5L11 17.9166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -126,12 +127,14 @@
 
 <style lang="scss">
   section {
-    margin-top: 4em;
+    margin-top: 7.5em;
+    // max-width: calc(100vw - 1em);
 
     h2 {
       text-align: center;
-      margin: 0 auto 0.5em;
       display: block;
+      font-size: 2.5em;
+      margin-bottom: 0.5rem;
     }
 
     p {
@@ -149,12 +152,14 @@
       .splide__arrows {
         display: flex;
         justify-content: flex-end;
+        gap: 1em;
+        margin: 1em 0;
 
         .custom-prev, .custom-next {
           background: none;
           border: none;
           cursor: pointer;
-          margin: 1em 3em 1em 0;
+          // margin: 1em 3em 1em 0;
         }
       }
       
@@ -170,8 +175,21 @@
   }
 
   @media (max-width: 650px) {
-      .splide__arrows {
-        padding: 0 3.2em;
+    section {
+      .splide-container {
+        .splide__arrows {
+          padding: 0 3.2em;
+          justify-content: center;
+
+        }
       }
+    }
   }
+
+
+  @media screen and (max-width: 900px) {        
+    h2 {
+        font-size: 2.25em;
+    }
+}
 </style>

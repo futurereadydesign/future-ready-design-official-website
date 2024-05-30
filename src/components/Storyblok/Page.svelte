@@ -17,41 +17,12 @@
     {/each}
   </main>
 
-  <footer>
-    <div>
-        <a href="https://www.futurereadydesign.nl/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futurereadydesign.nl/privacy-policy" target="_blank">Privacy beleid</a>
-    </div>
-    <span>Copyright © {currentYear} Future Ready Design</span>
-</footer>
 {/key}
 
 <style>
-  .page-main {
+  /* .page-main {
     padding-left: 1.5rem;
     padding-right: 1.5rem; 
-  }
+  } */
 
-  footer {
-    font-family: var(--font-degular);
-    padding: 4.165em 0 1.95em 0;
-    text-align: center;
-  }
-  footer > span {
-      font-size: 0.9em;
-      color: var(--color-white-45);
-  }
-  footer > div {
-      margin-bottom: 0.5em;
-  }
-  footer > div a {
-      color: var(--color-white);
-      text-decoration: none;
-  }
-  footer > div a:hover {
-      text-decoration: underline; 
-  }
-  footer > div a:focus-visible {
-      color: var(--color-lightblue);
-      text-decoration: underline;
-  }
 </style>

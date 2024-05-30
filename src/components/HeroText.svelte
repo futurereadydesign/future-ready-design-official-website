@@ -1,5 +1,10 @@
+<script>
+    // Definieer de blok
+    export let blok;
+</script>
+
 <section class="hero-text wrapper-max">
-    <h1>“We believe in technology that enriches real-life experiences, acting as an extension rather than a replacement.”</h1>
+    <h1>{blok.title}</h1>
 </section>
 
 <style lang="scss">

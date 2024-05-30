@@ -272,10 +272,14 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin-bottom: 3em;      
         overflow: hidden;
+        // width: calc(100vw - 1em);
+        margin-top: 7.5em;
 
         h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+
             span {
                 position: relative;
             }
@@ -327,7 +331,7 @@
 
             animation: moveLeftAndBack 8s ease-in-out infinite;
             animation-play-state: paused;
-            animation-delay: calc(var(--scroll) * -1s);
+            animation-delay: calc(var(--scroll) * -2s);
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
@@ -359,13 +363,21 @@
         } 
     }
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 900px) {        
+        h2 {
+            font-size: 2.25em;
+        }
         .animation {
             font-size: 1.33em; 
         }
     }
 
     @media screen and (max-width: 768px) {
+        section {
+            .animation {
+                animation-delay: calc(var(--scroll) * -8.5s);
+            }
+        }
         .animation {
             font-size: 1.11em; 
         }

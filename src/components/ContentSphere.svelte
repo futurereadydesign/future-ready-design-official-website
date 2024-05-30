@@ -2,6 +2,11 @@
     import { onMount } from 'svelte';
     import { Application } from '@splinetool/runtime';
 
+    // Definieer de richtext uit Storyblok
+    import { renderRichText } from "@storyblok/js";
+
+    // Definieer de blok
+    export let blok;
 
     let app;
     
@@ -14,22 +19,20 @@
 </script>
 
 <section class="content-sphere wrapper-max">
-    <h2>we believe in technology that</h2>
-
-    <div class="sphere-container">
-        <ul>
-            <li><span>respects</span> human nature</li>
-            <li><span>minimizes</span> harmful consequences</li>
-            <li><span>centers</span> on values</li>
-            <li><span>creates</span> shared understanding</li>
-            <li><span>supports</span> fairness and justice</li>
-            <li><span>helps</span> people thrive</li>
-        </ul>
+    <h2>{blok.title}</h2>
+    {#if blok.sphere_list[0]}
+        <div class="sphere-container">
+            <ul>
+                {#each blok.sphere_list as sphereItems}
+                    <li class="sphere-items">{@html renderRichText(sphereItems.content)}</li>
+                {/each}
+            </ul>
         <canvas id="beliefs-sphere"></canvas>
-    </div>
+        </div> 
+    {/if}   
 
     <a href="https://www.humanetech.com/" target="_blank" class="button">
-        <img src="/assets/content/humane-tech.png" alt="Logo of organisation: Foundations of Humane Technology">
+        <img src={blok.humanetech.filename} alt={blok.humanetech.alt}>
     </a>
 </section>
 
@@ -55,7 +58,7 @@
                 list-style: none;
                 font-family: var(--font-degular);
 
-                li {
+                .sphere-items {
                     display: inline-block;
                     position: absolute;
                     font-size: 1.5em;

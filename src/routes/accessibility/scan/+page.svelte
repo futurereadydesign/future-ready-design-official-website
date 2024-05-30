@@ -479,13 +479,9 @@ function submitDataToHubspot(event) {
         <meta name="twitter:image" content="%sveltekit.assets%/assets/content/thumbnail-accessibility-page-futurereadydesign">
     </head>
 
-    <header>
-        <a href="https://futureready.design/" target="_blank">
-            <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
-        </a>
-    </header>
 
-    <main bind:this={main} in:fade={{duration: 300}} class="accessibility-result">
+
+    <main bind:this={main} in:fade={{duration: 300}} class="accessibility-result header-margin">
         <h1 class="wrapper-max">benieuwd hoe <strong>digitaal toegankelijk</strong> jouw website is?</h1>
 
         <form action="/accessibility/scan" method="get" class="url-input">
@@ -771,12 +767,6 @@ function submitDataToHubspot(event) {
     </main>
 
 
-    <footer>
-        <div>
-            <a href="https://www.futurereadydesign.nl/algemene-voorwaarden" target="_blank">Algemene Voorwaarden</a> · <a href="https://www.futurereadydesign.nl/privacy-policy" target="_blank">Privacy beleid</a>
-        </div>
-        <span>Copyright © {currentYear} Future Ready Design</span>
-    </footer>
 
 <style>
     @import '/src/styles/main.css';

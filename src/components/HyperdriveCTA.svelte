@@ -1,16 +1,16 @@
-<section class="hyperdrive-cta" bind:this={getInTouchSection}>
+<section class="hyperdrive-cta" bind:this={getInTouchSection} use:storyblokEditable={blok}>
     <h2>
-        it’s time to bring the future 
+        {blok.title}
         <span bind:this={getInTouchHeadingElement}>
             <svg viewBox="0 0 39 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M37 2L2 2" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 10"/>
             </svg>
-            <span>back.</span>
+            <span>{blok.title_animated_word}</span>
         </span>
     </h2>
     <div class="scan-cta-button-wrapper">
-        <a href="/contact" bind:this={getInTouchCTA} class="button button-primary">
-            <span>Get in touch to start your journey</span>
+        <a href={blok.button_link.cached_url} bind:this={getInTouchCTA} class="button button-primary">
+            <span>{blok.button_text}</span>
             <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -139,6 +139,14 @@
     // GLOBAL SVELTE FUNCTIONS
     import { fade } from 'svelte/transition';
     import { onMount, onDestroy } from 'svelte';
+
+    // Importeer de storyblokEditable functie vanuit de Storyblok package
+    import { storyblokEditable } from "@storyblok/svelte";
+
+    // Definieer de blok
+    export let blok;
+
+
 
     // DEFINE VARIABLES
     let getInTouchSection;
