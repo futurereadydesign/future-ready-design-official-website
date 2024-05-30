@@ -40,7 +40,7 @@
     <a href={blok.google_url.url} target="_blank" class="google-review button">
       <div class="top">
         <div class="google-logo">
-          <img src="/assets/google-blur.svg" alt="blurred google logo" />
+          <img src="/assets/google-blur.svg" alt="" />
           <img src="/assets/google-logo.svg" alt="google logo" />
         </div>
         <img src="/assets/stars.svg" alt="review stars" />
