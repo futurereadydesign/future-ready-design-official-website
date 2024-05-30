@@ -82,7 +82,6 @@
     </section>
 </footer>
 
-
 <style lang="scss">
     .hidden {
         display: none;

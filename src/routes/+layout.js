@@ -21,6 +21,7 @@ import HeroText from "../components/HeroText.svelte";
 import ContentText from "../components/ContentText.svelte";
 import ContentSphere from "../components/ContentSphere.svelte";
 import Partners from "../components/Partners.svelte";
+import Legal from "../components/Legal.svelte";
 
 import ContactCTA from "../components/ContactCTA.svelte";
 
@@ -57,6 +58,8 @@ export async function load() {
             'content-sphere': ContentSphere,
             partners: Partners,
             ContactCTA: ContactCTA,
+            'legal': Legal,
+
         },
         // Opties voor de Storyblok API
         apiOptions: {
