@@ -67,7 +67,7 @@
 
     <section class="available">
         <span> <!-- PULSATE --> </span>
-        Open voor werk
+        Beschikbaar
     </section>
 
     <button class="nav-btn button button-tertiary" on:click={toggleOverlay}>
