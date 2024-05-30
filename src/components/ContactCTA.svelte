@@ -108,7 +108,7 @@
                 <ul>
                     {#each blok.links_and_references as linksAndReferences}
                         <li>
-                            <a href="#" class="button button-quaternary">
+                            <a href="/terms-and-conditions" class="button button-quaternary">
                                 <span>{linksAndReferences.terms}</span>
                                 <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -117,7 +117,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="button button-quaternary">
+                            <a href="/privacy-policy" class="button button-quaternary">
                                 <span>{linksAndReferences.privacy}</span>
                                 <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -126,7 +126,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="button button-quaternary">
+                            <a href="/accessibility" class="button button-quaternary">
                                 <span>{linksAndReferences.accessibility}</span>
                                 <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

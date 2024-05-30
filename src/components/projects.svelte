@@ -45,6 +45,16 @@
 </section>
 
 <style lang="scss">
+    :global(.legal-content a) {
+        color: var(--color-lightblue);
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            color: var(--color-white);
+        }
+    }
+
 
 .heading-container {
     display: flex;

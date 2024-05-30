@@ -9,29 +9,29 @@
             <li>
                 <ul>
                     <li>
-                        <a href="about" class="link">Onze filosofie</a>
+                        <a href="/about" class="link">Onze filosofie</a>
+                    </li>
+                    <!-- <li>
+                        <a href="/projects" class="link">Ons werk</a>
+                    </li> -->
+                    <li>
+                        <a href="/accessibility" class="link">Toegankelijkheid</a>
                     </li>
                     <li>
-                        <a href="projects" class="link">Ons werk</a>
-                    </li>
-                    <li>
-                        <a href="accessibility" class="link">Toegankelijkheid</a>
-                    </li>
-                    <li>
-                        <a href="blog" class="link">Ontwerp blog</a>
+                        <a href="/blog" class="link">Ontwerp blog</a>
                     </li>
                 </ul>
             </li>
             <li>
                 <ul>
                     <li>
-                        <a href="#" class="link">Algemene voorwaarden</a>
+                        <a href="/terms-and-conditions" class="link">Algemene voorwaarden</a>
                     </li>
                     <li>
-                        <a href="#" class="link">Privacy verklaring</a>
+                        <a href="/privacy-policy" class="link">Privacy verklaring</a>
                     </li>
                     <li>
-                        <a href="support" class="link">Hulp nodig?</a>
+                        <a href="/support" class="link">Hulp nodig?</a>
                     </li>
                 </ul>
             </li>

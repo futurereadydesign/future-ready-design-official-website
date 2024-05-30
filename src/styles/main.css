@@ -368,6 +368,10 @@ body.no-scrollbar::-webkit-scrollbar {
 }
 
 
+.header-margin {
+    margin-top: 7.5em !important;
+}
+
 /* PARAGRAPHS AND HEADINGS */
 h1 {
     font-size: 4em;
@@ -2290,6 +2294,10 @@ main.scan-failed .section-between::after {
 
 /* EXTRA SMALL SCREEN */
 @media screen and (max-width: 500px) {
+    .header-margin {
+        margin-top: 5em !important;
+    }
+
     main form.url-input button {
         right: 0.375em;
     }

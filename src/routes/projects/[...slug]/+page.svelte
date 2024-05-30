@@ -375,26 +375,26 @@
     <article>
         <section class="projects-header wrapper-max">
             <div>
-                <a href="/projects" class="button button-quaternary button-flipped">
-                    <span class="s-nrtRPbawfH4D" data-svelte-h="svelte-18x73jy">Back to previous page</span> 
+                <button onclick="javascript:history.back()" class="button button-quaternary button-flipped">
+                    <span class="s-nrtRPbawfH4D" data-svelte-h="svelte-18x73jy">Terug naar vorige pagina</span> 
                     <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="s-nrtRPbawfH4D"><path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="s-nrtRPbawfH4D"></path><path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="s-nrtRPbawfH4D"></path>
                     </svg>
-                </a>
+                </button>
                 <h1 class="slug-projects-title">{data.post.title}</h1>
                 <p>{@html renderRichText(data.post.intro)}</p>
             </div>
             <div>
                 <ul>
                     <li>
-                        <strong>Client / partner</strong>
+                        <strong>{data.post.clientOrPartnerLabel}</strong>
                         <h2>{data.post.clientOrPartner}</h2>
                     </li>
                     <li>
-                        <strong>Project type</strong>
+                        <strong>{data.post.projectTypeLabel}</strong>
                         <h2>{data.post.projectType}</h2>
                     </li>
                     <li>
-                        <strong>Project overview</strong>
+                        <strong>{data.post.projectOverviewLabel}</strong>
                         <h2>{data.post.projectOverview}</h2>
                     </li>
                 </ul>

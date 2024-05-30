@@ -10,12 +10,23 @@
 </script>
 
 
-<section use:storyblokEditable={blok}>
+<section class="legal-content" use:storyblokEditable={blok}>
     <h1 class="wrapper-max">{blok.title}</h1>
     <div class="wrapper-medium">{@html renderRichText(blok.content)}</div> 
 </section>
 
 <style lang="scss">
+
+    :global(.legal-content a) {
+        color: var(--color-lightblue);
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            color: var(--color-white);
+        }
+    }
+
     section {
         margin-top: 7.5em;
 
@@ -24,10 +35,7 @@
         }
         div {
             margin-top: 1.5em;
-        }
-        a {
-            color: var(--color-white);
-            text-decoration: underline;
+
         }
     }
 

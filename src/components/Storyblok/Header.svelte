@@ -6,7 +6,7 @@
     export let blok;
 </script>
 
-<header class="header-container">
+<header class="header-container header-margin">
     <!-- Toon het logo van het blok als dat beschikbaar is -->
     <!-- <picture>
         <a href="https://futureready.design/" target="_blank">
