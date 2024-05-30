@@ -453,6 +453,17 @@
 
 
 <style lang="scss">
+
+    :global(article a) {
+            color: var(--color-lightblue);
+            text-decoration: underline;
+
+            &:hover,
+            &:focus {
+                color: var(--color-white);
+            }
+        }
+    
     main {
         margin: unset;
     }
