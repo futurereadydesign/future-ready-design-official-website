@@ -187,9 +187,11 @@
   }
 
 
-  @media screen and (max-width: 900px) {        
+@media screen and (max-width: 900px) {        
     h2 {
         font-size: 2.25em;
     }
 }
+
+
 </style>

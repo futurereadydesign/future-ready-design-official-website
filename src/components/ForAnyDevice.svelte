@@ -300,6 +300,7 @@
         .icons {
             display: flex;
             justify-content: center;
+            align-items: center;
             margin-top: 3.5em;
             padding: 0;
             list-style: none;

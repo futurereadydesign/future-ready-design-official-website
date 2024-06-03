@@ -206,7 +206,7 @@
                 }
             }
 
-            p {
+            > p {
                 padding: 0 1rem;
                 text-align: left;
             }
