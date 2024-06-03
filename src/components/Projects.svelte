@@ -13,6 +13,26 @@
 <section class="content-container wrapper-large">
     {#each blok.projects as listItem}
         <article class="left-container">
+            <a href={listItem.button_link.cached_url} class="clickable">
+                <section class="image-container">
+                    <img src={listItem.image.filename} alt={listItem.image.alt}>
+                </section>
+                <section class="text-container">
+                    <h4>{listItem.subtitle}</h4>
+                    <h3>{listItem.title}</h3>
+                    <p>{listItem.text}</p>
+                    <span class="button button-quaternary">
+                        <span>{listItem.button_text}</span>
+                        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </section>
+            </a>
+        </article>
+
+        <!-- <article class="left-container">
             <section class="image-container">
                 <img src={listItem.image.filename} alt={listItem.image.alt}>
             </section>
@@ -28,7 +48,7 @@
                     </svg>
                 </a>
             </section>
-        </article>
+        </article> -->
     {/each}
 
     {#if blok.button_text}
@@ -87,11 +107,13 @@
     }
 }
 
-article {
+article a {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    text-decoration: none;
+    color: var(--color-white);
 
     h4 {
         margin-bottom: .25em;
@@ -115,7 +137,7 @@ article {
 }
 
 // .left-container {
-article {
+article a {
     display: flex;
     flex-direction: row;
 
@@ -141,7 +163,7 @@ article {
 }
 
 // .right-container {
-article:nth-of-type(even) {
+article:nth-of-type(even) a {
     display: flex;
     flex-direction: row-reverse; 
     // margin-top: 5em; 
@@ -170,7 +192,7 @@ article:nth-of-type(even) {
     }
 }
 
-article:nth-of-type(odd) {
+article:nth-of-type(odd) a {
     flex-direction: row; 
 }
 
@@ -214,7 +236,7 @@ article:nth-of-type(even) {
         }
     }
 
-    article {
+    article a {
         flex-direction: column;
         // max-width: 600px;
     }
@@ -250,7 +272,7 @@ article:nth-of-type(even) {
     .content-container {
         gap: 5em;
 
-        article {
+        article a {
             flex-direction: column;
             align-items: flex-start;
 
@@ -275,7 +297,7 @@ article:nth-of-type(even) {
 @media screen and (max-width: 500px) {
     .content-container {
 
-        article {
+        article a {
 
             img {
                 max-width: 100%;

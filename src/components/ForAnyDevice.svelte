@@ -337,6 +337,8 @@
             animation-iteration-count: 1;
             animation-fill-mode: both;
 
+            will-change: transform;
+
             li {
                 list-style: none; 
                 margin-right: 1em;

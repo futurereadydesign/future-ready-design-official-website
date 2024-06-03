@@ -636,6 +636,7 @@
     /* LARGE SCREEN */
     @media screen and (max-width: 1250px) {
         article {
+            margin-top: 7.5em;
 
             .projects-header {
                 gap: 4.5em;
@@ -685,6 +686,7 @@
     /* MODERATE SCREEN */
     @media screen and (max-width: 1100px) {
         article {
+            margin-top: 5em;
 
             .projects-header {
 
@@ -704,7 +706,7 @@
     /* MEDIUM SCREEN */
     @media screen and (max-width: 900px) {
         article {
-            // margin-top: 10em;
+            margin-top: 3.5em;
 
             .projects-header {
                 display: flex;
@@ -785,6 +787,7 @@
     /* EXTRA SMALL SCREEN */
     @media screen and (max-width: 500px) {
         article {
+            margin-top: 2.5em;
 
             .projects-header {
 
