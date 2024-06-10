@@ -66,12 +66,12 @@
             <p class="slug-blog-content">{@html renderRichText(data.post.content)}</p>
         </section>
 
-          <!-- <section class="blog-footer wrapper-medium">
+          <section class="blog-footer wrapper-medium">
             <div>
-                <strong>Hope this helped!</strong>
-                <h2>any questions?</h2>
-                <a href="/terms-and-conditions" class="button button-quaternary">
-                    <span>Get in touch</span>
+                <strong>{data.post.footerSubtitle}</strong>
+                <h2>{data.post.footerTitle}</h2>
+                <a href="/contact" class="button button-quaternary">
+                    <span>{data.post.footerLinkText}</span>
                     <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -80,19 +80,19 @@
             </div>
             <div>
                 <figure>
-                    <img src={data.post.image} alt={data.post.imageAlt} >
+                    <img src={data.post.authorImage} alt={data.post.authorImageAlt} >
                 </figure>
                 <ul>
                     <li>
-                        <h3>Robbin</h3>
+                        <h3>{data.post.authorName}</h3>
                     </li>
                     <li>
-                        <span>Accessibility expert</span>
-                        <span>Future Ready Design</span>
+                        <span>{data.post.authorRole}</span>
+                        <span>{data.post.authorCompany}</span>
                     </li>
                 </ul>
             </div>
-          </section> -->
+          </section>
       </article>
   </section>
 </main>
@@ -193,6 +193,7 @@
             &:nth-of-type(2) {
                 display: flex;
                 flex-direction: row;
+                gap: 1.25em;
             }
 
             strong {
@@ -250,6 +251,25 @@
 
     /* MEDIA QUERIES -------------------------------- */
     /* MEDIA QUERIES -------------------------------- */
+    @media (max-width: 768px) {
+        .blog-footer {
+            padding: 1.5em;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .blog-footer {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 3.25em;
+
+        
+        }
+
+
+    }
+
+
     @media (max-width: 500px) {
         .wrapper-medium {
             width: 100% !important;
