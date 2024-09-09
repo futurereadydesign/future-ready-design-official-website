@@ -210,6 +210,10 @@
                 padding: 0 1rem;
                 text-align: left;
             }
+
+            .wrapper-max{
+                margin: 0px !important;
+            }
         }
     }
 
