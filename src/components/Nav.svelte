@@ -61,7 +61,7 @@
       <a href="/about" class="link" on:click={toggleOverlay}>Onze filosofie</a>
       <!-- <a href="/projects" class="link" on:click={toggleOverlay}>Ons werk</a> -->
       <a href="/accessibility" class="link" on:click={toggleOverlay}>Toegankelijkheid</a>
-      <a href="/blog" class="link" on:click={toggleOverlay}>Blog</a>
+      <a href="/blog" class="link" on:click={toggleOverlay}>Tips & Tricks</a>
       <a href="/contact" class="get-in-touch link" on:click={toggleOverlay}>Kom in contact</a>
     </section>
 
