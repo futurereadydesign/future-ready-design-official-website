@@ -1,6 +1,6 @@
 <script>
-  // import { onMount } from 'svelte';
-
+  import { onMount } from 'svelte';
+  
   // Importeer het juiste css bestand
   import '/src/styles/main.css';
 
@@ -9,41 +9,56 @@
 
   // Definieer de blok
   export let blok;
-
+  export let nav;
 
   let header;
   let navOverlayButtonClosed;
   let navOverlayButtonOpened;
 
   let isActive = false;
+  let currentLanguage = 'nl'; 
 
   function toggleOverlay() {
-    // header.classList.toggle('overlay-visible');
     isActive = !isActive;
 
     if (header.classList.contains('active')) {
-      // isActive = !isActive;
-      
       navOverlayButtonClosed.style.display = 'block';
       navOverlayButtonOpened.style.display = 'none';
-      // navOverlayButton.textContent = "Sluiten";
       console.log("Open");
     } else {
-      // isActive = isActive;
-
       navOverlayButtonClosed.style.display = 'none';
       navOverlayButtonOpened.style.display = 'block';
-      // navOverlayButton.textContent = "Menu";
       console.log("Gesloten");
     }
+  }
 
-    // navOverlayButton.textContent = "Sluiten";
-        // overlay.classList.add('overlay-active');
-        // trapFocus(overlay);
+  function switchLanguage(event) {
+    event.preventDefault(); 
+    const currentUrl = new URL(window.location);
 
+    if (currentLanguage === 'nl') {
+      currentLanguage = 'en';
+      currentUrl.searchParams.set('_storyblok_lang', 'en');
+    } else {
+      currentLanguage = 'nl';
+      currentUrl.searchParams.set('_storyblok_lang', 'nl');
+    }
+
+    window.location.href = currentUrl.toString();
+  }
+
+  onMount(() => {
+    const currentUrl = new URL(window.location);
+    const languageParam = currentUrl.searchParams.get('_storyblok_lang');
     
-    }  
+    if (languageParam === 'en') {
+      currentLanguage = 'en';
+    } else {
+      currentLanguage = 'nl';
+    }
+  });
 
+  $: linkAriaLabel = currentLanguage === 'nl' ? 'Switch language to English' : 'Verander de taal naar het Nederlands';
 </script>
 
 <header use:storyblokEditable={blok} bind:this={header} class={isActive ? 'active' : ''}>
@@ -52,29 +67,38 @@
     <input type="checkbox" id="nav-check">
     <div class="nav-header">
       <div class="nav-title">
-        <a href="/" class="clickable">
-          <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
-        </a>
+          <a href="/" class="clickable">
+            <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
+          </a>
       </div>
     </div>
+
+    {#if nav}
+    <!-- Nav Links -->
     <section class="nav-links">
-      <a href="/about" class="link" on:click={toggleOverlay}>Onze filosofie</a>
-      <!-- <a href="/projects" class="link" on:click={toggleOverlay}>Ons werk</a> -->
-      <a href="/accessibility" class="link" on:click={toggleOverlay}>Toegankelijkheid</a>
-      <a href="/blog" class="link" on:click={toggleOverlay}>Blog</a>
-      <a href="/contact" class="get-in-touch link" on:click={toggleOverlay}>Kom in contact</a>
+      {#each nav.filter(blok => blok.component === 'menu_link') as blok}
+        <a href={blok.link.story.slug} class="link" on:click={toggleOverlay}>{blok.text}</a>
+      {/each}
     </section>
 
+    <!-- Available Section -->
     <section class="available">
+      {#each nav.filter(blok => blok.component === 'menu_text') as blok}
+        <a href="#" class="language-switch" on:click={switchLanguage} aria-label={linkAriaLabel}>{blok.language}</a>
         <span> <!-- PULSATE --> </span>
-        Beschikbaar
+        {blok.available}
+      {/each}
     </section>
 
+    <!-- Nav Button -->
     <button class="nav-btn button button-tertiary" on:click={toggleOverlay}>
+      {#each nav.filter(blok => blok.component === 'menu_text') as blok}
         <img src="/assets/icons/menu.svg" alt="Menu icon">
-        <span bind:this={navOverlayButtonClosed}>Menu</span>
-        <span bind:this={navOverlayButtonOpened} style="display: none;">Sluiten</span>
+        <span bind:this={navOverlayButtonClosed}>{blok.menu}</span>
+        <span bind:this={navOverlayButtonOpened} style="display: none;">{blok.close}</span>
+      {/each}
     </button>
+  {/if}
   </nav>
 </header>
 
@@ -150,18 +174,42 @@ header {
         text-decoration: underline;
       }
     }
-
-
   }
-
  
+  .language-switch {
+      display: flex;
+      align-items: center;
+      font-size: 1em;
+      white-space: nowrap;
+      gap: 1.5em;
+      width: 4em;
 
+      a {
+        text-decoration: none;
+        color: var(--color-white);
+
+        &:focus-visible {
+          color: var(--gradient-color-lightblue);
+          text-decoration: underline;
+        }
+      }
+  }
 
   .available {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     font-weight: 500;
+
+    .language-switch {
+        text-decoration: none;
+        color: var(--color-white);
+
+        &:focus-visible {
+          color: var(--gradient-color-lightblue);
+          text-decoration: underline;
+        }
+    }
 
     span {
         position: relative;
@@ -172,6 +220,7 @@ header {
         width: 0.65em;
         border-radius: 50%;
         margin-right: 0.5em;
+        margin-left: 4.5em;
         box-shadow: var(--color-green) 0 0 5em 0.5em,
                     var(--color-green) 0 0 0.45em 0em;
 
@@ -197,74 +246,70 @@ header {
     }
 }
 
-
-
   #nav-check {
     display: none;
   }
 
-  .get-in-touch {
-    padding: 0.55em 0.75em;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: fit-content;
-    background-color: var(--color-dark);
-    background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
-    border-radius: 0.5em;
-  }
+  nav {
+    .nav-links {
+      a:nth-of-type(5) {
+        padding: 0.55em 0.75em;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+        background-color: var(--color-dark);
+        background-image: linear-gradient(rgba(25, 25, 25, .95), rgba(25, 25, 25, .95)), url("https://assets-global.website-files.com/6230868ca5c2a57d0949cff8/630babb964f09a56fcf4e82a_noiselayer.png");
+        border-radius: 0.5em;
 
-  .get-in-touch::before,
-  .get-in-touch::after {
-    content: '';
-    position: absolute;
-    inset: calc(var(--border-width) * -1);
-    background-image: conic-gradient(
-      from var(--border-gradient-angle),
-      var(--gradient-color-black-35),
-      var(--gradient-color-black-35),
-      var(--gradient-color-black-35),
-      var(--gradient-color-black-35),
-      var(--gradient-color-black-35),
-      var(--gradient-color-black-35),
-      var(--gradient-color-black-35),
-      var(--gradient-color-lightblue-2),
-      var(--gradient-color-lightblue-2),
-      var(--gradient-color-lightblue-2),
-      var(--gradient-color-lightblue-2),
-      var(--gradient-color-lightblue),
-      var(--gradient-color-white),
-      var(--gradient-color-white)
-    );
-    background-size: 200% 100%;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    border-radius: calc(0.5em + var(--border-width));
-    animation: rotation-glow 8s linear infinite;
-    animation-play-state: running;
-    transition: --gradient-color-black-35 750ms, --gradient-color-lightblue 750ms, --gradient-color-white 750ms, --gradient-color-lightblue-2 750ms;
-    z-index: -1;
-    will-change: transform; /* IMPROVE PERFORMANCE */
-  }
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          inset: calc(var(--border-width) * -1);
+          background-image: conic-gradient(
+            from var(--border-gradient-angle),
+            var(--gradient-color-black-35),
+            var(--gradient-color-black-35),
+            var(--gradient-color-black-35),
+            var(--gradient-color-black-35),
+            var(--gradient-color-black-35),
+            var(--gradient-color-black-35),
+            var(--gradient-color-black-35),
+            var(--gradient-color-lightblue-2),
+            var(--gradient-color-lightblue-2),
+            var(--gradient-color-lightblue-2),
+            var(--gradient-color-lightblue-2),
+            var(--gradient-color-lightblue),
+            var(--gradient-color-white),
+            var(--gradient-color-white)
+          );
+          background-size: 200% 100%;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          border-radius: calc(0.5em + var(--border-width));
+          animation: rotation-glow 8s linear infinite; 
+          animation-play-state: running; 
+          transition: --gradient-color-black-35 750ms, --gradient-color-lightblue 750ms, --gradient-color-white 750ms, --gradient-color-lightblue-2 750ms;
+          z-index: -1;
+          will-change: transform; /* IMPROVE PERFORMANCE */
+        }
 
-  main.scan-completed .get-in-touch::before,
-  main.scan-completed .get-in-touch::after {
-    animation-play-state: running;
-  }
+        &:hover::before,
+        &:hover::after {
+          --gradient-color-white: #FFFFFF;
+          --gradient-color-black-35: #22FFF2;
+          --gradient-color-lightblue: #FFFFFF;
+          --gradient-color-lightblue-2: #22FFF2;
+        }
 
-  .get-in-touch:hover::before,
-  .get-in-touch:hover::after {
-    --gradient-color-white: #FFFFFF;
-    --gradient-color-black-35: #22FFF2;
-    --gradient-color-lightblue: #FFFFFF;
-    --gradient-color-lightblue-2: #22FFF2;
+        &::after {
+          filter: blur(var(--filter-blur-less));
+          opacity: 0.45;
+        }
+      }
+    }
   }
-
-  .get-in-touch::after {
-    filter: blur(var(--filter-blur-less));
-    opacity: 0.45;
-  }
-
 }
 
 
@@ -505,10 +550,5 @@ header {
 //     // }
 //   }
 // }
-
-
-
-
-
 
 </style>
