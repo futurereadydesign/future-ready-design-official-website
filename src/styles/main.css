@@ -385,6 +385,7 @@ h2 {
     font-weight: 600;
     line-height: 125%;
     margin-bottom: 0.15em;
+    color: var(--color-white);
 }
 h3 {
     font-size: 1.25em;
@@ -2295,7 +2296,7 @@ main.scan-failed .section-between::after {
 /* EXTRA SMALL SCREEN */
 @media screen and (max-width: 500px) {
     .header-margin {
-        margin-top: 5em !important;
+        margin: 5em 1em 2em 1em !important;
     }
 
     main form.url-input button {
