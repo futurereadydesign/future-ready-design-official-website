@@ -1,4 +1,6 @@
 <script>
+  import { page } from '$app/stores';
+  import { get } from 'svelte/store';
   import { onMount } from 'svelte';
   
   // Importeer het juiste css bestand
@@ -6,6 +8,9 @@
 
   // Importeer de storyblokEditable functie vanuit de Storyblok package
   import { storyblokEditable } from "@storyblok/svelte";
+
+  // Importeer de withLang functie vanuit de lib/url.js
+  import { withLang } from '../lib/url.js';
 
   // Definieer de blok
   export let blok;
@@ -16,7 +21,13 @@
   let navOverlayButtonOpened;
 
   let isActive = false;
-  let currentLanguage = 'nl'; 
+
+  // Always derive currentLanguage from the URL query parameter
+  $: currentLanguage = get(page).url.searchParams.get('_storyblok_lang') === 'en' ? 'en' : 'nl';
+
+  function getUrlWithLang(path) {
+    return withLang(path, currentLanguage);
+  }
 
   function toggleOverlay() {
     isActive = !isActive;
@@ -37,28 +48,16 @@
     const currentUrl = new URL(window.location);
 
     if (currentLanguage === 'nl') {
-      currentLanguage = 'en';
       currentUrl.searchParams.set('_storyblok_lang', 'en');
     } else {
-      currentLanguage = 'nl';
       currentUrl.searchParams.set('_storyblok_lang', 'nl');
     }
 
-    window.location.href = currentUrl.toString();
+    window.location.href = currentUrl.pathname + currentUrl.search;
   }
 
-  onMount(() => {
-    const currentUrl = new URL(window.location);
-    const languageParam = currentUrl.searchParams.get('_storyblok_lang');
-    
-    if (languageParam === 'en') {
-      currentLanguage = 'en';
-    } else {
-      currentLanguage = 'nl';
-    }
-  });
-
   $: linkAriaLabel = currentLanguage === 'nl' ? 'Switch language to English' : 'Verander de taal naar het Nederlands';
+  $: languageSwitchLabel = currentLanguage === 'nl' ? 'English' : 'Nederlands';
 </script>
 
 <header use:storyblokEditable={blok} bind:this={header} class={isActive ? 'active' : ''}>
@@ -67,7 +66,7 @@
     <input type="checkbox" id="nav-check">
     <div class="nav-header">
       <div class="nav-title">
-          <a href="/" class="clickable">
+          <a href={getUrlWithLang('')} class="clickable">
             <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
           </a>
       </div>
@@ -76,15 +75,19 @@
     {#if nav}
     <!-- Nav Links -->
     <section class="nav-links">
-      {#each nav.filter(blok => blok.component === 'menu_link') as blok}
-        <a href={blok.link.story.slug} class="link" on:click={toggleOverlay}>{blok.text}</a>
+      {#each nav.filter(blok => blok.component === 'menu_link' && blok.text !== 'Toegankelijkheid') as blok}
+        <a
+          href={getUrlWithLang(blok.link.story.slug === 'home' ? '' : '/' + blok.link.story.slug)}
+          class="link"
+          on:click={toggleOverlay}
+        >{blok.text}</a>
       {/each}
     </section>
 
     <!-- Available Section -->
     <section class="available">
       {#each nav.filter(blok => blok.component === 'menu_text') as blok}
-        <a href="#" class="language-switch" on:click={switchLanguage} aria-label={linkAriaLabel}>{blok.language}</a>
+        <a href="#" class="language-switch" on:click={switchLanguage} aria-label={linkAriaLabel}>{languageSwitchLabel}</a>
         <span> <!-- PULSATE --> </span>
         {blok.available}
       {/each}

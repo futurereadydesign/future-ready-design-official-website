@@ -1,14 +1,20 @@
 <script>
   // Importeer de storyblokEditable functie vanuit de Storyblok package
   import { storyblokEditable } from '@storyblok/svelte';
+  import { withLang } from '../../lib/url.js';
 
   // Definieer variabelen voor de blog en slug
   export let blog;
   export let slug;
+  export let language = 'nl';
+
+  function getUrlWithLang(slug) {
+    return withLang(slug, language);
+  }
 </script>
   
 <!-- <div class="card-outer"> -->
-  <a href="/{slug}" use:storyblokEditable={blog} class="card-outer">
+  <a href={getUrlWithLang(slug)} use:storyblokEditable={blog} class="card-outer">
   <!-- Gebruik de storyblokEditable functie om de inhoud van de blog bewerkbaar te maken -->
   <div class="card" use:storyblokEditable={blog}>
     <!-- Container voor de afbeelding -->

@@ -4,9 +4,9 @@ export async function load({ parent, url }) {
     
     // Definieer de ondersteunde talen
     let languages = ['nl', 'en']; // Voeg hier de talen toe die je wilt gebruiken
+    // First, check if a language is selected in the URL
     let language = url.searchParams.get('_storyblok_lang');
-    
-    // Als de taal niet is gespecificeerd of niet ondersteund wordt, gebruik de standaardtaal
+    // If not set or not supported, fallback to Dutch
     if (!language || !languages.includes(language)) {
         language = 'nl'; // Stel hier je standaardtaal in
     }

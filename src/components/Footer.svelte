@@ -15,9 +15,6 @@
                         <a href="/projects" class="link">Ons werk</a>
                     </li> -->
                     <li>
-                        <a href="/accessibility" class="link">Toegankelijkheid</a>
-                    </li>
-                    <li>
                         <a href="/blog" class="link">Blog</a>
                     </li>
                 </ul>
@@ -37,7 +34,7 @@
             </li>
         </ul>
         <div>
-            <span>Copyright © 2024 Future Ready Design B.V.</span>
+            <span>Copyright © {new Date().getFullYear()} Future Ready Design B.V.</span>
             <span>KvK: 92339867</span>
         </div>
     </section>
