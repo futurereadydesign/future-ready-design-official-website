@@ -49,7 +49,7 @@ export async function load({ parent, params, url }) {
             // De meta data wat uit Storyblok wordt gehaald
             metaDescription: metaDescription,
 
-          {
+        
             metaImage: metaImage,
 
             authorName: authorName,
@@ -60,8 +60,8 @@ export async function load({ parent, params, url }) {
             footerTitle: footerTitle,
             footerSubtitle: footerSubtitle,
             footerLinkText: footerLinkText,
-        },  
-        language   
+        }, language    
+        
 
 
     };
