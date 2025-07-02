@@ -97,19 +97,19 @@
     </div>
 
     {#if blok.cursors[0]}
-    {#each blok.cursors as svgItems}
-        <div class="cursor-item">
-            <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
-                <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="{svgItems.color.color}"/>
-            </svg>
-            <span style="
-                background-image: linear-gradient(to right, {svgItems.color.color}, {svgItems.color.color}, {svgItems.gradient_color.color});
-                box-shadow: 0 0 40px 30px {svgItems.box_shadow.color};">
-                {svgItems.name}
-            </span>
-        </div>
-    {/each} 
+        {#each blok.cursors as svgItems}
+            <div class="cursor-item">
+                <svg width="25" height="32" viewBox="0 0 25 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.90529 31.2229L0 3.52652L23.651 20.0799L11.5249 22.2079L11.2091 22.4418L4.90529 31.2229Z" fill="white"/>
+                    <path d="M2.46484 7.37704L5.89854 26.7645L10.2064 20.8325L10.3489 20.629L19.1837 19.0785L2.46484 7.37704Z" fill="{svgItems.color.color}"/>
+                </svg>
+                <span style="
+                    background-image: linear-gradient(to right, {svgItems.color.color}, {svgItems.color.color}, {svgItems.gradient_color.color});
+                    box-shadow: 0 0 40px 30px {svgItems.box_shadow.color};">
+                    {svgItems.name}
+                </span>
+            </div>
+        {/each} 
     {/if}       
 </section>
 

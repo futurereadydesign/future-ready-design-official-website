@@ -19,18 +19,21 @@
 		const { data } = await storyblokApi.get('cdn/stories', {
 			version: 'draft', // Gebruik de draft versie van de Story's
 			starts_with: 'projects', // Zoek alleen naar de Story's die met 'projects' beginnen
-			is_startpage: false // Deze Story's zijn niet de startpagina
+			is_startpage: false, // Deze Story's zijn niet de startpagina
+			language
 		});
 		// Sla de opgehaalde verhalen op in de 'projects' array
 		projects = data.stories;
 	});
+
+	export let language = 'nl';
 </script>
 
 <section class="all-projects-section wrapper-large">
 	{#each projects as projects}
 		<article class="all-projects-article">
 			<!-- Render de Card-component voor elke blogpost -->
-			<CardProjects projects={projects.content} slug={projects.full_slug} />
+			<CardProjects projects={projects.content} slug={projects.full_slug} language={language} />
 		</article>	
 	{/each}
 </section>

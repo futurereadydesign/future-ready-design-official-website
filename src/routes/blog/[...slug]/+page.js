@@ -1,12 +1,18 @@
 // Haal de Storyblok API op om toegang te krijgen tot de API methoden
 // Haal de specifieke slug uit de parameters en haal de juiste blogpost op via een bepaalde pad
 /** @type {import('./$types').PageLoad} */
-export async function load({ parent, params }) {
+export async function load({ parent, params, url }) {
         const { storyblokApi } = await parent();
+    let languages = ['nl', 'en'];
+    let language = url?.searchParams.get('_storyblok_lang');
+    if (!language || !languages.includes(language)) {
+        language = 'nl';
+    }
         const slug = params.slug;
         const path = `cdn/stories/blog/${slug}`;
         const { data } = await storyblokApi.get(path, {
-            version: 'draft'
+        version: 'draft',
+        language: language
     });
 
     // Controleren of de benodigde velden aanwezig zijn in de content, zo niet...
@@ -42,6 +48,8 @@ export async function load({ parent, params }) {
             link: link,
             // De meta data wat uit Storyblok wordt gehaald
             metaDescription: metaDescription,
+
+          {
             metaImage: metaImage,
 
             authorName: authorName,
@@ -51,9 +59,10 @@ export async function load({ parent, params }) {
             authorCompany: authorCompany,
             footerTitle: footerTitle,
             footerSubtitle: footerSubtitle,
-            footerLinkText: footerLinkText
-            
-            
-        }
+            footerLinkText: footerLinkText,
+        },  
+        language   
+
+
     };
 }

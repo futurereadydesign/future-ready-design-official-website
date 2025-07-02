@@ -25,6 +25,9 @@ import Legal from "../components/Legal.svelte";
 
 import ContactCTA from "../components/ContactCTA.svelte";
 
+import Accessibility from "../components/Accessibility.svelte";
+import Scan from "../components/Scan.svelte";
+
 // Importeer Storyblok plugins en functionaliteiten
 import { apiPlugin, storyblokInit, useStoryblokApi } from "@storyblok/svelte";
 
@@ -59,6 +62,8 @@ export async function load() {
             partners: Partners,
             ContactCTA: ContactCTA,
             'legal': Legal,
+            accessibility: Accessibility,
+            scan: Scan,
 
         },
         // Opties voor de Storyblok API
@@ -70,9 +75,15 @@ export async function load() {
     // Gebruik de Storyblok API en wacht op de initialisatie
     let storyblokApi = await useStoryblokApi();
 
+    const dataConfig = await storyblokApi.get('cdn/stories/navigation/config/', {
+        version: 'draft',
+        resolve_links: 'url'
+      });
+
     // Return het Storyblok API-object
     return {
         storyblokApi: storyblokApi,
+        nav: dataConfig.data.story.content.nav_menu
     };
 
 }

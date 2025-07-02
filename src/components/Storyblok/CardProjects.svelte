@@ -1,10 +1,16 @@
 <script>
   // Importeer de storyblokEditable functie vanuit de Storyblok package
   import { storyblokEditable } from '@storyblok/svelte';
+  import { withLang } from '../../lib/url.js';
 
   // Definieer variabelen voor de projects en slug
   export let projects;
   export let slug;
+  export let language = 'nl';
+
+  function getUrlWithLang(slug) {
+    return withLang(slug, language);
+  }
 </script>
     
 
@@ -23,7 +29,7 @@
         <h2 class="card-projects-title">{projects.title}</h2>
 
         <!-- Voeg een link toe naar de projects door gebruik te maken van de slug -->
-        <a href="/{slug}" class="button button-quaternary">
+        <a href={getUrlWithLang(slug)} class="button button-quaternary">
           <span>Kom meer te weten</span>
           <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

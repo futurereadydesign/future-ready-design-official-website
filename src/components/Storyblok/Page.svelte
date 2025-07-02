@@ -3,6 +3,7 @@
   import { storyblokEditable, StoryblokComponent } from "@storyblok/svelte";
   // Definieer de blok
   export let blok;
+  export let language = 'nl';
 
   // Laat het huidige jaartal zien voor het copyright
   let currentYear = new Date().getFullYear();
@@ -13,7 +14,7 @@
   <main use:storyblokEditable={blok} class="page-main">
     {#each blok.body as blok}
       <!-- Render Storyblok componenten op basis van de inhoud van het blok -->
-      <StoryblokComponent {blok} />
+      <StoryblokComponent {blok} language={language} />
     {/each}
   </main>
 

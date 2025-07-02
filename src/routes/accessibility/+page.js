@@ -9,7 +9,7 @@ export async function load({ parent, url }) {
     if (!language || !languages.includes(language)) {
         language = 'nl';
     }
-    const path = 'cdn/stories/terms-and-conditions';
+    const path = 'cdn/stories/accessibility';
     const dataStory = await storyblokApi.get(path, {
         version: 'draft',
         language: language

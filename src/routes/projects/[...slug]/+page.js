@@ -2,12 +2,18 @@
 // Haal de specifieke slug uit de parameters en haal de juiste blogpost op via een bepaalde pad
 /** @type {import('./$types').PageLoad} */
 
-export async function load({ parent, params }) {
+export async function load({ parent, params, url }) {
     const { storyblokApi } = await parent();
+    let languages = ['nl', 'en'];
+    let language = url?.searchParams.get('_storyblok_lang');
+    if (!language || !languages.includes(language)) {
+        language = 'nl';
+    }
     const slug = params.slug;
     const path = `cdn/stories/projects/${slug}`;
     const { data } = await storyblokApi.get(path, {
-        version: 'draft'
+        version: 'draft',
+        language: language
     });
 
     const projectContent = data.story.content;
@@ -48,7 +54,8 @@ export async function load({ parent, params }) {
 
     return {
         post,
-        sliderItems // Include slider items in the returned object
+        sliderItems, // Include slider items in the returned object
+        language
     };
 }
 
