@@ -49,7 +49,7 @@ export async function load() {
             'for-any-device': ForAnyDevice,
             'all-blogs': AllBlogs,
             'all-projects': AllProjects,
-            'Hero': Hero,
+            Hero: Hero,
             'our-story': OurStory,
             'featured-projects': Projects,
             'hyperdrive-cta': HyperdriveCTA,

@@ -75,6 +75,7 @@
     {#if nav}
     <!-- Nav Links -->
     <section class="nav-links">
+
       {#each nav.filter(blok => blok.component === 'menu_link' && blok.text !== 'Toegankelijkheid') as blok}
         <a
           href={getUrlWithLang(blok.link.story.slug === 'home' ? '' : '/' + blok.link.story.slug)}
@@ -82,6 +83,7 @@
           on:click={toggleOverlay}
         >{blok.text}</a>
       {/each}
+
     </section>
 
     <!-- Available Section -->

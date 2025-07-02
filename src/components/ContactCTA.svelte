@@ -241,6 +241,7 @@
                 }
                 p {
                     margin-top: 1.25em;
+                    padding-bottom: 1.5em;
                 }
                 > span {
                     display: none;

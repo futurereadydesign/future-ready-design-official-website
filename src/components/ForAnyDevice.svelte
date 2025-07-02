@@ -300,6 +300,7 @@
         .icons {
             display: flex;
             justify-content: center;
+            align-items: center;
             margin-top: 3.5em;
             padding: 0;
             list-style: none;
@@ -335,6 +336,8 @@
 
             animation-iteration-count: 1;
             animation-fill-mode: both;
+
+            will-change: transform;
 
             li {
                 list-style: none; 

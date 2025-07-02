@@ -70,7 +70,9 @@
         
         ul {
             list-style: none;
-            display: flex;
+            // display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 1.5em;
             text-align: left;
             margin-top: 3.75em;
@@ -101,6 +103,7 @@
         .featured-v2 {
 
             ul {
+                display: flex;
                 flex-wrap: wrap;
                 gap: 2.75em 2em;
 

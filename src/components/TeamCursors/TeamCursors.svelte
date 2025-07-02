@@ -184,6 +184,7 @@
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
             // animation: none !important;
+            will-change: transform;
         }
 
         .cursor-item:nth-of-type(3) {

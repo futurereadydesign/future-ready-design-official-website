@@ -23,6 +23,15 @@ export async function load({ parent, params, url }) {
     const date = data.story.content.date ?? '';
     const link = data.story.content.link?.cached_url ?? '';
 
+    const authorName = data.story.content.author_name ?? '';
+    const authorRole = data.story.content.author_role ?? '';
+    const authorImage = data.story.content.author_picture ? data.story.content.author_picture.filename : null;
+    const authorImageAlt = data.story.content.author_picture ? data.story.content.author_picture.alt : '';
+    const authorCompany = data.story.content.author_company ?? '';
+    const footerTitle = data.story.content.footer_title ?? '';
+    const footerSubtitle = data.story.content.footer_subtitle ?? '';
+    const footerLinkText = data.story.content.footer_link_text ?? '';
+
     // De meta data wat uit Storyblok wordt gehaald
     const metaDescription = data.story.content.meta_description || '';
     const metaImage = data.story.content.meta_image || '';
@@ -39,8 +48,21 @@ export async function load({ parent, params, url }) {
             link: link,
             // De meta data wat uit Storyblok wordt gehaald
             metaDescription: metaDescription,
-            metaImage: metaImage
-        },
-        language
+
+          {
+            metaImage: metaImage,
+
+            authorName: authorName,
+            authorRole: authorRole,
+            authorImage: authorImage,
+            authorImageAlt: authorImageAlt,
+            authorCompany: authorCompany,
+            footerTitle: footerTitle,
+            footerSubtitle: footerSubtitle,
+            footerLinkText: footerLinkText,
+        },  
+        language   
+
+
     };
 }
