@@ -13,7 +13,7 @@
 
             <!-- <form on:submit={submitDataToHubspot} id="experts-form"> -->
             {#if blok.visible_form[0]}
-                <form on:submit={submitDataToHubspot}>
+                <form on:submit={submitContactForm}>
                     {#each blok.visible_form as visibleFormItems}
                         <fieldset>
                             <legend><span class="accessibility-hide">{visibleFormItems.personal}</span></legend>
@@ -626,55 +626,37 @@
 // HUBSPOT INTEGRATION (EXPERT FORM OVERLAY) --------------------
 // let getInTouchForm;
 
-function submitDataToHubspot(event) {
+function submitContactForm(event) {
     event.preventDefault();
 
     getInTouchForm.classList.remove('awaiting-submission');
     contactPersonNameSpan.textContent = contactInputName.value;
 
-
-    var formData = new FormData(this);
-    var formObject = {};
-    formData.forEach(function(value, key){
-        formObject[key] = value;
-    });
-
-    // Replace `YOUR_HUBSPOT_PORTAL_ID` and `YOUR_FORM_GUID` with your actual ID and Form GUID
-    var endpoint = 'https://api.hsforms.com/submissions/v3/integration/submit/26479787/e57a03f5-c01d-452f-a2d6-f926f94b7fdc';
-
-    // Adjust `formObject` structure if necessary to match your HubSpot form structure
-    var data = {
-        "fields": Object.keys(formObject).map(function(key) {
-        return { "name": key, "value": formObject[key] };
-        }),
-        "context": {
-        "pageUri": window.location.href,
-        "pageName": document.title
-        }
-        // Include other necessary fields like `context` as per your requirement
+    // Collect form data
+    const formData = {
+        firstname: contactInputName.value,
+        email: contactInputEmail.value,
+        message___question: contactInputMessage.value
     };
 
-    fetch(endpoint, {
+    fetch('/api/contact', {
         method: 'POST',
         headers: {
-        'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(formData)
     })
-    .then(response => response.json())
-    .then(data => {
-        // console.log('Success:', data);
-        
-        // // REDIRECT TO EXTERNAL THANKYOU PAGE
-        // var thankYouPage = window.location.origin + '/accessibility/scan/thankyou?succes';
-        // window.open(thankYouPage, '_blank');
+    .then(async response => {
+        const data = await response.json();
+        if (response.ok && data.success) {
+            // Success: show thank you state (handled by UI already)
+        } else {
+            throw new Error(data.error || 'Unknown error');
+        }
     })
     .catch((error) => {
-        // console.error('Error:', error);
-
         contactSubmittedTitle.textContent = 'Something went wrong..';
         contactSubmittedText.textContent = 'We encountered an issue while processing your request. Try again later. Sorry for this inconvenience.';
-        // expertsNotifySection.classList.add('error');
     });
 }
 
