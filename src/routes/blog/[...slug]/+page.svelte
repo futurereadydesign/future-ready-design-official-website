@@ -156,8 +156,24 @@
     }
 
     .slug-blog-content {
-        text-align: justify;
+        /* Remove justify, set to left */
+        text-align: left;
         color: rgba(255, 255, 255, 0.694);
+        
+        /* Target images inside rich text */
+        img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            border-radius: 1em;
+            margin: 2em 0;
+            object-fit: cover;
+        }
+        /* Target paragraphs and headings inside rich text */
+        p, h1, h2, h3, h4, h5, h6 {
+            text-align: left;
+        }
     }
 
 

@@ -257,7 +257,7 @@ header {
 
   nav {
     .nav-links {
-      a:nth-of-type(5) {
+      a:nth-of-type(4) {
         padding: 0.55em 0.75em;
         position: relative;
         display: flex;

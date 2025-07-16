@@ -3,7 +3,7 @@
     
     onMount(() => {
         if (typeof window !== 'undefined') {
-            window.location.replace("https://form.asana.com/?k=eC7Zkx25F88TJUHCOoamHA&d=1200522165392946");
+            window.location.replace("https://forms.clickup.com/9012544578/f/8ck1122-1892/WMF2WAHZO1SVQDG0TL");
         }
     });
 </script>

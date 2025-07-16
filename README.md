@@ -49,6 +49,19 @@ If you'd like to contribute to this project, follow these steps:
 ## Issues
 If you encounter any issues with the project, please open an issue in the GitHub repository and describe the problem in detail.
 
+## Contact Form Email Setup
+
+To enable email sending from the contact form, set the following environment variables in your `.env` file (or your deployment environment):
+
+```
+SMTP_HOST=your.smtp.host
+SMTP_PORT=587 # or 465 for SSL
+SMTP_USER=your_smtp_username
+SMTP_PASS=your_smtp_password
+```
+
+The contact form will send submissions to contact@futureready.design using these credentials.
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [Svelte.dev]: https://a11ybadges.com/badge?logo=svelte

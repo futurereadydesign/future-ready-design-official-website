@@ -66,4 +66,19 @@
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
+
+	@media (max-width: 600px) {
+		.all-blogs-section {
+			width: 100vw;
+			max-width: none;
+			padding-left: 1em;
+			padding-right: 1em;
+			box-sizing: border-box;
+		}
+		.all-blogs-article {
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
 </style>
