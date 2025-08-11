@@ -24,6 +24,7 @@
         "@storyblok/svelte": "^4.0.4",
         "@vitejs/plugin-basic-ssl": "^1.1.0",
         "aos": "^2.3.4",
-        "nodemailer": "^7.0.5"
+        "nodemailer": "^7.0.5",
+        "sib-api-v3-sdk": "^8.5.0"
     }
 }
