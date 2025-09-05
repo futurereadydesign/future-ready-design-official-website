@@ -33,7 +33,7 @@
 	{#each blog as blog}
 		<article class="all-blogs-article">
 			<!-- Render de Card-component voor elke blogpost -->
-			<Card blog={blog.content} slug={blog.full_slug} language={language} />
+			<Card blog={blog.content} slug={`blog/${blog.slug}`} language={language} />
 		</article>	
 	{/each}
 </section>
