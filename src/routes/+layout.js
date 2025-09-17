@@ -75,10 +75,19 @@ export async function load() {
     // Gebruik de Storyblok API en wacht op de initialisatie
     let storyblokApi = await useStoryblokApi();
 
+    // Bepaal de taal uit de URL (default: 'nl')
+    let lang = 'nl';
+    if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('_storyblok_lang');
+        if (urlLang === 'en') lang = 'en';
+    }
+
     const dataConfig = await storyblokApi.get('cdn/stories/navigation/config/', {
         version: 'draft',
-        resolve_links: 'url'
-      });
+        resolve_links: 'url',
+        language: lang
+    });
 
     // Return het Storyblok API-object
     return {

@@ -78,7 +78,9 @@
 
       {#each nav.filter(blok => blok.component === 'menu_link' && blok.text !== 'Toegankelijkheid') as blok}
         <a
-          href={getUrlWithLang(blok.link.story.slug === 'home' ? '' : '/' + blok.link.story.slug)}
+          href={blok.link && blok.link.story && blok.link.story.slug
+            ? getUrlWithLang(blok.link.story.slug === 'home' ? '' : '/' + blok.link.story.slug)
+            : '#'}
           class="link"
           on:click={toggleOverlay}
         >{blok.text}</a>

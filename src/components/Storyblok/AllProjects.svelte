@@ -33,7 +33,11 @@
 	{#each projects as projects}
 		<article class="all-projects-article">
 			<!-- Render de Card-component voor elke blogpost -->
-			<CardProjects projects={projects.content} slug={projects.full_slug} language={language} />
+			<CardProjects
+				projects={projects.content}
+				slug={`projects/${projects.slug}`}
+				language={language}
+			/>
 		</article>	
 	{/each}
 </section>

@@ -1,34 +1,54 @@
+<script>
+    import { page } from '$app/stores';
+    import { get } from 'svelte/store';
+    import { withLang } from '../lib/url.js';
+
+    $: currentLanguage = get(page).url.searchParams.get('_storyblok_lang') === 'en' ? 'en' : 'nl';
+    function getUrlWithLang(path) {
+        return withLang(path, currentLanguage);
+    }
+
+    $: t = {
+        philosophy: currentLanguage === 'nl' ? 'Onze filosofie' : 'Our philosophy',
+        blog: 'Blog',
+        terms: currentLanguage === 'nl' ? 'Algemene voorwaarden' : 'Terms and conditions',
+        privacy: currentLanguage === 'nl' ? 'Privacy verklaring' : 'Privacy policy',
+        support: currentLanguage === 'nl' ? 'Hulp nodig?' : 'Need help?',
+        contactCta: currentLanguage === 'nl' ? 'Kom in contact' : 'Get in touch'
+    };
+</script>
+
 <footer class="wrapper-max">
     <section class="footer-content-left">
         <ul>
             <li>
-                <a href="/" class="clickable">
+                <a href={getUrlWithLang('')} class="clickable">
                     <img src="/assets/branding/future-ready-design_logo.svg" alt="Future Ready Design logo">
                 </a>
             </li>
             <li>
                 <ul>
                     <li>
-                        <a href="/about" class="link">Onze filosofie</a>
+                        <a href={getUrlWithLang('/about')} class="link">{t.philosophy}</a>
                     </li>
                     <!-- <li>
                         <a href="/projects" class="link">Ons werk</a>
                     </li> -->
                     <li>
-                        <a href="/blog" class="link">Blog</a>
+                        <a href={getUrlWithLang('/blog')} class="link">{t.blog}</a>
                     </li>
                 </ul>
             </li>
             <li>
                 <ul>
                     <li>
-                        <a href="/terms-and-conditions" class="link">Algemene voorwaarden</a>
+                        <a href={getUrlWithLang('/terms-and-conditions')} class="link">{t.terms}</a>
                     </li>
                     <li>
-                        <a href="/privacy-policy" class="link">Privacy verklaring</a>
+                        <a href={getUrlWithLang('/privacy-policy')} class="link">{t.privacy}</a>
                     </li>
                     <li>
-                        <a href="/support" class="link">Hulp nodig?</a>
+                        <a href={getUrlWithLang('/support')} class="link">{t.support}</a>
                     </li>
                 </ul>
             </li>
@@ -55,8 +75,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/contact" class="button button-primary">
-                                <span>Kom in contact</span>
+                            <a href={getUrlWithLang('/contact')} class="button button-primary">
+                                <span>{t.contactCta}</span>
                                 <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 4.5835L17.4167 11.0002L11 17.4168" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                             </a>
                         </li>

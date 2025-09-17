@@ -1,9 +1,13 @@
 <script>
     // Importeer de storyblokEditable functie vanuit de Storyblok package
     import { storyblokEditable } from "@storyblok/svelte";
+    import { withLang } from '/src/lib/url.js';
+    import { page } from '$app/stores';
 
     // Definieer de blok
     export let blok;
+    $: currentLanguage = $page.url.searchParams.get('_storyblok_lang') === 'en' ? 'en' : 'nl';
+
 </script>
 
 <section class="heading-container wrapper-large" use:storyblokEditable={blok}>
@@ -13,7 +17,7 @@
 <section class="content-container wrapper-large">
     {#each blok.projects as listItem}
         <article class="left-container">
-            <a href={listItem.button_link.cached_url} class="clickable">
+            <a href={withLang(listItem.button_link.cached_url, currentLanguage)} class="clickable">
                 <section class="image-container">
                     <img src={listItem.image.filename} alt={listItem.image.alt}>
                 </section>
@@ -53,7 +57,7 @@
 
     {#if blok.button_text}
         <section class="button-container">
-            <a href={blok.button_link.cached_url} class="button button-primary">
+            <a href={withLang(blok.button_link.cached_url, currentLanguage)} class="button button-primary">
                 <span>{blok.button_text}</span>
                 <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.58203 11H17.4154" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

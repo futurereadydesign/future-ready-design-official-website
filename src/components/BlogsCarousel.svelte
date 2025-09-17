@@ -17,6 +17,8 @@
 
   // Importeer de onMount-functie vanuit Svelte
   import { onMount } from 'svelte';
+  import { page } from '$app/stores';
+  import { withLang } from '/src/lib/url.js';
 
   // Importeer de useStoryblokApi-functie vanuit de Storyblok package
   import { useStoryblokApi } from '@storyblok/svelte';
@@ -40,6 +42,7 @@
   
 
   let splide;
+  $: currentLanguage = $page.url.searchParams.get('_storyblok_lang') === 'en' ? 'en' : 'nl';
   
   onMount(() => {
     // Verbind de aangepaste knoppen met de Splide-component
@@ -90,7 +93,7 @@
 
         {#each blog as blog}
           <SplideSlide>
-              <Card blog={blog.content} slug={blog.full_slug}/>
+              <Card blog={blog.content} slug={`blog/${blog.slug}`}/>
           </SplideSlide>
         {/each}
       </Splide>
@@ -113,7 +116,7 @@
       </div>
 
       <div class="button-container">
-        <a href={blok.button_link.cached_url} class="button button-tertiary">
+        <a href={withLang(blok.button_link.cached_url, currentLanguage)} class="button button-tertiary">
           <span>{blok.button_text}</span> 
           <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
             <path d="M4.58203 11.5H17.4154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
