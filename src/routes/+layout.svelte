@@ -5,7 +5,7 @@
     export let data;
 </script>
 
-<Nav nav={data.nav}/>
+<Nav nav={data.nav} language={data.language}/>
 
 <slot></slot>
 

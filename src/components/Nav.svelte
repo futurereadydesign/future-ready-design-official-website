@@ -1,20 +1,15 @@
 <script>
-  import { page } from '$app/stores';
-  import { get } from 'svelte/store';
-  import { onMount } from 'svelte';
-  
-  // Importeer het juiste css bestand
-  import '/src/styles/main.css';
+  import { page } from "$app/stores";
 
-  // Importeer de storyblokEditable functie vanuit de Storyblok package
+  import "/src/styles/main.css";
+
   import { storyblokEditable } from "@storyblok/svelte";
+  import { withLang } from "../lib/url.js";
+  import { SUPPORTED_LANGUAGES } from "$lib/language.js";
 
-  // Importeer de withLang functie vanuit de lib/url.js
-  import { withLang } from '../lib/url.js';
-
-  // Definieer de blok
   export let blok;
   export let nav;
+  export let language = "nl";
 
   let header;
   let navOverlayButtonClosed;
@@ -22,8 +17,9 @@
 
   let isActive = false;
 
-  // Always derive currentLanguage from the URL query parameter
-  $: currentLanguage = get(page).url.searchParams.get('_storyblok_lang') === 'en' ? 'en' : 'nl';
+  $: fallbackLanguage = $page.data?.language ?? language;
+  $: urlLanguage = $page.url.searchParams.get("_storyblok_lang");
+  $: currentLanguage = SUPPORTED_LANGUAGES.includes(urlLanguage) ? urlLanguage : fallbackLanguage;
 
   function getUrlWithLang(path) {
     return withLang(path, currentLanguage);
@@ -32,32 +28,32 @@
   function toggleOverlay() {
     isActive = !isActive;
 
-    if (header.classList.contains('active')) {
-      navOverlayButtonClosed.style.display = 'block';
-      navOverlayButtonOpened.style.display = 'none';
+    if (header.classList.contains("active")) {
+      navOverlayButtonClosed.style.display = "block";
+      navOverlayButtonOpened.style.display = "none";
       console.log("Open");
     } else {
-      navOverlayButtonClosed.style.display = 'none';
-      navOverlayButtonOpened.style.display = 'block';
+      navOverlayButtonClosed.style.display = "none";
+      navOverlayButtonOpened.style.display = "block";
       console.log("Gesloten");
     }
   }
 
   function switchLanguage(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     const currentUrl = new URL(window.location);
 
-    if (currentLanguage === 'nl') {
-      currentUrl.searchParams.set('_storyblok_lang', 'en');
+    if (currentLanguage === "nl") {
+      currentUrl.searchParams.set("_storyblok_lang", "en");
     } else {
-      currentUrl.searchParams.set('_storyblok_lang', 'nl');
+      currentUrl.searchParams.set("_storyblok_lang", "nl");
     }
 
     window.location.href = currentUrl.pathname + currentUrl.search;
   }
 
-  $: linkAriaLabel = currentLanguage === 'nl' ? 'Switch language to English' : 'Verander de taal naar het Nederlands';
-  $: languageSwitchLabel = currentLanguage === 'nl' ? 'English' : 'Nederlands';
+  $: linkAriaLabel = currentLanguage === "nl" ? "Switch language to English" : "Verander de taal naar het Nederlands";
+  $: languageSwitchLabel = currentLanguage === "nl" ? "English" : "Nederlands";
 </script>
 
 <header use:storyblokEditable={blok} bind:this={header} class={isActive ? 'active' : ''}>
@@ -559,3 +555,4 @@ header {
 // }
 
 </style>
+

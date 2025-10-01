@@ -1,21 +1,18 @@
-// De functie haalt de Story's op vanuit Storyblok en returnt deze
-// om te worden gebruikt binnen Sveltekit
+import { resolveLanguageFromUrl } from '$lib/language.js';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ parent, url }) {
-    const { storyblokApi } = await parent();
-    let languages = ['nl', 'en'];
-    let language = url?.searchParams.get('_storyblok_lang');
-    if (!language || !languages.includes(language)) {
-        language = 'nl';
-    }
+    const { storyblokApi, language: defaultLanguage } = await parent();
+    const language = resolveLanguageFromUrl(url, defaultLanguage);
+
     const path = 'cdn/stories/terms-and-conditions';
     const dataStory = await storyblokApi.get(path, {
         version: 'draft',
-        language: language
+        language
     });
+
     return {
         story: dataStory.data.story,
         language
     };
-  }
+}

@@ -1,68 +1,58 @@
-// Haal de Storyblok API op om toegang te krijgen tot de API methoden
-// Haal de specifieke slug uit de parameters en haal de juiste blogpost op via een bepaalde pad
+import { resolveLanguageFromUrl } from "$lib/language.js";
+
 /** @type {import('./$types').PageLoad} */
 export async function load({ parent, params, url }) {
-        const { storyblokApi } = await parent();
-    let languages = ['nl', 'en'];
-    let language = url?.searchParams.get('_storyblok_lang');
-    if (!language || !languages.includes(language)) {
-        language = 'nl';
-    }
-        const slug = params.slug;
-        const path = `cdn/stories/blog/${slug}`;
-        const { data } = await storyblokApi.get(path, {
-        version: 'draft',
-        language: language
+    const { storyblokApi, language: defaultLanguage } = await parent();
+    const language = resolveLanguageFromUrl(url, defaultLanguage);
+
+    const slug = params.slug;
+    const path = `cdn/stories/blog/${slug}`;
+    const { data } = await storyblokApi.get(path, {
+        version: "draft",
+        language
     });
 
-    // Controleren of de benodigde velden aanwezig zijn in de content, zo niet...
-    // Geef dan een waarde van null of een lege string
-    const logo = data.story.content.logo ? data.story.content.logo.filename : null;
-    const image = data.story.content.image ? data.story.content.image.filename : null;
-    const imageAlt = data.story.content.image ? data.story.content.image.alt : '';
-    const date = data.story.content.date ?? '';
-    const link = data.story.content.link?.cached_url ?? '';
+    const content = data.story.content;
 
-    const authorName = data.story.content.author_name ?? '';
-    const authorRole = data.story.content.author_role ?? '';
-    const authorImage = data.story.content.author_picture ? data.story.content.author_picture.filename : null;
-    const authorImageAlt = data.story.content.author_picture ? data.story.content.author_picture.alt : '';
-    const authorCompany = data.story.content.author_company ?? '';
-    const footerTitle = data.story.content.footer_title ?? '';
-    const footerSubtitle = data.story.content.footer_subtitle ?? '';
-    const footerLinkText = data.story.content.footer_link_text ?? '';
+    const logo = content.logo ? content.logo.filename : null;
+    const image = content.image ? content.image.filename : null;
+    const imageAlt = content.image ? content.image.alt : "";
+    const date = content.date ?? "";
+    const link = content.link?.cached_url ?? "";
 
-    // De meta data wat uit Storyblok wordt gehaald
-    const metaDescription = data.story.content.meta_description || '';
-    const metaImage = data.story.content.meta_image || '';
+    const authorName = content.author_name ?? "";
+    const authorRole = content.author_role ?? "";
+    const authorImage = content.author_picture ? content.author_picture.filename : null;
+    const authorImageAlt = content.author_picture ? content.author_picture.alt : "";
+    const authorCompany = content.author_company ?? "";
+    const footerTitle = content.footer_title ?? "";
+    const footerSubtitle = content.footer_subtitle ?? "";
+    const footerLinkText = content.footer_link_text ?? "";
 
-    // De code returnt een object met alle waardes van de blogpost
+    const metaDescription = content.meta_description || "";
+    const metaImage = content.meta_image || "";
+
     return {
         post: {
-            title: data.story.content.title || `${slug}`,
-            content: data.story.content.content || `${slug}`,
-            logo: logo,
-            image: image,
-            imageAlt: imageAlt,
-            date: date,
-            link: link,
-            // De meta data wat uit Storyblok wordt gehaald
-            metaDescription: metaDescription,
-
-        
-            metaImage: metaImage,
-
-            authorName: authorName,
-            authorRole: authorRole,
-            authorImage: authorImage,
-            authorImageAlt: authorImageAlt,
-            authorCompany: authorCompany,
-            footerTitle: footerTitle,
-            footerSubtitle: footerSubtitle,
-            footerLinkText: footerLinkText,
-        }, language    
-        
-
-
+            title: content.title || `${slug}`,
+            content: content.content || `${slug}`,
+            logo,
+            image,
+            imageAlt,
+            date,
+            link,
+            metaDescription,
+            metaImage,
+            authorName,
+            authorRole,
+            authorImage,
+            authorImageAlt,
+            authorCompany,
+            footerTitle,
+            footerSubtitle,
+            footerLinkText
+        },
+        language
     };
 }
+

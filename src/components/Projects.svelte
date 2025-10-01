@@ -1,12 +1,16 @@
 <script>
     // Importeer de storyblokEditable functie vanuit de Storyblok package
     import { storyblokEditable } from "@storyblok/svelte";
-    import { withLang } from '/src/lib/url.js';
-    import { page } from '$app/stores';
+    import { withLang } from "/src/lib/url.js";
+    import { page } from "$app/stores";
+    import { SUPPORTED_LANGUAGES } from "$lib/language.js";
 
     // Definieer de blok
     export let blok;
-    $: currentLanguage = $page.url.searchParams.get('_storyblok_lang') === 'en' ? 'en' : 'nl';
+
+    $: fallbackLanguage = $page.data?.language ?? "nl";
+    $: urlLanguage = $page.url.searchParams.get("_storyblok_lang");
+    $: currentLanguage = SUPPORTED_LANGUAGES.includes(urlLanguage) ? urlLanguage : fallbackLanguage;
 
 </script>
 
@@ -310,3 +314,4 @@ article:nth-of-type(even) {
     }
 }
 </style>
+

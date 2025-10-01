@@ -1,20 +1,23 @@
 <script>
-    import { page } from '$app/stores';
-    import { get } from 'svelte/store';
-    import { withLang } from '../lib/url.js';
+    import { page } from "$app/stores";
+    import { withLang } from "../lib/url.js";
+    import { SUPPORTED_LANGUAGES } from "$lib/language.js";
 
-    $: currentLanguage = get(page).url.searchParams.get('_storyblok_lang') === 'en' ? 'en' : 'nl';
+    $: fallbackLanguage = $page.data?.language ?? "nl";
+    $: urlLanguage = $page.url.searchParams.get("_storyblok_lang");
+    $: currentLanguage = SUPPORTED_LANGUAGES.includes(urlLanguage) ? urlLanguage : fallbackLanguage;
+
     function getUrlWithLang(path) {
         return withLang(path, currentLanguage);
     }
 
     $: t = {
-        philosophy: currentLanguage === 'nl' ? 'Onze filosofie' : 'Our philosophy',
-        blog: 'Blog',
-        terms: currentLanguage === 'nl' ? 'Algemene voorwaarden' : 'Terms and conditions',
-        privacy: currentLanguage === 'nl' ? 'Privacy verklaring' : 'Privacy policy',
-        support: currentLanguage === 'nl' ? 'Hulp nodig?' : 'Need help?',
-        contactCta: currentLanguage === 'nl' ? 'Kom in contact' : 'Get in touch'
+        philosophy: currentLanguage === "nl" ? "Onze filosofie" : "Our philosophy",
+        blog: "Blog",
+        terms: currentLanguage === "nl" ? "Algemene voorwaarden" : "Terms and conditions",
+        privacy: currentLanguage === "nl" ? "Privacy verklaring" : "Privacy policy",
+        support: currentLanguage === "nl" ? "Hulp nodig?" : "Need help?",
+        contactCta: currentLanguage === "nl" ? "Kom in contact" : "Get in touch"
     };
 </script>
 

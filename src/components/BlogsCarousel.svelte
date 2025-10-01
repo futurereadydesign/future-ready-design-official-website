@@ -5,23 +5,24 @@
   // Definieer de blok
   export let blok;
 
-  import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-  import '@splidejs/svelte-splide/css/core';
-  // import '@splidejs/svelte-splide/css';
+  import { Splide, SplideSlide } from "@splidejs/svelte-splide";
+  import "@splidejs/svelte-splide/css/core";
+  // import "@splidejs/svelte-splide/css";
   
   // Importeer het juiste css bestand
-  import '/src/styles/global.css';
+  import "/src/styles/global.css";
 
   // Importeer de Card-component
-	import Card from './Storyblok/Card.svelte';
+	import Card from "./Storyblok/Card.svelte";
 
   // Importeer de onMount-functie vanuit Svelte
-  import { onMount } from 'svelte';
-  import { page } from '$app/stores';
-  import { withLang } from '/src/lib/url.js';
+  import { onMount } from "svelte";
+  import { page } from "$app/stores";
+  import { withLang } from "/src/lib/url.js";
+  import { SUPPORTED_LANGUAGES } from "$lib/language.js";
 
   // Importeer de useStoryblokApi-functie vanuit de Storyblok package
-  import { useStoryblokApi } from '@storyblok/svelte';
+  import { useStoryblokApi } from "@storyblok/svelte";
 
   // Maak een lege array aan genaamd 'blog' om de blogposts op te slaan
   let blog = [];
@@ -31,9 +32,9 @@
       // Gebruik de Storyblok API om data op te halen
       const storyblokApi = useStoryblokApi();
       // Maak een verzoek naar Storyblok om de Story's op te halen
-      const { data } = await storyblokApi.get('cdn/stories', {
-          version: 'draft', // Gebruik de draft versie van de Story's
-          starts_with: 'blog', // Zoek alleen naar de Story's die met 'blogs' beginnen
+      const { data } = await storyblokApi.get("cdn/stories", {
+          version: "draft", // Gebruik de draft versie van de Story's
+          starts_with: "blog", // Zoek alleen naar de Story's die met 'blogs' beginnen
           is_startpage: false // Deze Story's zijn niet de startpagina
       });
       // Sla de opgehaalde verhalen op in de 'blog' array
@@ -42,16 +43,18 @@
   
 
   let splide;
-  $: currentLanguage = $page.url.searchParams.get('_storyblok_lang') === 'en' ? 'en' : 'nl';
+  $: fallbackLanguage = $page.data?.language ?? "nl";
+  $: urlLanguage = $page.url.searchParams.get("_storyblok_lang");
+  $: currentLanguage = SUPPORTED_LANGUAGES.includes(urlLanguage) ? urlLanguage : fallbackLanguage;
   
   onMount(() => {
     // Verbind de aangepaste knoppen met de Splide-component
-    document.querySelector('.custom-prev').addEventListener('click', () => {
-      splide.go('<');
+    document.querySelector(".custom-prev").addEventListener("click", () => {
+      splide.go("<");
     });
 
-    document.querySelector('.custom-next').addEventListener('click', () => {
-      splide.go('>');
+    document.querySelector(".custom-next").addEventListener("click", () => {
+      splide.go(">");
     });
   });
   

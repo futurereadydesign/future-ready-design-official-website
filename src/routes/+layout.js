@@ -30,21 +30,20 @@ import Scan from "../components/Scan.svelte";
 
 // Importeer Storyblok plugins en functionaliteiten
 import { apiPlugin, storyblokInit, useStoryblokApi } from "@storyblok/svelte";
+import { resolveLanguageFromUrl } from '$lib/language.js';
 
-/** @type {import('./$types').LayoutLoad} */
-// Definieer een async functie genaamd 'load'
-export async function load() {
-    // Initialiseer Storyblok met de vereiste opties
+let storyblokIsInitialised = false;
+
+function ensureStoryblokInit() {
+    if (storyblokIsInitialised) return;
+
     storyblokInit({
-        // Specificeer de token voor Storyblok
         accessToken: "YnLfsl5vqheiOUuUBbqAgAtt",
-        // Gebruik de API-plugin van Storyblok
         use: [apiPlugin],
-        // Definieer de componenten die in Storyblok zijn gedefinieerd
         components: {
-            page: Page, 
-            header: Header, 
-            'blogs-carousel' : BlogsCarousel,
+            page: Page,
+            header: Header,
+            'blogs-carousel': BlogsCarousel,
             'team-cursors': TeamCursors,
             'for-any-device': ForAnyDevice,
             'all-blogs': AllBlogs,
@@ -61,38 +60,34 @@ export async function load() {
             'content-sphere': ContentSphere,
             partners: Partners,
             ContactCTA: ContactCTA,
-            'legal': Legal,
+            legal: Legal,
             accessibility: Accessibility,
             scan: Scan,
-
         },
-        // Opties voor de Storyblok API
         apiOptions: {
-            region: "eu", // Geef de regio van de API aan (Europa)
+            region: "eu",
         },
     });
 
-    // Gebruik de Storyblok API en wacht op de initialisatie
-    let storyblokApi = await useStoryblokApi();
+    storyblokIsInitialised = true;
+}
 
-    // Bepaal de taal uit de URL (default: 'nl')
-    let lang = 'nl';
-    if (typeof window !== 'undefined') {
-        const urlParams = new URLSearchParams(window.location.search);
-        const urlLang = urlParams.get('_storyblok_lang');
-        if (urlLang === 'en') lang = 'en';
-    }
+/** @type {import('./$types').LayoutLoad} */
+export async function load({ data, url }) {
+    ensureStoryblokInit();
+
+    const storyblokApi = await useStoryblokApi();
+    const language = resolveLanguageFromUrl(url, data?.language);
 
     const dataConfig = await storyblokApi.get('cdn/stories/navigation/config/', {
         version: 'draft',
         resolve_links: 'url',
-        language: lang
+        language
     });
 
-    // Return het Storyblok API-object
     return {
-        storyblokApi: storyblokApi,
-        nav: dataConfig.data.story.content.nav_menu
+        storyblokApi,
+        nav: dataConfig.data.story.content.nav_menu,
+        language
     };
-
 }
